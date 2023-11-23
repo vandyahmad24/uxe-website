@@ -6,7 +6,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+@font-face {
+  font-family: 'audiowide';
+  src: local('audiowide'), url(fonts/Audiowide-Regular.ttf) format('ttf');
+}
+*{
+  font-family: audiowide;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
