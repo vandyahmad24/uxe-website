@@ -1,0 +1,166 @@
+@import '../../assets/scss/mixins';
+@import '../../assets/scss/variables';
+
+.comingSoon {
+    width: 100vw;
+    height: 100dvh;
+    background-image: url('../../assets/images/UXE_bg.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .logoSection {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            gap: 16px;
+
+            .logoLeftSide {
+                -webkit-animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                animation: slide-left 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                animation-delay: 1.5s;
+            }
+
+            .logoRightSide {
+                -webkit-animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                animation: slide-right 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                animation-delay: 1.5s;
+            }
+        }
+
+        .title {
+            font-size: 40px;
+            color: #FF8B00;
+            position: absolute;
+            -webkit-animation: tracking-in-expand-fwd 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+            animation: tracking-in-expand-fwd 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+            animation-delay: 1.5s;
+
+            span {
+                color: white;
+            }
+        }
+
+
+        @include xxxl {
+            zoom: 0.8;
+        }
+
+        @include xxl {
+            zoom: 0.7;
+        }
+
+        @include xl {
+            zoom: 0.6;
+        }
+
+        @include lg {
+            zoom: 0.5;
+        }
+
+        @include md {
+            zoom: 0.4;
+        }
+
+        @include sm {
+            zoom: 0.3;
+        }
+
+        @include xs {
+            zoom: 0.2;
+        }
+    }
+}
+
+@-webkit-keyframes slide-left {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    100% {
+        -webkit-transform: translateX(-80%);
+        transform: translateX(-80%);
+    }
+}
+
+@keyframes slide-left {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    100% {
+        -webkit-transform: translateX(-80%);
+        transform: translateX(-80%);
+    }
+}
+
+@-webkit-keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    100% {
+        -webkit-transform: translateX(80%);
+        transform: translateX(80%);
+    }
+}
+
+@keyframes slide-right {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+
+    100% {
+        -webkit-transform: translateX(80%);
+        transform: translateX(80%);
+    }
+}
+
+@-webkit-keyframes tracking-in-expand-fwd {
+    0% {
+        letter-spacing: -0.5em;
+        -webkit-transform: translateZ(-700px);
+        transform: translateZ(-700px);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}
+
+@keyframes tracking-in-expand-fwd {
+    0% {
+        letter-spacing: -0.5em;
+        -webkit-transform: translateZ(-700px);
+        transform: translateZ(-700px);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0.6;
+    }
+
+    100% {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}
