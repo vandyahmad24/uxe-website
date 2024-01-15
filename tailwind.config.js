@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -6,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'sans': ['ttsans', ...defaultTheme.fontFamily.sans],
+      },
       colors: {
         'accent-1': '#FAFAFA',
         'accent-2': '#EAEAEA',
@@ -32,7 +37,18 @@ module.exports = {
         small: '0 5px 10px rgba(0, 0, 0, 0.12)',
         medium: '0 8px 30px rgba(0, 0, 0, 0.12)',
       },
+
+      // My
+      backgroundImage: {
+        "linear-1": "linear-gradient(173deg, #FFF 5.46%, rgba(255, 255, 255, 0.00) 128.42%)",
+        "linear-2": "linear-gradient(145deg, rgba(190, 190, 190, 0.16) 23.23%, rgba(190, 190, 190, 0.00) 114.49%)",
+        "linear-3": "linear-gradient(0deg, #000 0%, rgba(0, 0, 0, 0.80) 62.65%, rgba(0, 0, 0, 0.49) 88.93%, rgba(0, 0, 0, 0.00) 100%)",
+        "linear-4": "linear-gradient(159deg, #FFF 4.02%, rgba(255, 255, 255, 0.00) 107.54%)",
+        "linear-5": "linear-gradient(167deg, #FFF -15%, rgba(255, 255, 255, 0.00) 157.25%)"
+      }
     },
   },
-  plugins: [],
+  plugins: [
+    require('autoprefixer'),
+  ],
 }

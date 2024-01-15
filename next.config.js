@@ -19,6 +19,9 @@ module.exports = {
         port,
         pathname: `${pathname}/**`,
       },
+      {
+        hostname: `*.gravatar.com`,
+      },
     ],
   },
 }

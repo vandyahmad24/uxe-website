@@ -210,3 +210,9 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
 
   return data
 }
+
+// MY
+export async function getClient() {
+  const j = {"clients":[{"name":"COMPANY LOGO","url":"/image/company-logo-01.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-02.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-03.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-04.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-05.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-06.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-07.png"}]}
+  return j?.clients
+}
