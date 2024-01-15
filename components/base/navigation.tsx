@@ -1,93 +1,106 @@
 import Container from './container'
+import MenuItem from '../ui/menu-item'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import cn from 'classnames'
 
 export default function Navigation({ menu }) {
+  const [isFixed, setIsFixed] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleNavigationScroll = () => {
+      const scrollY = window.scrollY;
+      const isScrolled = scrollY > 0 || scrollY < 0;
+
+      setIsFixed(isScrolled);
+    }
+
+    const dropdownContent = document.querySelector("#navigation-container");
+    const buttonMobile = document.querySelector('button[title="Mobile Menu"]')
+
+    const handleMenuMouseEnter = () => {
+      setIsFixed(true)
+    }
+
+    const handleMenuMouseLeave = () => {
+      setIsFixed(false)
+    }
+
+    const handleMobileMenu = () => {
+      setIsMobile(!isMobile)
+    }
+
+    buttonMobile.addEventListener('click', handleMobileMenu)
+
+    dropdownContent.addEventListener('mouseenter', handleMenuMouseEnter)
+    dropdownContent.addEventListener('mouseleave', handleMenuMouseLeave)
+
+    window.addEventListener('scroll', handleNavigationScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleNavigationScroll);
+      dropdownContent.removeEventListener('mouseenter', handleMenuMouseEnter)
+      dropdownContent.removeEventListener('mouseleave', handleMenuMouseLeave)
+    }
+  })
+
+  const containerClass = cn("relative", {
+    "bg-transparent text-white": !isFixed,
+    "bg-white": isFixed,
+  })
+
   return (
-    <div className="fixed top-0 z-50 w-full">
-      <Container>
-        <div className="p-[24px_38px] max-xl:p-0">
-          <div className="bg-white rounded-b-[20px]">
-            <div className="p-[16px_32px] flex items-center justify-between">
-              <Link href="/" className="hover:underline">
-                <Image
-                  src="/image/logo-black.png"
-                  alt="REPLACE THIS"
-                  className="max-h-[42px]"
-                  height={44}
-                  width={98}
-                />
-              </Link>
-
-              <div className="flex items-center max-md:hidden">
-                <ul className="flex gap-[8px]">
-                  <li className="p-[6px_8px] flex items-center">
-                    <a href="#" className="text-[14px] font-medium leading-[132%] -tracking-[.14px]">Product</a>
-                  </li>
-                  <li className="p-[6px_8px] flex items-center">
-                    <a href="#" className="text-[14px] font-medium leading-[132%] -tracking-[.14px]">
-                      <div className="flex items-center gap-[6px]">
-                        Solutions
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
-                          <path d="M12.5 6.25L8 10.75L3.5 6.25" stroke="#19191B" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" />
-                        </svg>
-                      </div>
-                    </a>
-                  </li>
-                  <li className="p-[6px_8px] flex items-center">
-                    <a href="#" className="text-[14px] font-medium leading-[132%] -tracking-[.14px]">
-                      <div className="flex items-center gap-[6px]">
-                        Company
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
-                          <path d="M12.5 6.25L8 10.75L3.5 6.25" stroke="#19191B" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" />
-                        </svg>
-                      </div>
-                    </a>
-                  </li>
-                  <li className="p-[6px_8px] flex items-center">
-                    <a href="#" className="text-[14px] font-medium leading-[132%] -tracking-[.14px]">Contact Us</a>
-                  </li>
-                </ul>
+    <div className={cn("fixed top-0 z-50 w-full")}>
+      <Container style={{ overflow: 'visible' }}>
+        <div className="p-[20px_38px_0_38px] max-xl:p-0">
+          <div id='navigation-container' className={containerClass}>
+            <div className={cn(
+              "px-[max(20px,_min(calc(100vw_*_(32_/_1440)),_32px))] max-lg:py-[18px] max-md:flex-col flex items-center justify-between max-md:justify-start",
+              {
+                "max-md:h-screen": isMobile
+              }
+              )}>
+              <div className='max-md:w-full flex items-center justify-between'>
+                <Link href="/">
+                  {isFixed ? (
+                    <Image
+                      src="/image/logo-black.png"
+                      alt="REPLACE THIS"
+                      className="max-h-[44px]"
+                      height={44}
+                      width={98}
+                    />
+                  ) : (
+                    <Image
+                      src="/image/logo-white.png"
+                      alt="REPLACE THIS"
+                      className="max-h-[44px]"
+                      height={44}
+                      width={98}
+                    />
+                  )}
+                </Link>
+                <button title='Mobile Menu' className='md:hidden'>
+                  {isMobile ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M6.4 19L5 17.6L10.6 12L5 6.4L6.4 5L12 10.6L17.6 5L19 6.4L13.4 12L19 17.6L17.6 19L12 13.4L6.4 19Z" fill="black"/>
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                      <path d="M3.99805 6H19.998V8H3.99805V6ZM3.99805 11H19.998V13H3.99805V11ZM3.99805 16H19.998V18H3.99805V16Z" fill="currentColor"/>
+                    </svg>
+                  )}
+                </button>
               </div>
-            </div>
-            <div className="w-auto mx-[32px]" style={{
-              height: ".5px",
-              background: "linear-gradient(270deg, rgba(25, 25, 27, 0.10) 0%, rgba(25, 25, 27, 0.29) 50.7%, rgba(25, 25, 27, 0.10) 103.78%)"
-            }}></div>
-            <div className="p-[24px_32px] flex justify-between gap-[40px] max-lg:flex-col">
-              <p className="text-[20px] font-medium leading-[100%] -tracking-[.8px]">/ Solution</p>
 
-              <div className="flex gap-[32px] max-md:flex-col">
-                <div className="flex items-start justify-start gap-[12px]">
-                  <div className="bg-[#19191B] rounded-full p-[4px] text-white">
-                    <svg className="rotate-45" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
-                      <path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z" fill="currentColor"></path>
-                    </svg>
-                  </div>
-
-                  <div className="flex flex-col gap-[6px]">
-                    <p className="text-[16px] font-bold leading-[132%] -tracking-[.16px]">For Bussines</p>
-                    <p className="text-[12px] text-[#19191B80] font-medium leading-[132%] -tracking-[.12px]">
-                      All-in-One Security Platform<br />
-                      Centralized Surveillance
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start justify-start gap-[12px]">
-                  <div className="bg-[#19191B] rounded-full p-[4px] text-white">
-                    <svg className="rotate-45" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
-                      <path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z" fill="currentColor"></path>
-                    </svg>
-                  </div>
-
-                  <div className="flex flex-col gap-[6px]">
-                    <p className="text-[16px] font-bold leading-[132%] -tracking-[.16px]">For Goverments</p>
-                    <p className="text-[12px] text-[#19191B80] font-medium leading-[132%] -tracking-[.12px]">
-                      All-in-One Security Platform<br />
-                      Centralized Surveillance
-                    </p>
-                  </div>
-                </div>
+              <div className={cn("items-center max-md:items-start max-md:w-full max-md:mt-[20px] flex", { "max-md:hidden": !isMobile })}>
+                <ul className="flex gap-[8px] max-md:*:p-[14px_8px] max-md:flex-col max-md:w-full *:p-[28px_8px] *:flex *:items-center">
+                  {menu.length > 0 ? (
+                    <MenuItem menu={menu} />
+                  ) : (<></>)}
+                </ul>
               </div>
             </div>
           </div>

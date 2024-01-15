@@ -9,11 +9,11 @@ export default function News() {
         <div className="flex flex-col gap-[48px]">
           <div className="flex flex-col items-center text-center">
             <p className="text-[12px] text-[#19191B80] uppercase font-medium leading-[132%] tracking-[.96px]">News & Blog</p>
-            <h2 className="text-[24px] text-[#19191B] font-medium leading-[112%] -tracking-[.24px] mt-[10px] max-w-xl">Your Daily Dose of Tech News</h2>
+            <h2 className="text-[max(16px,_min(calc(100vw_*_(24_/_1440)),_24px))] text-[#19191B] font-medium leading-[112%] -tracking-[.24px] mt-[10px] max-w-xl">Your Daily Dose of Tech News</h2>
           </div>
           <div className="grid grid-cols-3 gap-[32px] max-xl:grid-cols-2 max-md:grid-cols-1">
             <div className="rounded-[12px] border border-[#0000000F] overflow-hidden">
-              <img src="/assets/blog-image-01.png" alt="BLOG IMAGE" className="max-h-[240px] w-full" />
+              <img src="/image/blog-image-01.png" alt="BLOG IMAGE" className="max-h-[max(140px,_min(calc(100vw_*_(240_/_1440)),_240px))] w-full object-cover" />
               <div className="p-[24px] flex flex-col gap-[32px]">
                 <div className="flex flex-col items-start justify-start gap-[12px]">
                   <span className="text-[14px] text-[#19191B80] font-medium leading-[132%] p-[4px_12px] border border-[#D9D9D9] rounded-full">Technology</span>
@@ -29,7 +29,7 @@ export default function News() {
               </div>
             </div>
             <div className="rounded-[12px] border border-[#0000000F] overflow-hidden">
-              <img src="/assets/blog-image-01.png" alt="BLOG IMAGE" className="max-h-[240px] w-full" />
+              <img src="/image/blog-image-01.png" alt="BLOG IMAGE" className="max-h-[max(140px,_min(calc(100vw_*_(240_/_1440)),_240px))] w-full object-cover" />
               <div className="p-[24px] flex flex-col gap-[32px]">
                 <div className="flex flex-col items-start justify-start gap-[12px]">
                   <span className="text-[14px] text-[#19191B80] font-medium leading-[132%] p-[4px_12px] border border-[#D9D9D9] rounded-full">Technology</span>
@@ -45,7 +45,7 @@ export default function News() {
               </div>
             </div>
             <div className="rounded-[12px] border border-[#0000000F] overflow-hidden">
-              <img src="/assets/blog-image-01.png" alt="BLOG IMAGE" className="max-h-[240px] w-full" />
+              <img src="/image/blog-image-01.png" alt="BLOG IMAGE" className="max-h-[max(140px,_min(calc(100vw_*_(240_/_1440)),_240px))] w-full object-cover" />
               <div className="p-[24px] flex flex-col gap-[32px]">
                 <div className="flex flex-col items-start justify-start gap-[12px]">
                   <span className="text-[14px] text-[#19191B80] font-medium leading-[132%] p-[4px_12px] border border-[#D9D9D9] rounded-full">Technology</span>
