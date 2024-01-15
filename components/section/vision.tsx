@@ -13,7 +13,7 @@ export default function Vision() {
           <div className="flex flex-col justify-between">
             <div>
               <p className="text-[12px] text-[#19191B80] uppercase font-medium leading-[132%] tracking-[.96px]">Vision</p>
-              <h2 className="text-[32px] text-[#19191B] font-medium leading-[112%] -tracking-[.64px] mt-[10px] max-w-xl">Building Tomorrow's Safeguard: Innovative Smart City Security Solutions</h2>
+              <h2 className="text-[32px] text-[#19191B] font-medium leading-[112%] -tracking-[.64px] mt-[10px] max-w-xl">Building Tomorrow&apos;s Safeguard: Innovative Smart City Security Solutions</h2>
               <div className="flex flex-col gap-[6px] mt-[34px]">
                 <div className="w-[6px] h-[64px] bg-[#3760FF] rounded-full"></div>
                 <div className="w-[6px] h-[24px] bg-[#0000003D] rounded-full"></div>

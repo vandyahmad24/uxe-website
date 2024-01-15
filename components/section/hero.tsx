@@ -22,8 +22,8 @@ export default function Hero({ client, backgroundVideo }) {
               <div className="flex items-center justify-between gap-[12px] py-[28px] max-xl:flex-col max-xl:items-start">
                 <Paragraph14 text={"Trusted by hundreds of organizations"} />
                 <div className="flex flex-wrap gap-[12px_32px]">
-                  {client.map(({name, url}) => (
-                    <img src={url} alt={name} />
+                  {client.map(({name, url}, index) => (
+                    <img key={index} src={url} alt={name} />
                   ))}
                 </div>
               </div>

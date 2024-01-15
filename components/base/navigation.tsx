@@ -29,7 +29,7 @@ export default function Navigation({ menu }) {
                       <div className="flex items-center gap-[6px]">
                         Solutions
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
-                          <path d="M12.5 6.25L8 10.75L3.5 6.25" stroke="#19191B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="square" />
+                          <path d="M12.5 6.25L8 10.75L3.5 6.25" stroke="#19191B" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" />
                         </svg>
                       </div>
                     </a>
@@ -39,7 +39,7 @@ export default function Navigation({ menu }) {
                       <div className="flex items-center gap-[6px]">
                         Company
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
-                          <path d="M12.5 6.25L8 10.75L3.5 6.25" stroke="#19191B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="square" />
+                          <path d="M12.5 6.25L8 10.75L3.5 6.25" stroke="#19191B" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="square" />
                         </svg>
                       </div>
                     </a>

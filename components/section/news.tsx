@@ -23,7 +23,7 @@ export default function News() {
                 <div className="flex items-center gap-[8px]">
                   <a href="#" className="text-[16px] text-[#19191B] font-medium leading-[132%] -tracknig-[.16px]">Read post</a>
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M5.83325 14.1666L14.1666 5.83325M14.1666 5.83325H5.83325M14.1666 5.83325V14.1666" stroke="#19191B" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M5.83325 14.1666L14.1666 5.83325M14.1666 5.83325H5.83325M14.1666 5.83325V14.1666" stroke="#19191B" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
               </div>
@@ -39,7 +39,7 @@ export default function News() {
                 <div className="flex items-center gap-[8px]">
                   <a href="#" className="text-[16px] text-[#19191B] font-medium leading-[132%] -tracknig-[.16px]">Read post</a>
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M5.83325 14.1666L14.1666 5.83325M14.1666 5.83325H5.83325M14.1666 5.83325V14.1666" stroke="#19191B" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M5.83325 14.1666L14.1666 5.83325M14.1666 5.83325H5.83325M14.1666 5.83325V14.1666" stroke="#19191B" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
               </div>
@@ -55,7 +55,7 @@ export default function News() {
                 <div className="flex items-center gap-[8px]">
                   <a href="#" className="text-[16px] text-[#19191B] font-medium leading-[132%] -tracknig-[.16px]">Read post</a>
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M5.83325 14.1666L14.1666 5.83325M14.1666 5.83325H5.83325M14.1666 5.83325V14.1666" stroke="#19191B" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M5.83325 14.1666L14.1666 5.83325M14.1666 5.83325H5.83325M14.1666 5.83325V14.1666" stroke="#19191B" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
               </div>

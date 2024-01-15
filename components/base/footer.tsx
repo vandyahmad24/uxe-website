@@ -39,7 +39,7 @@ export default function Footer() {
               <p className="text-[14px] text-white leading-[132%] -tracking-[.14px]">1901 Thornridge Cir. Shiloh, Hawaii 81063</p>
               <button title="Back to Top">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 19L12 5M12 5L18 11M12 5L6 11" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M12 19L12 5M12 5L18 11M12 5L6 11" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </button>
             </div>
