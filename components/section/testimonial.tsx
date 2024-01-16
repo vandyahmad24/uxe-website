@@ -19,6 +19,7 @@ export default function Testimonial() {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
+          speed: 20000,
         },
       },
       {
@@ -26,6 +27,7 @@ export default function Testimonial() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          speed: 10000,
         },
       },
     ],

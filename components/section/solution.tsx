@@ -44,7 +44,7 @@ export default function Solution() {
           </div>
           <div className="transition-all flex max-lg:grid max-lg:grid-cols-1 gap-[20px]">
             {/* <div className="grid grid-cols-[calc(70%_-_10px)_calc(30%_-_10px)] max-lg:grid-cols-1 gap-[20px]"> */}
-            <div ref={slide1Ref} className={cn("group/solution1 transition-all ease-[cubic-bezier(.22,.68,0,1.71)] duration-700 max-lg:w-full rounded-[12px] bg-[#19191B] h-[475px] flex flex-col justify-between overflow-hidden", {
+            <div ref={slide1Ref} className={cn("group/solution1 transition-all ease-[cubic-bezier(.22,.68,0,1.71)] duration-500 max-lg:w-full rounded-[12px] bg-[#19191B] h-[475px] flex flex-col justify-between overflow-hidden", {
               "w-full is-active": isActiveSolution,
               "w-1/2 is-not-active": !isActiveSolution
             })}>
@@ -66,7 +66,7 @@ export default function Solution() {
                 }}>Get in touch</a>
               </div>
             </div>
-            <div ref={slide2Ref} className={cn("group/solution2 transition-all ease-[cubic-bezier(.22,.68,0,1.71)] duration-700 max-lg:w-full rounded-[12px] bg-[#365EFF] h-[475px] flex flex-col justify-between overflow-hidden", {
+            <div ref={slide2Ref} className={cn("group/solution2 transition-all ease-[cubic-bezier(.22,.68,0,1.71)] duration-500 max-lg:w-full rounded-[12px] bg-[#365EFF] h-[475px] flex flex-col justify-between overflow-hidden", {
               "w-full is-active": !isActiveSolution,
               "w-1/2 is-not-active": isActiveSolution
             })}>

@@ -57,7 +57,7 @@ export default function Navigation({ menu }) {
         <div className="p-[20px_38px_0_38px] max-xl:p-0">
           <div id='navigation-container' className={containerClass}>
             <div className={cn(
-              "px-[max(20px,_min(calc(100vw_*_(32_/_1440)),_32px))] max-lg:py-[18px] max-md:flex-col flex items-center justify-between max-md:justify-start",
+              "px-[max(20px,_min(calc(100vw_*_(32_/_1440)),_32px))] max-md:py-[18px] max-md:flex-col flex items-center justify-between max-md:justify-start",
               {
                 "max-md:h-screen": isMobile
               }
