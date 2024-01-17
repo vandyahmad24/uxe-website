@@ -1,6 +1,13 @@
 import Container from './container'
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth', // Use smooth scrolling behavior
+    });
+  };
+
   return (
     <div className="bg-[#071952]">
       <Container>
@@ -10,34 +17,34 @@ export default function Footer() {
             <div className="flex flex-col gap-[32px]">
               <span className="text-[10px] text-[#828D91] font-medium leading-[140%] tracking-[.4px] uppercase">Explore</span>
               <div className="flex flex-wrap gap-[12px]">
-                <p className="text-[20px] text-white leading-[132%] -tracking-[.2px]">Product</p>
+                <a href='#' className="text-[20px] text-white leading-[132%] -tracking-[.2px] hover:opacity-70">Product</a>
                 <p className="text-[20px] text-[#828D91] leading-[132%] -tracking-[.2px]">/</p>
-                <p className="text-[20px] text-white leading-[132%] -tracking-[.2px]">Solution</p>
+                <a href='#' className="text-[20px] text-white leading-[132%] -tracking-[.2px] hover:opacity-70">Solution</a>
                 <p className="text-[20px] text-[#828D91] leading-[132%] -tracking-[.2px]">/</p>
-                <p className="text-[20px] text-white leading-[132%] -tracking-[.2px]">Company</p>
+                <a href='#' className="text-[20px] text-white leading-[132%] -tracking-[.2px] hover:opacity-70">Company</a>
                 <p className="text-[20px] text-[#828D91] leading-[132%] -tracking-[.2px]">/</p>
-                <p className="text-[20px] text-white leading-[132%] -tracking-[.2px]">About us</p>
+                <a href='#' className="text-[20px] text-white leading-[132%] -tracking-[.2px] hover:opacity-70">About us</a>
               </div>
             </div>
             <div className="flex flex-col gap-[32px]">
               <span className="text-[10px] text-[#828D91] font-medium leading-[140%] tracking-[.4px] uppercase">Contact us</span>
               <div className="flex flex-col gap-[4px]">
-                <p className="text-[14px] text-white leading-[140%]">+1 891 989-11-91</p>
-                <p className="text-[14px] text-white leading-[140%]">hello@uxe.com</p>
+                <a href="#" className="text-[14px] text-white leading-[140%] hover:opacity-70">+1 891 989-11-91</a>
+                <a href="#" className="text-[14px] text-white leading-[140%] hover:opacity-70">hello@uxe.com</a>
               </div>
             </div>
             <div className="flex flex-col gap-[32px]">
               <span className="text-[10px] text-[#828D91] font-medium leading-[140%] tracking-[.4px] uppercase">Follow us</span>
               <div className="flex flex-col gap-[4px]">
-                <p className="text-[14px] text-white leading-[140%]">Instagram</p>
-                <p className="text-[14px] text-white leading-[140%]">Telegram</p>
+                <a href="#" className="text-[14px] text-white leading-[140%] hover:opacity-70">Instagram</a>
+                <a href="#" className="text-[14px] text-white leading-[140%] hover:opacity-70">Telegram</a>
               </div>
             </div>
           </div>
           <div className="flex flex-col gap-[max(16px,_min(calc(100vw_*_(48_/_1440)),_48px))]">
             <div className="flex items-center justify-between">
               <p className="text-[14px] text-white leading-[132%] -tracking-[.14px]">1901 Thornridge Cir. Shiloh, Hawaii 81063</p>
-              <button title="Back to Top">
+              <button className="animate-bounce" title="Back to Top" onClick={scrollToTop}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path d="M12 19L12 5M12 5L18 11M12 5L6 11" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
@@ -50,7 +57,7 @@ export default function Footer() {
               }}></div>
               <div className="flex justify-between py-[16px]">
                 <p className="text-[12px] text-white leading-[132%] opacity-80 -tracking-[.12px]">© 2023 — UXE</p>
-                <p className="text-[12px] text-white leading-[132%] opacity-80 -tracking-[.12px]">Privacy</p>
+                <a href='#' className="text-[12px] text-white leading-[132%] opacity-80 -tracking-[.12px] hover:opacity-70">Privacy</a>
                 <p className="text-[12px] text-white leading-[132%] opacity-80 -tracking-[.12px]">All rights reserved</p>
               </div>
             </div>

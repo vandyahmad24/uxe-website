@@ -14,7 +14,7 @@ export default function Navigation({ menu }) {
       const scrollY = window.scrollY;
       const isScrolled = scrollY > 0 || scrollY < 0;
 
-      setIsFixed(isScrolled);
+      setIsFixed(isScrolled || isMobile);
     }
 
     const dropdownContent = document.querySelector("#navigation-container");
@@ -68,7 +68,7 @@ export default function Navigation({ menu }) {
                     <Image
                       src="/image/logo-black.png"
                       alt="REPLACE THIS"
-                      className="max-h-[44px]"
+                      // className="max-h-[44px]"
                       height={44}
                       width={98}
                     />
@@ -76,7 +76,7 @@ export default function Navigation({ menu }) {
                     <Image
                       src="/image/logo-white.png"
                       alt="REPLACE THIS"
-                      className="max-h-[44px]"
+                      // className="max-h-[44px]"
                       height={44}
                       width={98}
                     />

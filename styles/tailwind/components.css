@@ -4,9 +4,6 @@
 .group\/solution1.is-active {
   @apply bg-[url('/image/solution-image-01.png')] bg-no-repeat bg-cover;
 }
-.group\/solution1.is-active {
-  @apply bg-[url('/image/solution-image-01.png')] bg-no-repeat bg-cover;
-}
 .group\/solution2 {
   @apply bg-[url('/image/solution-business.png')] bg-contain bg-right bg-no-repeat;
 }

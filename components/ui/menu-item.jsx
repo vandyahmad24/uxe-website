@@ -20,7 +20,7 @@ export default function MenuItem({ menu }) {
                   <p className="max-md:hidden text-[20px] font-medium leading-[100%] -tracking-[.8px]">/ {name}</p>
                   <div className="flex gap-[32px] max-md:gap-0 max-md:flex-col">
                     {submenu.map(({ name, description, url }, ind) => (
-                      <a key={ind} href={url} className="max-md:last-of-type:border-none max-md:border-b-[.5px] max-md:border-b-[#19191b1a] max-md:p-[16px_20px] flex items-start justify-start gap-[12px]">
+                      <a key={ind} href={url} className="max-md:last-of-type:border-none max-md:border-b-[.5px] max-md:border-b-[#19191b1a] max-md:p-[16px_20px] flex items-start justify-start gap-[12px] hover:opacity-70">
                         <div className="bg-[#19191B] rounded-full p-[4px] text-white">
                           <svg className="rotate-45" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24">
                             <path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z" fill="currentColor"></path>
