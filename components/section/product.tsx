@@ -47,7 +47,7 @@ export default function Product() {
             </div>
           </div>
           <div className="flex justify-center">
-            <a href="#" className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B]" style={{
+            <a href="#" className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B] hover:opacity-70" style={{
               border: "1px solid rgba(207, 207, 207, 0.25)",
               backdropFilter: "blur(2px)"
             }}>See All Product</a>

@@ -1,7 +1,3 @@
-import Container from '../base/container'
-import Image from 'next/image'
-import Link from 'next/link'
-
 export default function News() {
   return (
     <div className="bg-white">
@@ -17,15 +13,15 @@ export default function News() {
               <div className="p-[24px] flex flex-col gap-[32px]">
                 <div className="flex flex-col items-start justify-start gap-[12px]">
                   <span className="text-[14px] text-[#19191B80] font-medium leading-[132%] p-[4px_12px] border border-[#D9D9D9] rounded-full">Technology</span>
-                  <h1 className="text-[20px] text-[#19191B] font-medium leading-[132%] -tracking-[.2px]">Citywide IoT Integration Boosts Efficiency of Smart Security</h1>
+                  <a href='#' className="text-[20px] text-[#19191B] font-medium leading-[132%] -tracking-[.2px] hover:opacity-70">Citywide IoT Integration Boosts Efficiency of Smart Security</a>
                   <p className="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px] opacity-50">How do you create compelling presentations that wow your colleagues and impress your managers?</p>
                 </div>
-                <div className="flex items-center gap-[8px]">
-                  <a href="#" className="text-[16px] text-[#19191B] font-medium leading-[132%] -tracknig-[.16px]">Read post</a>
+                <a href="#" className="flex items-center gap-[8px] hover:opacity-70">
+                  <span className="text-[16px] text-[#19191B] font-medium leading-[132%] -tracknig-[.16px]">Read post</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M5.83325 14.1666L14.1666 5.83325M14.1666 5.83325H5.83325M14.1666 5.83325V14.1666" stroke="#19191B" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                </div>
+                </a>
               </div>
             </div>
             <div className="rounded-[12px] border border-[#0000000F] overflow-hidden">
@@ -33,15 +29,15 @@ export default function News() {
               <div className="p-[24px] flex flex-col gap-[32px]">
                 <div className="flex flex-col items-start justify-start gap-[12px]">
                   <span className="text-[14px] text-[#19191B80] font-medium leading-[132%] p-[4px_12px] border border-[#D9D9D9] rounded-full">Technology</span>
-                  <h1 className="text-[20px] text-[#19191B] font-medium leading-[132%] -tracking-[.2px]">Citywide IoT Integration Boosts Efficiency of Smart Security</h1>
+                  <a href='#' className="text-[20px] text-[#19191B] font-medium leading-[132%] -tracking-[.2px] hover:opacity-70">Citywide IoT Integration Boosts Efficiency of Smart Security</a>
                   <p className="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px] opacity-50">How do you create compelling presentations that wow your colleagues and impress your managers?</p>
                 </div>
-                <div className="flex items-center gap-[8px]">
-                  <a href="#" className="text-[16px] text-[#19191B] font-medium leading-[132%] -tracknig-[.16px]">Read post</a>
+                <a href="#" className="flex items-center gap-[8px] hover:opacity-70">
+                  <span className="text-[16px] text-[#19191B] font-medium leading-[132%] -tracknig-[.16px]">Read post</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M5.83325 14.1666L14.1666 5.83325M14.1666 5.83325H5.83325M14.1666 5.83325V14.1666" stroke="#19191B" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                </div>
+                </a>
               </div>
             </div>
             <div className="rounded-[12px] border border-[#0000000F] overflow-hidden">
@@ -49,15 +45,15 @@ export default function News() {
               <div className="p-[24px] flex flex-col gap-[32px]">
                 <div className="flex flex-col items-start justify-start gap-[12px]">
                   <span className="text-[14px] text-[#19191B80] font-medium leading-[132%] p-[4px_12px] border border-[#D9D9D9] rounded-full">Technology</span>
-                  <h1 className="text-[20px] text-[#19191B] font-medium leading-[132%] -tracking-[.2px]">Citywide IoT Integration Boosts Efficiency of Smart Security</h1>
+                  <a href='#' className="text-[20px] text-[#19191B] font-medium leading-[132%] -tracking-[.2px] hover:opacity-70">Citywide IoT Integration Boosts Efficiency of Smart Security</a>
                   <p className="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px] opacity-50">How do you create compelling presentations that wow your colleagues and impress your managers?</p>
                 </div>
-                <div className="flex items-center gap-[8px]">
-                  <a href="#" className="text-[16px] text-[#19191B] font-medium leading-[132%] -tracknig-[.16px]">Read post</a>
+                <a href="#" className="flex items-center gap-[8px] hover:opacity-70">
+                  <span className="text-[16px] text-[#19191B] font-medium leading-[132%] -tracknig-[.16px]">Read post</span>
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                     <path d="M5.83325 14.1666L14.1666 5.83325M14.1666 5.83325H5.83325M14.1666 5.83325V14.1666" stroke="#19191B" strokeWidth="1.67" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                </div>
+                </a>
               </div>
             </div>
           </div>
