@@ -1,8 +1,5 @@
 import Container from '../base/container'
 import LabelHero from '../ui/label-hero'
-import TitleClip64 from '../typography/clip/title-clip-64'
-import ParagraphClip16 from '../typography/clip/paragraph-clip-16'
-import Paragraph14 from '../typography/paragraph-14'
 
 export default function Hero({ client, backgroundVideo }) {
   return (

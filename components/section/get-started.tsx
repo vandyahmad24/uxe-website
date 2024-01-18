@@ -8,10 +8,10 @@ export default function GetStarted() {
       <div className="max-w-[1440px] mx-auto px-[max(10px,_min(calc(100vw_*_(20_/_1440)),_20px))] overflow-hidden">
         <div className="bg-[#19191B] rounded-[12px] p-[max(92px,_min(calc(100vw_*_(110_/_1440)),_110px))_12px] flex flex-col items-center gap-[max(32px,_min(calc(100vw_*_(48_/_1440)),_48px))] text-center bg-[url('/image/get-started-background.png')] bg-cover bg-no-repeat bg-center">
           <div className="bg-[#313131] p-[max(6px,_min(calc(100vw_*_(10_/_1440)),_10px))] rounded-full flex">
-            <div className="bg-[#071952] h-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))] w-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))] rounded-full border border-white"></div>
-            <div className="bg-[#071952] h-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))] w-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))] rounded-full border border-white -ml-[max(8px,_min(calc(100vw_*_(24_/_1440)),_24px))]"></div>
-            <div className="bg-[#071952] h-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))] w-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))] rounded-full border border-white -ml-[max(8px,_min(calc(100vw_*_(24_/_1440)),_24px))]"></div>
-            <div className="bg-[#071952] h-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))] w-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))] rounded-full border border-white -ml-[max(8px,_min(calc(100vw_*_(24_/_1440)),_24px))]"></div>
+            <div className="bg-[#071952] h-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))] w-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))] rounded-full border border-white bg-[url('/image/person-image-01.png')] bg-cover"></div>
+            <div className="bg-[#071952] h-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))] w-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))] rounded-full border border-white bg-[url('/image/person-image-02.png')] bg-cover -ml-[max(8px,_min(calc(100vw_*_(24_/_1440)),_24px))]"></div>
+            <div className="bg-[#071952] h-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))] w-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))] rounded-full border border-white bg-[url('/image/person-image-03.png')] bg-cover -ml-[max(8px,_min(calc(100vw_*_(24_/_1440)),_24px))]"></div>
+            <div className="bg-[#071952] h-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))] w-[max(22px,_min(calc(100vw_*_(48_/_1440)),_48px))] rounded-full border border-white bg-[url('/image/person-image-04.png')] bg-cover -ml-[max(8px,_min(calc(100vw_*_(24_/_1440)),_24px))]"></div>
           </div>
           <div className="flex flex-col gap-[20px] items-center">
             <h2 className="text-[max(32px,_min(calc(100vw_*_(64_/_1440)),_64px))] font-medium leading-[120%] -tracking-[1.28px]" style={{

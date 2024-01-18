@@ -19,7 +19,7 @@ export default function Product() {
                 </div>
               </div>
               <div className="flex flex-col gap-[8px]">
-                <h3 className="text-[max(16px,_min(calc(100vw_*_(20_/_1440)),_20px))] text-[#19191B] font-medium leading-[132%] -tracking-[.2px]">Thermal Camera</h3>
+                <a href="#" className="text-[max(16px,_min(calc(100vw_*_(20_/_1440)),_20px))] text-[#19191B] font-medium leading-[132%] -tracking-[.2px] hover:opacity-70">Thermal Camera</a>
                 <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] opacity-60 leading-[132%] -tracking-[.14px]">The Elara FC-Series O</p>
               </div>
             </div>
@@ -30,7 +30,7 @@ export default function Product() {
                 </div>
               </div>
               <div className="flex flex-col gap-[8px]">
-                <h3 className="text-[max(16px,_min(calc(100vw_*_(20_/_1440)),_20px))] text-[#19191B] font-medium leading-[132%] -tracking-[.2px]">Augment Reality</h3>
+                <a href="#" className="text-[max(16px,_min(calc(100vw_*_(20_/_1440)),_20px))] text-[#19191B] font-medium leading-[132%] -tracking-[.2px] hover:opacity-70">Augment Reality</a>
                 <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] opacity-60 leading-[132%] -tracking-[.14px]">The Elara FC-Series O</p>
               </div>
             </div>
@@ -41,7 +41,7 @@ export default function Product() {
                 </div>
               </div>
               <div className="flex flex-col gap-[8px]">
-                <h3 className="text-[max(16px,_min(calc(100vw_*_(20_/_1440)),_20px))] text-[#19191B] font-medium leading-[132%] -tracking-[.2px]">Video Guard</h3>
+                <a href="#" className="text-[max(16px,_min(calc(100vw_*_(20_/_1440)),_20px))] text-[#19191B] font-medium leading-[132%] -tracking-[.2px] hover:opacity-70">Video Guard</a>
                 <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] opacity-60 leading-[132%] -tracking-[.14px]">The Elara FC-Series O</p>
               </div>
             </div>

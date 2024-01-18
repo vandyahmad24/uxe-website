@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'react'
 export default function Solution() {
   const slide1Ref = useRef(null);
   const slide2Ref = useRef(null);
-  const [isActiveSolution, setIsActiveSolution] = useState(false);
+  const [isActiveSolution, setIsActiveSolution] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
   const handleActiveSolution = (value) => {
@@ -60,13 +60,13 @@ export default function Solution() {
               "w-1/2 is-not-active": !isActiveSolution
             })}>
               <div className="flex flex-col items-start gap-[12px] p-[24px]">
-                <div className="bg-[#BEBEBE40] text-white hover:text-[#19191B] hover:bg-white rounded-full p-[8px]" style={{
+                <a href='#' className="bg-[#BEBEBE40] text-white hover:text-[#19191B] hover:bg-white rounded-full p-[8px]" style={{
                   backdropFilter: "blur(1.5833333730697632px)"
                 }}>
                   <svg className="rotate-45" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
                     <path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z" fill="currentColor"></path>
                   </svg>
-                </div>
+                </a>
                 <p className="text-[max(20px,_min(calc(100vw_*_(24_/_1440)),_24px))] text-white font-medium leading-[112%] -tracking-[.24px]">For Goverments</p>
               </div>
               <div className="flex flex-col items-start gap-[20px] bg-black group-[.is-not-active]/solution1:bg-[#19191B] p-[24px] group-[.is-active]/solution1:bg-[url('/image/solution-goverment.png')] bg-contain bg-right bg-no-repeat">
@@ -82,13 +82,13 @@ export default function Solution() {
               "w-1/2 is-not-active": isActiveSolution
             })}>
               <div className="flex flex-col items-start gap-[12px] p-[24px]">
-                <div className="bg-[#BEBEBE40] text-white hover:text-[#19191B] hover:bg-white rounded-full p-[8px]" style={{
+                <a href='#' className="bg-[#BEBEBE40] text-white hover:text-[#19191B] hover:bg-white rounded-full p-[8px]" style={{
                   backdropFilter: "blur(1.5833333730697632px)"
                 }}>
                   <svg className="rotate-45" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
                     <path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z" fill="currentColor"></path>
                   </svg>
-                </div>
+                </a>
                 <p className="text-[max(20px,_min(calc(100vw_*_(24_/_1440)),_24px))] text-white font-medium leading-[112%] -tracking-[.24px]">For Business</p>
               </div>
               <div className="flex flex-col items-start gap-[20px] bg-[#365EFF] group-[.is-not-active]/solution2:bg-[#365EFF] p-[24px] group-[.is-active]/solution2:bg-[url('/image/solution-goverment.png')] bg-contain bg-right bg-no-repeat">

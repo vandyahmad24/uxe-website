@@ -71,7 +71,7 @@ export default function Vision() {
                 className="h-full w-full object-cover"
               />
             </div>
-            <div className="flex flex-col justify-between max-lg:min-h-[80vh]">
+            <div className="flex flex-col justify-between h-full">
               <div ref={cContent} className="relative">
                 <div className="transition-all duration-700 absolute top-0 opacity-0">
                   <p className="text-[12px] text-[#19191B80] uppercase font-medium leading-[132%] tracking-[.96px]">
@@ -95,7 +95,7 @@ export default function Vision() {
                 <p className="text-[max(14px,_min(calc(100vw_*_(20_/_1440)),_20px))] text-[#19191B] leading-[132%] -tracking-[.2px]">
                 Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments
                 </p>
-                <div className="gap-[6px] mt-[34px] flex">
+                <div className="gap-[6px] mt-[34px] max-lg:mt-0 flex">
                   <div className="transition-all duration-700 h-[max(4px,_min(calc(100vw_*_(6_/_1440)),_6px))] w-[max(32px,_min(calc(100vw_*_(64_/_1440)),_64px))] bg-[#3760FF] rounded-full"></div>
                   <div className="transition-all duration-700 h-[max(4px,_min(calc(100vw_*_(6_/_1440)),_6px))] w-[max(12px,_min(calc(100vw_*_(24_/_1440)),_24px))] bg-[#0000003D] rounded-full"></div>
                 </div>

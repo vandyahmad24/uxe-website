@@ -2,9 +2,7 @@
 interface Props {
   width: string | number
   height: string | number
-}
-
-export default function IconShield({ width, height }: Props) {
+}export default function IconShield({ width, height }: Props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width={width} height={height} viewBox="0 0 10 10" fill="none">
       <g clipPath="url(#clip0_710_10636)">

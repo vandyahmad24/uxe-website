@@ -7,25 +7,26 @@ import cn from 'classnames'
 
 export default function Navigation({ menu }) {
   const [isFixed, setIsFixed] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleNavigationScroll = () => {
       const scrollY = window.scrollY;
-      const isScrolled = scrollY > 0 || scrollY < 0;
-
-      setIsFixed(isScrolled || isMobile);
+      const scrolled = scrollY > 0 || scrollY < 0;
+      setIsScrolled(scrolled || isMobile)
+      setIsFixed(scrolled || isMobile);
     }
 
     const dropdownContent = document.querySelector("#navigation-container");
     const buttonMobile = document.querySelector('button[title="Mobile Menu"]')
 
     const handleMenuMouseEnter = () => {
-      setIsFixed(true)
+      setIsFixed(true || isMobile || isScrolled)
     }
 
     const handleMenuMouseLeave = () => {
-      setIsFixed(false)
+      setIsFixed(false || isMobile || isScrolled)
     }
 
     const handleMobileMenu = () => {
@@ -57,7 +58,7 @@ export default function Navigation({ menu }) {
         <div className="p-[20px_38px_0_38px] max-xl:p-0">
           <div id='navigation-container' className={containerClass}>
             <div className={cn(
-              "px-[max(20px,_min(calc(100vw_*_(32_/_1440)),_32px))] max-md:py-[18px] max-md:flex-col flex items-center justify-between max-md:justify-start",
+              "px-[max(20px,_min(calc(100vw_*_(32_/_1440)),_32px))] max-md:py-[max(12px,_min(calc(100vw_*_(18_/_1440)),_18px))] max-md:flex-col flex items-center justify-between max-md:justify-start",
               {
                 "max-md:h-screen": isMobile
               }
