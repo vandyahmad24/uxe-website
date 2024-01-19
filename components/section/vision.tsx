@@ -21,6 +21,11 @@ export default function Vision() {
     const containerFooter = cFooter.current.childNodes[1].childNodes;
 
     if (sectionTop < 0) {
+      const navigationElm = window.document.querySelector('#navigation-container');
+      if (navigationElm) {
+        cPadding.current.style.paddingTop =  `calc(max(44px, min(calc(100vw * (80 / 1440)), 80px)) + ${navigationElm.clientHeight}px)`
+      }
+
       container.forEach((e, i) => {
         if (sectionTop > ((windowHeight * i) - ((containerPaddingValue * 2) * i)) * -1) {
           e.style.transform = `translateY(${sectionTop}px)`
@@ -31,6 +36,11 @@ export default function Vision() {
           setIsActive(i)
         }
       })
+    } else {
+      const navigationElm = window.document.querySelector('#navigation-container');
+      if (navigationElm) {
+        cPadding.current.style.paddingTop =  `max(44px, min(calc(100vw * (80 / 1440)), 80px))`
+      }
     }
 
     containerContent.forEach((element, ei) => {
@@ -57,7 +67,7 @@ export default function Vision() {
 
   return (
     <div ref={cScroll} className="bg-[#E6EDFF] h-[200svh]">
-      <div ref={cPadding} className="h-[100svh] sticky top-0 max-w-[1440px] mx-auto p-[max(100px,_min(calc(100vw_*_(120_/_1440)),_120px))_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden bg-[url('/image/vision-background.png')] bg-contain bg-no-repeat bg-right-top">
+      <div ref={cPadding} className="transition-all h-[100svh] sticky top-0 max-w-[1440px] mx-auto p-[max(44px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden bg-[url('/image/vision-background.png')] bg-contain bg-no-repeat bg-right-top">
           <div className="h-full grid grid-cols-2 gap-[max(32px,_min(calc(100vw_*_(60_/_1440)),_60px))] max-lg:flex max-lg:flex-col">
             <div ref={cImage} className="max-lg:hidden overflow-hidden rounded-[12px]">
               <img

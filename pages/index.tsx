@@ -26,7 +26,43 @@ export default function Index({ allClientLogo }) {
       <Feature />
       <Solution />
       <Product />
-      <Testimonial />
+      <Testimonial data={{
+        show: 3,
+        items: [
+          {
+            rating: 4,
+            review: "“As a business operating in a dynamic environment, we needed a robust security solution.",
+            userPhoto: "/image/person-image-05.png",
+            userName: "Courtney Henry",
+            userRole: "Marketing Coordinator",
+            userCompanyLogo: "/image/company-logo-01.png"
+          },
+          {
+            rating: 4,
+            review: "“I recently had the pleasure of experiencing the benefits of a smart city initiative, and I must say, it has transformed the way I interact with my urban environment.",
+            userPhoto: "/image/person-image-06.png",
+            userName: "James Madison",
+            userRole: "Product Manager",
+            userCompanyLogo: "/image/company-logo-02.png"
+          },
+          {
+            rating: 4,
+            review: "“The smart city product has enhanced urban living by optimizing traffic flow, reducing congestion, and promoting sustainable transportation options.",
+            userPhoto: "/image/person-image-07.png",
+            userName: "Alexander Potrat",
+            userRole: "Director Manager",
+            userCompanyLogo: "/image/company-logo-03.png"
+          },
+          {
+            rating: 4,
+            review: "“As a business operating in a dynamic environment, we needed a robust security solution.",
+            userPhoto: "/image/person-image-05.png",
+            userName: "Courtney Henry",
+            userRole: "Marketing Coordinator",
+            userCompanyLogo: "/image/company-logo-01.png"
+          },
+        ]
+      }} />
       <GetStarted />
       <News />
     </Layout>

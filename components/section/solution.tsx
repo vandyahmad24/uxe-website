@@ -47,7 +47,7 @@ export default function Solution() {
 
   return (
     <div className="bg-[#F4F5F6]">
-      <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(64_/_1440)),_64px))_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden bg-[url('/image/solution-background.png')] bg-cover">
+      <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(64_/_1440)),_64px))_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden bg-[url('/image/solution-background.png')] max-lg:bg-none bg-cover">
         <div className="flex flex-col gap-[45px]">
           <div className="flex flex-col items-center text-center">
             <p className="text-[12px] text-[#19191B80] uppercase font-medium leading-[132%] tracking-[.96px]">Solution</p>
@@ -69,7 +69,7 @@ export default function Solution() {
                 </a>
                 <p className="text-[max(20px,_min(calc(100vw_*_(24_/_1440)),_24px))] text-white font-medium leading-[112%] -tracking-[.24px]">For Goverments</p>
               </div>
-              <div className="flex flex-col items-start gap-[20px] bg-black group-[.is-not-active]/solution1:bg-[#19191B] p-[24px] group-[.is-active]/solution1:bg-[url('/image/solution-goverment.png')] bg-contain bg-right bg-no-repeat">
+              <div className="flex flex-col items-start gap-[20px] bg-black group-[.is-not-active]/solution1:bg-[#19191B] p-[24px] group-[.is-active]/solution1:bg-[url('/image/solution-goverment.png')] max-lg:!bg-none bg-contain bg-right bg-no-repeat">
                 <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white opacity-75 leading-[132%] -tracking-[.16px] max-w-md">All-in-One Security Platform: Centralized Surveillance, Real-Time Analysis, and Remote Access for Unparalleled Protection</p>
                 <a href="#" className="block text-[14px] font-medium leading-[132%] -tracking-[.14px] p-[10px_16px] rounded-full bg-[#BEBEBE40] text-white hover:bg-white hover:text-[#19191B]" style={{
                   border: "1px solid rgba(207, 207, 207, 0.25)",
@@ -91,7 +91,7 @@ export default function Solution() {
                 </a>
                 <p className="text-[max(20px,_min(calc(100vw_*_(24_/_1440)),_24px))] text-white font-medium leading-[112%] -tracking-[.24px]">For Business</p>
               </div>
-              <div className="flex flex-col items-start gap-[20px] bg-[#365EFF] group-[.is-not-active]/solution2:bg-[#365EFF] p-[24px] group-[.is-active]/solution2:bg-[url('/image/solution-goverment.png')] bg-contain bg-right bg-no-repeat">
+              <div className="flex flex-col items-start gap-[20px] bg-[#365EFF] group-[.is-not-active]/solution2:bg-[#365EFF] p-[24px] group-[.is-active]/solution2:bg-[url('/image/solution-goverment.png')] max-lg:!bg-none bg-contain bg-right bg-no-repeat">
                 <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white opacity-75 leading-[132%] -tracking-[.16px] max-w-md">Centralized Surveillance, Real-Time Analysis, and Remote Access for Unparalleled Protection</p>
                 <a href="#" className="block text-[14px] font-medium leading-[132%] -tracking-[.14px] p-[10px_16px] rounded-full bg-[#BEBEBE40] text-white hover:bg-white hover:text-[#19191B]" style={{
                   border: "1px solid rgba(207, 207, 207, 0.25)",
