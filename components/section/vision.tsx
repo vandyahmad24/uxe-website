@@ -27,12 +27,12 @@ export default function Vision() {
       }
 
       container.forEach((e, i) => {
-        if (sectionTop > ((windowHeight * i) - ((containerPaddingValue * 2) * i)) * -1) {
+        if (sectionTop > (((windowHeight * i) - ((containerPaddingValue * 2) * i)) * -1) - navigationElm.clientHeight) {
           e.style.transform = `translateY(${sectionTop}px)`
         }
 
-        if (sectionTop < ((windowHeight * i) - ((containerPaddingValue * 2) * i)) * -1) {
-          e.style.transform = `translateY(${((windowHeight * i) - ((containerPaddingValue * 2) * i)) * -1}px)`
+        if (sectionTop < (((windowHeight * i) - ((containerPaddingValue * 2) * i)) * -1) - navigationElm.clientHeight) {
+          e.style.transform = `translateY(${(((windowHeight * i) - ((containerPaddingValue * 2) * i)) * -1) - navigationElm.clientHeight}px)`
           setIsActive(i)
         }
       })
