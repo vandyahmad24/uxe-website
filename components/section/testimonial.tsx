@@ -14,7 +14,8 @@ export default function Testimonial({ data }) {
     } else {
       setSlides(items.slice(0, show))
     }
-  })
+    return () => {}
+  }, [setSlides])
 
   const settings = {
     slidesToShow: 3,
