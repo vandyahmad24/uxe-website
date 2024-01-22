@@ -5,17 +5,45 @@ import { useEffect, useRef, useState } from "react";
 export default function Testimonial({ data }) {
   const testimonialTextRef = useRef(null);
   const { items, show } = data;
-  const [slides, setSlides] = useState(items.slice(0, show))
+  const [slides, setSlides] = useState(items.slice(0, show));
+
+  const handleShowMore = () => {
+    const isActive = testimonialTextRef.current.dataset.active === '1';
+    testimonialTextRef.current.dataset.active = isActive ? '0' : '1';
+
+    if (isActive) {
+      setSlides(items.slice(0, show));
+      testimonialTextRef.current.textContent = 'See more testimonials';
+    } else {
+      setSlides(items);
+      testimonialTextRef.current.textContent = 'See less testimonials';
+    }
+  };
 
   useEffect(() => {
-    const mediaQueryList = window.matchMedia('(max-width: 768px)');
-    if (mediaQueryList.matches) {
-      setSlides(items)
-    } else {
-      setSlides(items.slice(0, show))
-    }
-    return () => {}
-  }, [setSlides])
+    const mediaQueryList = window.matchMedia('(min-width: 768px)');
+
+    const handleMediaChange = (event) => {
+      if (event.matches) {
+        setSlides(items);
+        testimonialTextRef.current.textContent = 'See less testimonials';
+      } else {
+        setSlides(items.slice(0, show));
+        testimonialTextRef.current.textContent = 'See more testimonials';
+      }
+    };
+
+    // Set up initial state
+    handleMediaChange(mediaQueryList);
+
+    // Add listener for changes
+    mediaQueryList.addEventListener('change', handleMediaChange);
+
+    // Clean up listener on component unmount
+    return () => {
+      mediaQueryList.removeEventListener('change', handleMediaChange);
+    };
+  }, [items, show]);
 
   const settings = {
     slidesToShow: 3,
@@ -45,17 +73,6 @@ export default function Testimonial({ data }) {
       },
     ],
   };
-
-  const handleShowMore = () => {
-    testimonialTextRef.current.dataset.active = testimonialTextRef.current.dataset.active == "0" ? "1" : "0";
-    if (testimonialTextRef.current.dataset.active == "1") {
-      setSlides(items)
-      testimonialTextRef.current.textContent = "See less testimonial"
-    } else {
-      setSlides(items.slice(0, show))
-      testimonialTextRef.current.textContent = "See more testimonial"
-    }
-  }
 
   return (
     <div className="bg-white">

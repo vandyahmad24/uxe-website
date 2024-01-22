@@ -95,10 +95,7 @@ export default function ProductSection({ allClientLogo }) {
           <div className="bg-[#19191B] rounded-[12px] p-[max(32px,_min(calc(100vw_*_(54_/_1440)),_54px))_48px] flex flex-col items-center gap-[max(32px,_min(calc(100vw_*_(48_/_1440)),_48px))] bg-[url('/image/get-started-background.png')] bg-cover bg-no-repeat bg-bottom">
             <div className="flex gap-[20px] items-center justify-between w-full">
               <div className='flex flex-col gap-[16px]'>
-                <h2 className="text-[max(32px,_min(calc(100vw_*_(32_/_1440)),_32px))] font-medium leading-[120%] -tracking-[1.28px] bg-clip-text linear-8" style={{
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent"
-                }}>Get started with UXE</h2>
+                <h2 className="text-[max(32px,_min(calc(100vw_*_(32_/_1440)),_32px))] font-medium leading-[120%] -tracking-[1.28px] bg-clip-text linear-8 fill-transparent">Get started with UXE</h2>
                 <p className='text-white text-[16px] leading-[132%] -tracking-[.16px]'>Join over 4,000+ startups already growing with UXE.</p>
               </div>
               <a href="#" className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full hover:opacity-70" style={{

@@ -6,6 +6,7 @@ export default function Rating({rating}) {
   for (let i = 0; i < rating; i++) {
     ratingElements.push(
       <div
+        key={i}
         className="bg-[#FA550F29] p-[max(2px,_min(calc(100vw_*_(4_/_1440)),_4px))] rounded-[max(2px,_min(calc(100vw_*_(4_/_1440)),_4px))] h-[max(16px,_min(calc(100vw_*_(24_/_1440)),_24px))] w-[max(16px,_min(calc(100vw_*_(24_/_1440)),_24px))] flex items-center justify-center">
         <svg className="h-[max(10px,_min(calc(100vw_*_(16_/_1440)),_16px))]" xmlns="http://www.w3.org/2000/svg"
           width="16" height="16" viewBox="0 0 16 16" fill="none">
