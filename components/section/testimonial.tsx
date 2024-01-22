@@ -1,11 +1,20 @@
 import Slider from "react-slick";
 import Rating from "../ui/rating";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Testimonial({ data }) {
   const testimonialTextRef = useRef(null);
   const { items, show } = data;
   const [slides, setSlides] = useState(items.slice(0, show))
+
+  useEffect(() => {
+    const mediaQueryList = window.matchMedia('(max-width: 768px)');
+    if (mediaQueryList.matches) {
+      setSlides(items)
+    } else {
+      setSlides(items.slice(0, show))
+    }
+  })
 
   const settings = {
     slidesToShow: 3,
