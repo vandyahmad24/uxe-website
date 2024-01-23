@@ -6,6 +6,7 @@ import { CMS_NAME } from '../lib/constants'
 import Header from '../components/section/header'
 import Product from '../components/section/product'
 import Testimonial from '../components/section/testimonial'
+import Container from '../components/base/container'
 
 export default function ProductSection({ allClientLogo }) {
   return (
@@ -13,9 +14,25 @@ export default function ProductSection({ allClientLogo }) {
       <Head>
         <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
       </Head>
-      <Header
-        backgroundImageUrl={"/image/product-hero-background.png"}
-      />
+      <div className="bg-black">
+        <Container>
+          <div className="relative flex flex-col justify-end min-h-[400px]">
+            <div className="relative z-10 flex flex-col gap-[max(75px,_min(calc(100vw_*_(100_/_1440)),_100px))] p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))]">
+              <div className="flex items-end justify-between gap-[80px] max-xl:flex-col max-xl:items-start">
+                <div className="flex flex-col items-start gap-[10px] max-w-lg">
+                  <span className='text-[12px] text-white font-medium leading-[112%] -tracking-[.96px] uppercase'>OUR PRODUCT</span>
+                  <h2 className="text-[max(24px,_min(calc(100vw_*_(48_/_1440)),_48px))] max-lg:text-[max(24px,_min(calc(100vw_*_(80_/_1440)),_80px))] font-medium leading-[120%] -tracking-[1.28px] bg-linear-4 !bg-clip-text text-transparent">Discover Innovation in Smart Security Products</h2>
+                </div>
+                <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] font-medium leading-[132%] -tracking-[.16px] max-w-sm bg-linear-5 !bg-clip-text text-transparent">Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments</p>
+              </div>
+            </div>
+            <div className="absolute top-0 w-full min-h-[400px] bg-cover bg-no-repeat" style={{
+              backgroundImage: `url(/image/product-hero-background.png)`
+            }}></div>
+            <div className="absolute top-0 w-full min-h-[400px] bg-linear-7"></div>
+          </div>
+        </Container>
+      </div>
       <div className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))_48px_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
           <div className="flex flex-col gap-[48px]">
@@ -91,11 +108,11 @@ export default function ProductSection({ allClientLogo }) {
         </div>
         </div>
         <div className="bg-white">
-        <div className="max-w-[1440px] mx-auto px-[max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] overflow-hidden">
+        <div className="max-w-[1440px] mx-auto p-[0_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
           <div className="bg-[#19191B] rounded-[12px] p-[max(32px,_min(calc(100vw_*_(54_/_1440)),_54px))_48px] flex flex-col items-center gap-[max(32px,_min(calc(100vw_*_(48_/_1440)),_48px))] bg-[url('/image/get-started-background.png')] bg-cover bg-no-repeat bg-bottom">
-            <div className="flex gap-[20px] items-center justify-between w-full">
+            <div className="flex gap-[20px] items-center justify-between w-full max-md:flex-col max-md:text-center">
               <div className='flex flex-col gap-[16px]'>
-                <h2 className="text-[max(32px,_min(calc(100vw_*_(32_/_1440)),_32px))] font-medium leading-[120%] -tracking-[1.28px] bg-clip-text linear-8 fill-transparent">Get started with UXE</h2>
+                <h2 className="text-[max(32px,_min(calc(100vw_*_(32_/_1440)),_32px))] font-medium leading-[120%] -tracking-[1.28px] bg-clip-text bg-linear-8 text-transparent">Get started with UXE</h2>
                 <p className='text-white text-[16px] leading-[132%] -tracking-[.16px]'>Join over 4,000+ startups already growing with UXE.</p>
               </div>
               <a href="#" className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full hover:opacity-70" style={{
