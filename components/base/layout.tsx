@@ -6,49 +6,49 @@ export default function Layout({ children }) {
   const dataMenu = [
     {
       name: "Product",
-      url: "#",
+      url: "/product",
       submenu: []
     },
     {
       name: "Solution",
-      url: "#",
+      url: "/solution",
       submenu: [
         {
           name: "For Goverments",
           description: "All-in-One Security Platform<br/>Centralized Surveillance",
-          url: "#"
+          url: "/solution/for-goverment"
         },
         {
           name: "For Bussines",
           description: "All-in-One Security Platform<br/>Centralized Surveillance",
-          url: "#"
+          url: "/solution/for-bussines"
         }
       ]
     },
     {
       name: "Company",
-      url: "#",
+      url: "/company",
       submenu: [
         {
           name: "About Us",
           description: "UXE as it is",
-          url: "#"
+          url: "/company/about-us"
         },
         {
           name: "Careers",
           description: "Job opportunities",
-          url: "#"
+          url: "/company/career"
         },
         {
           name: "Team",
           description: "Our happy team",
-          url: "#"
+          url: "/company/team"
         },
       ]
     },
     {
       name: "Contact Us",
-      url: "#",
+      url: "/contact-us",
       submenu: []
     },
   ]

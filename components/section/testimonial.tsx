@@ -21,7 +21,7 @@ export default function Testimonial({ data }) {
   };
 
   useEffect(() => {
-    const mediaQueryList = window.matchMedia('(min-width: 768px)');
+    const mediaQueryList = window.matchMedia('(min-width: 600px)');
 
     const handleMediaChange = (event) => {
       if (event.matches) {
@@ -68,7 +68,7 @@ export default function Testimonial({ data }) {
         },
       },
       {
-        breakpoint: 768,
+        breakpoint: 767,
         settings: "unslick"
       },
     ],
@@ -114,7 +114,7 @@ export default function Testimonial({ data }) {
                 </div>
               ))}
             </Slider>
-            <div className="hidden justify-center max-lg:flex">
+            <div className="flex justify-center md:hidden">
               <button data-active="0" ref={testimonialTextRef} onClick={handleShowMore} className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B] backdrop-blur-[2px] border border-[#F4F5F6] hover:opacity-70">See more testimonial</button>
             </div>
           </div>
