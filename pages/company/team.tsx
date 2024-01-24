@@ -22,7 +22,7 @@ export default function TeamSection({ allClientLogo }) {
             <div className="relative z-10 flex flex-col gap-[max(75px,_min(calc(100vw_*_(100_/_1440)),_100px))] p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))]">
               <div className="flex items-end justify-between gap-[80px] max-xl:flex-col max-xl:items-start">
                 <div className="flex flex-col items-start gap-[10px] max-w-lg">
-                  <span className='text-[12px] text-white font-medium leading-[112%] -tracking-[.96px] uppercase'>Our Team</span>
+                  <span className="text-[12px] text-white font-medium leading-[112%] -tracking-[.96px] uppercase">Our Team</span>
                   <h2 className="text-[max(24px,_min(calc(100vw_*_(48_/_1440)),_48px))] max-lg:text-[max(24px,_min(calc(100vw_*_(80_/_1440)),_80px))] font-medium leading-[120%] -tracking-[1.28px] bg-linear-4 !bg-clip-text text-transparent">Happy people who work hard to empower your teams.</h2>
                 </div>
                 <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] font-medium leading-[132%] -tracking-[.16px] max-w-sm bg-linear-5 !bg-clip-text text-transparent">Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments</p>
@@ -40,7 +40,7 @@ export default function TeamSection({ allClientLogo }) {
           <div className="flex flex-col gap-[max(48px,_min(calc(100vw_*_(64_/_1440)),_64px))]">
             <div className="flex flex-col items-center gap-[max(8px,_min(calc(100vw_*_(12_/_1440)),_12px))] text-center">
               <h2 className="text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] text-[#19191B] font-medium leading-[112%] -tracking-[.64px]">Our leadership team</h2>
-              <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] leading-[132%] -tracking-[.16px]">With over 100 years of combined experience, we've got a well-seasoned team at the helm.</p>
+              <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] leading-[132%] -tracking-[.16px]">With over 100 years of combined experience, we ve got a well-seasoned team at the helm.</p>
             </div>
             <div className="grid grid-cols-4 gap-[20px] max-lg:grid-cols-2 max-sm:grid-cols-1">
               <div className="relative rounded-[12px] overflow-hidden pt-[100%] h-0 w-full text-white">
