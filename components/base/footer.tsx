@@ -29,21 +29,21 @@ export default function Footer() {
             <div className="flex flex-col gap-[32px]">
               <span className="text-[10px] text-[#828D91] font-medium leading-[140%] tracking-[.4px] uppercase">Contact us</span>
               <div className="flex flex-col gap-[4px]">
-                <a href="#" className="text-[14px] text-white leading-[140%] hover:opacity-70">+1 891 989-11-91</a>
-                <a href="#" className="text-[14px] text-white leading-[140%] hover:opacity-70">hello@uxe.com</a>
+                <a href="#" className="text-[14px] text-white leading-[140%] hover:opacity-70">+971 523 597640</a>
+                <a href="#" className="text-[14px] text-white leading-[140%] hover:opacity-70">admin@uxe.com</a>
               </div>
             </div>
             <div className="flex flex-col gap-[32px]">
               <span className="text-[10px] text-[#828D91] font-medium leading-[140%] tracking-[.4px] uppercase">Follow us</span>
               <div className="flex flex-col gap-[4px]">
-                <a href="#" className="text-[14px] text-white leading-[140%] hover:opacity-70">Instagram</a>
-                <a href="#" className="text-[14px] text-white leading-[140%] hover:opacity-70">Telegram</a>
+                <a href="https://www.instagram.com/uxe.ai/" target='_blank' className="text-[14px] text-white leading-[140%] hover:opacity-70">Instagram</a>
+                <a href="https://www.linkedin.com/company/uxe-security-solutionsllc/" target='_blank' className="text-[14px] text-white leading-[140%] hover:opacity-70">LinkedIn</a>
               </div>
             </div>
           </div>
           <div className="flex flex-col gap-[max(16px,_min(calc(100vw_*_(48_/_1440)),_48px))]">
             <div className="flex items-center justify-between">
-              <p className="text-[14px] text-white leading-[132%] -tracking-[.14px]">1901 Thornridge Cir. Shiloh, Hawaii 81063</p>
+              <p className="text-[14px] text-white leading-[132%] -tracking-[.14px]">United Arab Emirates, Dubai, Muhaisnah 2 Tunis Street</p>
               <button className="animate-bounce" title="Back to Top" onClick={scrollToTop}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path d="M12 19L12 5M12 5L18 11M12 5L6 11" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
