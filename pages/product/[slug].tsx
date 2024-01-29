@@ -10,7 +10,6 @@ import { TitleMedium } from '../../stories/ui/title/title-medium/TitleMedium'
 import { TextSmall } from '../../stories/ui/text/text-small/TextSmall'
 
 export default function Product({ post, posts, preview }) {
-  console.log(post)
   const router = useRouter()
   const morePosts = posts?.edges
 
@@ -54,8 +53,6 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
   const data = await getProductAndMoreProducts(params?.slug)
 
-  console.log(data)
-
   return {
     props: {
       preview,
@@ -68,8 +65,6 @@ export const getStaticProps: GetStaticProps = async ({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const allPosts = await getAllProductsWithSlug()
-
-  console.log(JSON.stringify(allPosts.edges))
 
   return {
     paths: allPosts.edges.map(({ node }) => `/product/${node.slug}`) || [],

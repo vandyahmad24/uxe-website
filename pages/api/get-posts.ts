@@ -13,8 +13,6 @@ export default async function getPosts(
     return res.status(401).json({ message: 'Post not found' })
   }
 
-  console.log(post)
-
   // Enable Preview Mode by setting the cookies
   res.setPreviewData({
     post,

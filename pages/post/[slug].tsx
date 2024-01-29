@@ -8,11 +8,13 @@ import MoreStories from '../../components/more-stories'
 import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
 import SectionSeparator from '../../components/section-separator'
-import Layout from '../../components/layout'
+import { CMS_NAME } from '../../lib/constants'
+import { TitleMedium } from '../../stories/ui/title/title-medium/TitleMedium'
+import { TextSmall } from '../../stories/ui/text/text-small/TextSmall'
 import PostTitle from '../../components/post-title'
 import Tags from '../../components/tags'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
-import { CMS_NAME } from '../../lib/constants'
+import Layout from "../../components/base/layout";
 
 export default function Post({ post, posts, preview }) {
   const router = useRouter()
@@ -23,41 +25,26 @@ export default function Post({ post, posts, preview }) {
   }
 
   return (
-    <Layout preview={preview}>
-      <Container>
-        <Header />
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
-          <>
-            <article>
-              <Head>
-                <title>
-                  {`${post.title} | Next.js Blog Example with ${CMS_NAME}`}
-                </title>
-                <meta
-                  property="og:image"
-                  content={post.featuredImage?.node.sourceUrl}
-                />
-              </Head>
-              <PostHeader
-                title={post.title}
-                coverImage={post.featuredImage}
-                date={post.date}
-                author={post.author}
-                categories={post.categories}
-              />
-              <PostBody content={post.content} />
-              <footer>
-                {post.tags.edges.length > 0 && <Tags tags={post.tags} />}
-              </footer>
-            </article>
-
-            <SectionSeparator />
-            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-          </>
-        )}
-      </Container>
+    <Layout>
+      <Head>
+        <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
+      </Head>
+      <div className="bg-white">
+        <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(170_/_1440)),_170px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
+          <div className='text-center flex flex-col items-center gap-[10px]'>
+            <TitleMedium label={post?.title} />
+          </div>
+          <div>
+            <img
+              src={"https://api.uxe.ai/"+post?.featuredImage?.node?.sourceUrl}
+              alt={post?.title}
+              className='mx-auto'
+            />
+            <div dangerouslySetInnerHTML={{ __html: post?.content }}>
+            </div>
+          </div>
+        </div>
+      </div>
     </Layout>
   )
 }
@@ -81,8 +68,6 @@ export const getStaticProps: GetStaticProps = async ({
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const allPosts = await getAllPostsWithSlug()
-
-  console.log(allPosts)
 
   return {
     paths: allPosts.edges.map(({ node }) => `/post/${node.slug}`) || [],
