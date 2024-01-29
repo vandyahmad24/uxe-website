@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-export default function Vision() {
+export default function Vision({ mission, vision }) {
   const [isActive, setIsActive] = useState(0);
   const cScroll = useRef(null);
   const cPadding = useRef(null);
@@ -71,13 +71,13 @@ export default function Vision() {
           <div className="h-full grid grid-cols-2 gap-[max(32px,_min(calc(100vw_*_(60_/_1440)),_60px))] max-lg:flex max-lg:flex-col">
             <div ref={cImage} className="max-lg:hidden overflow-hidden rounded-[12px]">
               <img
-                src="/image/vision-image-01.png"
-                alt="VISION IMAGE"
+                src={"https://api.uxe.ai/"+vision.image_url}
+                alt={vision.title}
                 className="h-full w-full object-cover"
               />
               <img
-                src="/image/vision-image-02.png"
-                alt="VISION IMAGE"
+                src={"https://api.uxe.ai/"+mission.image_url}
+                alt={mission.title}
                 className="h-full w-full object-cover"
               />
             </div>
@@ -88,7 +88,7 @@ export default function Vision() {
                     Vision
                   </p>
                   <h2 className="text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] text-[#19191B] font-medium leading-[112%] -tracking-[.64px] mt-[10px] max-w-[34rem]">
-                    Make unwavering impact on individuals and companies to feel secure through our products and services.
+                    {vision.title}
                   </h2>
                 </div>
                 <div className="transition-all duration-700 absolute top-0 opacity-0">
@@ -96,14 +96,14 @@ export default function Vision() {
                   Mission
                   </p>
                   <h2 className="text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] text-[#19191B] font-medium leading-[112%] -tracking-[.64px] mt-[10px] max-w-[34rem]">
-                  Build a futuristic entity that holds in its mission the sense of security, well-being of people by adopting cutting edge technologies, Trackers, Artificial Intelligence and Robotics.
+                  {mission.title}
                   </h2>
                 </div>
               </div>
 
               <div ref={cFooter} className="max-lg:flex flex-col gap-[32px]">
                 <p className="text-[max(14px,_min(calc(100vw_*_(20_/_1440)),_20px))] text-[#19191B] leading-[132%] -tracking-[.2px]">
-                Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments
+                {vision.description}
                 </p>
                 <div className="gap-[6px] mt-[34px] max-lg:mt-0 flex">
                   <div className="transition-all duration-700 h-[max(4px,_min(calc(100vw_*_(6_/_1440)),_6px))] w-[max(32px,_min(calc(100vw_*_(64_/_1440)),_64px))] bg-[#3760FF] rounded-full"></div>

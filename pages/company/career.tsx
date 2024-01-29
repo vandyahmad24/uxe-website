@@ -3,8 +3,6 @@ import { GetStaticProps } from "next";
 import Layout from "../../components/base/layout";
 import { getClient } from "../../lib/api";
 import { CMS_NAME } from "../../lib/constants";
-import Header from "../../components/section/header";
-import Product from "../../components/section/product";
 import Testimonial from "../../components/section/testimonial";
 import Container from "../../components/base/container";
 import IconCloud from "../../components/icon/cloud";

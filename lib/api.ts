@@ -59,6 +59,21 @@ export async function getAllPostsWithSlug() {
   return data?.posts
 }
 
+export async function getAllProductsWithSlug() {
+  const data = await fetchAPI(`
+    {
+      products(first: 10000) {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `)
+  return data?.products
+}
+
 export async function getAllPostsForHome(preview) {
   const data = await fetchAPI(
     `
@@ -102,6 +117,9 @@ export async function getAllPostsForHome(preview) {
 }
 
 export async function getPostAndMorePosts(slug, preview, previewData) {
+  console.log(slug)
+  console.log(preview)
+  console.log(previewData)
   const postPreview = preview && previewData?.post
   // The slug may be the id of an unpublished post
   const isId = Number.isInteger(Number(slug))
@@ -207,6 +225,68 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
   data.posts.edges = data.posts.edges.filter(({ node }) => node.slug !== slug)
   // If there are still 3 posts, remove the last one
   if (data.posts.edges.length > 2) data.posts.edges.pop()
+
+  return data
+}
+
+export async function getProductAndMoreProducts(slug) {
+  const data = await fetchAPI(
+    `
+    query ProductBySlug($id: ID!) {
+      product(id: $id, idType: URI) {
+        title
+        excerpt
+        slug
+        date
+        featuredImage {
+          node {
+            sourceUrl
+          }
+        }
+        content
+        productCategorys(first: 10) {
+          edges {
+            node {
+              id
+              name
+            }
+          }
+        }
+      }
+      products(first: 3, where: {orderby: {field: DATE, order: DESC}}) {
+        edges {
+          node {
+            title
+            excerpt
+            slug
+            date
+            featuredImage {
+              node {
+                sourceUrl
+              }
+            }
+            productCategorys(first: 10) {
+              edges {
+                node {
+                  id
+                  name
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  `,
+    {
+      variables: {
+        id: slug,
+      },
+    }
+  )
+
+  console.log(slug)
+  console.log(data)
 
   return data
 }

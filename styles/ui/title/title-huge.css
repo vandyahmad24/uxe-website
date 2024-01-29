@@ -1,0 +1,15 @@
+.title-huge {
+  @apply text-[max(32px,_min(calc(100vw_*_(64_/_1440)),_64px))]
+  max-md:text-[max(32px,_min(calc(100vw_*_(100_/_1440)),_100px))]
+  font-medium leading-[120%] -tracking-[1.28px];
+}
+
+.title-huge--custom {
+  color: transparent;
+  background-clip: text !important;
+  background-image: linear-gradient(159deg, #FFF 4.02%, rgba(255, 255, 255, 0.00) 107.54%);
+}
+
+.title-huge--hover {
+  @apply hover:opacity-70 cursor-pointer;
+}

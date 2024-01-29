@@ -53,15 +53,13 @@ export default function Navigation({ menu }) {
   })
 
   return (
-    <div className={cn("fixed top-0 z-50 w-full")}>
-      <Container style={{ overflow: 'visible' }}>
+    <div className="fixed top-0 z-50 w-full">
+      <div className="max-w-[1440px] mx-auto">
         <div className="p-[20px_38px_0_38px] max-xl:p-0">
           <div id='navigation-container' className={containerClass}>
             <div className={cn(
               "px-[max(20px,_min(calc(100vw_*_(32_/_1440)),_32px))] max-md:py-[max(12px,_min(calc(100vw_*_(18_/_1440)),_18px))] max-md:flex-col flex items-center justify-between max-md:justify-start",
-              {
-                "max-md:h-screen": isMobile
-              }
+              { "max-md:h-screen": isMobile }
               )}>
               <div className='max-md:w-full flex items-center justify-between'>
                 <Link href="/">
@@ -106,7 +104,7 @@ export default function Navigation({ menu }) {
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </div>
   )
 }

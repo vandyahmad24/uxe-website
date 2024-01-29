@@ -1,0 +1,17 @@
+.list-logo {
+  @apply flex items-center justify-between gap-[12px]
+  py-[28px] border-t-[.5px] border-[#ffffff4d]
+  max-md:border-none max-xl:flex-col max-xl:items-start;
+}
+
+.list-logo--desc {
+  @apply max-md:text-[#B1AFAF] text-white;
+}
+
+.list-logo--wrapper {
+  @apply flex flex-wrap max-lg:justify-center gap-[12px_32px];
+}
+
+.list-logo--wrapper img {
+  @apply max-sm:grow;
+}
