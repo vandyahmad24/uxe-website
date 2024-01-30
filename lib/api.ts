@@ -115,6 +115,34 @@ export async function getAllPostsForHome(preview) {
 
   return data?.posts
 }
+export async function getAllProductForHome() {
+  const data = await fetchAPI(
+    `
+    query AllProducts($first: Int = 20, $order: OrderEnum = DESC) {
+      products(first: $first, where: {orderby: {field: DATE, order: $order}}) {
+        edges {
+          node {
+            title
+            excerpt
+            slug
+            date
+            featuredImage {
+              node {
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  `,
+    {
+      variables: {},
+    }
+  )
+
+  return data?.products
+}
 
 export async function getPostAndMorePosts(slug, preview, previewData) {
   const postPreview = preview && previewData?.post
