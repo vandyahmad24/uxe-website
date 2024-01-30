@@ -1,0 +1,14 @@
+.title-xxsmall {
+  @apply text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))]
+  font-medium leading-[132%] -tracking-[.16px];
+}
+
+.title-xxsmall--custom {
+  color: transparent;
+  background-clip: text !important;
+  background-image: linear-gradient(159deg, #FFF 4.02%, rgba(255, 255, 255, 0.00) 107.54%);
+}
+
+.title-xxsmall--hover {
+  @apply hover:opacity-70 cursor-pointer;
+}

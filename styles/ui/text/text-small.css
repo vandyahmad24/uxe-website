@@ -1,0 +1,13 @@
+.text-small {
+  @apply text-[12px] leading-[132%] -tracking-[.12px];
+}
+
+.text-small--custom {
+  color: transparent;
+  background-clip: text !important;
+  background-image: linear-gradient(159deg, #FFF 4.02%, rgba(255, 255, 255, 0.00) 107.54%);
+}
+
+.text-small--hover {
+  @apply hover:opacity-70 cursor-pointer;
+}

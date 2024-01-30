@@ -19,8 +19,8 @@ export default function Hero({ client, backgroundVideo }) {
               <div className="flex items-center justify-between gap-[12px] py-[28px] max-xl:flex-col max-xl:items-start">
                 <p className="text-[max(10px,_min(calc(100vw_*_(14_/_1440)),_14px))] max-md:text-[#B1AFAF] text-white leading-[132%] -tracking-[.14px]">Trusted by hundreds of organizations</p>
                 <div className="flex flex-wrap max-lg:justify-center gap-[12px_32px]">
-                  {client.map(({name, url}, index) => (
-                    <img className='max-sm:grow' key={index} src={url} alt={name} />
+                  {client.map(({logo_url, alt}, index) => (
+                    <img className='max-sm:grow' key={index} src={"https://api.uxe.ai/"+logo_url} alt={alt} />
                   ))}
                 </div>
               </div>

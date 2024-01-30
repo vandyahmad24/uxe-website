@@ -6,3 +6,4 @@
 @tailwind utilities;
 @import "./tailwind/utilities.css";
 @import "./tailwind/wordpress.css";
+@import "./ui/index.css";

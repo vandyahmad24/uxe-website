@@ -93,23 +93,23 @@ export default function Testimonial({ data }) {
                     </div>
                     <p
                       className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] leading-[132%] -tracking-[.16px]">
-                      {cp.review}</p>
+                      {cp.review_text}</p>
                   </div>
                   <div className="flex items-center justify-between gap-[12px] w-full">
                     <div className="flex items-center justify-center gap-[12px]">
                       <div
                         className="w-[32px] h-[32px] bg-black rounded-full bg-cover"
-                        style={{ backgroundImage: `url(${cp.userPhoto})` }}></div>
+                        style={{ backgroundImage: `url(${"https://api.uxe.ai/"+cp.reviewer_image})` }}></div>
                       <div className="flex flex-col gap-[4px]">
                         <p
                           className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] font-medium leading-[132%] -tracking-[.16px]">
-                          {cp.userName}</p>
+                          {cp.reviewer_name}</p>
                         <p
                           className="text-[max(12px,_min(calc(100vw_*_(14_/_1440)),_14px))] text-[#19191B] leading-[132%] -tracking-[.14px]">
-                          {cp.userRole}</p>
+                          {cp.reviewer_role}</p>
                       </div>
                     </div>
-                    <img src={cp.userCompanyLogo} alt="" />
+                    <img src={"https://api.uxe.ai/"+cp.reviewer_company_image} alt="" />
                   </div>
                 </div>
               ))}

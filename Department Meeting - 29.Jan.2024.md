@@ -1,0 +1,12 @@
+- tomorrow eod to have the WP integration ready with content Abir changed
+- Employee's training, elevated tasks
+- Training should be beneficial to the department
+- Core Topics:
+    - Work closely with Sharad & Abit to have a plan for commercializing the products
+    - We need to ensure whatever of the existing products are being commercialized (Video Guard, Secure Path, Keyless)
+    - Define all product dick, Technical documentation, Certifications, Financial Model, marketing documentation, legal documentation, marketing strategy, target markets, possible distributors.
+    - Setup a timeline, by next week we need the initial plan, requirements and what is available, the documentation.
+    - NEXT Thursday 01/FAB/2024
+
+- Create a RACI Matrix for the distribution of tasks
+- 
