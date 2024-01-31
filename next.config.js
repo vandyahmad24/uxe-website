@@ -24,5 +24,5 @@ module.exports = {
       },
     ],
   },
-  output: "standalone",
+  output: "export",
 }
