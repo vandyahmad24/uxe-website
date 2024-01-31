@@ -1,0 +1,33 @@
+{
+  "hero_url": "https://api.uxe.ai/wp-content/uploads/2024/01/mixkit-surveillance-team-checking-the-cameras-22997-large.mp4",
+  "clients": [
+    {
+      "alt": "Company Logo 1",
+      "logo_url": "https://api.uxe.ai/wp-content/uploads/2024/01/company-logo-01.png"
+    },
+    {
+      "alt": "Company Logo 2",
+      "logo_url": "https://api.uxe.ai/wp-content/uploads/2024/01/company-logo-02.png"
+    },
+    {
+      "alt": "Company Logo 3",
+      "logo_url": "https://api.uxe.ai/wp-content/uploads/2024/01/company-logo-03.png"
+    },
+    {
+      "alt": "Company Logo 4",
+      "logo_url": "https://api.uxe.ai/wp-content/uploads/2024/01/company-logo-04.png"
+    },
+    {
+      "alt": "Company Logo 5",
+      "logo_url": "https://api.uxe.ai/wp-content/uploads/2024/01/company-logo-05.png"
+    },
+    {
+      "alt": "Company Logo 6",
+      "logo_url": "https://api.uxe.ai/wp-content/uploads/2024/01/company-logo-06.png"
+    },
+    {
+      "alt": "Company Logo 7",
+      "logo_url": "https://api.uxe.ai/wp-content/uploads/2024/01/company-logo-07.png"
+    }
+  ]
+}

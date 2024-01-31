@@ -18,17 +18,23 @@ type Story = StoryObj<typeof Container>;
 export const Large: Story = {
   args: {
     size: 'large',
+    cls: "bg-black",
+    style: {width: "4000px", minHeight: "400px"}
   },
 };
 
 export const Medium: Story = {
   args: {
     size: 'medium',
+    cls: "bg-black",
+    style: {width: "4000px", minHeight: "400px"}
   },
 };
 
 export const Small: Story = {
   args: {
     size: 'small',
+    cls: "bg-black",
+    style: {width: "4000px", minHeight: "400px"}
   },
 };

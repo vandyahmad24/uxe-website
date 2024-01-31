@@ -1,0 +1,41 @@
+{
+  "contact": {
+    "email": "hello@uxe.com",
+    "phone": "+1 891 989-11-91"
+  },
+  "follow": {
+    "instagram": "/",
+    "telegram": "/"
+  },
+  "general": {
+    "address": "1901 Thornridge Cir. Shiloh, Hawaii 81063",
+    "hero_about_us": {
+      "type": "image",
+      "url": "https://api.uxe.ai/wp-content/uploads/2024/01/about-us-hero-background.png"
+    },
+    "hero_blog": {
+      "type": "image",
+      "url": "https://api.uxe.ai/wp-content/uploads/2024/01/product-hero-background.png"
+    },
+    "hero_career": {
+      "type": "image",
+      "url": "https://api.uxe.ai/wp-content/uploads/2024/01/career-background.png"
+    },
+    "hero_contact": {
+      "type": "image",
+      "url": "https://api.uxe.ai/wp-content/uploads/2024/01/contact-background.png"
+    },
+    "hero_home": {
+      "type": "video",
+      "url": "https://api.uxe.ai/wp-content/uploads/2024/01/mixkit-surveillance-team-checking-the-cameras-22997-large.mp4"
+    },
+    "hero_product": {
+      "type": "image",
+      "url": "https://api.uxe.ai/wp-content/uploads/2024/01/product-hero-background.png"
+    },
+    "hero_team": {
+      "type": "image",
+      "url": "https://api.uxe.ai/wp-content/uploads/2024/01/team-hero-background.png"
+    }
+  }
+}

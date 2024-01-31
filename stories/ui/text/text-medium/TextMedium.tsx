@@ -4,7 +4,7 @@ import cn from 'classnames';
 // Define the properties for the TextMedium component
 interface TextMediumProps {
   cls?: string;             // Additional classes for styling
-  label: string;            // Text content of the title
+  label: any;            // Text content of the title
   hover?: boolean;           // Whether to apply hover styles
   decoration?: boolean;      // Whether to apply decoration styles
   el?: "p" | "a" | "button"; // HTML element type
