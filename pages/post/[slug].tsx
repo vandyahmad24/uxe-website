@@ -270,7 +270,7 @@ export default function Post({ post, posts, preview }) {
             </div>
 
             <div className="grid grid-cols-3 gap-[20px] max-xl:grid-cols-2 max-md:grid-cols-1">
-              {morePosts.map(({ node }, index) => (
+              {morePosts && morePosts.map(({ node }, index) => (
                 <div key={index} className="flex flex-col gap-[20px]">
                   <div className="relative w-full pt-[112%] rounded-[12px] bg-[#F2F2F2]">
                     <div className="absolute inset-0 w-full h-full">
