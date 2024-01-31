@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { TextLarge } from "../../stories/ui/text/text-large/TextLarge"
 
 export default function News({posts}) {
   if (posts) {
@@ -18,7 +19,10 @@ export default function News({posts}) {
                     <div className="flex flex-col items-start justify-start gap-[12px]">
                       <span className="text-[14px] text-[#19191B80] font-medium leading-[132%] p-[4px_12px] border border-[#D9D9D9] rounded-full">Technology</span>
                       <Link href={"/post/"+item.node.slug}  className="text-[20px] text-[#19191B] font-medium leading-[132%] -tracking-[.2px] hover:opacity-70 line-clamp-2">{item.node.title}</Link>
-                      <p className="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px] opacity-50 line-clamp-2" dangerouslySetInnerHTML={{ __html: item.node.excerpt}}></p>
+                      <TextLarge
+                      label={item.node.excerpt}
+                      cls="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px] opacity-50 line-clamp-2"
+                      />
                     </div>
                     <Link href={"/post/"+item.node.slug} className="flex items-center gap-[8px] hover:opacity-70">
                       <span className="text-[16px] text-[#19191B] font-medium leading-[132%] -tracknig-[.16px]">Read post</span>

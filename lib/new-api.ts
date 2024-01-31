@@ -20,6 +20,7 @@ async function fetchAPI(query = '', { variables }: Record<string, any> = {}) {
   })
 
   const json = await res.json()
+
   if (json.errors) {
     console.error(json.errors)
     throw new Error('Failed to fetch API')
@@ -165,7 +166,34 @@ export async function getCMSSetting() {
         }
         general {
           address
-          hero_video
+          hero_about_us {
+            type
+            url
+          }
+          hero_blog {
+            type
+            url
+          }
+          hero_career {
+            type
+            url
+          }
+          hero_contact {
+            type
+            url
+          }
+          hero_home {
+            type
+            url
+          }
+          hero_product {
+            type
+            url
+          }
+          hero_team {
+            type
+            url
+          }
         }
       }
       careers {

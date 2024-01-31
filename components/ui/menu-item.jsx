@@ -1,3 +1,4 @@
+import { TextSmall } from '../../stories/ui/text/text-small/TextSmall'
 import SubMenuItem from '../ui/submenu-item'
 export default function MenuItem({ menu }) {
   return (
@@ -29,8 +30,10 @@ export default function MenuItem({ menu }) {
 
                         <div className="flex flex-col gap-[6px]">
                           <p className="text-[16px] font-bold leading-[132%] -tracking-[.16px]">{name}</p>
-                          <p dangerouslySetInnerHTML={{ __html: description }} className="max-md:hidden text-[12px] text-[#19191B80] font-medium leading-[132%] -tracking-[.12px]">
-                          </p>
+                          <TextSmall
+                            label={description}
+                            cls="max-md:hidden text-[12px] text-[#19191B80] font-medium leading-[132%] -tracking-[.12px]"
+                          />
                         </div>
                       </a>
                     ))}

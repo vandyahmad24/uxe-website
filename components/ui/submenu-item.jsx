@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { TextSmall } from "../../stories/ui/text/text-small/TextSmall";
 
 export default function SubMenuItem({ name, submenu, elementId }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -53,10 +54,10 @@ export default function SubMenuItem({ name, submenu, elementId }) {
                 <p className="text-[16px] font-bold leading-[132%] -tracking-[.16px]">
                   {name}
                 </p>
-                <p
-                  dangerouslySetInnerHTML={{ __html: description }}
-                  className="text-[12px] text-[#19191B80] font-medium leading-[132%] -tracking-[.12px]"
-                ></p>
+                <TextSmall
+                  label={description}
+                  cls="text-[12px] text-[#19191B80] font-medium leading-[132%] -tracking-[.12px]"
+                />
               </div>
             </a>
           ))}

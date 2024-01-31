@@ -1,9 +1,3 @@
-import Container from '../base/container'
-import Image from 'next/image'
-import Link from 'next/link'
-import IconCloud from '../icon/cloud'
-import IconTechnology from '../icon/technology'
-
 export default function Feature({features}) {
   return (
     <div className="bg-white">
@@ -15,7 +9,9 @@ export default function Feature({features}) {
           </div>
           {features.map(({ icon, title, description }, index) => (
             <div key={index} className="px-[20px] border-l border-[#0000000F] flex flex-col items-start gap-[40px]">
-              <div className="bg-[#E6EDFF] p-[12px] rounded-[12px]" dangerouslySetInnerHTML={{ __html: icon.toString('utf-8').replace(/\\/g, '') }}>
+              <div className="bg-[#E6EDFF] p-[12px] rounded-[12px]" dangerouslySetInnerHTML={{
+                __html: icon.toString('utf-8').replace(/\\/g, ''),
+              }}>
               </div>
               <div className="flex flex-col gap-[8px]">
                 <h3 className="text-[20px] text-[#19191B] font-medium leading-[132%] -tracking-[.2px]">{title}</h3>

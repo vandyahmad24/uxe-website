@@ -4,7 +4,7 @@ import LabelHero from '../ui/label-hero'
 export default function Hero({ client, backgroundVideo }) {
   return (
     <div className="bg-black">
-      <Container>
+      <div className="max-w-[1440px] mx-auto overflow-hidden">
         <div className="relative flex flex-col justify-end min-h-[max(686px,_min(calc(100vw_*_(824_/_1440)),_824px))]">
           <div className="relative z-10 flex flex-col gap-[max(75px,_min(calc(100vw_*_(100_/_1440)),_100px))] px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] bg-linear-3">
             <div className="flex items-end justify-between gap-[32px] max-xl:flex-col max-xl:items-start">
@@ -26,9 +26,9 @@ export default function Hero({ client, backgroundVideo }) {
               </div>
             </div>
           </div>
-          <video className="absolute top-0 w-full min-h-[824px] object-cover" src={backgroundVideo} autoPlay loop playsInline muted></video>
+          <video className="absolute top-0 w-full min-h-[824px] object-cover" src={backgroundVideo?.url} autoPlay loop playsInline muted></video>
         </div>
-      </Container>
+      </div>
     </div>
   )
 }
