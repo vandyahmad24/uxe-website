@@ -235,6 +235,8 @@ export default function Post({ post, posts, preview }) {
               </div>
             </div>
           </div>
+        {morePosts && (
+          <>
           <div
             className="w-full h-[1px] my-[32px]"
             style={{
@@ -242,7 +244,6 @@ export default function Post({ post, posts, preview }) {
                 "linear-gradient(270deg, rgba(25, 25, 27, 0.10) 0%, rgba(25, 25, 27, 0.29) 50.7%, rgba(25, 25, 27, 0.10) 103.78%)",
             }}
           ></div>
-
           <div>
             <div className="flex justify-between items-center">
               <TitleXXSmall label="Related Article" />
@@ -268,9 +269,8 @@ export default function Post({ post, posts, preview }) {
                 cls="flex items-center gap-[6px]"
               />
             </div>
-
             <div className="grid grid-cols-3 gap-[20px] max-xl:grid-cols-2 max-md:grid-cols-1">
-              {morePosts && morePosts.map(({ node }, index) => (
+              {morePosts.map(({ node }, index) => (
                 <div key={index} className="flex flex-col gap-[20px]">
                   <div className="relative w-full pt-[112%] rounded-[12px] bg-[#F2F2F2]">
                     <div className="absolute inset-0 w-full h-full">
@@ -301,6 +301,8 @@ export default function Post({ post, posts, preview }) {
               ))}
             </div>
           </div>
+          </>
+        )}
         </div>
       </div>
     </Layout>

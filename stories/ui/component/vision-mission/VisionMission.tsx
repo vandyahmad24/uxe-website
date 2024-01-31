@@ -25,81 +25,84 @@ export const VisionMission = ({ data, ...props }: VisionMissionProps) => {
   const cFooter = useRef(null);
   const cImage = useRef(null);
 
-  const visionHandle = () => {
-    const section = cScroll.current;
-    const sectionRect = section.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    const sectionTop = sectionRect.top;
-
-    const containerPaddingValue = parseInt(
-      getComputedStyle(cPadding.current).paddingTop.replace("px", "")
-    );
-
-    const container = cImage.current.querySelectorAll("img");
-    const containerContent = cContent.current.childNodes;
-    const containerFooter = cFooter.current.childNodes[1].childNodes;
-
-    if (sectionTop < 0) {
-      const navigationElm = window.document.querySelector(
-        "#navigation-container"
-      );
-      if (navigationElm) {
-        cPadding.current.style.paddingTop = `calc(max(44px, min(calc(100vw * (80 / 1440)), 80px)) + ${navigationElm.clientHeight}px)`;
+  useEffect(() => {
+    const visionHandle = () => {
+      const section = cScroll.current;
+      if (!section) {
+        // Handle the case where cScroll.current is null
+        return;
       }
-
-      container.forEach((e, i) => {
-        if (
-          sectionTop >
-          (windowHeight * i - containerPaddingValue * 2 * i) * -1 -
-            navigationElm.clientHeight
-        ) {
-          e.style.transform = `translateY(${sectionTop}px)`;
+      const sectionRect = section.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const sectionTop = sectionRect.top;
+  
+      const containerPaddingValue = parseInt(
+        getComputedStyle(cPadding.current).paddingTop.replace("px", "")
+      );
+  
+      const container = cImage.current.querySelectorAll("img");
+      const containerContent = cContent.current.childNodes;
+      const containerFooter = cFooter.current.childNodes[1].childNodes;
+  
+      if (sectionTop < 0) {
+        const navigationElm = window.document.querySelector(
+          "#navigation-container"
+        );
+        if (navigationElm) {
+          cPadding.current.style.paddingTop = `calc(max(44px, min(calc(100vw * (80 / 1440)), 80px)) + ${navigationElm.clientHeight}px)`;
         }
-
-        if (
-          sectionTop <
-          (windowHeight * i - containerPaddingValue * 2 * i) * -1 -
-            navigationElm.clientHeight
-        ) {
-          e.style.transform = `translateY(${
+  
+        container.forEach((e, i) => {
+          if (
+            sectionTop >
             (windowHeight * i - containerPaddingValue * 2 * i) * -1 -
-            navigationElm.clientHeight
-          }px)`;
-          setIsActive(i);
+              navigationElm.clientHeight
+          ) {
+            e.style.transform = `translateY(${sectionTop}px)`;
+          }
+  
+          if (
+            sectionTop <
+            (windowHeight * i - containerPaddingValue * 2 * i) * -1 -
+              navigationElm.clientHeight
+          ) {
+            e.style.transform = `translateY(${
+              (windowHeight * i - containerPaddingValue * 2 * i) * -1 -
+              navigationElm.clientHeight
+            }px)`;
+            setIsActive(i);
+          }
+        });
+      } else {
+        const navigationElm = window.document.querySelector(
+          "#navigation-container"
+        );
+        if (navigationElm) {
+          cPadding.current.style.paddingTop = `max(44px, min(calc(100vw * (80 / 1440)), 80px))`;
+        }
+      }
+  
+      containerContent.forEach((element, ei) => {
+        if (ei == isActive) {
+          element.style.opacity = 1;
+          // element.style.display = "block"
+          containerFooter[ei].style.background = "#3760ff";
+          containerFooter[ei].style.width =
+            "max(32px, min(calc(100vw * (64 / 1440)), 64px))";
+        } else {
+          element.style.opacity = 0;
+          // element.style.display = "none"
+          containerFooter[ei].style.background = "#0000003D";
+          containerFooter[ei].style.width =
+            "max(12px, min(calc(100vw * (24 / 1440)), 24px))";
         }
       });
-    } else {
-      const navigationElm = window.document.querySelector(
-        "#navigation-container"
-      );
-      if (navigationElm) {
-        cPadding.current.style.paddingTop = `max(44px, min(calc(100vw * (80 / 1440)), 80px))`;
-      }
-    }
-
-    containerContent.forEach((element, ei) => {
-      if (ei == isActive) {
-        element.style.opacity = 1;
-        // element.style.display = "block"
-        containerFooter[ei].style.background = "#3760ff";
-        containerFooter[ei].style.width =
-          "max(32px, min(calc(100vw * (64 / 1440)), 64px))";
-      } else {
-        element.style.opacity = 0;
-        // element.style.display = "none"
-        containerFooter[ei].style.background = "#0000003D";
-        containerFooter[ei].style.width =
-          "max(12px, min(calc(100vw * (24 / 1440)), 24px))";
-      }
-    });
-  };
-
-  useEffect(() => {
+    };
     window.addEventListener("scroll", visionHandle);
     return () => {
       window.removeEventListener("scroll", visionHandle);
     };
-  }, [visionHandle]);
+  }, [cScroll]);
 
   return (
     <div ref={cScroll} className="bg-[#E6EDFF] h-[200svh]" {...props}>
