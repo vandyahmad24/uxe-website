@@ -48,10 +48,7 @@ export const Product = ({ data, ...props }: ProductProps) => {
                 <div className="relative w-full pt-[112%] rounded-[12px] bg-[#F2F2F2]">
                   <div className="absolute inset-0 w-full h-full">
                     <img
-                      src={
-                        "https://api.uxe.ai/" +
-                        node?.featuredImage?.node?.sourceUrl
-                      }
+                      src={node?.featuredImage?.node?.sourceUrl}
                       alt={node?.title}
                     />
                   </div>

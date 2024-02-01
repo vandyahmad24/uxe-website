@@ -99,7 +99,7 @@ export default function Testimonial({ data }) {
                     <div className="flex items-center justify-center gap-[12px]">
                       <div
                         className="w-[32px] h-[32px] bg-black rounded-full bg-cover"
-                        style={{ backgroundImage: `url(${"https://api.uxe.ai/"+cp.reviewer_image})` }}></div>
+                        style={{ backgroundImage: `url(${cp.reviewer_image})` }}></div>
                       <div className="flex flex-col gap-[4px]">
                         <p
                           className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] font-medium leading-[132%] -tracking-[.16px]">
@@ -109,7 +109,7 @@ export default function Testimonial({ data }) {
                           {cp.reviewer_role}</p>
                       </div>
                     </div>
-                    <img src={"https://api.uxe.ai/"+cp.reviewer_company_image} alt="" />
+                    <img src={cp.reviewer_company_image} alt="" />
                   </div>
                 </div>
               ))}

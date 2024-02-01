@@ -15,7 +15,7 @@ export default function Product({products}) {
             <div key={index} className="flex flex-col gap-[20px]">
               <div className="relative w-full pt-[112%] rounded-[12px] bg-[#F2F2F2]">
                 <div className="absolute inset-0 w-full h-full">
-                  <img src={"https://api.uxe.ai/"+item?.node?.featuredImage?.node?.sourceUrl} alt={item?.node?.title} />
+                  <img src={item?.node?.featuredImage?.node?.sourceUrl} alt={item?.node?.title} />
                 </div>
               </div>
               <div className="flex flex-col gap-[8px]">

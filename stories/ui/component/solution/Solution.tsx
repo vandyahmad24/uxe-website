@@ -53,7 +53,7 @@ export const Solution = ({ data, ...props }: SolutionProps) => {
   }, [slide1Ref, slide2Ref, handleActiveSolution, handleIsMobile]);
 
   return (
-    <div className="bg-[#F4F5F6]" {...props}>
+    <section id="section-solution" className="bg-[#F4F5F6]" {...props}>
       <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(64_/_1440)),_64px))_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden bg-[url('/image/solution-background.png')] max-lg:bg-none bg-cover">
         <div className="flex flex-col gap-[45px]">
           <div className="flex flex-col items-center text-center">
@@ -69,7 +69,7 @@ export const Solution = ({ data, ...props }: SolutionProps) => {
               "w-1/2 is-not-active": !isActiveSolution
               })}
               style={{
-                ['--solution_1' as any]: `url(https://api.uxe.ai${data[0].image_url})`
+                ['--solution_1' as any]: `url(${data[0].image_url})`
               }}
             >
               <div className="flex flex-col items-start gap-[12px] p-[24px]">
@@ -95,7 +95,7 @@ export const Solution = ({ data, ...props }: SolutionProps) => {
               "w-1/2 is-not-active": isActiveSolution
             })}
             style={{
-              ['--solution_2' as any]: `url(https://api.uxe.ai${data[1].image_url})`
+              ['--solution_2' as any]: `url(${data[1].image_url})`
             }}
             >
               <div className="flex flex-col items-start gap-[12px] p-[24px]">
@@ -119,6 +119,6 @@ export const Solution = ({ data, ...props }: SolutionProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 };

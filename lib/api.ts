@@ -100,6 +100,13 @@ export async function getAllPostsForHome(preview) {
                 }
               }
             }
+            categories {
+              edges {
+                node {
+                  name
+                }
+              }
+            }
           }
         }
       }

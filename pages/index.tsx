@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import { CMS_NAME } from "../lib/constants";
-import { getCMSSetting } from "../lib/new-api";
+import { getSettings } from "../lib/new-api";
 
 /* Components */
 import { Hero } from "@/ui/base/hero/Hero";
@@ -46,7 +46,7 @@ export default function Index({ cmsSetting }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const cmsSetting = await getCMSSetting();
+  const cmsSetting = await getSettings();
   return {
     props: { cmsSetting },
     revalidate: 10,

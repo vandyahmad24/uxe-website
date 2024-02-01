@@ -5,6 +5,16 @@ type SchemaEdges = {
   edges: SchemaNode[];
 };
 
+type SchemaCategoryEdges = {
+  edges: SchemaCategoryNode[];
+};
+type SchemaCategoryNode = {
+  node: SchemaCategoryData;
+};
+type SchemaCategoryData = {
+  name: string;
+};
+
 type SchemaNode = {
   node: SchemaData;
 };
@@ -23,6 +33,7 @@ type SchemaData = {
   slug: string;
   date: string;
   featuredImage: SchemaFeature;
+  categories: SchemaCategoryEdges;
 };
 
 interface PostProps {
@@ -43,41 +54,40 @@ export const Post = ({ data, ...props }: PostProps) => {
             </h2>
           </div>
           <div className="grid grid-cols-3 gap-[32px] max-xl:grid-cols-2 max-md:grid-cols-1">
-            {data.edges.map((item, index) => (
+            {data.edges.map(({node}, index) => (
               <div
                 key={index}
                 className="rounded-[12px] border border-[#0000000F] overflow-hidden"
               >
                 <img
                   src={
-                    item.node.featuredImage?.node.sourceUrl
-                      ? "https://api.uxe.ai/" +
-                        item.node.featuredImage?.node.sourceUrl
+                    node.featuredImage?.node.sourceUrl
+                      ? node.featuredImage?.node.sourceUrl
                       : "https://fakeimg.pl/770x450"
                   }
-                  alt={item.node.title}
+                  alt={node.title}
                   className="max-h-[max(140px,_min(calc(100vw_*_(240_/_1440)),_240px))] w-full object-cover"
                 />
                 <div className="p-[24px] flex flex-col gap-[32px]">
                   <div className="flex flex-col items-start justify-start gap-[12px]">
                     <span className="text-[14px] text-[#19191B80] font-medium leading-[132%] p-[4px_12px] border border-[#D9D9D9] rounded-full">
-                      Technology
+                      {node.categories.edges[0].node.name}
                     </span>
                     <Link
-                      href={"/post/" + item.node.slug}
+                      href={"/post/" + node.slug}
                       className="text-[20px] text-[#19191B] font-medium leading-[132%] -tracking-[.2px] hover:opacity-70 line-clamp-2"
                     >
-                      {item.node.title}
+                      {node.title}
                     </Link>
                     <TextLarge
-                      label={item?.node?.excerpt
+                      label={node?.excerpt
                         .replace("<p>", "")
                         .replace("</p>", "")}
                       cls="text-[16px] text-[#19191B] leading-[132%] -tracking-[.16px] opacity-50 line-clamp-2"
                     />
                   </div>
                   <Link
-                    href={"/post/" + item.node.slug}
+                    href={"/post/" + node.slug}
                     className="flex items-center gap-[8px] hover:opacity-70"
                   >
                     <span className="text-[16px] text-[#19191B] font-medium leading-[132%] -tracknig-[.16px]">

@@ -126,9 +126,7 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
                     <div
                       className="w-[32px] h-[32px] bg-black rounded-full bg-cover"
                       style={{
-                        backgroundImage: `url(${
-                          "https://api.uxe.ai/" + cp.reviewer_image
-                        })`,
+                        backgroundImage: `url(${cp.reviewer_image})`,
                       }}
                     ></div>
                     <div className="flex flex-col gap-[4px]">
@@ -141,7 +139,7 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
                     </div>
                   </div>
                   <img
-                    src={"https://api.uxe.ai/" + cp.reviewer_company_image}
+                    src={cp.reviewer_company_image}
                     alt=""
                   />
                 </div>

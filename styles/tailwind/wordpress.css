@@ -86,3 +86,46 @@
 .wp-block-media-text {
   @apply grid grid-cols-2 gap-4;
 }
+
+.post-content p {
+  @apply text-[16px] leading-[132%] -tracking-[.16px] mb-[20px] font-normal;
+}
+
+.post-content h1 {
+  @apply text-[32px] font-medium leading-[112%] -tracking-[.32px] mb-[20px];
+}
+.post-content h2 {
+  @apply text-[28px] font-medium leading-[112%] -tracking-[.28px] mb-[20px];
+}
+.post-content h3 {
+  @apply text-[24px] font-medium leading-[112%] -tracking-[.24px] mb-[20px];
+}
+.post-content h4 {
+  @apply text-[20px] font-medium leading-[112%] -tracking-[.20px] mb-[20px];
+}
+.post-content h5 {
+  @apply text-[18px] font-medium leading-[112%] -tracking-[.18px] mb-[20px];
+}
+.post-content h6 {
+  @apply text-[16px] font-medium leading-[112%] -tracking-[.16px] mb-[20px];
+}
+
+.post-content blockquote {
+  @apply p-[16px_20px] border-l-[2px] border-l-[#0000000F] my-[32px]
+}
+
+.post-content blockquote p {
+  @apply italic text-justify text-[20px] leading-[132%] tracking-[.2px] mb-0;
+}
+
+.post-content ol {
+  @apply list-decimal my-[20px];
+}
+
+.post-content ul {
+  @apply list-disc my-[20px];
+}
+
+.post-content li {
+  @apply ml-[24px]
+}

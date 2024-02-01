@@ -2,7 +2,7 @@ import Head from "next/head";
 import { GetStaticProps } from "next";
 import { getAllProductForHome } from "../lib/api";
 import { CMS_NAME } from "../lib/constants";
-import { getCMSSetting } from "../lib/new-api";
+import { getSettings } from "../lib/new-api";
 import Link from "next/link";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
 import { Testimonial } from "@/ui/component/testimonial/Testimonial";
@@ -10,17 +10,18 @@ import { Layout } from "@/ui/base/layout/Layout";
 import { Header } from "@/ui/base/header/Header";
 
 export default function ProductSection({ products, settings }) {
-  const { testimonials } = settings;
+  const { testimonials, cmsSettings } = settings;
+
   return (
     <Layout>
       <Head>
-        <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
+        <title>{`Products | ${CMS_NAME}`}</title>
       </Head>
       <Header
         title="Discover Innovation in Smart Security Products"
         subtitle="OUR PRODUCT"
         description="Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments"
-        cmsSetting={settings.cmsSettings}
+        video_url={cmsSettings?.general?.hero_product?.url}
       />
       <div className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))_48px_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
@@ -31,10 +32,7 @@ export default function ProductSection({ products, settings }) {
                   <div className="relative w-full pt-[112%] rounded-[12px] bg-[#F2F2F2]">
                     <div className="absolute inset-0 w-full h-full">
                       <img
-                        src={
-                          "https://api.uxe.ai/" +
-                          node?.featuredImage?.node?.sourceUrl
-                        }
+                        src={node?.featuredImage?.node?.sourceUrl}
                         alt={node?.title}
                       />
                     </div>
@@ -93,7 +91,7 @@ export default function ProductSection({ products, settings }) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const products = await getAllProductForHome();
-  const settings = await getCMSSetting();
+  const settings = await getSettings();
   return {
     props: { products, settings },
     revalidate: 10,
