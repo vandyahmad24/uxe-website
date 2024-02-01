@@ -1,0 +1,61 @@
+{
+  "edges": [
+    {
+      "node": {
+        "title": "Hello world!",
+        "excerpt": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n",
+        "slug": "hello-world",
+        "date": "2024-01-23T09:50:36",
+        "featuredImage": null,
+        "author": {
+          "node": {
+            "name": "it",
+            "firstName": null,
+            "lastName": null,
+            "avatar": {
+              "url": "https://secure.gravatar.com/avatar/1a89b0e59bc19e9941a8fe1587e9311a?s=96&d=mm&r=g"
+            }
+          }
+        }
+      }
+    },
+    {
+      "node": {
+        "title": "Hello world!",
+        "excerpt": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n",
+        "slug": "hello-world",
+        "date": "2024-01-23T09:50:36",
+        "featuredImage": null,
+        "author": {
+          "node": {
+            "name": "it",
+            "firstName": null,
+            "lastName": null,
+            "avatar": {
+              "url": "https://secure.gravatar.com/avatar/1a89b0e59bc19e9941a8fe1587e9311a?s=96&d=mm&r=g"
+            }
+          }
+        }
+      }
+    },
+    {
+      "node": {
+        "title": "Hello world!",
+        "excerpt": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n",
+        "slug": "hello-world",
+        "date": "2024-01-23T09:50:36",
+        "featuredImage": null,
+        "author": {
+          "node": {
+            "name": "it",
+            "firstName": null,
+            "lastName": null,
+            "avatar": {
+              "url": "https://secure.gravatar.com/avatar/1a89b0e59bc19e9941a8fe1587e9311a?s=96&d=mm&r=g"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -16,15 +16,14 @@ type SchemaData = {
   privacy: MenuData,
   menu: MenuData[];
   contact: MenuData[];
-  "social-media": MenuData[];
+  social_media: MenuData[];
 }
 
 interface FooterProps {
-  label: string;
   data: SchemaData;
 }
 
-export const Footer = ({ label, data, ...props }: FooterProps) => {
+export const Footer = ({ data, ...props }: FooterProps) => {
   const LIST_MENU : ReactNode[] = [];
 
   data.menu.forEach(({ title, url }, index) => {
@@ -57,23 +56,17 @@ export const Footer = ({ label, data, ...props }: FooterProps) => {
   return (
     <section className="nfooter" {...props}>
       <div className="nfooter-padding">
-        <Container cls="nfooter-overflow">
+        <Container>
           <div className="nfooter-wrapper">
             <div className="nfooter-widget">
               <div className="flex flex-col gap-[32px]">
-                <TextXSmall
-                  label="Explore"
-                  cls="nfooter--title"
-                />
+                <TextXSmall label="Explore" cls="nfooter--title" />
                 <div className="flex flex-wrap gap-[12px]">
                   {LIST_MENU}
                 </div>
               </div>
               <div className="flex flex-col gap-[32px]">
-                <TextXSmall
-                  label="Contact us"
-                  cls="nfooter--title"
-                />
+                <TextXSmall label="Contact us" cls="nfooter--title" />
                 <div className="flex flex-col gap-[4px]">
                   {data.contact.map(({ title, url }, index) => (
                     <TextMedium
@@ -87,12 +80,9 @@ export const Footer = ({ label, data, ...props }: FooterProps) => {
                 </div>
               </div>
               <div className="flex flex-col gap-[32px]">
-                <TextXSmall
-                  label="Follow us"
-                  cls="nfooter--title"
-                />
+                <TextXSmall label="Follow us" cls="nfooter--title" />
                 <div className="flex flex-col gap-[4px]">
-                  {data["social-media"].map(({ title, url }, index) => (
+                  {data.social_media.map(({ title, url }, index) => (
                     <TextMedium
                       el="a"
                       href={url}
@@ -106,9 +96,7 @@ export const Footer = ({ label, data, ...props }: FooterProps) => {
             </div>
             <div className="nfooter-bottom">
               <div className="flex items-center justify-between">
-                <TextMedium
-                  label={data.address}
-                />
+                <TextMedium label={data.address} />
                 <button
                   className="animate-bounce"
                   title="Back to Top"
@@ -124,9 +112,9 @@ export const Footer = ({ label, data, ...props }: FooterProps) => {
                     <path
                       d="M12 19L12 5M12 5L18 11M12 5L6 11"
                       stroke="currentColor"
-                      stroke-width="1.4"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeWidth="1.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     />
                   </svg>
                 </button>

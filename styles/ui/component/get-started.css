@@ -1,8 +1,5 @@
 .get-started {
-  @apply bg-[#19191B] rounded-[12px] text-center
-  p-[max(92px,_min(calc(100vw_*_(110_/_1440)),_110px))_12px]
-  flex flex-col items-center gap-[max(32px,_min(calc(100vw_*_(48_/_1440)),_48px))]
-  bg-[url('/image/get-started-background.png')] bg-no-repeat bg-center;
+  @apply bg-[#19191B] rounded-[12px] p-[max(92px,_min(calc(100vw_*_(110_/_1440)),_110px))_12px] flex flex-col items-center gap-[max(32px,_min(calc(100vw_*_(48_/_1440)),_48px))] text-center bg-[url('/image/get-started-background.png')] bg-cover bg-no-repeat bg-center;
 }
 
 .get-started-profile {
@@ -16,6 +13,12 @@
   rounded-full border border-white;
 }
 
-.get-started-profile img:not(:first) {
+.get-started-profile img:not(:first-child) {
   @apply -ml-[max(8px,_min(calc(100vw_*_(24_/_1440)),_24px))];
+}
+
+.get-started-button {
+  @apply backdrop-blur-[2px] text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full hover:opacity-70;
+  border: 1px solid rgba(207, 207, 207, 0.25);
+  background: rgba(190, 190, 190, 0.25);
 }

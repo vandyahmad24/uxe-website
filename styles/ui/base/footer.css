@@ -6,10 +6,6 @@
   @apply p-[48px_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))_0_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))];
 }
 
-.nfooter-overflow {
-  @apply overflow-hidden;
-}
-
 .nfooter-wrapper {
   @apply flex flex-col justify-between min-h-[450px] max-xl:gap-[64px];
 }

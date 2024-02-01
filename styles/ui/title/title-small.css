@@ -3,7 +3,7 @@
   font-medium leading-[112%] -tracking-[.24px] max-w-xl;
 }
 
-.title-small--custom {
+.title-small--decoration {
   color: transparent;
   background-clip: text !important;
   background-image: linear-gradient(159deg, #FFF 4.02%, rgba(255, 255, 255, 0.00) 107.54%);

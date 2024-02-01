@@ -4,7 +4,7 @@
   font-medium leading-[120%] -tracking-[1.28px];
 }
 
-.title-huge--custom {
+.title-huge--decoration {
   color: transparent;
   background-clip: text !important;
   background-image: linear-gradient(159deg, #FFF 4.02%, rgba(255, 255, 255, 0.00) 107.54%);

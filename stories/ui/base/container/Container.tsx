@@ -4,6 +4,7 @@ interface ContainerProps {
   size?: 'small' | 'medium' |'xmedium' | 'large';
   children?: ReactNode;
   cls?: string;
+  style?: object
 }
 
 export const Container = ({

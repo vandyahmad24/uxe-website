@@ -16,7 +16,6 @@ type Story = StoryObj<typeof Footer>;
 
 export const Default: Story = {
   args: {
-    label: "Trusted by hundreds of organizations",
     data: dt
   },
 };

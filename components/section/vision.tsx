@@ -63,7 +63,7 @@ export default function Vision({ mission, vision }) {
     return () => {
       window.removeEventListener("scroll", visionHandle);
     };
-  }, [visionHandle]);
+  }, []);
 
   return (
     <div ref={cScroll} className="bg-[#E6EDFF] h-[200svh]">
