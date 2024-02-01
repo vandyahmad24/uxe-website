@@ -28,7 +28,7 @@ export default function Index({ cmsSetting }) {
   return (
     <Layout>
       <Head>
-        <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
+        <title>{`UXE Security Solutions L.L.C`}</title>
       </Head>
       <Hero
         label="Trusted by hundreds of organizations"
