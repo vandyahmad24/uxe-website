@@ -116,12 +116,12 @@ export const VisionMission = ({ data, ...props }: VisionMissionProps) => {
             className="max-lg:hidden overflow-hidden rounded-[12px]"
           >
             <img
-              src={"https://api.uxe.ai/" + vision.image_url}
+              src={vision.image_url}
               alt={vision.title}
               className="h-full w-full object-cover"
             />
             <img
-              src={"https://api.uxe.ai/" + mission.image_url}
+              src={mission.image_url}
               alt={mission.title}
               className="h-full w-full object-cover"
             />

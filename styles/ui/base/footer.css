@@ -15,7 +15,7 @@
 }
 
 .nfooter--title {
-  @apply text-[#828D91] uppercase;
+  @apply text-[#D9D9D9] uppercase;
 }
 
 .nfooter-bottom {

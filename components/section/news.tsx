@@ -14,7 +14,7 @@ export default function News({posts}) {
             <div className="grid grid-cols-3 gap-[32px] max-xl:grid-cols-2 max-md:grid-cols-1">
               {posts.map((item, index) => (
                 <div key={index} className="rounded-[12px] border border-[#0000000F] overflow-hidden">
-                  <img src={(item.node.featuredImage?.node.sourceUrl ? "https://api.uxe.ai/"+item.node.featuredImage?.node.sourceUrl : 'https://fakeimg.pl/770x450')} alt={item.node.title} className="max-h-[max(140px,_min(calc(100vw_*_(240_/_1440)),_240px))] w-full object-cover" />
+                  <img src={(item.node.featuredImage?.node.sourceUrl ? item.node.featuredImage?.node.sourceUrl : 'https://fakeimg.pl/770x450')} alt={item.node.title} className="max-h-[max(140px,_min(calc(100vw_*_(240_/_1440)),_240px))] w-full object-cover" />
                   <div className="p-[24px] flex flex-col gap-[32px]">
                     <div className="flex flex-col items-start justify-start gap-[12px]">
                       <span className="text-[14px] text-[#19191B80] font-medium leading-[132%] p-[4px_12px] border border-[#D9D9D9] rounded-full">Technology</span>

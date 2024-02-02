@@ -2,7 +2,6 @@ import Head from "next/head";
 import ErrorPage from "next/error";
 import { useRouter } from "next/router";
 import { GetStaticPaths, GetStaticProps } from "next";
-import Layout from "../../components/base/layout";
 import { TextSmall } from "../../stories/ui/text/text-small/TextSmall";
 import { TitleMedium } from "../../stories/ui/title/title-medium/TitleMedium";
 import { CMS_NAME } from "../../lib/constants";
@@ -10,8 +9,28 @@ import {
   getAllProductsWithSlug,
   getProductAndMoreProducts,
 } from "../../lib/api";
+import { useEffect } from "react";
+import { Layout } from "@/ui/base/layout/Layout";
 
 export default function Product({ product }) {
+  useEffect(() => {
+    window.scroll(0, 1);
+
+    const handleScrollNav = () => {
+      const scrollY = window.scrollY;
+      
+      if (scrollY <= 0){
+        window.scrollY = 2;
+      }
+    }
+
+    window.addEventListener('scroll', handleScrollNav);
+
+    return () => {
+      window.removeEventListener('scroll', handleScrollNav);
+    }
+  })
+
   const router = useRouter();
 
   if (!router.isFallback && !product?.slug) {
@@ -34,7 +53,7 @@ export default function Product({ product }) {
           </div>
           <div>
             <img
-              src={"https://api.uxe.ai/" + product?.featuredImage?.node?.sourceUrl}
+              src={product?.featuredImage?.node?.sourceUrl}
               alt={product?.title}
               className="mx-auto"
             />

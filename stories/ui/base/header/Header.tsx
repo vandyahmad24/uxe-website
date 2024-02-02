@@ -4,14 +4,14 @@ interface HeaderProps {
   title: string;
   subtitle: string;
   description: string;
-  cmsSetting: any;
+  video_url: any;
 }
 
 export const Header = ({
   title,
   subtitle,
   description,
-  cmsSetting,
+  video_url,
   ...props
 }: HeaderProps) => {
   return (
@@ -36,7 +36,7 @@ export const Header = ({
           <div
             className="absolute top-0 w-full min-h-[400px] bg-cover bg-no-repeat"
             style={{
-              backgroundImage: `url(${cmsSetting?.general?.hero_product?.url})`,
+              backgroundImage: `url(${video_url})`,
             }}
           ></div>
           <div className="absolute top-0 w-full min-h-[400px] bg-linear-7"></div>

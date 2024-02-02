@@ -64,10 +64,10 @@ export async function getAllPosts() {
   return data?.posts
 }
 
-export async function getCMSSetting() {
+export async function getSettings() {
   const data = await fetchAPI(
     `
-    query getCMSSetting {
+    query getSettings {
       features {
         description
         icon
@@ -152,6 +152,13 @@ export async function getCMSSetting() {
                 }
               }
             }
+            categories {
+              edges {
+                node {
+                  name
+                }
+              }
+            }
           }
         }
       }
@@ -206,6 +213,10 @@ export async function getCMSSetting() {
         name
         photo_url
         role
+        social_media {
+          linkedin
+          twitter
+        }
       }
     }
   `,

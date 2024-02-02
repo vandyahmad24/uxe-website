@@ -2,7 +2,12 @@
   "menu": [
     {
       "name": "Product",
-      "url": "/product",
+      "url": "/products",
+      "submenu": []
+    },
+    {
+      "name": "Blog",
+      "url": "/blog",
       "submenu": []
     },
     {
@@ -12,12 +17,12 @@
         {
           "name": "For Goverments",
           "description": "All-in-One Security Platform<br/>Centralized Surveillance",
-          "url": "/solution/for-goverment"
+          "url": "/#section-solution"
         },
         {
           "name": "For Bussines",
           "description": "All-in-One Security Platform<br/>Centralized Surveillance",
-          "url": "/solution/for-bussines"
+          "url": "/#section-solution"
         }
       ]
     },
@@ -56,20 +61,24 @@
     },
     "menu": [
       {
-        "url": "/product",
+        "url": "/products",
         "title": "Product"
       },
       {
-        "url": "/solution",
-        "title": "Solution"
+        "url": "/blog",
+        "title": "Blog"
       },
       {
-        "url": "/company",
-        "title": "Company"
-      },
-      {
-        "url": "/about-us",
+        "url": "/company/about-us",
         "title": "About Us"
+      },
+      {
+        "url": "/company/career",
+        "title": "Career"
+      },
+      {
+        "url": "/company/team",
+        "title": "Team"
       }
     ],
     "contact": [

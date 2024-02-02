@@ -6,16 +6,12 @@
   },
   "menu": [
     {
-      "url": "/product",
+      "url": "/products",
       "title": "Product"
     },
     {
-      "url": "/solution",
-      "title": "Solution"
-    },
-    {
-      "url": "/company",
-      "title": "Company"
+      "url": "/blog",
+      "title": "Blog"
     },
     {
       "url": "/about-us",

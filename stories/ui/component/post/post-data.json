@@ -2,11 +2,15 @@
   "edges": [
     {
       "node": {
-        "title": "Hello world!",
-        "excerpt": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n",
-        "slug": "hello-world",
-        "date": "2024-01-23T09:50:36",
-        "featuredImage": null,
+        "title": "Consequat in lacinia neque donec ut quis suspendisse habitant tincidunt",
+        "excerpt": "<p>With advancements in Cloud technology, Internet of Things, and other internet-related technologies, the Smart Home landscape has become increasingly diversified and sophisticated. Today, tech manufacturers of smart home devices and smart home systems are promising to make your life and mine much easier―through the provision and integration of a wide variety of everyday items. It &#8230; <a title=\"Consequat in lacinia neque donec ut quis suspendisse habitant tincidunt\" class=\"read-more\" href=\"https://api.uxe.ai/consequat-in-lacinia-neque-donec-ut-quis-suspendisse-habitant-tincidunt/\" aria-label=\"More on Consequat in lacinia neque donec ut quis suspendisse habitant tincidunt\">Read more</a></p>\n",
+        "slug": "consequat-in-lacinia-neque-donec-ut-quis-suspendisse-habitant-tincidunt",
+        "date": "2024-02-01T04:36:21",
+        "featuredImage": {
+          "node": {
+            "sourceUrl": "https://api.uxe.ai/wp-content/uploads/2024/02/pexels-photo-2215380.jpeg"
+          }
+        },
         "author": {
           "node": {
             "name": "it",
@@ -16,16 +20,34 @@
               "url": "https://secure.gravatar.com/avatar/1a89b0e59bc19e9941a8fe1587e9311a?s=96&d=mm&r=g"
             }
           }
+        },
+        "categories": {
+          "edges": [
+            {
+              "node": {
+                "name": "TechNology"
+              }
+            },
+            {
+              "node": {
+                "name": "Uncategorized"
+              }
+            }
+          ]
         }
       }
     },
     {
       "node": {
-        "title": "Hello world!",
-        "excerpt": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n",
-        "slug": "hello-world",
-        "date": "2024-01-23T09:50:36",
-        "featuredImage": null,
+        "title": "Hendrerit elementum justo diam ultrices neque ac",
+        "excerpt": "<p>elementum elementum justo diam ultrices neque ac tempor eu nunc commodo vel ornare porttitor pretium sed lectus massa eget tincidunt in sapien at scelerisque congue ultricies vitae semper sagittis mi eget in id nisi sit quisque leo libero eu et nisl at dictum amet proin nunc cras euismod convallis metus velit mattis cursus enim est &#8230; <a title=\"Hendrerit elementum justo diam ultrices neque ac\" class=\"read-more\" href=\"https://api.uxe.ai/hendrerit-elementum-justo-diam-ultrices-neque-ac/\" aria-label=\"More on Hendrerit elementum justo diam ultrices neque ac\">Read more</a></p>\n",
+        "slug": "hendrerit-elementum-justo-diam-ultrices-neque-ac",
+        "date": "2024-02-01T04:36:20",
+        "featuredImage": {
+          "node": {
+            "sourceUrl": "https://api.uxe.ai/wp-content/uploads/2024/02/pexels-photo-848573.jpeg"
+          }
+        },
         "author": {
           "node": {
             "name": "it",
@@ -35,16 +57,29 @@
               "url": "https://secure.gravatar.com/avatar/1a89b0e59bc19e9941a8fe1587e9311a?s=96&d=mm&r=g"
             }
           }
+        },
+        "categories": {
+          "edges": [
+            {
+              "node": {
+                "name": "Uncategorized"
+              }
+            }
+          ]
         }
       }
     },
     {
       "node": {
-        "title": "Hello world!",
-        "excerpt": "<p>Welcome to WordPress. This is your first post. Edit or delete it, then start writing!</p>\n",
-        "slug": "hello-world",
-        "date": "2024-01-23T09:50:36",
-        "featuredImage": null,
+        "title": "Ipsum at euismod velit vestibulum maecenas elementum ullamcorper integer odio",
+        "excerpt": "<p>at at euismod velit vestibulum maecenas elementum ullamcorper integer odio bibendum mauris dignissim ut tincidunt nunc cursus praesent nisl viverra nulla a tincidunt sed eget ornare turpis cras diam mattis hendrerit nulla mauris felis et non hac augue sapien vel morbi ac integer blandit vestibulum nibh felis nunc id tempor et phasellus quis metus scelerisque &#8230; <a title=\"Ipsum at euismod velit vestibulum maecenas elementum ullamcorper integer odio\" class=\"read-more\" href=\"https://api.uxe.ai/ipsum-at-euismod-velit-vestibulum-maecenas-elementum-ullamcorper-integer-odio/\" aria-label=\"More on Ipsum at euismod velit vestibulum maecenas elementum ullamcorper integer odio\">Read more</a></p>\n",
+        "slug": "ipsum-at-euismod-velit-vestibulum-maecenas-elementum-ullamcorper-integer-odio",
+        "date": "2024-02-01T04:36:20",
+        "featuredImage": {
+          "node": {
+            "sourceUrl": "https://api.uxe.ai/wp-content/uploads/2024/02/pexels-photo-245584.jpeg"
+          }
+        },
         "author": {
           "node": {
             "name": "it",
@@ -54,6 +89,15 @@
               "url": "https://secure.gravatar.com/avatar/1a89b0e59bc19e9941a8fe1587e9311a?s=96&d=mm&r=g"
             }
           }
+        },
+        "categories": {
+          "edges": [
+            {
+              "node": {
+                "name": "Uncategorized"
+              }
+            }
+          ]
         }
       }
     }
