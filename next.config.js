@@ -24,7 +24,7 @@ module.exports = {
       },
     ],
   },
-  output: 'standalone',
+  output: process.env.IS_VERCEL === "false" ? "standalone" : undefined,
   distDir: 'build',
   poweredByHeader: false,
 }
