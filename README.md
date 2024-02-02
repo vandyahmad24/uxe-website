@@ -14,10 +14,11 @@
 ```bash
 git clone https://github.com/mendoanjoe/uxe-website.git
 ```
-2. Go to directory, install package and generate build file
+2. Go to directory, install package, generate build file and copy file
 ```bash
 pnpm run install
 pnpm run build
+pnpm run copy
 ```
 3. That will create new folder called `build` and copy folder `standalone` into nginx or web server you use and run
 ```bash
