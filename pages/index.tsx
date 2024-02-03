@@ -23,16 +23,17 @@ export default function Index({ cmsSetting }) {
     products,
     posts,
     solutions,
-    cmsSettings: { general },
+    settingBackground,
+    footerSettings
   } = cmsSetting;
   return (
-    <Layout>
+    <Layout data={{footer: footerSettings }}>
       <Head>
         <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
       </Head>
       <Hero
         label="Trusted by hundreds of organizations"
-        data={{ clients, hero_url: general.hero_home.url }}
+        data={{ clients, hero_url: settingBackground?.hero_home?.url }}
       />
       <VisionMission data={visionMission} />
       <Feature data={features} />

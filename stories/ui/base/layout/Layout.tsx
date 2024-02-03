@@ -7,8 +7,8 @@ import Meta from "components/meta";
 import dt from './layout-data.json'
 
 type SchemaData = {
-  menu: any;
-  footer: any;
+  menu?: any;
+  footer?: any;
 }
 
 interface LayoutProps {
@@ -18,7 +18,7 @@ interface LayoutProps {
 
 export const Layout = ({ data, children }: LayoutProps) => {
   const menu = data?.menu || dt.menu;
-  const footer = data?.footer || dt.footer;
+  const footer = { ...dt.footer, ...data?.footer };
   
   return (
     <>

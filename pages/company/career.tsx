@@ -10,7 +10,7 @@ import { Testimonial } from "@/ui/component/testimonial/Testimonial";
 
 export default function CareerSection({ settings }) {
   const {
-    cmsSettings,
+    settingBackground,
     features, teamMembers,
     careers, testimonials } = settings;
 
@@ -24,7 +24,7 @@ export default function CareerSection({ settings }) {
         title="Became part of our community"
         subtitle="CAREERS"
         description="Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments"
-        video_url={cmsSettings?.general?.hero_career?.url}
+        video_url={settingBackground?.hero_career?.url}
       />
       <Feature data={features} />
       <div className="bg-white">

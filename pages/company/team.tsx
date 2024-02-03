@@ -8,7 +8,7 @@ import { Header } from "@/ui/base/header/Header";
 import Link from "next/link";
 
 export default function TeamSection({ settings }) {
-  const { testimonials, cmsSettings, teamMembers } = settings;
+  const { testimonials, settingBackground, teamMembers } = settings;
   let coreTeam = teamMembers.slice(0, 4) || [];
   let memberTeam = teamMembers.slice(4) || [];
   return (
@@ -20,7 +20,7 @@ export default function TeamSection({ settings }) {
         title="Happy people who work hard to empower your teams."
         subtitle="Our Team"
         description="Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments"
-        video_url={cmsSettings?.general?.hero_team?.url}
+        video_url={settingBackground?.hero_team?.url}
       />
       <div className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden pb-0">

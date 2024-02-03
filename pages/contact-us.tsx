@@ -10,7 +10,7 @@ import { TextSmall } from "@/ui/text/text-small/TextSmall";
 import Link from "next/link";
 
 export default function ContactUsSection({ settings }) {
-  const { cmsSettings } = settings;
+  const { settingBackground } = settings;
 
   return (
     <>
@@ -62,7 +62,7 @@ export default function ContactUsSection({ settings }) {
                 <div className="relative rounded-[12px] overflow-hidden">
                   <img
                     alt="Contact Us Background"
-                    src={cmsSettings?.general?.hero_contact?.url}
+                    src={settingBackground?.hero_contact?.url}
                   />
 
                   <div className="flex flex-col gap-[12px] absolute left-[20px] bottom-[14px]">

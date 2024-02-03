@@ -25,23 +25,30 @@ type SchemaData = {
   featuredImage: SchemaFeature;
 }
 
-interface ProductProps {
-  data: SchemaEdges;
+type SchemaSetting = {
+  show_title: boolean
 }
 
-export const Product = ({ data, ...props }: ProductProps) => {
+interface ProductProps {
+  data: SchemaEdges;
+  settings?: SchemaSetting;
+}
+
+export const Product = ({ data, settings, ...props }: ProductProps) => {
   return (
-    <div className="bg-white">
+    <div className="bg-white" {...props}>
       <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(190_/_1440)),_190px))_48px_max(20px,_min(calc(100vw_*_(190_/_1440)),_190px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
         <div className="flex flex-col gap-[48px]">
-          <div className="flex flex-col items-center text-center">
-            <p className="text-[12px] text-[#19191B80] uppercase font-medium leading-[132%] tracking-[.96px]">
-              Products
-            </p>
-            <h2 className="text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] text-[#19191B] font-medium leading-[112%] -tracking-[.64px] mt-[10px] max-w-[34rem]">
-              Discover Innovation in <br /> Smart Security Products
-            </h2>
-          </div>
+          {settings?.show_title && (
+            <div className="flex flex-col items-center text-center">
+              <p className="text-[12px] text-[#19191B80] uppercase font-medium leading-[132%] tracking-[.96px]">
+                Products
+              </p>
+              <h2 className="text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] text-[#19191B] font-medium leading-[112%] -tracking-[.64px] mt-[10px] max-w-[34rem]">
+                Discover Innovation in <br /> Smart Security Products
+              </h2>
+            </div>
+          )}
           <div className="grid grid-cols-3 gap-[20px] max-xl:grid-cols-2 max-md:grid-cols-1">
             {data?.edges.map(({ node }, index) => (
               <div key={index} className="flex flex-col gap-[20px]">
@@ -70,14 +77,16 @@ export const Product = ({ data, ...props }: ProductProps) => {
               </div>
             ))}
           </div>
-          <div className="flex justify-center">
-            <Link
-              href={"/product"}
-              className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B] backdrop-blur-[2px] border border-[#F4F5F6] hover:opacity-70"
-            >
-              See All Product
-            </Link>
-          </div>
+          {settings?.show_title && (
+            <div className="flex justify-center">
+              <Link
+                href={"/product"}
+                className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B] backdrop-blur-[2px] border border-[#F4F5F6] hover:opacity-70"
+              >
+                See All Product
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>

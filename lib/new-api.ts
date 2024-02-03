@@ -162,45 +162,49 @@ export async function getSettings() {
           }
         }
       }
-      cmsSettings {
-        contact {
-          email
-          phone
+      footerSettings {
+        address
+        explore_menu {
+          name
+          url
         }
-        follow {
-          instagram
-          telegram
+        contact_menu {
+          name
+          url
         }
-        general {
-          address
-          hero_about_us {
-            type
-            url
-          }
-          hero_blog {
-            type
-            url
-          }
-          hero_career {
-            type
-            url
-          }
-          hero_contact {
-            type
-            url
-          }
-          hero_home {
-            type
-            url
-          }
-          hero_product {
-            type
-            url
-          }
-          hero_team {
-            type
-            url
-          }
+        follow_us_menu {
+          name
+          url
+        }
+      }
+      settingBackground {
+        hero_about_us {
+          type
+          url
+        }
+        hero_blog {
+          type
+          url
+        }
+        hero_career {
+          type
+          url
+        }
+        hero_contact {
+          type
+          url
+        }
+        hero_home {
+          type
+          url
+        }
+        hero_product {
+          url
+          type
+        }
+        hero_team {
+          type
+          url
         }
       }
       careers {

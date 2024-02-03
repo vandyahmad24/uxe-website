@@ -1,5 +1,4 @@
-import { TextSmall } from '../../stories/ui/text/text-small/TextSmall'
-import SubMenuItem from '../ui/submenu-item'
+import { TextSmall } from "@/ui/text/text-small/TextSmall";
 export default function MenuItem({ menu }) {
   return (
     menu.map(({name, url, submenu}, index) => (
