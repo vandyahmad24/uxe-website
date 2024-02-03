@@ -8,9 +8,56 @@ import { TextMedium } from "@/ui/text/text-medium/TextMedium";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
 import { TextSmall } from "@/ui/text/text-small/TextSmall";
 import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 export default function ContactUsSection({ settings }) {
-  const { settingBackground } = settings;
+  const { settingBackground, contactForm } = settings;
+
+  const formBlock = useRef(null);
+  const formMessage = useRef(null);
+
+  useEffect(() => {
+    const form = formBlock.current.querySelector('form');
+    formBlock.current.querySelectorAll('br').forEach(item => item.remove())
+    const formID = formBlock.current.querySelector('input[name="_wpcf7"]').value
+    form.action = `https://api.uxe.ai/wp-json/contact-form-7/v1/contact-forms/${formID}/feedback`;
+    const handleSubmit = async (event) => {
+        event.preventDefault(); // Prevent default form submission
+  
+        try {
+            const formData = new FormData(form);
+  
+            const response = await fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    // No need to set Content-Type for FormData as it is automatically set
+                },
+                body: formData,
+            });
+  
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const responseData = await response.json();
+            formMessage.current.classList.remove('hidden')
+            formMessage.current.innerText = responseData.message;
+  
+            // Reset the form after successful submission
+            form.reset();
+        } catch (error) {
+            console.error('There was a problem with your fetch operation:', error);
+        }
+    };
+  
+    form.addEventListener('submit', handleSubmit);
+  
+    return () => {
+        form.removeEventListener('submit', handleSubmit);
+    };
+}, [formBlock, formMessage]);
+
 
   return (
     <>
@@ -57,7 +104,7 @@ export default function ContactUsSection({ settings }) {
         {/* Content */}
         <div className="bg-white">
           <div className="max-w-[1440px] mx-auto overflow-hidden">
-            <div className="grid grid-cols-2 max-xl:grid-cols-1 min-h-screen">
+            <div className="grid grid-cols-2 max-md:grid-cols-1 min-h-screen">
               <div className="bg-black p-[max(20px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(96_/_1440)),_96px))] flex flex-col gap-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] items-start text-white">
                 <div className="relative rounded-[12px] overflow-hidden">
                   <img
@@ -65,7 +112,7 @@ export default function ContactUsSection({ settings }) {
                     src={settingBackground?.hero_contact?.url}
                   />
 
-                  <div className="flex flex-col gap-[12px] absolute left-[20px] bottom-[14px]">
+                  <div className="flex flex-col items-start gap-[12px] absolute left-[20px] bottom-[14px]">
                     <div className="p-[10px] rounded-full backdrop-blur-[2px] bg-[#BEBEBE40] text-white flex items-center gap-[6px]">
                       <div className="p-[4px] bg-[#FFFFFF] rounded-full">
                         <svg
@@ -153,43 +200,8 @@ export default function ContactUsSection({ settings }) {
                   <TitleMedium el="h2" label="Get Started with UXE" />
                   <TextLarge label="Want to work together, connect, or ask a burning question?" cls="max-w-none" />
                 </div>
-                <form action="" method="post"
-                  className="grid grid-cols-2 w-full gap-[16px]"
-                  >
-                    <div>
-                      <label htmlFor="contact_first_name"></label>
-                      <input type="text" id="contact_first_name" className="p-[14px_12px] border border-[#0000001F] rounded-[12px] w-full text-[#787C91] ring-0 outline-none" placeholder="First name" />
-                    </div>
-                    <div>
-                      <label htmlFor="contact_last_name"></label>
-                      <input type="text" id="contact_last_name" className="p-[14px_12px] border border-[#0000001F] rounded-[12px] w-full text-[#787C91] ring-0 outline-none" placeholder="Last name" />
-                    </div>
-                    <div className="col-span-2">
-                      <label htmlFor="contact_email"></label>
-                      <input type="text" id="contact_email" className="p-[14px_12px] border border-[#0000001F] rounded-[12px] w-full text-[#787C91] ring-0 outline-none" placeholder="Email" />
-                    </div>
-                    <div className="col-span-2">
-                      <label htmlFor="contact_phone"></label>
-                      <input type="text" id="contact_phone" className="p-[14px_12px] border border-[#0000001F] rounded-[12px] w-full text-[#787C91] ring-0 outline-none" placeholder="Phone" />
-                    </div>
-                    <div className="col-span-2">
-                      <label htmlFor="contact_partnership"></label>
-                      <input type="text" id="contact_partnership" className="p-[14px_12px] border border-[#0000001F] rounded-[12px] w-full text-[#787C91] ring-0 outline-none" placeholder="Partnership" />
-                    </div>
-                    <div className="col-span-2">
-                      <label htmlFor="content"></label>
-                      <textarea rows={6} id="content" className="p-[14px_12px] border border-[#0000001F] rounded-[12px] w-full text-[#787C91] ring-0 outline-none" placeholder="Lest us know what you kind of partnership"/>
-                    </div>
-                    <TextSmall label="By submitting this form, you agree that we will contact you in relation to our product and service." cls="opacity-75 max-w-none col-span-2" />
-                    <button type="submit"
-                      className="w-fit text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-black hover:opacity-70"
-                      style={{
-                        border: "1px solid rgba(207, 207, 207, 0.25)",
-                      }}
-                    >
-                      Get in touch
-                    </button>
-                  </form>
+                <div className="form-contact" ref={formBlock} dangerouslySetInnerHTML={{ __html: contactForm.html }}></div>
+                <p ref={formMessage} className="hidden p-[10px] border-[2px] border-black w-full"></p>
               </div>
             </div>
           </div>

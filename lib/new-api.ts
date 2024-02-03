@@ -222,6 +222,9 @@ export async function getSettings() {
           twitter
         }
       }
+      contactForm {
+        html
+      }
     }
   `,
   )
