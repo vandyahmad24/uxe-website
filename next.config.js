@@ -25,6 +25,6 @@ module.exports = {
     ],
   },
   output: process.env.IS_VERCEL === "false" ? "standalone" : undefined,
-  distDir: 'build',
+  distDir: '.next',
   poweredByHeader: false,
 }
