@@ -129,3 +129,41 @@
 .post-content li {
   @apply ml-[24px]
 }
+
+
+/* Form Contact Form 7 */
+.form-contact label {
+  content: none
+}
+.form-contact input[type="text"],
+.form-contact input[type="tel"],
+.form-contact input[type="email"],
+.form-contact textarea {
+  @apply p-[14px_12px] border border-[#0000001F] rounded-[12px] w-full text-[#787C91] ring-0 outline-none;
+}
+
+.form-contact input[type="submit"] {
+  @apply w-fit text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-black hover:opacity-70 cursor-pointer;
+  border: 1px solid rgba(207, 207, 207, 0.25);
+}
+
+.form-contact form {
+  @apply flex flex-col gap-[16px];
+}
+
+.form-contact form p:not(:first-of-type) {
+  @apply max-w-none col-span-2 text-[12px] leading-[132%] -tracking-[.12px];;
+}
+
+.form-contact form p:first-of-type {
+  @apply grid grid-cols-2 w-full gap-[16px];
+}
+
+.form-contact form p:first-of-type > span:not(:nth-of-type(1)):not(:nth-of-type(2)) {
+  grid-column: span 2 / span 2;
+}
+
+.form-contact form p:first-of-type > span:nth-of-type(1),
+.form-contact form p:first-of-type > span:nth-of-type(2) {
+  @apply max-lg:col-span-2;
+}

@@ -10,15 +10,39 @@ import { TextMedium } from "@/ui/text/text-medium/TextMedium";
 import { TitleXXSmall } from "@/ui/title/title-xxsmall/TitleXXSmall";
 import Link from "next/link";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Layout } from "@/ui/base/layout/Layout";
 
 export default function Post({ post, posts, preview }) {
   const [siteUrl, setSiteUrl] = useState("");
+  const postContent = useRef(null);
   const router = useRouter();
   const morePosts = posts?.edges;
 
   useEffect(() => {
+    postContent.current.querySelectorAll('img').forEach(el => {
+      // Modify the src attribute
+      const currentSrc = el.src;
+      let newSrc
+      newSrc = currentSrc.replace(/^(?:https?:)?\/\/[^/]+/, 'https://api.uxe.ai');
+      if (currentSrc.startsWith('/')) {
+        newSrc = 'https://api.uxe.ai' + currentSrc
+      }
+      el.src = newSrc;
+  
+      // Modify the srcset attribute
+      const currentSrcset = el.getAttribute('srcset');
+      if (currentSrcset) {
+          let newSrcset
+          newSrcset = currentSrcset.replace(/(?:https?:)?\/\/[^/]+/g, 'https://api.uxe.ai');
+          newSrcset = currentSrcset.split(',').map(src => {
+            const trimmedSrc = src.trim();
+            return trimmedSrc.startsWith('/') ? 'https://api.uxe.ai' + trimmedSrc : trimmedSrc;
+          }).join(',');
+          el.setAttribute('srcset', newSrcset);
+      }
+    });
+  
     // Check if window is defined (only runs on the client-side)
     if (typeof window !== "undefined") {
       setSiteUrl(window.location.href);
@@ -168,7 +192,7 @@ export default function Post({ post, posts, preview }) {
                 className="mx-auto rounded-[12px] my-[64px] w-full"
               />
             )}
-            <div className="post-content" dangerouslySetInnerHTML={{ __html: post?.content }}></div>
+            <div ref={postContent} className="post-content" dangerouslySetInnerHTML={{ __html: post?.content }}></div>
           </div>
           <div className="flex flex-col gap-[16px] mt-[64px]">
             <TitleXXSmall label="Share this article" />

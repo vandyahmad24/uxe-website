@@ -8,7 +8,7 @@ import { Feature } from "@/ui/component/feature/Feature";
 import { Testimonial } from "@/ui/component/testimonial/Testimonial";
 
 export default function ProductSection({ settings }) {
-  const { features, testimonials, cmsSettings, visionMission:{ mission, vision } } = settings;
+  const { features, testimonials, settingBackground, visionMission:{ mission, vision } } = settings;
   return (
     <Layout>
       <Head>
@@ -18,7 +18,7 @@ export default function ProductSection({ settings }) {
         title="Multiple services to ensure the safety"
         subtitle="COMPANY"
         description="Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments"
-        video_url={cmsSettings?.general?.hero_about_us?.url}
+        video_url={settingBackground?.hero_about_us?.url}
       />
       <div className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">

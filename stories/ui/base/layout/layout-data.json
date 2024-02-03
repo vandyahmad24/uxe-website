@@ -16,12 +16,12 @@
       "submenu": [
         {
           "name": "For Goverments",
-          "description": "All-in-One Security Platform<br/>Centralized Surveillance",
+          "description": "All-in-One Security Platform Centralized Surveillance",
           "url": "/#section-solution"
         },
         {
           "name": "For Bussines",
-          "description": "All-in-One Security Platform<br/>Centralized Surveillance",
+          "description": "All-in-One Security Platform Centralized Surveillance",
           "url": "/#section-solution"
         }
       ]
@@ -57,48 +57,48 @@
     "address": "1901 Thornridge Cir. Shiloh, Hawaii 81063",
     "privacy": {
       "url": "/",
-      "title": "Privacy"
+      "name": "Privacy"
     },
-    "menu": [
+    "explore_menu": [
       {
-        "url": "/products",
-        "title": "Product"
+        "name": "Product",
+        "url": "/products"
       },
       {
-        "url": "/blog",
-        "title": "Blog"
+        "name": "Blog",
+        "url": "/blog"
       },
       {
-        "url": "/company/about-us",
-        "title": "About Us"
+        "name": "About Us",
+        "url": "/company/about-us"
       },
       {
-        "url": "/company/career",
-        "title": "Career"
+        "name": "Career",
+        "url": "/company/career"
       },
       {
-        "url": "/company/team",
-        "title": "Team"
+        "name": "Team",
+        "url": "/company/team"
       }
     ],
-    "contact": [
+    "contact_menu": [
       {
-        "url": "#",
-        "title": "+1 891 989-11-91"
+        "name": "+1 891 989-11-91",
+        "url": "tel:+1 891 989-11-91"
       },
       {
-        "url": "#",
-        "title": "hello@uxe.com"
+        "name": "hello@uxe.com",
+        "url": "mailto:hello@uxe.com"
       }
     ],
-    "social_media": [
+    "follow_us_menu": [
       {
-        "url": "#",
-        "title": "Instagram"
+        "name": "Instagram",
+        "url": "https://instagram.com"
       },
       {
-        "url": "#",
-        "title": "Telegram"
+        "name": "Telegram",
+        "url": "https://telegram.com"
       }
     ]
   }

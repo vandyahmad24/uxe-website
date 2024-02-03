@@ -10,7 +10,7 @@ import { Layout } from "@/ui/base/layout/Layout";
 import { Header } from "@/ui/base/header/Header";
 
 export default function BlogSection({ posts, settings }) {
-  const { testimonials, cmsSettings } = settings;
+  const { testimonials, settingBackground } = settings;
 
   return (
     <Layout>
@@ -21,7 +21,7 @@ export default function BlogSection({ posts, settings }) {
         title="Your Daily Dose of Tech News"
         subtitle="Blog"
         description="Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments"
-        video_url={cmsSettings?.general?.hero_blog?.url}
+        video_url={settingBackground?.hero_blog?.url}
       />
       <div className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))_48px_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">

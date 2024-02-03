@@ -8,15 +8,15 @@ import { TextSmall } from "../../text/text-small/TextSmall";
 
 type MenuData = {
   url: string;
-  title: string;
+  name: string;
 };
 
 type SchemaData = {
   address: string,
   privacy: MenuData,
-  menu: MenuData[];
-  contact: MenuData[];
-  social_media: MenuData[];
+  explore_menu: MenuData[];
+  contact_menu: MenuData[];
+  follow_us_menu: MenuData[];
 }
 
 interface FooterProps {
@@ -26,17 +26,17 @@ interface FooterProps {
 export const Footer = ({ data, ...props }: FooterProps) => {
   const LIST_MENU : ReactNode[] = [];
 
-  data.menu.forEach(({ title, url }, index) => {
+  data.explore_menu.forEach(({ name, url }, index) => {
     LIST_MENU.push((
       <TextHuge
         el="a"
         href={url}
-        label={title}
+        label={name}
         hover
       />
     ))
 
-    if (index < data.menu.length - 1) {
+    if (index < data.explore_menu.length - 1) {
       LIST_MENU.push((
         <TextHuge
           label="/"
@@ -68,12 +68,12 @@ export const Footer = ({ data, ...props }: FooterProps) => {
               <div className="flex flex-col gap-[32px]">
                 <TextXSmall label="Contact us" cls="nfooter--title" />
                 <div className="flex flex-col gap-[4px]">
-                  {data.contact.map(({ title, url }, index) => (
+                  {data.contact_menu.map(({ name, url }, index) => (
                     <TextMedium
                       el="a"
                       href={url}
                       key={index}
-                      label={title}
+                      label={name}
                       hover
                     />
                   ))}
@@ -82,12 +82,12 @@ export const Footer = ({ data, ...props }: FooterProps) => {
               <div className="flex flex-col gap-[32px]">
                 <TextXSmall label="Follow us" cls="nfooter--title" />
                 <div className="flex flex-col gap-[4px]">
-                  {data.social_media.map(({ title, url }, index) => (
+                  {data.follow_us_menu.map(({ name, url }, index) => (
                     <TextMedium
                       el="a"
                       href={url}
                       key={index}
-                      label={title}
+                      label={name}
                       hover
                     />
                   ))}
@@ -125,7 +125,7 @@ export const Footer = ({ data, ...props }: FooterProps) => {
                   <TextSmall label={`© ${new Date().getFullYear()} — UXE`} />
                   <TextSmall
                     el="a"
-                    label={data.privacy.title}
+                    label={data.privacy.name}
                     href={data.privacy.url}
                     hover
                   />

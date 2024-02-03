@@ -1,41 +1,49 @@
 {
   "address": "1901 Thornridge Cir. Shiloh, Hawaii 81063",
-  "privacy" : {
+  "privacy": {
     "url": "/",
-    "title": "Privacy"
+    "name": "Privacy"
   },
-  "menu": [
+  "explore_menu": [
     {
-      "url": "/products",
-      "title": "Product"
+      "name": "Product",
+      "url": "/products"
     },
     {
-      "url": "/blog",
-      "title": "Blog"
+      "name": "Blog",
+      "url": "/blog"
     },
     {
-      "url": "/about-us",
-      "title": "About Us"
+      "name": "About Us",
+      "url": "/company/about-us"
+    },
+    {
+      "name": "Career",
+      "url": "/company/career"
+    },
+    {
+      "name": "Team",
+      "url": "/company/team"
     }
   ],
-  "contact": [
+  "contact_menu": [
     {
-      "url": "#",
-      "title": "+1 891 989-11-91"
+      "name": "+1 891 989-11-91",
+      "url": "tel:+1 891 989-11-91"
     },
     {
-      "url": "#",
-      "title": "hello@uxe.com"
+      "name": "hello@uxe.com",
+      "url": "mailto:hello@uxe.com"
     }
   ],
-  "social_media": [
+  "follow_us_menu": [
     {
-      "url": "#",
-      "title": "Instagram"
+      "name": "Instagram",
+      "url": "https://instagram.com"
     },
     {
-      "url": "#",
-      "title": "Telegram"
+      "name": "Telegram",
+      "url": "https://telegram.com"
     }
   ]
 }
