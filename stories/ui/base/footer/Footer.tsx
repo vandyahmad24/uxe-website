@@ -21,31 +21,10 @@ type SchemaData = {
 
 interface FooterProps {
   data: SchemaData;
+  style?: any;
 }
 
 export const Footer = ({ data, ...props }: FooterProps) => {
-  const LIST_MENU : ReactNode[] = [];
-
-  data.explore_menu.forEach(({ name, url }, index) => {
-    LIST_MENU.push((
-      <TextHuge
-        el="a"
-        href={url}
-        label={name}
-        hover
-      />
-    ))
-
-    if (index < data.explore_menu.length - 1) {
-      LIST_MENU.push((
-        <TextHuge
-          label="/"
-          cls="text-[#D9D9D9]"
-        />
-      ))
-    }
-  })
-
   const SCROLL_TO_TOP = () => {
     window.scrollTo({
       top: 0,
@@ -62,7 +41,22 @@ export const Footer = ({ data, ...props }: FooterProps) => {
               <div className="flex flex-col gap-[32px]">
                 <TextXSmall label="Explore" cls="nfooter--title" />
                 <div className="flex flex-wrap gap-[12px]">
-                  {LIST_MENU}
+                  {data.explore_menu.map(({ name, url}, index) => (
+                    <div key={index} className="flex flex-wrap gap-[12px]">
+                      <TextHuge
+                        el="a"
+                        href={url}
+                        label={name}
+                        hover
+                      />
+                      {(index < data.explore_menu.length - 1) && (
+                        <TextHuge
+                          label="/"
+                          style={{color: "#D9D9D9"}}
+                        />
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
               <div className="flex flex-col gap-[32px]">

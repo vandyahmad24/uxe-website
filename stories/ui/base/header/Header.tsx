@@ -5,6 +5,7 @@ interface HeaderProps {
   subtitle: string;
   description: string;
   video_url: any;
+  style?: any;
 }
 
 export const Header = ({

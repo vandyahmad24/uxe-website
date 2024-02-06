@@ -6,6 +6,7 @@ type SchemaData = {
 
 interface FeatureProps {
   data: SchemaData[];
+  style?: any;
 }
 
 export const Feature = ({ data, ...props }: FeatureProps) => {

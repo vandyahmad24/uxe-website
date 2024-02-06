@@ -3,6 +3,7 @@ import { TextMedium } from "../../text/text-medium/TextMedium";
 
 interface LabelLargeProps {
   label: string;
+  style?: any;
 }
 
 export const LabelLarge = ({ label, ...props }: LabelLargeProps) => {

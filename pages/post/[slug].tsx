@@ -12,6 +12,7 @@ import Link from "next/link";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
 import { useEffect, useRef, useState } from "react";
 import { Layout } from "@/ui/base/layout/Layout";
+import Image from "next/image";
 
 export default function Post({ post, posts, preview }) {
   const [siteUrl, setSiteUrl] = useState("");
@@ -88,7 +89,7 @@ export default function Post({ post, posts, preview }) {
           </div>
           <div className="flex justify-between items-center mt-[28px]">
             <div className="flex items-center gap-[16px]">
-              <img
+              <Image
                 alt={post?.author?.node?.name}
                 className="w-[48px] h-[48px] rounded-full"
                 src={post?.author?.node?.avatar?.url}
@@ -186,7 +187,7 @@ export default function Post({ post, posts, preview }) {
           </div>
           <div>
             {post?.featuredImage && (
-              <img
+              <Image
                 src={post?.featuredImage?.node?.sourceUrl}
                 alt={post?.title}
                 className="mx-auto rounded-[12px] my-[64px] w-full"
@@ -325,7 +326,7 @@ export default function Post({ post, posts, preview }) {
                       key={index}
                       className="rounded-[12px] border border-[#0000000F] overflow-hidden"
                     >
-                      <img
+                      <Image
                         src={
                           node.featuredImage?.node.sourceUrl
                             ? node.featuredImage?.node.sourceUrl

@@ -1,5 +1,10 @@
-import { TextSmall } from "@/ui/text/text-small/TextSmall";
-export default function MenuItem({ menu }) {
+import { TextSmall } from "@/ui/text/text-small/TextSmall"
+
+interface MenuItemProps {
+  menu?: any
+}
+
+export const MenuItem = ({ menu }: MenuItemProps) => {
   return (
     menu.map(({name, url, submenu}, index) => (
       <li key={index} className='group cursor-pointer hover:text-[#19191B80] max-md:border-b-[.5px] max-md:border-b-[#19191b1a]' id={`menu-item-${index}`}>
@@ -26,7 +31,7 @@ export default function MenuItem({ menu }) {
                             <path d="M11 8.414V18h2V8.414l4.293 4.293 1.414-1.414L12 4.586l-6.707 6.707 1.414 1.414z" fill="currentColor"></path>
                           </svg>
                         </div>
-
+  
                         <div className="flex flex-col gap-[6px]">
                           <p className="text-[16px] font-bold leading-[132%] -tracking-[.16px]">{name}</p>
                           <TextSmall

@@ -9,6 +9,7 @@ type SchemaData = {
 
 interface SolutionProps {
   data: SchemaData[];
+  style?: any;
 }
 
 export const Solution = ({ data, ...props }: SolutionProps) => {

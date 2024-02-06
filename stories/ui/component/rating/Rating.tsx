@@ -1,6 +1,12 @@
-import IconShield from '../icon/shield'
+import React from 'react';
 
-export default function Rating({rating}) {
+interface RatingProps {
+  rating?: number
+}
+
+export const Rating = ({
+  rating,
+}: RatingProps) => {
   const ratingElements = [];
   
   for (let i = 0; i < rating; i++) {
@@ -23,4 +29,4 @@ export default function Rating({rating}) {
       {ratingElements}
     </div>
   )
-}
+};

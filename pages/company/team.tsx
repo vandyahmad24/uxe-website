@@ -6,6 +6,7 @@ import { getSettings } from "lib/new-api";
 import { Testimonial } from "@/ui/component/testimonial/Testimonial";
 import { Header } from "@/ui/base/header/Header";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function TeamSection({ settings }) {
   const { testimonials, settingBackground, teamMembers } = settings;
@@ -37,7 +38,7 @@ export default function TeamSection({ settings }) {
             <div className="grid grid-cols-4 gap-[20px] max-lg:grid-cols-2 max-sm:grid-cols-1">
               {coreTeam.map(({name, photo_url, role }, index) => (
                 <div key={index} className="relative rounded-[12px] overflow-hidden pt-[100%] h-0 w-full text-white">
-                  <img
+                  <Image
                     className="absolute top-0 w-full"
                     src={photo_url}
                     alt={name}
@@ -70,7 +71,7 @@ export default function TeamSection({ settings }) {
             <div className="grid grid-cols-5 max-lg:grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 max-[374px]:grid-cols-1 gap-[max(24px,_min(calc(100vw_*_(16_/_1440)),_16px))_max(12px,_min(calc(100vw_*_(16_/_1440)),_16px))]">
             {memberTeam.map(({name, photo_url, role, social_media }, index) => (
               <div key={index} className="flex flex-col items-start gap-[20px] max-[374px]:items-center">
-                <img
+                <Image
                   className="rounded-[12px] w-1/3"
                   src={photo_url}
                   alt=""
@@ -98,7 +99,7 @@ export default function TeamSection({ settings }) {
                           viewBox="0 0 20 21"
                           fill="none"
                         >
-                          <g clip-path="url(#clip0_1034_23581)">
+                          <g clipPath="url(#clip0_1034_23581)">
                             <path
                               d="M10 0.5C15.5286 0.5 20 4.97143 20 10.5C20 16.0286 15.5286 20.5 10 20.5C4.47143 20.5 0 16.0286 0 10.5C0 4.97143 4.47143 0.5 10 0.5ZM8.17143 15.7714C12.6 15.7714 15.0286 12.1 15.0286 8.91429V8.6C15.5 8.25714 15.9143 7.82857 16.2286 7.34286C15.8 7.52857 15.3286 7.65714 14.8429 7.72857C15.3429 7.42857 15.7286 6.95714 15.9 6.4C15.4286 6.67143 14.9143 6.87143 14.3714 6.98571C13.9286 6.51429 13.3 6.22857 12.6143 6.22857C11.2857 6.22857 10.2 7.31429 10.2 8.64286C10.2 8.82857 10.2143 9.01429 10.2714 9.18571C8.27143 9.08571 6.48571 8.12857 5.3 6.67143C5.1 7.02857 4.97143 7.44286 4.97143 7.88571C4.97143 8.71429 5.4 9.45714 6.04286 9.88571C5.64286 9.88571 5.27143 9.77143 4.95714 9.58571V9.61429C4.95714 10.7857 5.78571 11.7571 6.88571 11.9857C6.68571 12.0429 6.47143 12.0714 6.25714 12.0714C6.1 12.0714 5.95714 12.0571 5.8 12.0286C6.1 12.9857 7 13.6857 8.04286 13.7C7.21429 14.3429 6.17143 14.7286 5.04286 14.7286C4.84286 14.7286 4.65714 14.7286 4.47143 14.7C5.52857 15.3857 6.8 15.7857 8.15714 15.7857"
                               fill="#ADADAD"

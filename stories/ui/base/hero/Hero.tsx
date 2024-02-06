@@ -18,6 +18,7 @@ type SchemaData = {
 interface HeroProps {
   label: string;
   data: SchemaData;
+  style?: any;
 }
 
 export const Hero = ({

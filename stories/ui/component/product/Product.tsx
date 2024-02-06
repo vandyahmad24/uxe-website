@@ -32,6 +32,7 @@ type SchemaSetting = {
 interface ProductProps {
   data: SchemaEdges;
   settings?: SchemaSetting;
+  style?: any;
 }
 
 export const Product = ({ data, settings, ...props }: ProductProps) => {

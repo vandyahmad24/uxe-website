@@ -9,6 +9,7 @@ type LogoData = {
 interface ListLogoProps {
   label: string;
   data: LogoData[];
+  style?: any;
 }
 
 export const ListLogo = ({

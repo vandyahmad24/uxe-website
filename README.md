@@ -78,3 +78,19 @@ WORDPRESS_API_URL=...
 # WORDPRESS_AUTH_REFRESH_TOKEN=
 # WORDPRESS_PREVIEW_SECRET=
 ```
+
+## Contact Page Configuration
+You need to install Contact Form 7 and activate it and using this template
+
+```
+[text* first-name autocomplete:first-name placeholder "First name"]
+[text* last-name autocomplete:last-name placeholder "Last name"]
+[email* email autocomplete:email placeholder "Email"]
+[tel* phone placeholder "Phone"]
+[text* partnership autocomplete:partnership placeholder "Partnership"]
+[textarea message placeholder "Lest us know what you kind of partnership"]
+<p>By submitting this form, you agree that we will contact you in relation to our product and service.</p>
+[submit "Get in touch"]
+```
+
+after that, get shortcode and go to CMS Setting menu and paste the shortcode and save.

@@ -1,10 +1,9 @@
 import { Footer } from "../footer/Footer";
 import React, { ReactNode } from 'react';
 
-import Navigation from "components/base/navigation";
-import Meta from "components/meta";
-
 import dt from './layout-data.json'
+import { Navigation } from "../navigation/Navigation";
+import { Meta } from "../meta/Meta";
 
 type SchemaData = {
   menu?: any;

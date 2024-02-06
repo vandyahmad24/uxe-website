@@ -38,6 +38,7 @@ type SchemaData = {
 
 interface PostProps {
   data: SchemaEdges;
+  style?: any;
 }
 
 export const Post = ({ data, ...props }: PostProps) => {

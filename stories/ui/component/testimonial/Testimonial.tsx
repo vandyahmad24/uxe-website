@@ -1,6 +1,6 @@
 import Slider from "react-slick";
 import { useEffect, useRef, useState } from "react";
-import Rating from "components/ui/rating";
+import { Rating } from "../rating/Rating";
 
 type SchemaSetting = {
   show: number;
@@ -18,6 +18,7 @@ type SchemaData = {
 interface TestimonialProps {
   data: SchemaData[];
   settings: SchemaSetting;
+  style?: any;
 }
 
 export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {

@@ -14,6 +14,7 @@ type VisionData = {
 
 interface VisionMissionProps {
   data: SchemaData;
+  style?: any;
 }
 
 export const VisionMission = ({ data, ...props }: VisionMissionProps) => {
@@ -102,7 +103,7 @@ export const VisionMission = ({ data, ...props }: VisionMissionProps) => {
     return () => {
       window.removeEventListener("scroll", visionHandle);
     };
-  }, [cScroll]);
+  }, [cScroll, cPadding, cImage, cContent, cFooter]);
 
   return (
     <div ref={cScroll} className="bg-[#E6EDFF] h-[200svh]" {...props}>
