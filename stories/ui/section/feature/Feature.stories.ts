@@ -4,7 +4,7 @@ import { Feature } from './Feature';
 import dt from './feature-data.json'
 
 const meta: Meta<typeof Feature> = {
-  title: 'UI/Component/Feature',
+  title: 'UI/Section/Feature',
   component: Feature,
   parameters: {},
   tags: ['autodocs'],

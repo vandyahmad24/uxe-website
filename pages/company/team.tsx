@@ -3,8 +3,8 @@ import { GetStaticProps } from "next";
 import { Layout } from "@/ui/base/layout/Layout";
 import { CMS_NAME } from "../../lib/constants";
 import { getSettings } from "lib/new-api";
-import { Testimonial } from "@/ui/component/testimonial/Testimonial";
-import { Header } from "@/ui/base/header/Header";
+import { Testimonial } from "@/ui/section/testimonial/Testimonial";
+import { Header } from "@/ui/section/header/Header";
 import Link from "next/link";
 import Image from "next/image";
 

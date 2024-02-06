@@ -37,7 +37,7 @@ interface ProductProps {
 
 export const Product = ({ data, settings, ...props }: ProductProps) => {
   return (
-    <div className="bg-white" {...props}>
+    <section className="bg-white" {...props}>
       <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(190_/_1440)),_190px))_48px_max(20px,_min(calc(100vw_*_(190_/_1440)),_190px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
         <div className="flex flex-col gap-[48px]">
           {settings?.show_title && (
@@ -90,6 +90,6 @@ export const Product = ({ data, settings, ...props }: ProductProps) => {
           )}
         </div>
       </div>
-    </div>
+    </section>
   );
 };

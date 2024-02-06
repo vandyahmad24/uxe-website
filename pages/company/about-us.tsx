@@ -2,10 +2,10 @@ import Head from "next/head";
 import { GetStaticProps } from "next";
 import { Layout } from "@/ui/base/layout/Layout";
 import { CMS_NAME } from "../../lib/constants";
-import { Header } from "@/ui/base/header/Header";
+import { Header } from "@/ui/section/header/Header";
 import { getSettings } from "lib/new-api";
-import { Feature } from "@/ui/component/feature/Feature";
-import { Testimonial } from "@/ui/component/testimonial/Testimonial";
+import { Feature } from "@/ui/section/feature/Feature";
+import { Testimonial } from "@/ui/section/testimonial/Testimonial";
 
 export default function ProductSection({ settings }) {
   const { features, testimonials, settingBackground, visionMission:{ mission, vision } } = settings;

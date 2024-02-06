@@ -103,10 +103,10 @@ export const VisionMission = ({ data, ...props }: VisionMissionProps) => {
     return () => {
       window.removeEventListener("scroll", visionHandle);
     };
-  }, [cScroll, cPadding, cImage, cContent, cFooter]);
+  }, [cScroll, cPadding, cImage, cContent, cFooter, isActive]);
 
   return (
-    <div ref={cScroll} className="bg-[#E6EDFF] h-[200svh]" {...props}>
+    <section ref={cScroll} className="bg-[#E6EDFF] h-[200svh]" {...props}>
       <div
         ref={cPadding}
         className="transition-all h-[100svh] sticky top-0 max-w-[1440px] mx-auto p-[max(44px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden bg-[url('/image/vision-background.png')] bg-contain bg-no-repeat bg-right-top"
@@ -159,6 +159,6 @@ export const VisionMission = ({ data, ...props }: VisionMissionProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

@@ -16,7 +16,7 @@ interface GetStartedProps {
 
 export const GetStarted = ({ label, ...props }: GetStartedProps) => {
   return (
-    <div className="bg-white" { ...props }>
+    <section className="bg-white" { ...props }>
       <div className="max-w-[1440px] mx-auto px-[max(10px,_min(calc(100vw_*_(20_/_1440)),_20px))] overflow-hidden">
         <div className="get-started">
           <div className="get-started-profile">
@@ -37,6 +37,6 @@ export const GetStarted = ({ label, ...props }: GetStartedProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

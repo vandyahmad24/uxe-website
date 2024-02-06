@@ -1,12 +1,12 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import { CMS_NAME } from "../../lib/constants";
-import { Header } from "@/ui/base/header/Header";
+import { Header } from "@/ui/section/header/Header";
 import { getSettings } from "lib/new-api";
-import { Feature } from "@/ui/component/feature/Feature";
+import { Feature } from "@/ui/section/feature/Feature";
 import Link from "next/link";
 import { Layout } from "@/ui/base/layout/Layout";
-import { Testimonial } from "@/ui/component/testimonial/Testimonial";
+import { Testimonial } from "@/ui/section/testimonial/Testimonial";
 import Image from "next/image";
 
 export default function CareerSection({ settings }) {

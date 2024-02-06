@@ -1,6 +1,6 @@
 import Slider from "react-slick";
 import { useEffect, useRef, useState } from "react";
-import { Rating } from "../rating/Rating";
+import { Rating } from "../../component/rating/Rating";
 
 type SchemaSetting = {
   show: number;
@@ -94,7 +94,7 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
   };
 
   return (
-    <div className="bg-white" {...props}>
+    <section className="bg-white" {...props}>
       <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(64_/_1440)),_64px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
         <div className="flex flex-col gap-[48px]">
           <div className="flex flex-col items-start text-left">
@@ -159,6 +159,6 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

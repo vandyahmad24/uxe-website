@@ -43,7 +43,7 @@ interface PostProps {
 
 export const Post = ({ data, ...props }: PostProps) => {
   return (
-    <div className="bg-white" {...props}>
+    <section className="bg-white" {...props}>
       <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
         <div className="flex flex-col gap-[48px]">
           <div className="flex flex-col items-center text-center">
@@ -116,6 +116,6 @@ export const Post = ({ data, ...props }: PostProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

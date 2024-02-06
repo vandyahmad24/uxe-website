@@ -4,10 +4,10 @@ import { getAllProductForHome } from "../lib/api";
 import { CMS_NAME } from "../lib/constants";
 import { getSettings } from "../lib/new-api";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
-import { Testimonial } from "@/ui/component/testimonial/Testimonial";
+import { Testimonial } from "@/ui/section/testimonial/Testimonial";
 import { Layout } from "@/ui/base/layout/Layout";
-import { Header } from "@/ui/base/header/Header";
-import { Product } from "@/ui/component/product/Product";
+import { Header } from "@/ui/section/header/Header";
+import { Product } from "@/ui/section/product/Product";
 
 export default function ProductSection({ products, settings }) {
   const { testimonials, settingBackground } = settings;

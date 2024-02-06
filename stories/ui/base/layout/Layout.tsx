@@ -1,4 +1,4 @@
-import { Footer } from "../footer/Footer";
+import { Footer } from "../../section/footer/Footer";
 import React, { ReactNode } from 'react';
 
 import dt from './layout-data.json'

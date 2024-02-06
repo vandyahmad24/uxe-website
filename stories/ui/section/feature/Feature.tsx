@@ -11,7 +11,7 @@ interface FeatureProps {
 
 export const Feature = ({ data, ...props }: FeatureProps) => {
   return (
-    <div className="bg-white" {...props}>
+    <section className="bg-white" {...props}>
       <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(100_/_1440)),_100px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
         <div className="grid grid-cols-3 gap-[48px_32px] max-xl:grid-cols-2 max-md:grid-cols-1">
           <div className="flex flex-col justify-center p-[0_20px_0_14px] bg-[url('/image/featured-background.png')] bg-cover">
@@ -32,6 +32,6 @@ export const Feature = ({ data, ...props }: FeatureProps) => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
