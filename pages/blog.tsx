@@ -5,9 +5,10 @@ import { CMS_NAME } from "../lib/constants";
 import { getSettings } from "../lib/new-api";
 import Link from "next/link";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
-import { Testimonial } from "@/ui/component/testimonial/Testimonial";
+import { Testimonial } from "@/ui/section/testimonial/Testimonial";
 import { Layout } from "@/ui/base/layout/Layout";
-import { Header } from "@/ui/base/header/Header";
+import { Header } from "@/ui/section/header/Header";
+import Image from "next/image";
 
 export default function BlogSection({ posts, settings }) {
   const { testimonials, settingBackground } = settings;
@@ -42,7 +43,7 @@ export default function BlogSection({ posts, settings }) {
                       key={index}
                       className="rounded-[12px] border border-[#0000000F] overflow-hidden"
                     >
-                      <img
+                      <Image
                         src={
                           node.featuredImage?.node.sourceUrl
                             ? node.featuredImage?.node.sourceUrl
@@ -103,7 +104,7 @@ export default function BlogSection({ posts, settings }) {
                         key={index}
                         className="rounded-[12px] border border-[#0000000F] overflow-hidden"
                       >
-                        <img
+                        <Image
                           src={
                             node.featuredImage?.node.sourceUrl
                               ? node.featuredImage?.node.sourceUrl

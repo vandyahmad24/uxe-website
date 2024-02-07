@@ -7,6 +7,7 @@ interface ButtonProps {
   el: 'a' | 'button';
   href?: string;
   onClick?: () => void;
+  style?: any;
 }
 
 export const Button = ({

@@ -10,6 +10,7 @@ interface TextHugeProps {
   el?: "p" | "a" | "button"; // HTML element type
   href?: string;            // URL for 'a' element
   onClick?: () => void;     // Click event handler
+  style?: any;
 }
 
 // TextHuge component definition

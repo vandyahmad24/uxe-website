@@ -1,12 +1,13 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import { CMS_NAME } from "../../lib/constants";
-import { Header } from "@/ui/base/header/Header";
+import { Header } from "@/ui/section/header/Header";
 import { getSettings } from "lib/new-api";
-import { Feature } from "@/ui/component/feature/Feature";
+import { Feature } from "@/ui/section/feature/Feature";
 import Link from "next/link";
 import { Layout } from "@/ui/base/layout/Layout";
-import { Testimonial } from "@/ui/component/testimonial/Testimonial";
+import { Testimonial } from "@/ui/section/testimonial/Testimonial";
+import Image from "next/image";
 
 export default function CareerSection({ settings }) {
   const {
@@ -45,7 +46,7 @@ export default function CareerSection({ settings }) {
                   key={index}
                   className="relative rounded-[12px] overflow-hidden pt-[100%] h-0 w-full text-white"
                 >
-                  <img
+                  <Image
                     className="absolute top-0 w-full"
                     src={photo_url}
                     alt={name}
@@ -103,14 +104,14 @@ export default function CareerSection({ settings }) {
                             viewBox="0 0 20 20"
                             fill="none"
                           >
-                            <g clip-path="url(#clip0_1034_24223)">
+                            <g clipPath="url(#clip0_1034_24223)">
                               <path
                                 d="M10.0003 5.00033V10.0003L13.3337 11.667M18.3337 10.0003C18.3337 14.6027 14.6027 18.3337 10.0003 18.3337C5.39795 18.3337 1.66699 14.6027 1.66699 10.0003C1.66699 5.39795 5.39795 1.66699 10.0003 1.66699C14.6027 1.66699 18.3337 5.39795 18.3337 10.0003Z"
                                 stroke="#19191B"
-                                stroke-opacity="0.5"
-                                stroke-width="1.66667"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
+                                strokeOpacity="0.5"
+                                strokeWidth="1.66667"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                               />
                             </g>
                             <defs>

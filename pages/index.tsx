@@ -4,14 +4,14 @@ import { CMS_NAME } from "../lib/constants";
 import { getSettings } from "../lib/new-api";
 
 /* Components */
-import { Hero } from "@/ui/base/hero/Hero";
-import { VisionMission } from "@/ui/component/vision-mission/VisionMission";
-import { Feature } from "@/ui/component/feature/Feature";
-import { Solution } from "@/ui/component/solution/Solution";
-import { Product } from "@/ui/component/product/Product";
-import { Testimonial } from "@/ui/component/testimonial/Testimonial";
-import { Post } from "@/ui/component/post/Post";
-import { GetStarted } from "@/ui/component/get-started/GetStarted";
+import { Hero } from "@/ui/section/hero/Hero";
+import { VisionMission } from "@/ui/section/vision-mission/VisionMission";
+import { Feature } from "@/ui/section/feature/Feature";
+import { Solution } from "@/ui/section/solution/Solution";
+import { Product } from "@/ui/section/product/Product";
+import { Testimonial } from "@/ui/section/testimonial/Testimonial";
+import { Post } from "@/ui/section/post/Post";
+import { GetStarted } from "@/ui/section/get-started/GetStarted";
 import { Layout } from "@/ui/base/layout/Layout";
 
 export default function Index({ cmsSetting }) {
