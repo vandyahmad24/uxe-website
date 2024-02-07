@@ -7,7 +7,6 @@ import { Feature } from "@/ui/section/feature/Feature";
 import Link from "next/link";
 import { Layout } from "@/ui/base/layout/Layout";
 import { Testimonial } from "@/ui/section/testimonial/Testimonial";
-import Image from "next/image";
 
 export default function CareerSection({ settings }) {
   const {
@@ -46,7 +45,7 @@ export default function CareerSection({ settings }) {
                   key={index}
                   className="relative rounded-[12px] overflow-hidden pt-[100%] h-0 w-full text-white"
                 >
-                  <Image
+                  <img
                     className="absolute top-0 w-full"
                     src={photo_url}
                     alt={name}

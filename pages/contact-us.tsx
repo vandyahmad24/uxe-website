@@ -5,11 +5,9 @@ import { getSettings } from "../lib/new-api";
 import { TitleMedium } from "@/ui/title/title-medium/TitleMedium";
 import { TextMedium } from "@/ui/text/text-medium/TextMedium";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
-import { TextSmall } from "@/ui/text/text-small/TextSmall";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { Meta } from "@/ui/base/meta/Meta";
-import Image from "next/image";
 
 export default function ContactUsSection({ settings }) {
   const { settingBackground, contactForm } = settings;
@@ -108,7 +106,7 @@ export default function ContactUsSection({ settings }) {
             <div className="grid grid-cols-2 max-md:grid-cols-1 min-h-screen">
               <div className="bg-black p-[max(20px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(96_/_1440)),_96px))] flex flex-col gap-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] items-start text-white">
                 <div className="relative rounded-[12px] overflow-hidden">
-                  <Image
+                  <img
                     alt="Contact Us Background"
                     src={settingBackground?.hero_contact?.url}
                   />

@@ -11,7 +11,6 @@ import {
 } from "../../lib/api";
 import { useEffect, useRef } from "react";
 import { Layout } from "@/ui/base/layout/Layout";
-import Image from "next/image";
 
 export default function Product({ product }) {
   const productContent = useRef(null);
@@ -77,7 +76,7 @@ export default function Product({ product }) {
             <TitleMedium label={product?.title} />
           </div>
           <div>
-            <Image
+            <img
               src={product?.featuredImage?.node?.sourceUrl}
               alt={product?.title}
               className="mx-auto"
