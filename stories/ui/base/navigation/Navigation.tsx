@@ -24,7 +24,7 @@ export const Navigation = ({ menu }: NavigationProps) => {
     const buttonMobile = document.querySelector('button[title="Mobile Menu"]')
 
     const handleMenuMouseEnter = () => {
-      setIsFixed(true || isMobile || isScrolled)
+      setIsFixed(true)
     }
 
     const handleMenuMouseLeave = () => {
