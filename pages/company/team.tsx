@@ -6,7 +6,6 @@ import { getSettings } from "lib/new-api";
 import { Testimonial } from "@/ui/section/testimonial/Testimonial";
 import { Header } from "@/ui/section/header/Header";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function TeamSection({ settings }) {
   const { testimonials, settingBackground, teamMembers } = settings;
@@ -38,7 +37,7 @@ export default function TeamSection({ settings }) {
             <div className="grid grid-cols-4 gap-[20px] max-lg:grid-cols-2 max-sm:grid-cols-1">
               {coreTeam.map(({name, photo_url, role }, index) => (
                 <div key={index} className="relative rounded-[12px] overflow-hidden pt-[100%] h-0 w-full text-white">
-                  <Image
+                  <img
                     className="absolute top-0 w-full"
                     src={photo_url}
                     alt={name}
@@ -71,7 +70,7 @@ export default function TeamSection({ settings }) {
             <div className="grid grid-cols-5 max-lg:grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 max-[374px]:grid-cols-1 gap-[max(24px,_min(calc(100vw_*_(16_/_1440)),_16px))_max(12px,_min(calc(100vw_*_(16_/_1440)),_16px))]">
             {memberTeam.map(({name, photo_url, role, social_media }, index) => (
               <div key={index} className="flex flex-col items-start gap-[20px] max-[374px]:items-center">
-                <Image
+                <img
                   className="rounded-[12px] w-1/3"
                   src={photo_url}
                   alt=""
@@ -146,7 +145,7 @@ export default function TeamSection({ settings }) {
                 </p>
               </div>
               <a
-                href="#"
+                href="/contact-us"
                 className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full hover:opacity-70"
                 style={{
                   border: "1px solid rgba(207, 207, 207, 0.25)",

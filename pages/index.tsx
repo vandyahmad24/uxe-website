@@ -24,10 +24,10 @@ export default function Index({ cmsSetting }) {
     posts,
     solutions,
     settingBackground,
-    footerSettings
+    footerSettings,
   } = cmsSetting;
   return (
-    <Layout data={{footer: footerSettings }}>
+    <Layout data={{ footer: footerSettings }}>
       <Head>
         <title>{`UXE Security Solutions L.L.C`}</title>
       </Head>
@@ -38,7 +38,7 @@ export default function Index({ cmsSetting }) {
       <VisionMission data={visionMission} />
       <Feature data={features} />
       <Solution data={solutions} />
-      <Product data={products} />
+      <Product data={products} settings={{ show_title: true }} />
       <Testimonial data={testimonials} settings={{ show: 3 }} />
       <GetStarted label="Get started with UXE" />
       <Post data={posts} />

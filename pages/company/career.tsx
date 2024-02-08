@@ -7,7 +7,6 @@ import { Feature } from "@/ui/section/feature/Feature";
 import Link from "next/link";
 import { Layout } from "@/ui/base/layout/Layout";
 import { Testimonial } from "@/ui/section/testimonial/Testimonial";
-import Image from "next/image";
 
 export default function CareerSection({ settings }) {
   const {
@@ -46,7 +45,7 @@ export default function CareerSection({ settings }) {
                   key={index}
                   className="relative rounded-[12px] overflow-hidden pt-[100%] h-0 w-full text-white"
                 >
-                  <Image
+                  <img
                     className="absolute top-0 w-full"
                     src={photo_url}
                     alt={name}
@@ -165,7 +164,7 @@ export default function CareerSection({ settings }) {
                 </p>
               </div>
               <a
-                href="#"
+                href="/contact-us"
                 className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full hover:opacity-70"
                 style={{
                   border: "1px solid rgba(207, 207, 207, 0.25)",

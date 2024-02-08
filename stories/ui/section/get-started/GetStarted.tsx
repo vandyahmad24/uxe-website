@@ -31,7 +31,7 @@ export const GetStarted = ({ label, ...props }: GetStartedProps) => {
               label={label}
               decoration
             />
-            <Link href="#" className="get-started-button">
+            <Link href="/contact-us" className="get-started-button">
               Get in touch
             </Link>
           </div>

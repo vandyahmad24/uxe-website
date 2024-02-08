@@ -11,7 +11,6 @@ import {
 } from "../../lib/api";
 import { useEffect, useRef } from "react";
 import { Layout } from "@/ui/base/layout/Layout";
-import Image from "next/image";
 
 export default function Product({ product }) {
   const productContent = useRef(null);
@@ -77,7 +76,7 @@ export default function Product({ product }) {
             <TitleMedium label={product?.title} />
           </div>
           <div>
-            <Image
+            <img
               src={product?.featuredImage?.node?.sourceUrl}
               alt={product?.title}
               className="mx-auto"
@@ -99,7 +98,7 @@ export default function Product({ product }) {
                 </p>
               </div>
               <a
-                href="#"
+                href="/contact-us"
                 className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full hover:opacity-70"
                 style={{
                   border: "1px solid rgba(207, 207, 207, 0.25)",

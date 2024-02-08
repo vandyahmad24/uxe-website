@@ -8,7 +8,6 @@ import { TextLarge } from "@/ui/text/text-large/TextLarge";
 import { Testimonial } from "@/ui/section/testimonial/Testimonial";
 import { Layout } from "@/ui/base/layout/Layout";
 import { Header } from "@/ui/section/header/Header";
-import Image from "next/image";
 
 export default function BlogSection({ posts, settings }) {
   const { testimonials, settingBackground } = settings;
@@ -43,7 +42,7 @@ export default function BlogSection({ posts, settings }) {
                       key={index}
                       className="rounded-[12px] border border-[#0000000F] overflow-hidden"
                     >
-                      <Image
+                      <img
                         src={
                           node.featuredImage?.node.sourceUrl
                             ? node.featuredImage?.node.sourceUrl
@@ -104,7 +103,7 @@ export default function BlogSection({ posts, settings }) {
                         key={index}
                         className="rounded-[12px] border border-[#0000000F] overflow-hidden"
                       >
-                        <Image
+                        <img
                           src={
                             node.featuredImage?.node.sourceUrl
                               ? node.featuredImage?.node.sourceUrl
@@ -177,7 +176,7 @@ export default function BlogSection({ posts, settings }) {
                 </p>
               </div>
               <a
-                href="#"
+                href="/contact-us"
                 className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full hover:opacity-70"
                 style={{
                   border: "1px solid rgba(207, 207, 207, 0.25)",
