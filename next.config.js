@@ -25,5 +25,6 @@ module.exports = {
     ],
   },
   output: "standalone",
-  poweredByHeader: false
+  distDir: 'build',
+  poweredByHeader: false,
 }
