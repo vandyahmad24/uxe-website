@@ -16,8 +16,8 @@ interface LayoutProps {
 }
 
 export const Layout = ({ data, children }: LayoutProps) => {
-  const menu = data?.menu || dt.menu;
-  const footer = { ...dt.footer, ...data?.footer };
+  const menu = data?.menu || dt?.menu;
+  const footer = { ...dt?.footer, ...data?.footer };
   
   return (
     <>
