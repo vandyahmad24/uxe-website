@@ -1,0 +1,90 @@
+/* Custom styling for the form */
+.form-wrap {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-wrap label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-wrap input[type="text"],
+.form-wrap input[type="number"],
+.form-wrap textarea,
+.form-wrap input[type="url"],
+.form-wrap input[type="email"] {
+  width: 100%; /* Adjust width as needed */
+  padding: 4px 10px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-wrap textarea {
+  resize: vertical;
+}
+
+.form-wrap input[type="submit"] {
+  background-color: #0073aa;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.form-wrap input[type="submit"]:hover {
+  background-color: #005689;
+}
+
+.image-upload-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.image-upload-container img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.image-upload-btn {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: #0073aa;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.image-upload-btn:hover {
+  background-color: #005689;
+}
+
+.svg-preview {
+  max-width: 40px;
+  max-height: 40px;
+  display: inline-block;
+}
+
+.image-preview {
+  max-width: 100%; /* Adjust the max width as needed */
+  height: auto;
+  margin-bottom: 15px;
+}
