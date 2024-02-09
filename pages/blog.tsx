@@ -9,9 +9,33 @@ import { Testimonial } from "@/ui/section/testimonial/Testimonial";
 import { Layout } from "@/ui/base/layout/Layout";
 import { Header } from "@/ui/section/header/Header";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
+import { useState } from "react";
 
 export default function BlogSection({ posts, options }) {
   const { testimonialOptions, backgroundOptions } = options;
+  const [postData, setPosts] = useState([...posts.edges]);
+  const [endCursor, setEndCursor] = useState(posts?.pageInfo?.endCursor || null);
+  const [hasMorePosts, setHasMorePosts] = useState(posts?.pageInfo?.hasNextPage || null);
+  const [loading, setLoading] = useState(false);
+
+  const fetchPosts = async (afterCursor) => {
+    try {
+      const newPosts = await getAllPostsForHome(false, afterCursor);
+      console.log(newPosts)
+      setPosts([...postData, ...newPosts.edges]);
+      setEndCursor(newPosts?.pageInfo?.endCursor ? newPosts?.pageInfo?.endCursor : "");
+      setHasMorePosts(newPosts?.pageInfo?.hasNextPage)
+      setLoading(false);
+    } catch (error) {
+      console.log(`Error: ${error}`)
+    }
+  };
+
+  const handleLoadMore = (event) => {
+    event.preventDefault();
+    setLoading(true);
+    fetchPosts(endCursor);
+  };
 
   return (
     <Layout>
@@ -36,11 +60,11 @@ export default function BlogSection({ posts, options }) {
                 grow.
               </p>
             </div>
-            {posts.edges.length > 0 && (
+            {postData.length > 0 && (
               <>
                 <div className="grid grid-cols-2 gap-[48px_20px] max-md:grid-cols-1">
-                  {posts.edges
-                    .slice(0, posts.edges.length > 1 ? 2 : 1)
+                  {postData
+                    .slice(0, postData.length > 1 ? 2 : 1)
                     .map(({ node }, index) => (
                       <div
                         key={index}
@@ -100,9 +124,9 @@ export default function BlogSection({ posts, options }) {
                       </div>
                     ))}
                 </div>
-                {posts.edges.length > 2 && (
+                {postData.length > 2 && (
                   <div className="grid grid-cols-3 gap-[48px_20px] max-xl:grid-cols-2 max-md:grid-cols-1">
-                    {posts.edges.slice(2).map(({ node }, index) => (
+                    {postData.slice(2).map(({ node }, index) => (
                       <div
                         key={index}
                         className="rounded-[12px] border border-[#0000000F] overflow-hidden"
@@ -161,6 +185,25 @@ export default function BlogSection({ posts, options }) {
                       </div>
                     ))}
                   </div>
+                )}
+                {hasMorePosts ? (
+                  <div className="flex justify-center cursor-pointer" onClick={handleLoadMore}>
+                    <div
+                      className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B] backdrop-blur-[2px] border border-[#F4F5F6] hover:opacity-70"
+                    >
+                      {loading ? "Loading..." : "Load more"}
+                    </div>
+                  </div>
+                ) : (
+                  (postData.length > 6) && (
+                    <div className="flex justify-center cursor-pointer">
+                      <div
+                        className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B] backdrop-blur-[2px] border border-[#F4F5F6] hover:opacity-70"
+                      >
+                        All posts loaded
+                      </div>
+                    </div>
+                  )
                 )}
               </>
             )}
