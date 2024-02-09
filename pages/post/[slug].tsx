@@ -86,13 +86,13 @@ export default function Post({ post, posts, preview }) {
   return (
     <Layout>
       <Head>
-        <title>{`${post?.title} | ${CMS_NAME}`}</title>
+        <title>{`${CMS_NAME} | ${post?.title}`}</title>
       </Head>
       <div className="bg-white p-[max(48px,_min(calc(100vw_*_(170_/_1440)),_170px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))_max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))]">
         <div className="max-w-[770px] mx-auto overflow-hidden">
           <div className="flex flex-col items-start gap-[10px]">
             <TextSmall
-              label={post?.categories.edges[0]?.node.name}
+              label={post?.categories?.edges[0]?.node?.name}
               cls="uppercase text-[#676767]"
             />
             <TitleMedium label={post?.title} cls="max-w-full" />
@@ -294,7 +294,7 @@ export default function Post({ post, posts, preview }) {
                   post?.tags.edges.map(({ node }, index) => (
                     <TextSmall
                       key={index}
-                      label={node.name}
+                      label={node?.name}
                       cls="text-[#19191B80] font-medium uppercase p-[4px_6px] bg-[#0000000F] rounded-[4px]"
                     />
                   ))}
@@ -345,8 +345,8 @@ export default function Post({ post, posts, preview }) {
                     >
                       <img
                         src={
-                          node.featuredImage?.node.sourceUrl
-                            ? node.featuredImage?.node.sourceUrl
+                          node.featuredImage?.node?.sourceUrl
+                            ? node?.featuredImage?.node?.sourceUrl
                             : "https://fakeimg.pl/770x450"
                         }
                         alt={node.title}
@@ -355,13 +355,13 @@ export default function Post({ post, posts, preview }) {
                       <div className="p-[24px] flex flex-col gap-[32px]">
                         <div className="flex flex-col items-start justify-start gap-[12px]">
                           <span className="text-[14px] text-[#19191B80] font-medium leading-[132%] p-[4px_12px] border border-[#D9D9D9] rounded-full">
-                            {node.categories.edges[0].node.name}
+                            {node?.categories?.edges[0]?.node?.name}
                           </span>
                           <Link
-                            href={"/post/" + node.slug}
+                            href={"/post/" + node?.slug}
                             className="text-[20px] text-[#19191B] font-medium leading-[132%] -tracking-[.2px] hover:opacity-70 line-clamp-2"
                           >
-                            {node.title}
+                            {node?.title}
                           </Link>
                           <TextLarge
                             label={node?.excerpt
@@ -371,7 +371,7 @@ export default function Post({ post, posts, preview }) {
                           />
                         </div>
                         <Link
-                          href={"/post/" + node.slug}
+                          href={"/post/" + node?.slug}
                           className="flex items-center gap-[8px] hover:opacity-70"
                         >
                           <span className="text-[16px] text-[#19191B] font-medium leading-[132%] -tracknig-[.16px]">
@@ -416,8 +416,8 @@ export const getStaticProps: GetStaticProps = async ({
   return {
     props: {
       preview,
-      post: data.post,
-      posts: data.posts,
+      post: data?.post,
+      posts: data?.posts,
     },
     revalidate: 10,
   };
@@ -427,7 +427,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const allPosts = await getAllPostsWithSlug();
 
   return {
-    paths: allPosts.edges.map(({ node }) => `/post/${node.slug}`) || [],
+    paths: allPosts.edges.map(({ node }) => `/post/${node?.slug}`) || [],
     fallback: true,
   };
 };
