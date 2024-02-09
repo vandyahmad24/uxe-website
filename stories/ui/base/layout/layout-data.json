@@ -1,6 +1,11 @@
 {
   "menu": [
     {
+      "name": "Home",
+      "url": "/",
+      "submenu": []
+    },
+    {
       "name": "Product",
       "url": "/products",
       "submenu": []

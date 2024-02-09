@@ -10,7 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['ttsans', ...defaultTheme.fontFamily.sans],
+        'sans': ['ttfont', ...defaultTheme.fontFamily.sans],
       },
       colors: {
         'accent-1': '#FAFAFA',

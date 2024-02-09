@@ -131,10 +131,12 @@ export default function ContactUsSection({ options }) {
             <div className="grid grid-cols-2 max-md:grid-cols-1 min-h-screen">
               <div className="bg-black p-[max(20px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(96_/_1440)),_96px))] flex flex-col gap-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] items-start text-white">
                 <div className="relative rounded-[12px] overflow-hidden">
-                  <img
-                    alt="Contact Us Background"
-                    src={backgroundOptions?.hero_contact?.url}
-                  />
+                  {backgroundOptions?.hero_contact && (
+                    <img
+                      alt="Contact Us Background"
+                      src={backgroundOptions?.hero_contact?.url}
+                    />
+                  )}
 
                   <div className="flex flex-col items-start gap-[12px] absolute left-[20px] bottom-[14px]">
                     <div className="p-[10px] rounded-full backdrop-blur-[2px] bg-[#BEBEBE40] text-white flex items-center gap-[6px]">
@@ -230,7 +232,7 @@ export default function ContactUsSection({ options }) {
                 <div
                   className="form-contact"
                   ref={formBlock}
-                  dangerouslySetInnerHTML={{ __html: contactOptions.html }}
+                  dangerouslySetInnerHTML={{ __html: contactOptions?.html }}
                 ></div>
                 <p
                   ref={formMessage}
