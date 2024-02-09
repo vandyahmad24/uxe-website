@@ -8,13 +8,16 @@ import Link from "next/link";
 import { Layout } from "@/ui/base/layout/Layout";
 import { Testimonial } from "@/ui/section/testimonial/Testimonial";
 
-export default function CareerSection({ settings }) {
+export default function CareerSection({ options }) {
   const {
-    settingBackground,
-    features, teamMembers,
-    careers, testimonials } = settings;
+    backgroundOptions,
+    featureOptions,
+    teamOptions,
+    careerOptions,
+    testimonialOptions,
+  } = options;
 
-  let coreTeam = teamMembers.slice(0, 4) || [];
+  let coreTeam = teamOptions.slice(0, 4) || [];
   return (
     <Layout>
       <Head>
@@ -24,9 +27,9 @@ export default function CareerSection({ settings }) {
         title="Became part of our community"
         subtitle="CAREERS"
         description="Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments"
-        video_url={settingBackground?.hero_career?.url}
+        video_url={backgroundOptions?.hero_career?.url}
       />
-      <Feature data={features} />
+      <Feature data={featureOptions} />
       <div className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden pb-0">
           <div className="flex flex-col gap-[max(48px,_min(calc(100vw_*_(64_/_1440)),_64px))]">
@@ -76,8 +79,8 @@ export default function CareerSection({ settings }) {
               </p>
             </div>
             <div className="flex flex-col gap-[20px]">
-              {careers &&
-                careers.map(
+              {careerOptions &&
+                careerOptions.map(
                   ({ title, description, job_type, external_link }, index) => (
                     <div
                       key={index}
@@ -178,15 +181,15 @@ export default function CareerSection({ settings }) {
           </div>
         </div>
       </div>
-      <Testimonial data={testimonials} settings={{ show: 3 }} />
+      <Testimonial data={testimonialOptions} settings={{ show: 3 }} />
     </Layout>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const settings = await getSettings();
+  const options = await getSettings();
   return {
-    props: { settings },
+    props: { options },
     revalidate: 10,
   };
 };

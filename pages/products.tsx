@@ -1,16 +1,14 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
-import { getAllProductForHome } from "../lib/api";
 import { CMS_NAME } from "../lib/constants";
-import { getSettings } from "../lib/new-api";
-import { TextLarge } from "@/ui/text/text-large/TextLarge";
+import { getSettings, getAllProduct } from "../lib/new-api";
 import { Testimonial } from "@/ui/section/testimonial/Testimonial";
 import { Layout } from "@/ui/base/layout/Layout";
 import { Header } from "@/ui/section/header/Header";
 import { Product } from "@/ui/section/product/Product";
 
-export default function ProductSection({ products, settings }) {
-  const { testimonials, settingBackground } = settings;
+export default function ProductSection({ products, options }) {
+  const { testimonialOptions, backgroundOptions } = options;
 
   return (
     <Layout>
@@ -21,7 +19,7 @@ export default function ProductSection({ products, settings }) {
         title="Discover Innovation in Smart Security Products"
         subtitle="OUR PRODUCT"
         description="Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments"
-        video_url={settingBackground?.hero_product?.url}
+        video_url={backgroundOptions?.hero_product?.url}
       />
       <Product data={products} />
       <div className="bg-white">
@@ -51,16 +49,16 @@ export default function ProductSection({ products, settings }) {
           </div>
         </div>
       </div>
-      <Testimonial data={testimonials} settings={{ show: 3 }} />
+      <Testimonial data={testimonialOptions} settings={{ show: 3 }} />
     </Layout>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const products = await getAllProductForHome();
-  const settings = await getSettings();
+  const products = await getAllProduct();
+  const options = await getSettings();
   return {
-    props: { products, settings },
+    props: { products, options },
     revalidate: 10,
   };
 };
