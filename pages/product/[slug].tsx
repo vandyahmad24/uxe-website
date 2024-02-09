@@ -15,26 +15,37 @@ import { Layout } from "@/ui/base/layout/Layout";
 export default function Product({ product }) {
   const productContent = useRef(null);
   useEffect(() => {
-    productContent.current.querySelectorAll('img').forEach(el => {
+    productContent.current.querySelectorAll("img").forEach((el) => {
       // Modify the src attribute
       const currentSrc = el.src;
-      let newSrc
-      newSrc = currentSrc.replace(/^(?:https?:)?\/\/[^/]+/, 'https://api.uxe.ai');
-      if (currentSrc.startsWith('/')) {
-        newSrc = 'https://api.uxe.ai' + currentSrc
+      let newSrc;
+      newSrc = currentSrc.replace(
+        /^(?:https?:)?\/\/[^/]+/,
+        "https://api.uxe.ai"
+      );
+      if (currentSrc.startsWith("/")) {
+        newSrc = "https://api.uxe.ai" + currentSrc;
       }
       el.src = newSrc;
-  
+
       // Modify the srcset attribute
-      const currentSrcset = el.getAttribute('srcset');
+      const currentSrcset = el.getAttribute("srcset");
       if (currentSrcset) {
-          let newSrcset
-          newSrcset = currentSrcset.replace(/(?:https?:)?\/\/[^/]+/g, 'https://api.uxe.ai');
-          newSrcset = currentSrcset.split(',').map(src => {
+        let newSrcset;
+        newSrcset = currentSrcset.replace(
+          /(?:https?:)?\/\/[^/]+/g,
+          "https://api.uxe.ai"
+        );
+        newSrcset = currentSrcset
+          .split(",")
+          .map((src) => {
             const trimmedSrc = src.trim();
-            return trimmedSrc.startsWith('/') ? 'https://api.uxe.ai' + trimmedSrc : trimmedSrc;
-          }).join(',');
-          el.setAttribute('srcset', newSrcset);
+            return trimmedSrc.startsWith("/")
+              ? "https://api.uxe.ai" + trimmedSrc
+              : trimmedSrc;
+          })
+          .join(",");
+        el.setAttribute("srcset", newSrcset);
       }
     });
 
@@ -42,18 +53,18 @@ export default function Product({ product }) {
 
     const handleScrollNav = () => {
       const scrollY = window.scrollY;
-      
-      if (scrollY <= 0){
+
+      if (scrollY <= 0) {
         window.scrollY = 2;
       }
-    }
+    };
 
-    window.addEventListener('scroll', handleScrollNav);
+    window.addEventListener("scroll", handleScrollNav);
 
     return () => {
-      window.removeEventListener('scroll', handleScrollNav);
-    }
-  })
+      window.removeEventListener("scroll", handleScrollNav);
+    };
+  });
 
   const router = useRouter();
 
@@ -81,7 +92,10 @@ export default function Product({ product }) {
               alt={product?.title}
               className="mx-auto"
             />
-            <div ref={productContent} dangerouslySetInnerHTML={{ __html: product?.content }}></div>
+            <div
+              ref={productContent}
+              dangerouslySetInnerHTML={{ __html: product?.content }}
+            ></div>
           </div>
         </div>
       </div>

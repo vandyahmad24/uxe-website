@@ -14,32 +14,35 @@ import { Post } from "@/ui/section/post/Post";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
 import { Layout } from "@/ui/base/layout/Layout";
 
-export default function Index({ cmsSetting }) {
+export default function Index({ options }) {
   const {
-    clients,
-    visionMission,
-    features,
-    testimonials,
+    clientOptions,
+    visionAndMissionOptions,
+    featureOptions,
+    testimonialOptions,
     products,
     posts,
-    solutions,
-    settingBackground,
-    footerSettings,
-  } = cmsSetting;
+    solutionOptions,
+    backgroundOptions,
+    contactOptions,
+  } = options;
   return (
-    <Layout data={{ footer: footerSettings }}>
+    <Layout data={{ footer: contactOptions }}>
       <Head>
-        <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
+        <title>{`${CMS_NAME}`}</title>
       </Head>
       <Hero
         label="Trusted by hundreds of organizations"
-        data={{ clients, hero_url: settingBackground?.hero_home?.url }}
+        data={{
+          clients: clientOptions,
+          hero_url: backgroundOptions?.hero_home?.url,
+        }}
       />
-      <VisionMission data={visionMission} />
-      <Feature data={features} />
-      <Solution data={solutions} />
+      <VisionMission data={visionAndMissionOptions} />
+      <Feature data={featureOptions} />
+      <Solution data={solutionOptions} />
       <Product data={products} settings={{ show_title: true }} />
-      <Testimonial data={testimonials} settings={{ show: 3 }} />
+      <Testimonial data={testimonialOptions} settings={{ show: 3 }} />
       <GetStarted label="Get started with UXE" />
       <Post data={posts} />
     </Layout>
@@ -47,9 +50,9 @@ export default function Index({ cmsSetting }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const cmsSetting = await getSettings();
+  const options = await getSettings();
   return {
-    props: { cmsSetting },
+    props: { options },
     revalidate: 10,
   };
 };

@@ -64,21 +64,50 @@ export async function getAllPosts() {
   return data?.posts
 }
 
+export async function getAllProduct() {
+  const data = await fetchAPI(
+    `
+    query AllProducts($first: Int = 20, $order: OrderEnum = DESC) {
+      products(first: $first, where: {orderby: {field: DATE, order: $order}}) {
+        edges {
+          node {
+            title
+            excerpt
+            slug
+            date
+            featuredImage {
+              node {
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  `,
+    {
+      variables: {},
+    }
+  )
+
+  return data?.products
+}
+
 export async function getSettings() {
   const data = await fetchAPI(
     `
     query getSettings {
-      features {
+      featureOptions {
         description
         icon
         title
       }
-      solutions {
+      solutionOptions {
         description
         image_url
         title
       }
-      visionMission {
+      visionAndMissionOptions {
         mission {
           description
           image_url
@@ -90,11 +119,11 @@ export async function getSettings() {
           title
         }
       }
-      clients {
+      clientOptions {
         alt
         logo_url
       }
-      testimonials {
+      testimonialOptions {
         rating
         review_text
         reviewer_company_image
@@ -162,7 +191,7 @@ export async function getSettings() {
           }
         }
       }
-      footerSettings {
+      footerOptions {
         address
         explore_menu {
           name
@@ -177,7 +206,7 @@ export async function getSettings() {
           url
         }
       }
-      settingBackground {
+      backgroundOptions {
         hero_about_us {
           type
           url
@@ -207,13 +236,13 @@ export async function getSettings() {
           url
         }
       }
-      careers {
+      careerOptions {
         description
         external_link
         job_type
         title
       }
-      teamMembers {
+      teamOptions {
         name
         photo_url
         role
@@ -222,7 +251,7 @@ export async function getSettings() {
           twitter
         }
       }
-      contactForm {
+      contactOptions {
         html
       }
     }

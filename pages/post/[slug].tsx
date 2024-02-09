@@ -20,29 +20,40 @@ export default function Post({ post, posts, preview }) {
   const morePosts = posts?.edges;
 
   useEffect(() => {
-    postContent.current.querySelectorAll('img').forEach(el => {
+    postContent.current.querySelectorAll("img").forEach((el) => {
       // Modify the src attribute
       const currentSrc = el.src;
-      let newSrc
-      newSrc = currentSrc.replace(/^(?:https?:)?\/\/[^/]+/, 'https://api.uxe.ai');
-      if (currentSrc.startsWith('/')) {
-        newSrc = 'https://api.uxe.ai' + currentSrc
+      let newSrc;
+      newSrc = currentSrc.replace(
+        /^(?:https?:)?\/\/[^/]+/,
+        "https://api.uxe.ai"
+      );
+      if (currentSrc.startsWith("/")) {
+        newSrc = "https://api.uxe.ai" + currentSrc;
       }
       el.src = newSrc;
-  
+
       // Modify the srcset attribute
-      const currentSrcset = el.getAttribute('srcset');
+      const currentSrcset = el.getAttribute("srcset");
       if (currentSrcset) {
-          let newSrcset
-          newSrcset = currentSrcset.replace(/(?:https?:)?\/\/[^/]+/g, 'https://api.uxe.ai');
-          newSrcset = currentSrcset.split(',').map(src => {
+        let newSrcset;
+        newSrcset = currentSrcset.replace(
+          /(?:https?:)?\/\/[^/]+/g,
+          "https://api.uxe.ai"
+        );
+        newSrcset = currentSrcset
+          .split(",")
+          .map((src) => {
             const trimmedSrc = src.trim();
-            return trimmedSrc.startsWith('/') ? 'https://api.uxe.ai' + trimmedSrc : trimmedSrc;
-          }).join(',');
-          el.setAttribute('srcset', newSrcset);
+            return trimmedSrc.startsWith("/")
+              ? "https://api.uxe.ai" + trimmedSrc
+              : trimmedSrc;
+          })
+          .join(",");
+        el.setAttribute("srcset", newSrcset);
       }
     });
-  
+
     // Check if window is defined (only runs on the client-side)
     if (typeof window !== "undefined") {
       setSiteUrl(window.location.href);
@@ -52,16 +63,16 @@ export default function Post({ post, posts, preview }) {
 
     const handleScrollNav = () => {
       const scrollY = window.scrollY;
-      
-      if (scrollY <= 0){
+
+      if (scrollY <= 0) {
         window.scrollY = 2;
       }
-    }
+    };
 
-    window.addEventListener('scroll', handleScrollNav);
+    window.addEventListener("scroll", handleScrollNav);
     return () => {
-      window.removeEventListener('scroll', handleScrollNav);
-    }
+      window.removeEventListener("scroll", handleScrollNav);
+    };
   }, []);
 
   const copyLink = () => {
@@ -100,11 +111,13 @@ export default function Post({ post, posts, preview }) {
                   cls="font-medium"
                 />
                 <TextMedium
-                  label={new Date(post?.date).toLocaleDateString("en-GB", {
-                    year: "numeric",
-                    month: "short",
-                    day: "numeric",
-                  }).replace(/,/g, '')}
+                  label={new Date(post?.date)
+                    .toLocaleDateString("en-GB", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })
+                    .replace(/,/g, "")}
                 />
               </div>
             </div>
@@ -192,7 +205,11 @@ export default function Post({ post, posts, preview }) {
                 className="mx-auto rounded-[12px] my-[64px] w-full"
               />
             )}
-            <div ref={postContent} className="post-content" dangerouslySetInnerHTML={{ __html: post?.content }}></div>
+            <div
+              ref={postContent}
+              className="post-content"
+              dangerouslySetInnerHTML={{ __html: post?.content }}
+            ></div>
           </div>
           <div className="flex flex-col gap-[16px] mt-[64px]">
             <TitleXXSmall label="Share this article" />
@@ -273,13 +290,14 @@ export default function Post({ post, posts, preview }) {
                 </Link>
               </div>
               <div className="flex gap-[4px]">
-                {post?.tags && post?.tags.edges.map(({node}, index) => (
-                  <TextSmall
-                    key={index}
-                    label={node.name}
-                    cls="text-[#19191B80] font-medium uppercase p-[4px_6px] bg-[#0000000F] rounded-[4px]"
-                  />
-                ))}
+                {post?.tags &&
+                  post?.tags.edges.map(({ node }, index) => (
+                    <TextSmall
+                      key={index}
+                      label={node.name}
+                      cls="text-[#19191B80] font-medium uppercase p-[4px_6px] bg-[#0000000F] rounded-[4px]"
+                    />
+                  ))}
               </div>
             </div>
           </div>
