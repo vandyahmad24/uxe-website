@@ -64,11 +64,15 @@ export async function getAllPosts() {
   return data?.posts
 }
 
-export async function getAllProduct() {
+export async function getAllProduct(afterCursor = "") {
   const data = await fetchAPI(
     `
-    query AllProducts($first: Int = 20, $order: OrderEnum = DESC) {
-      products(first: $first, where: {orderby: {field: DATE, order: $order}}) {
+    query AllProducts($first: Int = 6, $order: OrderEnum = DESC, $after: String = "") {
+      products(
+        first: $first
+        where: {orderby: {field: DATE, order: $order}}
+        after: $after
+      ) {
         edges {
           node {
             title
@@ -82,11 +86,19 @@ export async function getAllProduct() {
             }
           }
         }
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
+        }
       }
     }
   `,
     {
-      variables: {},
+      variables: {
+        after: afterCursor,
+      },
     }
   )
 

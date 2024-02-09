@@ -1,6 +1,5 @@
-const API_URL = process.env.WORDPRESS_API_URL
-
 async function fetchAPI(query = '', { variables }: Record<string, any> = {}) {
+  const API_URL = process.env.WORDPRESS_API_URL || "https://api.uxe.ai/graphql"
   const headers = { 'Content-Type': 'application/json' }
 
   if (process.env.WORDPRESS_AUTH_REFRESH_TOKEN) {
@@ -74,11 +73,11 @@ export async function getAllProductsWithSlug() {
   return data?.products
 }
 
-export async function getAllPostsForHome(preview) {
+export async function getAllPostsForHome(preview, afterCursor = "") {
   const data = await fetchAPI(
     `
-    query AllPosts {
-      posts(first: 20, where: { orderby: { field: DATE, order: DESC } }) {
+    query AllPosts($after: String = "") {
+      posts(first: 8, where: {orderby: {field: DATE, order: DESC}}, after: $after) {
         edges {
           node {
             title
@@ -109,11 +108,18 @@ export async function getAllPostsForHome(preview) {
             }
           }
         }
+        pageInfo {
+          endCursor
+          hasPreviousPage
+          hasNextPage
+          startCursor
+        }
       }
     }
   `,
     {
       variables: {
+        after: afterCursor,
         onlyEnabled: !preview,
         preview,
       },
@@ -122,11 +128,15 @@ export async function getAllPostsForHome(preview) {
 
   return data?.posts
 }
-export async function getAllProductForHome() {
+export async function getAllProductForHome(afterCursor = "") {
   const data = await fetchAPI(
     `
-    query AllProducts($first: Int = 20, $order: OrderEnum = DESC) {
-      products(first: $first, where: {orderby: {field: DATE, order: $order}}) {
+    query AllProducts($first: Int = 20, $order: OrderEnum = DESC, $after: String = "") {
+      products(
+        first: $first
+        where: {orderby: {field: DATE, order: $order}}
+        after: $after
+      ) {
         edges {
           node {
             title
@@ -140,11 +150,19 @@ export async function getAllProductForHome() {
             }
           }
         }
+        pageInfo {
+          endCursor
+          hasNextPage
+          hasPreviousPage
+          startCursor
+        }
       }
     }
   `,
     {
-      variables: {},
+      variables: {
+        after: afterCursor,
+      },
     }
   )
 

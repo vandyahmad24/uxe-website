@@ -332,7 +332,7 @@ export default function Post({ post, posts, preview }) {
                       </>
                     }
                     el="a"
-                    href="/posts"
+                    href="/blog"
                     cls="flex items-center gap-[6px]"
                     hover
                   />

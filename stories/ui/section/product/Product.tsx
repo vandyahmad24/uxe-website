@@ -1,8 +1,11 @@
 import Link from "next/link";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
+import { useState } from "react";
+import { getAllProduct } from "lib/new-api";
 
 type SchemaEdges = {
   edges: SchemaNode[];
+  pageInfo?: any;
 };
 
 type SchemaNode = {
@@ -36,6 +39,30 @@ interface ProductProps {
 }
 
 export const Product = ({ data, settings, ...props }: ProductProps) => {
+  const [productData, setProducts] = useState([...data.edges]);
+  const [endCursor, setEndCursor] = useState(data?.pageInfo?.endCursor || null);
+  const [hasMoreProducts, setHasMoreProducts] = useState(data?.pageInfo?.hasNextPage || null);
+  const [loading, setLoading] = useState(false);
+
+  const fetchProducts = async (afterCursor) => {
+    try {
+      const newProducts = await getAllProduct(afterCursor);
+      console.log(newProducts)
+      setProducts([...productData, ...newProducts.edges]);
+      setEndCursor(newProducts?.pageInfo?.endCursor ? newProducts?.pageInfo?.endCursor : "");
+      setHasMoreProducts(newProducts?.pageInfo?.hasNextPage)
+      setLoading(false);
+    } catch (error) {
+      console.log(`Error: ${error}`)
+    }
+  };
+
+  const handleLoadMore = (event) => {
+    event.preventDefault();
+    setLoading(true);
+    fetchProducts(endCursor);
+  };
+
   return (
     <section className="bg-white" {...props}>
       <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(190_/_1440)),_190px))_48px_max(20px,_min(calc(100vw_*_(190_/_1440)),_190px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
@@ -51,7 +78,7 @@ export const Product = ({ data, settings, ...props }: ProductProps) => {
             </div>
           )}
           <div className="grid grid-cols-3 gap-[20px] max-xl:grid-cols-2 max-md:grid-cols-1">
-            {data?.edges.map(({ node }, index) => (
+            {productData.map(({ node }, index) => (
               <div key={index} className="flex flex-col gap-[20px]">
                 <div className="relative w-full pt-[112%] rounded-[12px] bg-[#F2F2F2]">
                   <a href={"/product/" + node?.slug} className="absolute inset-0 w-full h-full">
@@ -82,12 +109,31 @@ export const Product = ({ data, settings, ...props }: ProductProps) => {
           {settings?.show_title && (
             <div className="flex justify-center">
               <Link
-                href={"/product"}
+                href={"/products"}
                 className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B] backdrop-blur-[2px] border border-[#F4F5F6] hover:opacity-70"
               >
                 See All Product
               </Link>
             </div>
+          )}
+          {hasMoreProducts ? (
+            <div className="flex justify-center cursor-pointer" onClick={handleLoadMore}>
+              <div
+                className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B] backdrop-blur-[2px] border border-[#F4F5F6] hover:opacity-70"
+              >
+                {loading ? "Loading..." : "Load more"}
+              </div>
+            </div>
+          ) : (
+            (productData.length > 6) && (
+              <div className="flex justify-center cursor-pointer">
+                <div
+                  className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B] backdrop-blur-[2px] border border-[#F4F5F6] hover:opacity-70"
+                >
+                  All posts loaded
+                </div>
+              </div>
+            )
           )}
         </div>
       </div>
