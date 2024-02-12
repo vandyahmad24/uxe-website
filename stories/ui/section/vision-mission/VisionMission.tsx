@@ -44,6 +44,7 @@ export const VisionMission = ({ data, ...props }: VisionMissionProps) => {
       const container = cImage.current.querySelectorAll("img");
       const containerContent = cContent.current.childNodes;
       const containerFooter = cFooter.current.childNodes[1].childNodes;
+      const containerDescription = cFooter.current.childNodes[0]
   
       if (sectionTop < 0) {
         const navigationElm = window.document.querySelector(
@@ -87,12 +88,14 @@ export const VisionMission = ({ data, ...props }: VisionMissionProps) => {
         if (ei == isActive) {
           element.style.opacity = 1;
           // element.style.display = "block"
+          containerDescription.innerText = vision?.description
           containerFooter[ei].style.background = "#3760ff";
           containerFooter[ei].style.width =
             "max(32px, min(calc(100vw * (64 / 1440)), 64px))";
         } else {
           element.style.opacity = 0;
           // element.style.display = "none"
+          containerDescription.innerText = mission?.description
           containerFooter[ei].style.background = "#0000003D";
           containerFooter[ei].style.width =
             "max(12px, min(calc(100vw * (24 / 1440)), 24px))";
