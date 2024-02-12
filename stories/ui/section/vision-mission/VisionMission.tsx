@@ -88,14 +88,14 @@ export const VisionMission = ({ data, ...props }: VisionMissionProps) => {
         if (ei == isActive) {
           element.style.opacity = 1;
           // element.style.display = "block"
-          containerDescription.innerText = vision?.description
+          containerDescription.innerText = mission?.description
           containerFooter[ei].style.background = "#3760ff";
           containerFooter[ei].style.width =
             "max(32px, min(calc(100vw * (64 / 1440)), 64px))";
         } else {
           element.style.opacity = 0;
           // element.style.display = "none"
-          containerDescription.innerText = mission?.description
+          containerDescription.innerText = vision?.description
           containerFooter[ei].style.background = "#0000003D";
           containerFooter[ei].style.width =
             "max(12px, min(calc(100vw * (24 / 1440)), 24px))";
