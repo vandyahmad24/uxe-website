@@ -46,7 +46,7 @@ export default function Index({ options }) {
           hero_url: backgroundOptions?.hero_home?.url,
         }}
       />
-      <div className="bg-white">
+      <div id="read-more-hero" className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
           <div className="max-w-[878px] flex flex-col gap-[60px]">
             <div className="flex flex-col gap-[20px]">
