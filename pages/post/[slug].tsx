@@ -88,7 +88,7 @@ export default function Post({ post, posts, preview }) {
       <Head>
         <title>{`${CMS_NAME} | ${post?.title}`}</title>
       </Head>
-      <div ref={postContent} className="bg-white p-[max(48px,_min(calc(100vw_*_(170_/_1440)),_170px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))_max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))]">
+      <div className="bg-white p-[max(48px,_min(calc(100vw_*_(170_/_1440)),_170px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))_max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))]">
         <div className="max-w-[770px] mx-auto overflow-hidden">
           <div className="flex flex-col items-start gap-[10px]">
             <TextSmall
@@ -200,12 +200,13 @@ export default function Post({ post, posts, preview }) {
           <div>
             {post?.featuredImage && (
               <img
-                src={post?.featuredImage?.node?.sourceUrl}
+                src={post?.featuredImage?.node?.fullPathUrl}
                 alt={post?.title}
                 className="mx-auto rounded-[12px] my-[64px] w-full"
               />
             )}
             <div
+              ref={postContent}
               className="post-content"
               dangerouslySetInnerHTML={{ __html: post?.content }}
             ></div>
@@ -344,8 +345,8 @@ export default function Post({ post, posts, preview }) {
                     >
                       <img
                         src={
-                          node.featuredImage?.node?.sourceUrl
-                            ? node?.featuredImage?.node?.sourceUrl
+                          node.featuredImage?.node?.fullPathUrl
+                            ? node?.featuredImage?.node?.fullPathUrl
                             : "https://fakeimg.pl/770x450"
                         }
                         alt={node.title}

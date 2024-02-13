@@ -87,6 +87,7 @@ export async function getAllPostsForHome(preview, afterCursor = "") {
             featuredImage {
               node {
                 sourceUrl
+                fullPathUrl
               }
             }
             author {
@@ -146,6 +147,7 @@ export async function getAllProductForHome(afterCursor = "") {
             featuredImage {
               node {
                 sourceUrl
+                fullPathUrl
               }
             }
           }
@@ -196,6 +198,7 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
       featuredImage {
         node {
           sourceUrl
+          fullPathUrl
         }
       }
       author {
@@ -291,6 +294,7 @@ export async function getProductAndMoreProducts(slug) {
         featuredImage {
           node {
             sourceUrl
+            fullPathUrl
           }
         }
         content
@@ -313,6 +317,7 @@ export async function getProductAndMoreProducts(slug) {
             featuredImage {
               node {
                 sourceUrl
+                fullPathUrl
               }
             }
             productCategorys(first: 10) {

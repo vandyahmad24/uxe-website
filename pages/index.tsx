@@ -38,6 +38,47 @@ export default function Index({ options }) {
           hero_url: backgroundOptions?.hero_home?.url,
         }}
       />
+      <div className="bg-white">
+        <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
+          <div className="max-w-[878px] flex flex-col gap-[60px]">
+            <p className="text-[max(20px,_min(calc(100vw_*_(36_/_1440)),_36px))] font-medium leading-[112%] -tracking-[.72px]">
+              Investment is an private equity fund with a mandate to invest
+              sustainability in security and safety infrastructure.
+              <br />
+              <br />
+              We aspire to ensure that all of our investments are focus driven
+              to enhance the security industry globally focus driven to enhance
+              the security industry globally.
+            </p>
+            <div className="flex justify-between gap-[max(12px,_min(calc(100vw_*_(20_/_1440)),_20px))] flex-wrap">
+              <div className="flex flex-col gap-[max(2px,_min(calc(100vw_*_(8_/_1440)),_8px))] pl-[max(12px,_min(calc(100vw_*_(20_/_1440)),_20px))] border-l border-[#0000000F]">
+                <p className="text-[max(20px,_min(calc(100vw_*_(32_/_1440)),_32px))] font-medium leading-[112%] -tracking-[.64px]">
+                  150+
+                </p>
+                <span className="text-[max(12px,_min(calc(100vw_*_(14_/_1440)),_14px))] leading-[132%] -tracking-[.14px]">
+                  Countries
+                </span>
+              </div>
+              <div className="flex flex-col gap-[max(2px,_min(calc(100vw_*_(8_/_1440)),_8px))] pl-[max(12px,_min(calc(100vw_*_(20_/_1440)),_20px))] border-l border-[#0000000F]">
+                <p className="text-[max(20px,_min(calc(100vw_*_(32_/_1440)),_32px))] font-medium leading-[112%] -tracking-[.64px]">
+                  500K+
+                </p>
+                <span className="text-[max(12px,_min(calc(100vw_*_(14_/_1440)),_14px))] leading-[132%] -tracking-[.14px]">
+                  Business Users
+                </span>
+              </div>
+              <div className="flex flex-col gap-[max(2px,_min(calc(100vw_*_(8_/_1440)),_8px))] pl-[max(12px,_min(calc(100vw_*_(20_/_1440)),_20px))] border-l border-[#0000000F]">
+                <p className="text-[max(20px,_min(calc(100vw_*_(32_/_1440)),_32px))] font-medium leading-[112%] -tracking-[.64px]">
+                  3 Million
+                </p>
+                <span className="text-[max(12px,_min(calc(100vw_*_(14_/_1440)),_14px))] leading-[132%] -tracking-[.14px]">
+                  Personal User
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <VisionMission data={visionAndMissionOptions} />
       <Feature data={featureOptions} />
       <Solution data={solutionOptions} />

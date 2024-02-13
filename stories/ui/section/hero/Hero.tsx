@@ -35,7 +35,7 @@ export const Hero = ({
               <div className="nhero-title-wrapper">
                 <LabelLarge label="Fairness & Equality" />
                 <TitleHuge
-                  label="Transformative Smart City Security Solutions"
+                  label="Multiple services to ensure the safety"
                   decoration
                 />
               </div>

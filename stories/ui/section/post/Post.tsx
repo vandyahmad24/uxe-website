@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
-import { useEffect, useRef } from "react";
 
 type SchemaEdges = {
   edges: SchemaNode[];
@@ -21,7 +20,7 @@ type SchemaNode = {
 };
 
 type SchemaSourceUrl = {
-  sourceUrl: string;
+  fullPathUrl: string;
 };
 
 type SchemaFeature = {
@@ -43,46 +42,6 @@ interface PostProps {
 }
 
 export const Post = ({ data, ...props }: PostProps) => {
-  const postContent = useRef(null);
-
-  useEffect(() => {
-    postContent.current.querySelectorAll("img").forEach((el) => {
-      // Modify the src attribute
-      const currentSrc = el.src;
-      let newSrc;
-      newSrc = currentSrc.replace(
-        /^(?:https?:)?\/\/[^/]+/,
-        "https://api.uxe.ai"
-      );
-      if (currentSrc.startsWith("/")) {
-        newSrc = "https://api.uxe.ai" + currentSrc;
-      }
-      el.src = newSrc;
-
-      // Modify the srcset attribute
-      const currentSrcset = el.getAttribute("srcset");
-      if (currentSrcset) {
-        let newSrcset;
-        newSrcset = currentSrcset.replace(
-          /(?:https?:)?\/\/[^/]+/g,
-          "https://api.uxe.ai"
-        );
-        newSrcset = currentSrcset
-          .split(",")
-          .map((src) => {
-            const trimmedSrc = src.trim();
-            return trimmedSrc.startsWith("/")
-              ? "https://api.uxe.ai" + trimmedSrc
-              : trimmedSrc;
-          })
-          .join(",");
-        el.setAttribute("srcset", newSrcset);
-      }
-    });
-
-    return () => {};
-  });
-
   return (
     <section className="bg-white" {...props}>
       <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
@@ -95,7 +54,7 @@ export const Post = ({ data, ...props }: PostProps) => {
               Your Daily Dose of Tech News
             </h2>
           </div>
-          <div ref={postContent} className="grid grid-cols-3 gap-[32px] max-xl:grid-cols-2 max-md:grid-cols-1">
+          <div className="grid grid-cols-3 gap-[32px] max-xl:grid-cols-2 max-md:grid-cols-1">
             {data.edges.map(({node}, index) => (
               <div
                 key={index}
@@ -103,8 +62,8 @@ export const Post = ({ data, ...props }: PostProps) => {
               >
                 <img
                   src={
-                    node.featuredImage?.node.sourceUrl
-                      ? node.featuredImage?.node.sourceUrl
+                    node.featuredImage?.node.fullPathUrl
+                      ? node.featuredImage?.node.fullPathUrl
                       : "https://fakeimg.pl/770x450"
                   }
                   alt={node.title}

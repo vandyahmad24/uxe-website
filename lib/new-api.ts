@@ -42,6 +42,7 @@ export async function getAllPosts() {
             featuredImage {
               node {
                 sourceUrl
+                fullPathUrl
               }
             }
             author {
@@ -82,6 +83,7 @@ export async function getAllProduct(afterCursor = "") {
             featuredImage {
               node {
                 sourceUrl
+                fullPathUrl
               }
             }
           }
@@ -166,6 +168,7 @@ export async function getSettings() {
             featuredImage {
               node {
                 sourceUrl
+                fullPathUrl
               }
             }
           }
@@ -181,6 +184,7 @@ export async function getSettings() {
             featuredImage {
               node {
                 sourceUrl
+                fullPathUrl
               }
             }
             author {
