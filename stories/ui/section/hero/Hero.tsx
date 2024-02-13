@@ -58,7 +58,7 @@ export const Hero = ({
               </div>
             </div>
           </div>
-          <div className="nhero-video-overlay"></div>
+          {/* <div className="nhero-video-overlay"></div> */}
           <video
             className="nhero-video"
             src={hero_url}

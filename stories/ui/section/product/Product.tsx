@@ -100,7 +100,7 @@ export const Product = ({ data, settings, ...props }: ProductProps) => {
                     label={node?.excerpt
                       .replace("<p>", "")
                       .replace("</p>", "")}
-                    cls="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] opacity-60 leading-[132%] -tracking-[.14px]"
+                    cls="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] opacity-60 leading-[132%] -tracking-[.14px] line-clamp-2"
                   />
                 </div>
               </div>
