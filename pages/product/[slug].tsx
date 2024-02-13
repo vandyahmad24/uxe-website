@@ -78,7 +78,7 @@ export default function Product({ product }) {
       <Head>
         <title>{`${CMS_NAME} | ${product?.title}`}</title>
       </Head>
-      <div className="bg-white">
+      <div ref={productContent} className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(170_/_1440)),_170px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
           <div className="text-center flex flex-col items-center gap-[10px]">
             <TextSmall
@@ -94,7 +94,6 @@ export default function Product({ product }) {
               className="mx-auto"
             />
             <div
-              ref={productContent}
               dangerouslySetInnerHTML={{ __html: product?.content }}
             ></div>
           </div>
