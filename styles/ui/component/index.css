@@ -11,7 +11,7 @@
 }
 
 .nhero-container {
-  @apply relative flex flex-col justify-end min-h-[max(350px,_min(calc(100vw_*_(810_/_1440)),_810px))];
+  @apply relative flex flex-col justify-end min-h-[max(350px,_min(calc(100vw_*_(810_/_1440)),_810px))] max-h-screen;
 }
 
 .nhero-content {

@@ -39,8 +39,7 @@ export default function CareerSection({ options }) {
                 Our leadership team
               </h2>
               <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] leading-[132%] -tracking-[.16px]">
-                With over 100 years of combined experience, we ve got a
-                well-seasoned team at the helm.
+                We have a team of highly skilled professionals with extensive experience in the security 7 technology field.
               </p>
             </div>
             <div className="grid grid-cols-4 gap-[20px] max-lg:grid-cols-2 max-sm:grid-cols-1">
