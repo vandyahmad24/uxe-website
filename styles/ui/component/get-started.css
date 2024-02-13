@@ -6,6 +6,10 @@
   @apply max-w-[1440px] mx-auto p-[0_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden;
 }
 
+.get-started2-wrapper--padding {
+  @apply p-[max(20px,_min(calc(100vw_*_(60_/_1440)),_60px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))];
+}
+
 .get-started {
   @apply bg-[#19191B] rounded-[12px] p-[max(92px,_min(calc(100vw_*_(110_/_1440)),_110px))_12px] flex flex-col items-center gap-[max(32px,_min(calc(100vw_*_(48_/_1440)),_48px))] text-center bg-[url('/image/get-started-background.png')] bg-cover bg-no-repeat bg-center;
 }

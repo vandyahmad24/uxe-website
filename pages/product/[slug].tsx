@@ -79,7 +79,7 @@ export default function Product({ product }) {
         <title>{`${CMS_NAME} | ${product?.title}`}</title>
       </Head>
       <div className="bg-white">
-        <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(170_/_1440)),_170px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
+        <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(100_/_1440)),_100px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
           <div className="text-center flex flex-col items-center gap-[10px]">
             <TextSmall
               label={product?.productCategorys?.edges[0]?.node?.name}
@@ -100,7 +100,7 @@ export default function Product({ product }) {
           </div>
         </div>
       </div>
-      <GetStarted label="Get started with UXE" template={1} />
+      <GetStarted label="Get started with UXE" template={1} isPadding />
     </Layout>
   );
 }
