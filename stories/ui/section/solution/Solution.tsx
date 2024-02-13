@@ -66,7 +66,7 @@ export const Solution = ({ data, ...props }: SolutionProps) => {
         <div className="flex flex-col gap-[45px]">
           <div className="flex flex-col items-center text-center">
             <p className="text-[12px] text-[#19191B80] uppercase font-medium leading-[132%] tracking-[.96px]">Solution</p>
-            <h2 className="text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] text-[#19191B] font-medium leading-[112%] -tracking-[.64px] mt-[10px] max-w-[34rem]">Security Solutions for Connected Future</h2>
+            <h2 className="text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] text-[#19191B] font-medium leading-[112%] -tracking-[.64px] mt-[10px] max-w-[34rem]">Smart Solutions for Smart Cities</h2>
           </div>
           <div className="transition-all flex max-lg:grid max-lg:grid-cols-1 gap-[20px]">
             {/* <div className="grid grid-cols-[calc(70%_-_10px)_calc(30%_-_10px)] max-lg:grid-cols-1 gap-[20px]"> */}
