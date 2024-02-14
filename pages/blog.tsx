@@ -18,9 +18,6 @@ export default function BlogSection({ posts, options }) {
   const [hasMorePosts, setHasMorePosts] = useState(posts?.pageInfo?.hasNextPage || null);
   const [loading, setLoading] = useState(false);
 
-  const postContent = useRef(null);
-  const postContent2 = useRef(null);
-
   const fetchPosts = async (afterCursor) => {
     try {
       const newPosts = await getAllPostsForHome(false, afterCursor);
@@ -39,78 +36,6 @@ export default function BlogSection({ posts, options }) {
     setLoading(true);
     fetchPosts(endCursor);
   };
-
-  useEffect(() => {
-    postContent.current.querySelectorAll("img").forEach((el) => {
-      // Modify the src attribute
-      const currentSrc = el.src;
-      let newSrc;
-      newSrc = currentSrc.replace(
-        /^(?:https?:)?\/\/[^/]+/,
-        "https://api.uxe.ai"
-      );
-      if (currentSrc.startsWith("/")) {
-        newSrc = "https://api.uxe.ai" + currentSrc;
-      }
-      el.src = newSrc;
-
-      // Modify the srcset attribute
-      const currentSrcset = el.getAttribute("srcset");
-      if (currentSrcset) {
-        let newSrcset;
-        newSrcset = currentSrcset.replace(
-          /(?:https?:)?\/\/[^/]+/g,
-          "https://api.uxe.ai"
-        );
-        newSrcset = currentSrcset
-          .split(",")
-          .map((src) => {
-            const trimmedSrc = src.trim();
-            return trimmedSrc.startsWith("/")
-              ? "https://api.uxe.ai" + trimmedSrc
-              : trimmedSrc;
-          })
-          .join(",");
-        el.setAttribute("srcset", newSrcset);
-      }
-    });
-
-    postContent2.current.querySelectorAll("img").forEach((el) => {
-      // Modify the src attribute
-      const currentSrc = el.src;
-      let newSrc;
-      newSrc = currentSrc.replace(
-        /^(?:https?:)?\/\/[^/]+/,
-        "https://api.uxe.ai"
-      );
-      if (currentSrc.startsWith("/")) {
-        newSrc = "https://api.uxe.ai" + currentSrc;
-      }
-      el.src = newSrc;
-
-      // Modify the srcset attribute
-      const currentSrcset = el.getAttribute("srcset");
-      if (currentSrcset) {
-        let newSrcset;
-        newSrcset = currentSrcset.replace(
-          /(?:https?:)?\/\/[^/]+/g,
-          "https://api.uxe.ai"
-        );
-        newSrcset = currentSrcset
-          .split(",")
-          .map((src) => {
-            const trimmedSrc = src.trim();
-            return trimmedSrc.startsWith("/")
-              ? "https://api.uxe.ai" + trimmedSrc
-              : trimmedSrc;
-          })
-          .join(",");
-        el.setAttribute("srcset", newSrcset);
-      }
-    });
-
-    return () => {};
-  });
 
   return (
     <Layout>
@@ -137,7 +62,7 @@ export default function BlogSection({ posts, options }) {
             </div>
             {postData.length > 0 && (
               <>
-                <div ref={postContent} className="grid grid-cols-2 gap-[48px_20px] max-md:grid-cols-1">
+                <div className="grid grid-cols-2 gap-[48px_20px] max-md:grid-cols-1">
                   {postData
                     .slice(0, postData.length > 1 ? 2 : 1)
                     .map(({ node }, index) => (
@@ -147,8 +72,8 @@ export default function BlogSection({ posts, options }) {
                       >
                         <img
                           src={
-                            node.featuredImage?.node.sourceUrl
-                              ? node.featuredImage?.node.sourceUrl
+                            node.featuredImage?.node.fullPathUrl
+                              ? node.featuredImage?.node.fullPathUrl
                               : "https://fakeimg.pl/770x450"
                           }
                           alt={node.title}
@@ -200,7 +125,7 @@ export default function BlogSection({ posts, options }) {
                     ))}
                 </div>
                 {postData.length > 2 && (
-                  <div ref={postContent2} className="grid grid-cols-3 gap-[48px_20px] max-xl:grid-cols-2 max-md:grid-cols-1">
+                  <div className="grid grid-cols-3 gap-[48px_20px] max-xl:grid-cols-2 max-md:grid-cols-1">
                     {postData.slice(2).map(({ node }, index) => (
                       <div
                         key={index}
@@ -208,8 +133,8 @@ export default function BlogSection({ posts, options }) {
                       >
                         <img
                           src={
-                            node.featuredImage?.node.sourceUrl
-                              ? node.featuredImage?.node.sourceUrl
+                            node.featuredImage?.node.fullPathUrl
+                              ? node.featuredImage?.node.fullPathUrl
                               : "https://fakeimg.pl/770x450"
                           }
                           alt={node.title}

@@ -11,7 +11,7 @@
 }
 
 .nhero-container {
-  @apply relative flex flex-col justify-end min-h-[max(686px,_min(calc(100vw_*_(824_/_1440)),_824px))];
+  @apply relative flex flex-col justify-end min-h-[max(350px,_min(calc(100vw_*_(810_/_1440)),_810px))] max-h-screen;
 }
 
 .nhero-content {
@@ -29,7 +29,7 @@
 }
 
 .nhero-video {
-  @apply absolute inset-0 w-full min-h-[824px] object-cover;
+  @apply absolute top-1/2 -translate-y-1/2 w-full min-h-[824px] object-contain;
 }
 
 .nhero-video-overlay {

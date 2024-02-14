@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { getAllProduct } from "lib/new-api";
 
 type SchemaEdges = {
@@ -13,7 +13,7 @@ type SchemaNode = {
 };
 
 type SchemaSourceUrl = {
-  sourceUrl: string;
+  fullPathUrl: string;
 }
 
 type SchemaFeature = {
@@ -43,7 +43,6 @@ export const Product = ({ data, settings, ...props }: ProductProps) => {
   const [endCursor, setEndCursor] = useState(data?.pageInfo?.endCursor || null);
   const [hasMoreProducts, setHasMoreProducts] = useState(data?.pageInfo?.hasNextPage || null);
   const [loading, setLoading] = useState(false);
-  const productContent = useRef(null);
 
   const fetchProducts = async (afterCursor) => {
     try {
@@ -64,44 +63,6 @@ export const Product = ({ data, settings, ...props }: ProductProps) => {
     fetchProducts(endCursor);
   };
 
-  useEffect(() => {
-    productContent.current.querySelectorAll("img").forEach((el) => {
-      // Modify the src attribute
-      const currentSrc = el.src;
-      let newSrc;
-      newSrc = currentSrc.replace(
-        /^(?:https?:)?\/\/[^/]+/,
-        "https://api.uxe.ai"
-      );
-      if (currentSrc.startsWith("/")) {
-        newSrc = "https://api.uxe.ai" + currentSrc;
-      }
-      el.src = newSrc;
-
-      // Modify the srcset attribute
-      const currentSrcset = el.getAttribute("srcset");
-      if (currentSrcset) {
-        let newSrcset;
-        newSrcset = currentSrcset.replace(
-          /(?:https?:)?\/\/[^/]+/g,
-          "https://api.uxe.ai"
-        );
-        newSrcset = currentSrcset
-          .split(",")
-          .map((src) => {
-            const trimmedSrc = src.trim();
-            return trimmedSrc.startsWith("/")
-              ? "https://api.uxe.ai" + trimmedSrc
-              : trimmedSrc;
-          })
-          .join(",");
-        el.setAttribute("srcset", newSrcset);
-      }
-    });
-
-    return () => {};
-  });
-
   return (
     <section className="bg-white" {...props}>
       <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(190_/_1440)),_190px))_48px_max(20px,_min(calc(100vw_*_(190_/_1440)),_190px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
@@ -116,13 +77,13 @@ export const Product = ({ data, settings, ...props }: ProductProps) => {
               </h2>
             </div>
           )}
-          <div ref={productContent} className="grid grid-cols-3 gap-[20px] max-xl:grid-cols-2 max-md:grid-cols-1">
+          <div className="grid grid-cols-3 gap-[20px] max-xl:grid-cols-2 max-md:grid-cols-1">
             {productData.map(({ node }, index) => (
               <div key={index} className="flex flex-col gap-[20px]">
                 <div className="relative w-full pt-[112%] rounded-[12px] bg-[#F2F2F2]">
                   <a href={"/product/" + node?.slug} className="absolute inset-0 w-full h-full">
                     <img
-                      src={node?.featuredImage?.node?.sourceUrl}
+                      src={node?.featuredImage?.node?.fullPathUrl}
                       alt={node?.title}
                       className="w-full h-full"
                     />
@@ -139,7 +100,7 @@ export const Product = ({ data, settings, ...props }: ProductProps) => {
                     label={node?.excerpt
                       .replace("<p>", "")
                       .replace("</p>", "")}
-                    cls="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] opacity-60 leading-[132%] -tracking-[.14px]"
+                    cls="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] opacity-60 leading-[132%] -tracking-[.14px] line-clamp-2"
                   />
                 </div>
               </div>

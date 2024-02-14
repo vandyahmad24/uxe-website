@@ -25,8 +25,8 @@ export const Layout = ({ data, children }: LayoutProps) => {
       <div className="min-h-screen">
         <Navigation menu={menu} />
         {children}
+        <Footer data={footer} />
       </div>
-      <Footer data={footer} />
     </>
   );
 };

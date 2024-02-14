@@ -14,14 +14,15 @@ interface GetStartedProps {
   label: string;
   data?: LogoData[];
   template?: number;
+  isPadding?: boolean;
   style?: any;
 }
 
-export const GetStarted = ({ label, template = 0, ...props }: GetStartedProps) => {
+export const GetStarted = ({ label, template = 0, isPadding = false, ...props }: GetStartedProps) => {
   return (
     <section className="bg-white" {...props}>
       {template == 1 && (
-        <div className="get-started2-wrapper">
+        <div className={`get-started2-wrapper ${isPadding ? 'get-started2-wrapper--padding' : ''}`}>
           <div className="get-started2">
             <div className="flex gap-[20px] items-center justify-between w-full max-md:flex-col max-md:text-center">
               <div className="flex flex-col gap-[16px]">

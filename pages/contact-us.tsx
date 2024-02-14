@@ -185,7 +185,7 @@ export default function ContactUsSection({ options }) {
                           </defs>
                         </svg>
                       </div>
-                      <TextMedium label="Thorougness" />
+                      <TextMedium label="Reliability" />
                     </div>
                     <div className="p-[10px] rounded-full backdrop-blur-[2px] bg-[#BEBEBE40] text-white flex items-center gap-[6px]">
                       <div className="p-[4px] bg-[#FFFFFF] rounded-full">
@@ -209,7 +209,7 @@ export default function ContactUsSection({ options }) {
                           </defs>
                         </svg>
                       </div>
-                      <TextMedium label="Fairness and Equality" />
+                      <TextMedium label="Agile & Excellence" />
                     </div>
                   </div>
                 </div>
@@ -225,7 +225,7 @@ export default function ContactUsSection({ options }) {
                 <div className="flex flex-col gap-[12px]">
                   <TitleMedium el="h2" label="Get Started with UXE" />
                   <TextLarge
-                    label="Want to work together, connect, or ask a burning question?"
+                    label="Contact us for more details to learn more about the best, smartest, and most efficient solution that fits your requirements"
                     cls="max-w-none"
                   />
                 </div>
