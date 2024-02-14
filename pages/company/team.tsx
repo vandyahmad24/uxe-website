@@ -78,7 +78,7 @@ export default function TeamSection({ options }) {
                     className="flex flex-col items-start gap-[20px] max-[374px]:items-center"
                   >
                     <img
-                      className="rounded-[12px] w-1/3"
+                      className="rounded-[12px] w-1/3 aspect-square object-cover object-top"
                       src={photo_url}
                       alt=""
                     />
