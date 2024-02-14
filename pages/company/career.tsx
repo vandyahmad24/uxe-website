@@ -18,7 +18,7 @@ export default function CareerSection({ options }) {
     testimonialOptions,
   } = options;
 
-  let coreTeam = teamOptions.slice(0, 4) || [];
+  let coreTeam = teamOptions.slice(0, 5) || [];
   return (
     <Layout>
       <Head>
@@ -42,7 +42,7 @@ export default function CareerSection({ options }) {
                 We have a team of highly skilled professionals with extensive experience in the security 7 technology field.
               </p>
             </div>
-            <div className="grid grid-cols-4 gap-[20px] max-lg:grid-cols-2 max-sm:grid-cols-1">
+            <div className="grid grid-cols-5 gap-[20px] max-lg:grid-cols-3 max-sm:grid-cols-1">
               {coreTeam.map(({ name, photo_url, role }, index) => (
                 <div
                   key={index}
