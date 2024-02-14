@@ -124,7 +124,7 @@ export default function Index({ options }) {
       <Product data={products} settings={{ show_title: true }} />
       <Testimonial data={testimonialOptions} settings={{ show: 3 }} />
       <GetStarted label="Get started with UXE" />
-      <Post data={posts} />
+      {/* <Post data={posts} /> */}
     </Layout>
   );
 }
