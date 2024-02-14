@@ -108,7 +108,7 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
                   TESTIMONIAL
                 </p>
                 <h2 className="text-[max(16px,_min(calc(100vw_*_(24_/_1440)),_24px))] text-[#19191B] font-medium leading-[112%] -tracking-[.24px] mt-[10px] max-w-xl">
-                  What people are saying
+                  Partner Insights: What Others Have Shared About Us
                 </h2>
               </div>
               <Slider

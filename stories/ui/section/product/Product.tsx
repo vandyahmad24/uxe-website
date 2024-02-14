@@ -81,7 +81,7 @@ export const Product = ({ data, settings, ...props }: ProductProps) => {
             {productData.map(({ node }, index) => (
               <div key={index} className="flex flex-col gap-[20px]">
                 <div className="relative w-full pt-[112%] rounded-[12px] bg-[#F2F2F2]">
-                  <a href={"/product/" + node?.slug} className="absolute inset-0 w-full h-full">
+                  <a href={"/product/" + node?.slug} className="absolute inset-0 w-full h-full overflow-hidden rounded-[12px]">
                     <img
                       src={node?.featuredImage?.node?.fullPathUrl}
                       alt={node?.title}
