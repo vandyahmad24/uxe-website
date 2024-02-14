@@ -47,7 +47,6 @@ export const Product = ({ data, settings, ...props }: ProductProps) => {
   const fetchProducts = async (afterCursor) => {
     try {
       const newProducts = await getAllProduct(afterCursor);
-      console.log(newProducts)
       setProducts([...productData, ...newProducts.edges]);
       setEndCursor(newProducts?.pageInfo?.endCursor ? newProducts?.pageInfo?.endCursor : "");
       setHasMoreProducts(newProducts?.pageInfo?.hasNextPage)
@@ -85,7 +84,7 @@ export const Product = ({ data, settings, ...props }: ProductProps) => {
                     <img
                       src={node?.featuredImage?.node?.fullPathUrl}
                       alt={node?.title}
-                      className="w-full h-full"
+                      className="w-full h-full hover:scale-110"
                     />
                   </a>
                 </div>

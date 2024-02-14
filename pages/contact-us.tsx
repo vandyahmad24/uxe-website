@@ -8,6 +8,7 @@ import { TextLarge } from "@/ui/text/text-large/TextLarge";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { Meta } from "@/ui/base/meta/Meta";
+import { TitleXSmall } from "@/ui/title/title-xsmall/TitleXSmall";
 
 export default function ContactUsSection({ options }) {
   const { backgroundOptions, contactOptions } = options;
@@ -113,7 +114,7 @@ export default function ContactUsSection({ options }) {
                   )}
 
                   <div className="flex flex-col items-start gap-[12px] absolute left-[20px] bottom-[14px]">
-                    <div className="p-[10px] rounded-full backdrop-blur-[2px] bg-[#BEBEBE40] text-white flex items-center gap-[6px]">
+                    <div className="p-[10px] rounded-full backdrop-blur-[2px] bg-[#01010140] text-white flex items-center gap-[6px]">
                       <div className="p-[4px] bg-[#FFFFFF] rounded-full">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +138,7 @@ export default function ContactUsSection({ options }) {
                       </div>
                       <TextMedium label="Integrity" />
                     </div>
-                    <div className="p-[10px] rounded-full backdrop-blur-[2px] bg-[#BEBEBE40] text-white flex items-center gap-[6px]">
+                    <div className="p-[10px] rounded-full backdrop-blur-[2px] bg-[#01010140] text-white flex items-center gap-[6px]">
                       <div className="p-[4px] bg-[#FFFFFF] rounded-full">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -161,7 +162,7 @@ export default function ContactUsSection({ options }) {
                       </div>
                       <TextMedium label="Reliability" />
                     </div>
-                    <div className="p-[10px] rounded-full backdrop-blur-[2px] bg-[#BEBEBE40] text-white flex items-center gap-[6px]">
+                    <div className="p-[10px] rounded-full backdrop-blur-[2px] bg-[#01010140] text-white flex items-center gap-[6px]">
                       <div className="p-[4px] bg-[#FFFFFF] rounded-full">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -193,6 +194,11 @@ export default function ContactUsSection({ options }) {
                     label="Solutions for Government and Business Environments"
                   />
                   <TextMedium label="By choosing UXE Security Solutions you are selecting a reliable and experienced security partner who is dedicated to delivering tailored solutions, providing you with the highest level of security expertise and service." />
+
+                  <div>
+                    <TitleXSmall label="Contact Us :" />
+                    
+                  </div>
                 </div>
               </div>
               <div className="p-[max(20px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(96_/_1440)),_96px))] flex flex-col gap-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] items-start">

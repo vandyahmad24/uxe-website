@@ -27,7 +27,7 @@ export default function Index({ options }) {
     posts,
     solutionOptions,
     backgroundOptions,
-    contactOptions,
+    footerOptions,
   } = options;
 
   const handleReadMore = () => {
@@ -35,7 +35,7 @@ export default function Index({ options }) {
   }
 
   return (
-    <Layout data={{ footer: contactOptions }}>
+    <Layout data={{ footer: footerOptions }}>
       <Head>
         <title>{`${CMS_NAME}`}</title>
       </Head>

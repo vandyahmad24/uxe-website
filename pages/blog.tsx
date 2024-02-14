@@ -21,7 +21,6 @@ export default function BlogSection({ posts, options }) {
   const fetchPosts = async (afterCursor) => {
     try {
       const newPosts = await getAllPostsForHome(false, afterCursor);
-      console.log(newPosts)
       setPosts([...postData, ...newPosts.edges]);
       setEndCursor(newPosts?.pageInfo?.endCursor ? newPosts?.pageInfo?.endCursor : "");
       setHasMorePosts(newPosts?.pageInfo?.hasNextPage)
