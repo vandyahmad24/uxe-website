@@ -129,7 +129,8 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
                       </p>
                     </div>
                     <div className="flex items-center justify-between gap-[12px] w-full">
-                      <div className="flex items-center justify-center gap-[12px]">
+                      {/* <div className="flex items-center justify-center gap-[12px]"> */}
+                      <div className="grid grid-cols-[auto_1fr] items-center gap-[12px]">
                         <div
                           className="w-[32px] h-[32px] bg-black rounded-full bg-cover"
                           style={{
@@ -145,7 +146,7 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
                           </p>
                         </div>
                       </div>
-                      <img src={cp.reviewer_company_image} alt="" className="h-[24px]" />
+                      <img src={cp.reviewer_company_image} alt="" className="h-[24px] max-w-[81px] object-contain" />
                     </div>
                   </div>
                 ))}
