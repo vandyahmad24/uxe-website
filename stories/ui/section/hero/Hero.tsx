@@ -41,7 +41,7 @@ export const Hero = ({
               </div>
               <TextLarge
                 cls="hero-description"
-                label="Intelligent Security Beyond Cameras: Seamless Solutions for
+                label="Beyond Cameras: Seamless Solutions for
                 Government and Business Environments"
                 decoration
               />

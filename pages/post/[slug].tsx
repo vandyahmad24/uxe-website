@@ -12,8 +12,10 @@ import Link from "next/link";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
 import { useEffect, useRef, useState } from "react";
 import { Layout } from "@/ui/base/layout/Layout";
+import { getSettings } from "lib/new-api";
 
 export default function Post({ post, posts, preview }) {
+  // const { footerOptions } = options;
   const [siteUrl, setSiteUrl] = useState("");
   const postContent = useRef(null);
   const router = useRouter();
@@ -84,6 +86,7 @@ export default function Post({ post, posts, preview }) {
   }
 
   return (
+    // <Layout data={{ footer: footerOptions }}>
     <Layout>
       <Head>
         <title>{`${CMS_NAME} | ${post?.title}`}</title>
@@ -412,12 +415,13 @@ export const getStaticProps: GetStaticProps = async ({
   previewData,
 }) => {
   const data = await getPostAndMorePosts(params?.slug, preview, previewData);
-
+  // const options = await getSettings();
   return {
     props: {
       preview,
       post: data?.post,
       posts: data?.posts,
+      // options,
     },
     revalidate: 10,
   };

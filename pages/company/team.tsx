@@ -9,18 +9,18 @@ import Link from "next/link";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
 
 export default function TeamSection({ options }) {
-  const { testimonialOptions, backgroundOptions, teamOptions } = options;
+  const { testimonialOptions, backgroundOptions, teamOptions, footerOptions } = options;
   let coreTeam = teamOptions.slice(0, 5) || [];
   let memberTeam = teamOptions.slice(5) || [];
   return (
-    <Layout>
+    <Layout data={{ footer: footerOptions }}>
       <Head>
-        <title>{`Teams | ${CMS_NAME}`}</title>
+        <title>{`${CMS_NAME} | Teams`}</title>
       </Head>
       <Header
         title="Happy people who work hard to empower your teams."
         subtitle="Our Team"
-        description="Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments"
+        description="Beyond Cameras: Seamless Solutions for Government and Business Environments"
         video_url={backgroundOptions?.hero_team?.url}
       />
       <div className="bg-white">

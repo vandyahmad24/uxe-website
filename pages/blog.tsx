@@ -12,7 +12,7 @@ import { GetStarted } from "@/ui/section/get-started/GetStarted";
 import { useEffect, useRef, useState } from "react";
 
 export default function BlogSection({ posts, options }) {
-  const { testimonialOptions, backgroundOptions } = options;
+  const { testimonialOptions, backgroundOptions, footerOptions } = options;
   const [postData, setPosts] = useState([...posts.edges]);
   const [endCursor, setEndCursor] = useState(posts?.pageInfo?.endCursor || null);
   const [hasMorePosts, setHasMorePosts] = useState(posts?.pageInfo?.hasNextPage || null);
@@ -37,14 +37,14 @@ export default function BlogSection({ posts, options }) {
   };
 
   return (
-    <Layout>
+    <Layout data={{ footer: footerOptions }}>
       <Head>
-        <title>{`Blog | ${CMS_NAME}`}</title>
+        <title>{`${CMS_NAME} | Media Center`}</title>
       </Head>
       <Header
         title="Your Daily Dose of Tech News"
-        subtitle="Blog"
-        description="Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments"
+        subtitle="Media Center"
+        description="Beyond Cameras: Seamless Solutions for Government and Business Environments"
         video_url={backgroundOptions?.hero_blog?.url}
       />
       <div className="bg-white">

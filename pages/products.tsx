@@ -9,17 +9,17 @@ import { Product } from "@/ui/section/product/Product";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
 
 export default function ProductSection({ products, options }) {
-  const { testimonialOptions, backgroundOptions } = options;
+  const { testimonialOptions, backgroundOptions, footerOptions } = options;
 
   return (
-    <Layout>
+    <Layout data={{ footer: footerOptions }}>
       <Head>
-        <title>{`Products | ${CMS_NAME}`}</title>
+        <title>{`${CMS_NAME} | Products`}</title>
       </Head>
       <Header
         title="Discover Innovation in Smart Security Products"
         subtitle="OUR PRODUCT"
-        description="Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments"
+        description="Beyond Cameras: Seamless Solutions for Government and Business Environments"
         video_url={backgroundOptions?.hero_product?.url}
       />
       <Product data={products} />

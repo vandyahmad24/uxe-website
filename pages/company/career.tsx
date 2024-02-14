@@ -16,18 +16,19 @@ export default function CareerSection({ options }) {
     teamOptions,
     careerOptions,
     testimonialOptions,
+    footerOptions
   } = options;
 
   let coreTeam = teamOptions.slice(0, 5) || [];
   return (
-    <Layout>
+    <Layout data={{ footer: footerOptions }}>
       <Head>
-        <title>{`Next.js Blog Example with ${CMS_NAME}`}</title>
+      <title>{`${CMS_NAME} | Career`}</title>
       </Head>
       <Header
         title="Became part of our community"
         subtitle="CAREERS"
-        description="Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments"
+        description="Beyond Cameras: Seamless Solutions for Government and Business Environments"
         video_url={backgroundOptions?.hero_career?.url}
       />
       <Feature data={featureOptions} />

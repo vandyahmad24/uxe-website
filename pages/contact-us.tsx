@@ -11,7 +11,7 @@ import { Meta } from "@/ui/base/meta/Meta";
 import { TitleXSmall } from "@/ui/title/title-xsmall/TitleXSmall";
 
 export default function ContactUsSection({ options }) {
-  const { backgroundOptions, contactOptions } = options;
+  const { backgroundOptions, contactOptions, footerOptions } = options;
 
   const formBlock = useRef(null);
   const formMessage = useRef(null);
@@ -64,7 +64,7 @@ export default function ContactUsSection({ options }) {
     <>
       <Meta />
       <Head>
-        <title>{`Contact Us | ${CMS_NAME}`}</title>
+        <title>{`${CMS_NAME} | Contact Us`}</title>
       </Head>
       <div className="min-h-screen">
         {/* Navigation */}
@@ -196,8 +196,18 @@ export default function ContactUsSection({ options }) {
                   <TextMedium label="By choosing UXE Security Solutions you are selecting a reliable and experienced security partner who is dedicated to delivering tailored solutions, providing you with the highest level of security expertise and service." />
 
                   <div>
-                    <TitleXSmall label="Contact Us :" />
-                    
+                    <TitleXSmall label="Contact Us :" cls="mt-[24px]" />
+                    <div className="flex flex-col gap-[4px] mt-[12px]">
+                      {footerOptions.contact_menu.map(({ name, url }, index) => (
+                        <TextMedium
+                          el="a"
+                          href={url}
+                          key={index}
+                          label={name}
+                          hover
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
