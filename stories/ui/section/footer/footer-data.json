@@ -10,10 +10,6 @@
       "url": "/products"
     },
     {
-      "name": "Blog",
-      "url": "/blog"
-    },
-    {
       "name": "About Us",
       "url": "/company/about-us"
     },

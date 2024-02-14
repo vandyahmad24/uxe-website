@@ -37,7 +37,7 @@ export const GetStarted = ({ label, template = 0, isPadding = false, ...props }:
         </div>
       )}
       {template == 0 && (
-        <div className="get-started-wrapper">
+        <div className="get-started-wrapper py-[max(20px,_min(calc(100vw_*_(60_/_1440)),_60px))]">
           <div className="get-started">
             <div className="get-started-profile">
               <img src="/image/person-image-01.png" title="Person" />

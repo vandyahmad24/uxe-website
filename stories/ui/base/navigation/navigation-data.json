@@ -5,11 +5,6 @@
     "submenu": []
   },
   {
-    "name": "Blog",
-    "url": "/blog",
-    "submenu": []
-  },
-  {
     "name": "Solution",
     "url": "/solution",
     "submenu": [

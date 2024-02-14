@@ -27,7 +27,7 @@ export default function Index({ options }) {
     posts,
     solutionOptions,
     backgroundOptions,
-    contactOptions,
+    footerOptions,
   } = options;
 
   const handleReadMore = () => {
@@ -35,7 +35,7 @@ export default function Index({ options }) {
   }
 
   return (
-    <Layout data={{ footer: contactOptions }}>
+    <Layout data={{ footer: footerOptions }}>
       <Head>
         <title>{`${CMS_NAME}`}</title>
       </Head>
@@ -124,7 +124,7 @@ export default function Index({ options }) {
       <Product data={products} settings={{ show_title: true }} />
       <Testimonial data={testimonialOptions} settings={{ show: 3 }} />
       <GetStarted label="Get started with UXE" />
-      <Post data={posts} />
+      {/* <Post data={posts} /> */}
     </Layout>
   );
 }

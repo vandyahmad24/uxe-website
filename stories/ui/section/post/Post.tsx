@@ -48,7 +48,7 @@ export const Post = ({ data, ...props }: PostProps) => {
         <div className="flex flex-col gap-[48px]">
           <div className="flex flex-col items-center text-center">
             <p className="text-[12px] text-[#19191B80] uppercase font-medium leading-[132%] tracking-[.96px]">
-              News & Blog
+              Media & News
             </p>
             <h2 className="text-[max(16px,_min(calc(100vw_*_(24_/_1440)),_24px))] text-[#19191B] font-medium leading-[112%] -tracking-[.24px] mt-[10px] max-w-xl">
               Your Daily Dose of Tech News

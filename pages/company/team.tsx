@@ -9,18 +9,18 @@ import Link from "next/link";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
 
 export default function TeamSection({ options }) {
-  const { testimonialOptions, backgroundOptions, teamOptions } = options;
-  let coreTeam = teamOptions.slice(0, 4) || [];
-  let memberTeam = teamOptions.slice(4) || [];
+  const { testimonialOptions, backgroundOptions, teamOptions, footerOptions } = options;
+  let coreTeam = teamOptions.slice(0, 5) || [];
+  let memberTeam = teamOptions.slice(5) || [];
   return (
-    <Layout>
+    <Layout data={{ footer: footerOptions }}>
       <Head>
-        <title>{`Teams | ${CMS_NAME}`}</title>
+        <title>{`${CMS_NAME} | Teams`}</title>
       </Head>
       <Header
         title="Happy people who work hard to empower your teams."
         subtitle="Our Team"
-        description="Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments"
+        description="Beyond Cameras: Seamless Solutions for Government and Business Environments"
         video_url={backgroundOptions?.hero_team?.url}
       />
       <div className="bg-white">
@@ -31,10 +31,10 @@ export default function TeamSection({ options }) {
                 Our leadership team
               </h2>
               <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] leading-[132%] -tracking-[.16px]">
-                We have a team of highly skilled professionals with extensive experience in the security 7 technology field.
+              We have a team of highly skilled professionals with extensive experience in the security & technology field.
               </p>
             </div>
-            <div className="grid grid-cols-4 gap-[20px] max-lg:grid-cols-2 max-sm:grid-cols-1">
+            <div className="grid grid-cols-5 gap-[20px] max-lg:grid-cols-3 max-sm:grid-cols-1">
               {coreTeam.map(({ name, photo_url, role }, index) => (
                 <div
                   key={index}
@@ -78,7 +78,7 @@ export default function TeamSection({ options }) {
                     className="flex flex-col items-start gap-[20px] max-[374px]:items-center"
                   >
                     <img
-                      className="rounded-[12px] w-1/3"
+                      className="rounded-[12px] w-1/3 aspect-square object-cover object-top"
                       src={photo_url}
                       alt=""
                     />

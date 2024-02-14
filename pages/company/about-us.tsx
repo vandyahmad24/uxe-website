@@ -17,6 +17,7 @@ export default function ProductSection({ options }) {
     testimonialOptions,
     backgroundOptions,
     visionAndMissionOptions: { mission, vision },
+    footerOptions
   } = options;
 
   const handleReadMore = () => {
@@ -24,14 +25,14 @@ export default function ProductSection({ options }) {
   }
 
   return (
-    <Layout>
+    <Layout data={{ footer: footerOptions }}>
       <Head>
-        <title>{`About Us | ${CMS_NAME}`}</title>
+        <title>{`${CMS_NAME} | About Us`}</title>
       </Head>
       <Header
         title="Multiple services to ensure the safety"
         subtitle="COMPANY"
-        description="Intelligent Security Beyond Cameras: Seamless Solutions for Government and Business Environments"
+        description="Beyond Cameras: Seamless Solutions for Government and Business Environments"
         video_url={backgroundOptions?.hero_about_us?.url}
       />
       <div className="bg-white">

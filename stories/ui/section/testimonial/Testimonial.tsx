@@ -108,7 +108,7 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
                   TESTIMONIAL
                 </p>
                 <h2 className="text-[max(16px,_min(calc(100vw_*_(24_/_1440)),_24px))] text-[#19191B] font-medium leading-[112%] -tracking-[.24px] mt-[10px] max-w-xl">
-                  What people are saying
+                  Partner Insights: What Others Have Shared About Us
                 </h2>
               </div>
               <Slider
@@ -124,12 +124,13 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
                       <div className="flex gap-[5px]">
                         <Rating rating={cp.rating} />
                       </div>
-                      <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] leading-[132%] -tracking-[.16px]">
+                      <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] leading-[132%] -tracking-[.16px] line-clamp-4">
                         {cp.review_text}
                       </p>
                     </div>
                     <div className="flex items-center justify-between gap-[12px] w-full">
-                      <div className="flex items-center justify-center gap-[12px]">
+                      {/* <div className="flex items-center justify-center gap-[12px]"> */}
+                      <div className="grid grid-cols-[auto_1fr] items-center gap-[12px]">
                         <div
                           className="w-[32px] h-[32px] bg-black rounded-full bg-cover"
                           style={{
@@ -145,7 +146,7 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
                           </p>
                         </div>
                       </div>
-                      <img src={cp.reviewer_company_image} alt="" />
+                      <img src={cp.reviewer_company_image} alt="" className="h-[24px] max-w-[81px] object-contain" />
                     </div>
                   </div>
                 ))}

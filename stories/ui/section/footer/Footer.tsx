@@ -13,7 +13,6 @@ type MenuData = {
 
 type SchemaData = {
   address: string,
-  privacy: MenuData,
   explore_menu: MenuData[];
   contact_menu: MenuData[];
   follow_us_menu: MenuData[];
@@ -117,12 +116,12 @@ export const Footer = ({ data, ...props }: FooterProps) => {
                 <div className="nfooter-line"></div>
                 <div className="nfooter-credit">
                   <TextSmall label={`© ${new Date().getFullYear()} — UXE`} />
-                  <TextSmall
+                  {/* <TextSmall
                     el="a"
                     label={data.privacy.name}
                     href={data.privacy.url}
                     hover
-                  />
+                  /> */}
                   <TextSmall label="All rights reserved" />
                 </div>
               </div>
