@@ -124,7 +124,7 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
                       <div className="flex gap-[5px]">
                         <Rating rating={cp.rating} />
                       </div>
-                      <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] leading-[132%] -tracking-[.16px]">
+                      <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] leading-[132%] -tracking-[.16px] line-clamp-4">
                         {cp.review_text}
                       </p>
                     </div>

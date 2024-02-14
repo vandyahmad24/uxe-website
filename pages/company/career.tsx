@@ -31,7 +31,8 @@ export default function CareerSection({ options }) {
         video_url={backgroundOptions?.hero_career?.url}
       />
       <Feature data={featureOptions} />
-      <div className="bg-white">
+      {coreTeam.length > 0 && (
+        <div className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden pb-0">
           <div className="flex flex-col gap-[max(48px,_min(calc(100vw_*_(64_/_1440)),_64px))]">
             <div className="flex flex-col items-center gap-[max(8px,_min(calc(100vw_*_(12_/_1440)),_12px))] text-center">
@@ -67,7 +68,9 @@ export default function CareerSection({ options }) {
           </div>
         </div>
       </div>
-      <div className="bg-white">
+      )}
+      {careerOptions.length > 0 && (
+        <div className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
           <div className="flex flex-col gap-[max(48px,_min(calc(100vw_*_(64_/_1440)),_64px))] max-w-[768px] mx-auto">
             <div className="flex flex-col items-center gap-[max(8px,_min(calc(100vw_*_(12_/_1440)),_12px))] text-center">
@@ -154,6 +157,7 @@ export default function CareerSection({ options }) {
           </div>
         </div>
       </div>
+      )}
       <GetStarted label="Get started with UXE" template={1} />
       <Testimonial data={testimonialOptions} settings={{ show: 3 }} />
     </Layout>
