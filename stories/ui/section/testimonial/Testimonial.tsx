@@ -145,7 +145,7 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
                           </p>
                         </div>
                       </div>
-                      <img src={cp.reviewer_company_image} alt="" />
+                      <img src={cp.reviewer_company_image} alt="" className="h-[24px]" />
                     </div>
                   </div>
                 ))}
