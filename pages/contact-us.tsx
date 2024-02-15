@@ -112,6 +112,7 @@ export default function ContactUsSection({ options }) {
                       alt="Contact Us Background"
                       src={backgroundOptions?.hero_contact?.url}
                       placeholder="blur"
+                      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkqP9fDwAEBAH/5D+EcwAAAABJRU5ErkJggg=="
                       width={600}
                       height={600}
                     />

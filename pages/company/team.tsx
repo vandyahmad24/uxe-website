@@ -45,6 +45,7 @@ export default function TeamSection({ options }) {
                     className="absolute top-0 w-full"
                     src={photo_url}
                     placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkqP9fDwAEBAH/5D+EcwAAAABJRU5ErkJggg=="
                     alt={name}
                     width={500}
                     height={500}

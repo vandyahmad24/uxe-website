@@ -14,8 +14,7 @@ import { Layout } from "@/ui/base/layout/Layout";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
 import { getSettings } from "lib/new-api";
 
-export default function Product({ product }) {
-  // const { footerOptions } = options;
+export default function Product({ product, options }) {
   const productContent = useRef(null);
   useEffect(() => {
     productContent.current.querySelectorAll("img").forEach((el) => {
@@ -71,13 +70,12 @@ export default function Product({ product }) {
 
   const router = useRouter();
 
-  if (!router.isFallback && !product?.slug) {
+  if (!router.isFallback && !product?.slug && !options?.footerOptions) {
     return <ErrorPage statusCode={404} />;
   }
 
   return (
-    // <Layout data={{ footer: footerOptions }}>
-    <Layout>
+    <Layout data={{ footer: options?.footerOptions }}>
       <Head>
         <title>{`${CMS_NAME} | ${product?.title}`}</title>
       </Head>
@@ -112,11 +110,11 @@ export default function Product({ product }) {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const data = await getProductAndMoreProducts(params?.slug);
-  // const options = await getSettings();
+  const options = await getSettings();
   return {
     props: {
       product: data.product,
-      // options,
+      options,
     },
     revalidate: 10,
   };

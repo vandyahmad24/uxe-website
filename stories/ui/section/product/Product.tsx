@@ -2,6 +2,7 @@ import Link from "next/link";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
 import { useEffect, useState } from "react";
 import { getAllProduct } from "lib/new-api";
+import Image from "next/image";
 
 type SchemaEdges = {
   edges: SchemaNode[];
@@ -81,10 +82,15 @@ export const Product = ({ data, settings, ...props }: ProductProps) => {
               <div key={index} className="flex flex-col gap-[20px]">
                 <div className="relative w-full pt-[112%] rounded-[12px] bg-[#F2F2F2]">
                   <a href={"/product/" + node?.slug} className="absolute inset-0 w-full h-full overflow-hidden rounded-[12px]">
-                    <img
+                    <Image
                       src={node?.featuredImage?.node?.fullPathUrl}
                       alt={node?.title}
                       className="w-full h-full hover:scale-110"
+                      height={700}
+                      width={600}
+                      placeholder="blur"
+                      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk0Nf/DwAB9AFflrBvOQAAAABJRU5ErkJggg=="
+                      loading="lazy"
                     />
                   </a>
                 </div>

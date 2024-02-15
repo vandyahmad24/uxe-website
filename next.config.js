@@ -25,6 +25,9 @@ module.exports = {
       {
         hostname: `*.azureedge.net`,
       },
+      {
+        hostname: `*.uxe.ai`,
+      },
     ],
   },
   output: process.env.IS_VERCEL === "false" ? "standalone" : undefined,
