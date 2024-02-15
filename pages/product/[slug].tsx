@@ -82,24 +82,26 @@ export default function Product({ product }) {
         <title>{`${CMS_NAME} | ${product?.title}`}</title>
       </Head>
       <div className="bg-white">
-        <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(100_/_1440)),_100px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
-          <div className="text-center flex flex-col items-center gap-[10px]">
-            <TextSmall
-              label={product?.productCategorys?.edges[0]?.node?.name}
-              cls="uppercase text-[#676767]"
-            />
-            <TitleMedium label={product?.title} />
-          </div>
-          <div>
-            <img
-              src={product?.featuredImage?.node?.fullPathUrl}
-              alt={product?.title}
-              className="mx-auto"
-            />
-            <div
-              ref={productContent}
-              dangerouslySetInnerHTML={{ __html: product?.content }}
-            ></div>
+        <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(100_/_1440)),_100px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))_0_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
+          <div className="flex flex-col gap-[40px] mt-[20px]">
+            <div className="text-center flex flex-col items-center gap-[10px]">
+              <TextSmall
+                label={product?.productCategorys?.edges[0]?.node?.name}
+                cls="uppercase text-[#676767]"
+              />
+              <TitleMedium label={product?.title} />
+            </div>
+            <div className="flex flex-col gap-[20px]">
+              <img
+                src={product?.featuredImage?.node?.fullPathUrl}
+                alt={product?.title}
+                className="mx-auto max-h-[max(300px,_min(calc(100vw_*_(600_/_1440)),_600px))] w-full object-cover object-top rounded-[12px]"
+              />
+              <div
+                ref={productContent}
+                dangerouslySetInnerHTML={{ __html: product?.content }}
+              ></div>
+            </div>
           </div>
         </div>
       </div>
