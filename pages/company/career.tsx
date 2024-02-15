@@ -28,7 +28,7 @@ export default function CareerSection({ options }) {
       <Header
         title="Became part of our community"
         subtitle="CAREERS"
-        description="Beyond Cameras: Seamless Solutions for Government and Business Environments"
+        description=""
         video_url={backgroundOptions?.hero_career?.url}
       />
       <Feature data={featureOptions} />

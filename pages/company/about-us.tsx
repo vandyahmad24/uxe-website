@@ -30,9 +30,9 @@ export default function ProductSection({ options }) {
         <title>{`${CMS_NAME} | About Us`}</title>
       </Head>
       <Header
-        title="Multiple services to ensure the safety"
+        title="Smart Solutions for Smart Cities"
         subtitle="COMPANY"
-        description="Beyond Cameras: Seamless Solutions for Government and Business Environments"
+        description=""
         video_url={backgroundOptions?.hero_about_us?.url}
       />
       <div className="bg-white">

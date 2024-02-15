@@ -41,8 +41,7 @@ export const Hero = ({
               </div>
               <TextLarge
                 cls="hero-description"
-                label="Beyond Cameras: Seamless Solutions for
-                Government and Business Environments"
+                label=""
                 decoration
               />
             </div>
