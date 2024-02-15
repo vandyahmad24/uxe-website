@@ -7,6 +7,7 @@ import { Testimonial } from "@/ui/section/testimonial/Testimonial";
 import { Header } from "@/ui/section/header/Header";
 import Link from "next/link";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
+import Image from "next/image";
 
 export default function TeamSection({ options }) {
   const { testimonialOptions, backgroundOptions, teamOptions, footerOptions } = options;
@@ -40,10 +41,13 @@ export default function TeamSection({ options }) {
                   key={index}
                   className="relative rounded-[12px] overflow-hidden pt-[100%] h-0 w-full text-white"
                 >
-                  <img
+                  <Image
                     className="absolute top-0 w-full"
                     src={photo_url}
+                    placeholder="blur"
                     alt={name}
+                    width={500}
+                    height={500}
                   />
                   <div className="absolute bottom-0 left-0 right-0 m-[16px] p-[16px] bg-[#0D0D0D66] rounded-[8px]">
                     <p className="text-[16px] font-bold leading-[132%] -tracking-[.16px]">

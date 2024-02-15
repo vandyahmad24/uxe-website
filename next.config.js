@@ -22,6 +22,9 @@ module.exports = {
       {
         hostname: `*.gravatar.com`,
       },
+      {
+        hostname: `*.azureedge.net`,
+      },
     ],
   },
   output: process.env.IS_VERCEL === "false" ? "standalone" : undefined,

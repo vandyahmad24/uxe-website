@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { Meta } from "@/ui/base/meta/Meta";
 import { TitleXSmall } from "@/ui/title/title-xsmall/TitleXSmall";
+import Image from "next/image";
 
 export default function ContactUsSection({ options }) {
   const { backgroundOptions, contactOptions, footerOptions } = options;
@@ -107,9 +108,12 @@ export default function ContactUsSection({ options }) {
               <div className="bg-black p-[max(20px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(96_/_1440)),_96px))] flex flex-col gap-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] items-start text-white">
                 <div className="relative rounded-[12px] overflow-hidden">
                   {backgroundOptions?.hero_contact && (
-                    <img
+                    <Image
                       alt="Contact Us Background"
                       src={backgroundOptions?.hero_contact?.url}
+                      placeholder="blur"
+                      width={600}
+                      height={600}
                     />
                   )}
 
