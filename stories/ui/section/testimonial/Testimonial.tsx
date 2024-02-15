@@ -1,6 +1,7 @@
 import Slider from "react-slick";
 import { useEffect, useRef, useState } from "react";
 import { Rating } from "../../component/rating/Rating";
+import Image from "next/image";
 
 type SchemaSetting = {
   show: number;
@@ -146,7 +147,7 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
                           </p>
                         </div>
                       </div>
-                      <img src={cp.reviewer_company_image} alt="" className="h-[24px] max-w-[81px] object-contain" />
+                      <Image width={81} height={24} src={cp.reviewer_company_image} alt="" className="h-[24px] max-w-[81px] object-contain" />
                     </div>
                   </div>
                 ))}

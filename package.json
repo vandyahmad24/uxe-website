@@ -41,5 +41,12 @@
     "storybook": "^7.6.10",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "pnpm": {
+    "overrides": {
+      "postcss@>=8.0.0 <8.2.10": ">=8.2.10",
+      "postcss@>=8.0.0 <8.2.13": ">=8.2.13",
+      "postcss@<8.4.31": ">=8.4.31"
+    }
   }
 }

@@ -30,7 +30,7 @@ export const Hero = ({
     <section className="nhero" {...props}>
       <div className="nhero-wrapper">
         <div className="nhero-container">
-          <div className="nhero-content bg-none invisible">
+          {/* <div className="nhero-content bg-none invisible">
             <div className="nhero-content--wrapper">
               <div className="nhero-title-wrapper">
                 <LabelLarge label="Fairness & Equality" />
@@ -56,7 +56,7 @@ export const Hero = ({
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           {/* <div className="nhero-video-overlay"></div> */}
           <video
             className="nhero-video"

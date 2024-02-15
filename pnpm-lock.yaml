@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  postcss@>=8.0.0 <8.2.10: '>=8.2.10'
+  postcss@>=8.0.0 <8.2.13: '>=8.2.13'
+  postcss@<8.4.31: '>=8.4.31'
+
 dependencies:
   classnames:
     specifier: ^2.3.1
