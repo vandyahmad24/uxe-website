@@ -7,3 +7,16 @@
 @import "./tailwind/utilities.css";
 @import "./ui/index.css";
 @import "./tailwind/wordpress.css";
+
+.pt-\[120\%\]{
+    padding-top: 120%;
+}
+
+.member-name{
+    min-height: 90px;
+}
+.member-name > .person-name{
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
