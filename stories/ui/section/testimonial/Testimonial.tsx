@@ -2,6 +2,8 @@ import Slider from "react-slick";
 import { useEffect, useRef, useState } from "react";
 import { Rating } from "../../component/rating/Rating";
 import Image from "next/image";
+import { SECTION_TESTIMONIAL } from "lib/constants";
+import { GATimeSpent } from "lib/ga";
 
 type SchemaSetting = {
   show: number;
@@ -26,6 +28,10 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
   const { show } = settings;
   const testimonialTextRef = useRef(null);
   const [slides, setSlides] = useState(data.slice(0, show));
+
+  // Google Tag Manager
+  const [startTime, setStartTime] = useState(-1);
+  const sectionRef = useRef(null);
 
   const handleShowMore = () => {
     const isActive = testimonialTextRef.current.dataset.active === "1";
@@ -63,11 +69,24 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
     // Add listener for changes
     mediaQueryList.addEventListener("change", handleMediaChange);
 
+    const observer = GATimeSpent({
+      sectionName: SECTION_TESTIMONIAL,
+      startTime,
+      setStartTime
+    })
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
     // Clean up listener on component unmount
     return () => {
       mediaQueryList.removeEventListener("change", handleMediaChange);
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
     };
-  }, [data, testimonialTextRef, show]);
+  }, [data, testimonialTextRef, show, sectionRef, startTime, setStartTime]);
 
   const slide_setting = {
     slidesToShow: 3,
@@ -101,7 +120,7 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
   return (
     <>
       {slides.length > 0 && (
-        <section className="bg-white" {...props}>
+        <section ref={sectionRef} className="bg-white" {...props}>
           <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(64_/_1440)),_64px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
             <div className="flex flex-col gap-[48px]">
               <div className="flex flex-col items-start text-left">

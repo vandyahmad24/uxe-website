@@ -1,8 +1,10 @@
 import Link from "next/link";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { getAllProduct } from "lib/new-api";
 import Image from "next/image";
+import { GATimeSpent } from "lib/ga";
+import { SECTION_PRODUCT } from "lib/constants";
 
 type SchemaEdges = {
   edges: SchemaNode[];
@@ -45,6 +47,28 @@ export const Product = ({ data, settings, ...props }: ProductProps) => {
   const [hasMoreProducts, setHasMoreProducts] = useState(data?.pageInfo?.hasNextPage || null);
   const [loading, setLoading] = useState(false);
 
+  // Google Tag Manager
+  const [startTime, setStartTime] = useState(-1);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = GATimeSpent({
+      sectionName: SECTION_PRODUCT,
+      startTime,
+      setStartTime
+    })
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [sectionRef, startTime, setStartTime]);
+
   const fetchProducts = async (afterCursor) => {
     try {
       const newProducts = await getAllProduct(afterCursor);
@@ -64,7 +88,7 @@ export const Product = ({ data, settings, ...props }: ProductProps) => {
   };
 
   return (
-    <section className="bg-white" {...props}>
+    <section ref={sectionRef} className="bg-white" {...props}>
       <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(190_/_1440)),_190px))_48px_max(20px,_min(calc(100vw_*_(190_/_1440)),_190px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
         <div className="flex flex-col gap-[48px]">
           {settings?.show_title && (
