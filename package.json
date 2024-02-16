@@ -12,6 +12,7 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@next/third-parties": "^14.1.0",
     "classnames": "^2.3.1",
     "date-fns": "^3.3.1",
     "next": "14.1.0",

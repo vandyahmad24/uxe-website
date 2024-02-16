@@ -4,6 +4,7 @@ import { TextMedium } from "../../text/text-medium/TextMedium";
 import { TitleHuge } from "../../title/title-huge/TitleHuge";
 import { TextLarge } from "../../text/text-large/TextLarge";
 import { LabelLarge } from "../../component/label-large/LabelLarge";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 type ClientData = {
   alt: string;
@@ -66,7 +67,7 @@ export const Hero = ({
             playsInline
             muted
           ></video>
-          <a href="#read-more-hero" className="absolute w-full bottom-[40px] flex flex-col items-center justify-center gap-[16px] animate-[bounce_1.5s_ease-in-out_infinite] cursor-pointer">
+          <a href="#read-more-hero" className="absolute w-full bottom-[40px] flex flex-col items-center justify-center gap-[16px] animate-[bounce_1.5s_ease-in-out_infinite] cursor-pointer" onClick={() => sendGTMEvent({ event: 'buttonClicked', value: 'xyz' })}>
             <TextMedium label={"Read More"} cls="text-white" />
             <div className="rounded-full border border-white p-[8px]">
               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">

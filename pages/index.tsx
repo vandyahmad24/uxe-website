@@ -14,6 +14,7 @@ import { Post } from "@/ui/section/post/Post";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
 import { Layout } from "@/ui/base/layout/Layout";
 import { useRef, useState } from "react";
+import { sendGTMEvent } from '@next/third-parties/google'
 
 export default function Index({ options }) {
   const readMoreRef = useRef(null);
@@ -31,6 +32,7 @@ export default function Index({ options }) {
   } = options;
 
   const handleReadMore = () => {
+    sendGTMEvent({ event: 'buttonClicked', value: 'xyz' })
     setRead(!isRead)
   }
 
