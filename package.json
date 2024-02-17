@@ -16,6 +16,7 @@
     "npm": "9.8.1"
   },
   "dependencies": {
+    "@next/third-parties": "^14.1.0",
     "classnames": "^2.3.1",
     "date-fns": "^3.3.1",
     "next": "14.1.0",
@@ -46,5 +47,12 @@
     "storybook": "^7.6.10",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "pnpm": {
+    "overrides": {
+      "postcss@>=8.0.0 <8.2.10": ">=8.2.10",
+      "postcss@>=8.0.0 <8.2.13": ">=8.2.13",
+      "postcss@<8.4.31": ">=8.4.31"
+    }
   }
 }

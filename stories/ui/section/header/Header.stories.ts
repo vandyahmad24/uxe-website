@@ -18,7 +18,7 @@ export const Default: Story = {
   args: {
     title: "Discover Innovation in Smart Security Products",
     subtitle: "OUR PRODUCT",
-    description: "Beyond Cameras: Seamless Solutions for Government and Business Environments",
+    description: "",
     video_url: "https://api.uxe.ai/wp-content/uploads/2024/01/career-background.png"
   },
 };

@@ -7,6 +7,7 @@ import { Testimonial } from "@/ui/section/testimonial/Testimonial";
 import { Header } from "@/ui/section/header/Header";
 import Link from "next/link";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
+import Image from "next/image";
 
 export default function TeamSection({ options }) {
   const { testimonialOptions, backgroundOptions, teamOptions, footerOptions } = options;
@@ -20,7 +21,7 @@ export default function TeamSection({ options }) {
       <Header
         title="Happy people who work hard to empower your teams."
         subtitle="Our Team"
-        description="Beyond Cameras: Seamless Solutions for Government and Business Environments"
+        description=""
         video_url={backgroundOptions?.hero_team?.url}
       />
       <div className="bg-white">
@@ -40,10 +41,14 @@ export default function TeamSection({ options }) {
                   key={index}
                   className="relative rounded-[12px] overflow-hidden pt-[120%] h-0 w-full text-white"
                 >
-                  <img
+                  <Image
                     className="absolute top-0 w-full"
                     src={photo_url}
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkqP9fDwAEBAH/5D+EcwAAAABJRU5ErkJggg=="
                     alt={name}
+                    width={500}
+                    height={500}
                   />
                   <div className="member-name absolute bottom-0 left-0 right-0 m-[16px] p-[16px] bg-[#0D0D0D66] rounded-[8px]">
                     <p className="person-name text-[16px] font-bold leading-[132%] -tracking-[.16px]">
@@ -159,7 +164,7 @@ export default function TeamSection({ options }) {
       </div> */}
       <br/>
       <br/>
-      <GetStarted label="Get started with UXE" template={1} />
+      <GetStarted label="Get started with UXE" template={1} isPadding />
       <Testimonial data={testimonialOptions} settings={{ show: 3 }} />
     </Layout>
   );

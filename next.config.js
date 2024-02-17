@@ -22,6 +22,12 @@ module.exports = {
       {
         hostname: `*.gravatar.com`,
       },
+      {
+        hostname: `*.azureedge.net`,
+      },
+      {
+        hostname: `*.uxe.ai`,
+      },
     ],
   },
   output: "standalone",

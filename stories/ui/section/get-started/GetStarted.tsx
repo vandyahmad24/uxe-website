@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { TitleHuge } from "../../title/title-huge/TitleHuge";
 import Link from "next/link";
 import { TitleMedium } from "@/ui/title/title-medium/TitleMedium";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
+import Image from "next/image";
+import { GATimeSpent } from "lib/ga";
+import { SECTION_GET_STARTED } from "lib/constants";
 
 type LogoData = {
   url: string;
@@ -19,8 +22,30 @@ interface GetStartedProps {
 }
 
 export const GetStarted = ({ label, template = 0, isPadding = false, ...props }: GetStartedProps) => {
+  // Google Tag Manager
+  const [startTime, setStartTime] = useState(-1);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = GATimeSpent({
+      sectionName: SECTION_GET_STARTED,
+      startTime,
+      setStartTime
+    })
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [sectionRef, startTime, setStartTime]);
+
   return (
-    <section className="bg-white" {...props}>
+    <section ref={sectionRef} className="bg-white" {...props}>
       {template == 1 && (
         <div className={`get-started2-wrapper ${isPadding ? 'get-started2-wrapper--padding' : ''}`}>
           <div className="get-started2">
@@ -40,10 +65,10 @@ export const GetStarted = ({ label, template = 0, isPadding = false, ...props }:
         <div className="get-started-wrapper py-[max(20px,_min(calc(100vw_*_(60_/_1440)),_60px))]">
           <div className="get-started">
             <div className="get-started-profile">
-              <img src="/image/person-image-01.png" title="Person" />
-              <img src="/image/person-image-02.png" title="Person" />
-              <img src="/image/person-image-03.png" title="Person" />
-              <img src="/image/person-image-04.png" title="Person" />
+              <Image height={48} width={48} alt="profile" src="/image/person-image-01.png" title="Person" />
+              <Image height={48} width={48} alt="profile" src="/image/person-image-02.png" title="Person" />
+              <Image height={48} width={48} alt="profile" src="/image/person-image-03.png" title="Person" />
+              <Image height={48} width={48} alt="profile" src="/image/person-image-04.png" title="Person" />
             </div>
             <div className="flex flex-col gap-[20px] items-center">
               <TitleHuge el="h2" label={label} decoration />

@@ -19,7 +19,7 @@ export default function ProductSection({ products, options }) {
       <Header
         title="Discover Innovation in Smart Security Products"
         subtitle="OUR PRODUCT"
-        description="Beyond Cameras: Seamless Solutions for Government and Business Environments"
+        description=""
         video_url={backgroundOptions?.hero_product?.url}
       />
       <Product data={products} />

@@ -44,7 +44,7 @@ export default function BlogSection({ posts, options }) {
       <Header
         title="Your Daily Dose of Tech News"
         subtitle="Media Center"
-        description="Beyond Cameras: Seamless Solutions for Government and Business Environments"
+        description=""
         video_url={backgroundOptions?.hero_blog?.url}
       />
       <div className="bg-white">

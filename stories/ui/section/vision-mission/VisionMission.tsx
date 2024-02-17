@@ -1,5 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { TextMedium } from "../../text/text-medium/TextMedium";
+import Image from "next/image";
+import { GATimeSpent } from "lib/ga";
+import { SECTION_VISION_MISSION } from "lib/constants";
 
 type SchemaData = {
   vision: VisionData;
@@ -25,6 +28,10 @@ export const VisionMission = ({ data, ...props }: VisionMissionProps) => {
   const cContent = useRef(null);
   const cFooter = useRef(null);
   const cImage = useRef(null);
+
+  // Google Tag Manager
+  const [startTime, setStartTime] = useState(-1);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const visionHandle = () => {
@@ -102,11 +109,25 @@ export const VisionMission = ({ data, ...props }: VisionMissionProps) => {
         }
       });
     };
+
+    const observer = GATimeSpent({
+      sectionName: SECTION_VISION_MISSION,
+      startTime,
+      setStartTime
+    })
+
+    if (cScroll.current) {
+      observer.observe(cScroll.current);
+    }
+
     window.addEventListener("scroll", visionHandle);
     return () => {
+      if (cScroll.current) {
+        observer.unobserve(cScroll.current);
+      }
       window.removeEventListener("scroll", visionHandle);
     };
-  }, [cScroll, cPadding, cImage, cContent, cFooter, isActive]);
+  }, [cScroll, cPadding, cImage, cContent, cFooter, isActive, startTime, setStartTime]);
 
   return (
     <section ref={cScroll} className="bg-[#E6EDFF] h-[200svh]" {...props}>
@@ -119,15 +140,25 @@ export const VisionMission = ({ data, ...props }: VisionMissionProps) => {
             ref={cImage}
             className="max-lg:hidden overflow-hidden rounded-[12px]"
           >
-            <img
+            <Image
               src={vision?.image_url}
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
               alt={vision?.title}
               className="h-full w-full object-cover"
+              width={620}
+              height={710}
+              priority
             />
-            <img
+            <Image
               src={mission?.image_url}
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
               alt={mission?.title}
               className="h-full w-full object-cover"
+              width={620}
+              height={710}
+              priority
             />
           </div>
           <div className="flex flex-col justify-between h-full">

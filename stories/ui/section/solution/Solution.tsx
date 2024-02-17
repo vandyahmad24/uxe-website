@@ -1,4 +1,6 @@
 import cn from "classnames";
+import { SECTION_SOLUTION } from "lib/constants";
+import { GATimeSpent } from "lib/ga";
 import React, { useEffect, useRef, useState } from "react";
 
 type SchemaData = {
@@ -17,6 +19,10 @@ export const Solution = ({ data, ...props }: SolutionProps) => {
   const slide2Ref = useRef(null);
   const [isActiveSolution, setIsActiveSolution] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+
+  // Google Tag Manager
+  const [startTime, setStartTime] = useState(-1);
+  const sectionRef = useRef(null);
 
   const SCROLL_TO_TOP = () => {
     window.scrollTo({
@@ -48,6 +54,18 @@ export const Solution = ({ data, ...props }: SolutionProps) => {
       handleIsMobile(true)
     }
 
+    // GA
+    const observer = GATimeSpent({
+      sectionName: SECTION_SOLUTION,
+      startTime,
+      setStartTime
+    })
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+
     return () => {
       if (window.innerWidth > 1024) {
         if (slide1Ref.current) {
@@ -57,11 +75,15 @@ export const Solution = ({ data, ...props }: SolutionProps) => {
           slide2Ref.current.removeEventListener('mouseenter', handleSlide2Click);
         }
       }
+
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
     };
-  }, [slide1Ref, slide2Ref, handleActiveSolution, handleIsMobile]);
+  }, [slide1Ref, slide2Ref, handleActiveSolution, handleIsMobile, sectionRef, startTime, setStartTime]);
 
   return (
-    <section id="section-solution" className="bg-[#F4F5F6]" {...props}>
+    <section ref={sectionRef} id="section-solution" className="bg-[#F4F5F6]" {...props}>
       <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(64_/_1440)),_64px))_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden bg-[url('/image/solution-background.png')] max-lg:bg-none bg-cover">
         <div className="flex flex-col gap-[45px]">
           <div className="flex flex-col items-center text-center">
