@@ -31,5 +31,6 @@ module.exports = {
     ],
   },
   output: "standalone",
+  distDir: 'build',
   poweredByHeader: false,
 }
