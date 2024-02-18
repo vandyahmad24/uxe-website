@@ -126,8 +126,6 @@ export const VisionMission = ({ data, ...props }: VisionMissionProps) => {
               blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
               alt={vision?.title}
               className="h-full w-full object-cover"
-              width={620}
-              height={710}
               priority
             />
             <Image
