@@ -1,12 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 import { TitleHuge } from "../../title/title-huge/TitleHuge";
 import Link from "next/link";
 import { TitleMedium } from "@/ui/title/title-medium/TitleMedium";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
 import Image from "next/image";
-import { GATimeSpent } from "lib/ga";
-import { SECTION_GET_STARTED } from "lib/constants";
 
 type LogoData = {
   url: string;
@@ -22,30 +20,8 @@ interface GetStartedProps {
 }
 
 export const GetStarted = ({ label, template = 0, isPadding = false, ...props }: GetStartedProps) => {
-  // Google Tag Manager
-  const [startTime, setStartTime] = useState(-1);
-  const sectionRef = useRef(null);
-
-  useEffect(() => {
-    const observer = GATimeSpent({
-      sectionName: SECTION_GET_STARTED,
-      startTime,
-      setStartTime
-    })
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, [sectionRef, startTime, setStartTime]);
-
   return (
-    <section ref={sectionRef} className="bg-white" {...props}>
+    <section className="bg-white" {...props}>
       {template == 1 && (
         <div className={`get-started2-wrapper ${isPadding ? 'get-started2-wrapper--padding' : ''}`}>
           <div className="get-started2">
