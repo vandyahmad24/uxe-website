@@ -28,6 +28,9 @@ module.exports = {
       {
         hostname: `*.uxe.ai`,
       },
+      ,{
+        hostname: 'uxe.ai'
+      }
     ],
   },
   output: "standalone",
