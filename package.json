@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && rm -rf ./.next/cachex && npm run copy",
     "copy": "cp -r ./build/static ./build/standalone/build && cp -r ./public ./build/standalone",
     "start": "next start",
     "lint": "next lint",
@@ -12,8 +12,8 @@
     "build-storybook": "storybook build"
   },
   "engines": {
-    "node": "20.9.0",
-    "npm": "10.1.0"
+    "node": "18.19.0",
+    "npm": "9.8.1"
   },
   "dependencies": {
     "@next/third-parties": "^14.1.0",

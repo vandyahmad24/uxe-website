@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node-version: [20.9.0]
+        node-version: [18.19.0]
     name: Build and Deploy Job
     steps:
       - uses: actions/checkout@v3
