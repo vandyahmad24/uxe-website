@@ -130,12 +130,16 @@ export const VisionMission = ({ data, ...props }: VisionMissionProps) => {
               height={710}
               priority
             />
-            <img
+            <Image
               src={mission?.image_url}
+              loader={({src,width,quality})=>{return src;}}
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
               alt={mission?.title}
               className="h-full w-full object-cover"
               width={620}
               height={710}
+              priority
             />
           </div>
           <div className="flex flex-col justify-between h-full">
