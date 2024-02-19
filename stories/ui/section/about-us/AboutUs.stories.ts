@@ -16,6 +16,6 @@ type Story = StoryObj<typeof AboutUs>;
 
 export const Default: Story = {
   args: {
-    text: "dt"
+    data: { text: dt.text }
   },
 };

@@ -209,8 +209,14 @@ export default function BlogSection({ posts, options }) {
           </div>
         </div>
       </div>
-      <GetStarted label="Get started with UXE" template={1} />
-      <Testimonial data={testimonialOptions} settings={{ show: 3 }} />
+      <GetStarted
+        data={{ label:"Get started with UXE" }}
+        custom={{ gtm_reference: "currentPage", template: 1 }}
+      />
+      <Testimonial
+        data={testimonialOptions}
+        custom={{ gtm_reference: "currentPage", show: 3 }}
+      />
     </Layout>
   );
 }

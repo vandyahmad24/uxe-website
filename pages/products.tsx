@@ -22,9 +22,18 @@ export default function ProductSection({ products, options }) {
         description=""
         video_url={backgroundOptions?.hero_product?.url}
       />
-      <Product data={products} />
-      <GetStarted label="Get started with UXE" template={1} />
-      <Testimonial data={testimonialOptions} settings={{ show: 3 }} />
+      <Product
+        data={products}
+        custom={{ gtm_reference: "currentPage", show_title: true }}
+      />
+      <GetStarted
+        data={{ label:"Get started with UXE" }}
+        custom={{ gtm_reference: "currentPage", template: 1 }}
+      />
+      <Testimonial
+        data={testimonialOptions}
+        custom={{ gtm_reference: "currentPage", show: 3 }}
+      />
     </Layout>
   );
 }

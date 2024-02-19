@@ -2,25 +2,24 @@ import { COMPONENT_CIRCLE_READ_MORE, SECTION_ABOUT_US } from "lib/constants";
 import { GAClick, GATimeSpent } from "lib/ga";
 import { useEffect, useRef, useState } from "react";
 
-interface AboutUsProps {
+interface AboutUsData {
   text: string;
 }
 
-export const AboutUs = ({ text, ...props }: AboutUsProps) => {
-  const readMoreRef = useRef(null);
-  const [isRead, setRead] = useState(false);
+export const AboutUs = ({ data, custom, ...props }: SectionProps<AboutUsData>) => {
+  // Props
+  const { text } = data;
+  const { gtm_reference } = custom;
 
-  // Google Tag Manager
-  const [startTime, setStartTime] = useState(-1);
+  // Reference
   const sectionRef = useRef(null);
+  const readMoreRef = useRef(null);
+
+  // State
+  const [isReadMore, setReadMore] = useState(false);
 
   useEffect(() => {
-    const observer = GATimeSpent({
-      sectionName: SECTION_ABOUT_US,
-      startTime,
-      setStartTime
-    })
-
+    const observer = GATimeSpent(gtm_reference, SECTION_ABOUT_US);
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
@@ -30,11 +29,11 @@ export const AboutUs = ({ text, ...props }: AboutUsProps) => {
         observer.unobserve(sectionRef.current);
       }
     };
-  }, [sectionRef, startTime, setStartTime]);
+  }, [sectionRef]);
 
   const handleReadMore = () => {
-    GAClick(SECTION_ABOUT_US, COMPONENT_CIRCLE_READ_MORE)
-    setRead(!isRead);
+    GAClick(gtm_reference, SECTION_ABOUT_US, COMPONENT_CIRCLE_READ_MORE);
+    setReadMore(!isReadMore);
   };
 
   return (
@@ -44,58 +43,9 @@ export const AboutUs = ({ text, ...props }: AboutUsProps) => {
           <div className="flex flex-col gap-[20px]">
             <p
               ref={readMoreRef}
-              className={`text-huge ${isRead ? "" : "line-clamp-[8]"}`}
+              className={`text-huge ${isReadMore ? "" : "line-clamp-[8]"}`}
               dangerouslySetInnerHTML={{
-                __html: `
-              Established in 2018, UXE Security Solutions proudly holds the
-              position of being the premier smart business support and a
-              reliable security provider in MENA region.
-              <br />
-              <br />
-              Committed to delivering services of the highest professional
-              quality, we distinguish ourselves by adopting a unique strategy
-              grounded in Smart Cutting-edge, Innovative Technology.
-              <br />
-              <br />
-              With a considerable client base exceeding 750 clients, we navigate
-              a dynamic and culturally rich environment, embodying the core
-              values of reliability and professionalism.
-              <br />
-              <br />
-              At UXE, we specialize in offering comprehensive and tailored smart
-              security solutions, designed to meet the diverse needs of various
-              sectors and industries.
-              <br />
-              <br />
-              Our ecosystem of products and services allows clients to address
-              multiple security requirements within a singular, integrated
-              framework.
-              <br />
-              <br />
-              Having undergone significant diversification, we have emerged as a
-              pioneer in smart city technologies, AI Solutions, Security
-              services and audits.
-              <br />
-              <br />
-              As a key player in these sectors, UXE has evolved into the
-              foremost business support and tech company provider in the UAE.
-              <br />
-              <br />
-              We proudly carry forward the legacy set by the leaders of the UAE,
-              delivering top-notch security solutions finely tuned to the
-              diverse needs of our clients.
-              <br />
-              <br />
-              Across a wide spectrum of industries, we extend our security
-              expertise to educational institutions, hospitality sector,
-              financial institutions, warehouse and logistics centres, retail,
-              shopping malls, transportation, residential communities, cultural
-              heritage sites, and amusement parks.
-              <br />
-              <br />
-              Our wide range of solutions underlines our commitment to meeting
-              distinct security demands across various industries.
-              `,
+                __html: text,
               }}
             ></p>
             <div className="flex justify-left cursor-pointer">
@@ -103,7 +53,7 @@ export const AboutUs = ({ text, ...props }: AboutUsProps) => {
                 onClick={handleReadMore}
                 className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B] backdrop-blur-[2px] border border-[#F4F5F6] hover:opacity-70"
               >
-                {!isRead ? "Read more" : "Read less"}
+                {!isReadMore ? "Read more" : "Read less"}
               </div>
             </div>
           </div>

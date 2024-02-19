@@ -103,7 +103,10 @@ export default function Product({ product, options }) {
           </div>
         </div>
       </div>
-      <GetStarted label="Get started with UXE" template={1} isPadding />
+      <GetStarted
+        data={{ label:"Get started with UXE" }}
+        custom={{ gtm_reference: "currentPage", template: 1, isPadding: true }}
+      />
     </Layout>
   );
 }
