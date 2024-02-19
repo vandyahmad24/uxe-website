@@ -201,7 +201,7 @@ export default function ContactUsSection({ options }) {
                   <TextMedium label="By choosing UXE Security Solutions you are selecting a reliable and experienced security partner who is dedicated to delivering tailored solutions, providing you with the highest level of security expertise and service." />
 
                   <div>
-                    <TitleXSmall label="Contact Us :" cls="mt-[24px]" />
+                    <TitleXSmall label="Contact Us" cls="mt-[24px]" />
                     <div className="flex flex-col gap-[4px] mt-[12px]">
                       {footerOptions.contact_menu.map(({ name, url }, index) => (
                         <TextMedium
