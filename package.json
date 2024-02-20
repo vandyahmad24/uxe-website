@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "copy": "cp -r ./build/static ./build/standalone/build && cp -r ./public ./build/standalone",
+    "copy": "cp -r ./build/static ./build/standalone/uxe-website/build && cp -r ./public ./build/standalone/uxe-website",
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",

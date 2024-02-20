@@ -18,12 +18,10 @@ import { AboutUs } from "@/ui/section/about-us/AboutUs";
 export default function Index({ options }) {
   const currentPage = "HOMEPAGE";
   const {
-    clientOptions,
     visionAndMissionOptions,
     featureOptions,
     testimonialOptions,
     products,
-    posts,
     solutionOptions,
     backgroundOptions,
     footerOptions,
