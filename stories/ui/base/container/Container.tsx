@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 
 interface ContainerProps {
-  size?: 'small' | 'medium' |'xmedium' | 'large';
+  size?: 'small' | 'medium' |'xmedium' | 'large' | 'xlarge' | 'full';
   children?: ReactNode;
   cls?: string;
   style?: object

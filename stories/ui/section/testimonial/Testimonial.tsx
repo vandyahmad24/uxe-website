@@ -108,7 +108,7 @@ export const Testimonial = ({ data, custom, ...props }: SectionProps<Testimonial
   return (
     <>
       {slides.length > 0 && (
-        <section className="bg-white" {...props}>
+        <section ref={sectionRef} id="section-testimonial" className="bg-white" {...props}>
           <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(64_/_1440)),_64px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
             <div className="flex flex-col gap-[48px]">
               <div className="flex flex-col items-start text-left">
@@ -150,7 +150,11 @@ export const Testimonial = ({ data, custom, ...props }: SectionProps<Testimonial
                           </p>
                         </div>
                       </div>
-                      <Image width={81} height={24} src={cp.reviewer_company_image} alt="" className="h-[24px] max-w-[81px] object-contain" />
+                      <img
+                        src={cp.reviewer_company_image}
+                        className="h-[24px] max-w-[81px] object-contain"
+                        alt=""
+                      />
                     </div>
                   </div>
                 ))}

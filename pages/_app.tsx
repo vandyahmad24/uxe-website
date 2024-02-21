@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Component {...pageProps} />
-      {/* <GoogleTagManager gtmId="GTM-5LBT8DN4" /> */}
+      <GoogleTagManager gtmId="GTM-NG5S8TMV" />
       <GoogleAnalytics gaId="G-K2T31193HP" />
     </>
   )

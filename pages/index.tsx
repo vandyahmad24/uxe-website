@@ -29,6 +29,8 @@ export default function Index({ options }) {
     solutionOptions,
     backgroundOptions,
     footerOptions,
+    clientOptions,
+    generalSettings
   } = options;
 
   const handleReadMore = () => {
@@ -39,12 +41,13 @@ export default function Index({ options }) {
   return (
     <Layout data={{ footer: footerOptions }}>
       <Head>
-        <title>{`${CMS_NAME}`}</title>
+        <title>{`${generalSettings?.title}`}</title>
       </Head>
       <Hero
         data={{
-          title: "Trusted by hundreds of organizations",
+          clients: clientOptions,
           hero_url: backgroundOptions?.hero_home?.url,
+          title: "Trusted by hundreds of organizations",
         }}
         custom={{ gtm_reference: currentPage }}
       />

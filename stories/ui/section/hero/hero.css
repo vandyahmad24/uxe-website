@@ -1,13 +1,5 @@
-@import "./button.css";
-@import "./get-started.css";
-@import "./list-logo.css";
-
 .nhero {
   @apply bg-black text-white;
-}
-
-.nhero-wrapper {
-  @apply max-w-[90rem] mx-auto overflow-hidden;
 }
 
 .nhero-container {
@@ -53,7 +45,3 @@
 .nclient-item {
   @apply flex flex-wrap max-lg:justify-center gap-[12px_32px];
 }
-
-/* .nclient-item img {
-  @apply max-sm:grow;
-} */

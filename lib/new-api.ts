@@ -270,6 +270,10 @@ export async function getSettings() {
       contactOptions {
         html
       }
+      generalSettings {
+        title
+        description
+      }
     }
   `,
   )

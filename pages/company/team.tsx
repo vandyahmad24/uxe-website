@@ -4,27 +4,27 @@ import { Layout } from "@/ui/base/layout/Layout";
 import { CMS_NAME } from "../../lib/constants";
 import { getSettings } from "lib/new-api";
 import { Testimonial } from "@/ui/section/testimonial/Testimonial";
-import { Header } from "@/ui/section/header/Header";
+import { Hero2 } from "@/ui/section/hero2/Hero2";
 import Link from "next/link";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
 import Image from "next/image";
 
 export default function TeamSection({ options }) {
-  const { testimonialOptions, backgroundOptions, teamOptions, footerOptions } = options;
+  const { testimonialOptions, backgroundOptions, teamOptions, footerOptions, generalSettings } = options;
   let coreTeam = teamOptions.slice(0, 5) || [];
   let memberTeam = teamOptions.slice(5) || [];
   return (
     <Layout data={{ footer: footerOptions }}>
       <Head>
-        <title>{`${CMS_NAME} | Teams`}</title>
+        <title>{`${generalSettings?.title} | Teams`}</title>
       </Head>
-      <Header
+      <Hero2
         title="Happy people who work hard to empower your teams."
         subtitle="Our Team"
         description=""
         video_url={backgroundOptions?.hero_team?.url}
       />
-      <div className="bg-white">
+      <section className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden pb-0">
           <div className="flex flex-col gap-[max(48px,_min(calc(100vw_*_(64_/_1440)),_64px))]">
             <div className="flex flex-col items-center gap-[max(8px,_min(calc(100vw_*_(12_/_1440)),_12px))] text-center">
@@ -32,7 +32,7 @@ export default function TeamSection({ options }) {
                 Our leadership team
               </h2>
               <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] leading-[132%] -tracking-[.16px]">
-              We have a team of highly skilled professionals with extensive experience in the security & technology field.
+                We have a team of highly skilled professionals with extensive experience in the security & technology field.
               </p>
             </div>
             <div className="grid grid-cols-5 gap-[20px] max-lg:grid-cols-3 max-sm:grid-cols-1">
@@ -41,14 +41,10 @@ export default function TeamSection({ options }) {
                   key={index}
                   className="relative rounded-[12px] overflow-hidden pt-[120%] h-0 w-full text-white"
                 >
-                  <Image
+                  <img
                     className="absolute top-0 w-full"
                     src={photo_url}
-                    placeholder="blur"
-                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkqP9fDwAEBAH/5D+EcwAAAABJRU5ErkJggg=="
                     alt={name}
-                    width={500}
-                    height={500}
                   />
                   <div className="member-name absolute bottom-0 left-0 right-0 m-[16px] p-[16px] bg-[#0D0D0D66] rounded-[8px]">
                     <p className="person-name text-[16px] font-bold leading-[132%] -tracking-[.16px]">
@@ -63,8 +59,8 @@ export default function TeamSection({ options }) {
             </div>
           </div>
         </div>
-      </div>
-      {/* <div className="bg-white">
+      </section>
+      {/* <section className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
           <div className="flex flex-col gap-[max(48px,_min(calc(100vw_*_(64_/_1440)),_64px))]">
             <div className="flex flex-col items-center gap-[max(8px,_min(calc(100vw_*_(12_/_1440)),_12px))] text-center">
@@ -161,7 +157,7 @@ export default function TeamSection({ options }) {
             </div>
           </div>
         </div>
-      </div> */}
+      </section> */}
       <br/>
       <br/>
       <GetStarted
