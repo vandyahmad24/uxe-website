@@ -14,7 +14,7 @@ export const ButtonReadMore = ({
 }: ButtonReadMoreProps) => {
   return (
     <Link
-      href="#read-more-hero"
+      href="#section-about-us"
       className="absolute w-full bottom-[40px] flex flex-col items-center justify-center gap-[16px] animate-[bounce_1.5s_ease-in-out_infinite] cursor-pointer"
       onClick={onClick}
       {...props}

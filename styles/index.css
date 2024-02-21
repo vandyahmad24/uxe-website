@@ -1,9 +1,12 @@
 @import "./tailwind/fonts.css";
 @tailwind base;
-@import "./tailwind/base.css";
+@import "./base.css";
 @tailwind components;
+@import "./component.css";
+@import "./section.css";
+@import "./text.css";
+@import "./title.css";
 @import "./tailwind/components.css";
 @tailwind utilities;
 @import "./tailwind/utilities.css";
-@import "./ui/index.css";
 @import "./tailwind/wordpress.css";

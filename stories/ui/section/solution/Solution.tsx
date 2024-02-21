@@ -88,7 +88,6 @@ export const Solution = ({ data, custom, ...props }: SectionProps<SolutionData[]
             <TitleMedium el="h2" label="Smart Solutions for Smart Cities" cls="text-[#19191B] font-medium mt-[10px]" />
           </div>
           <div className="transition-all flex max-lg:grid max-lg:grid-cols-1 gap-[20px]">
-            {/* <div className="grid grid-cols-[calc(70%_-_10px)_calc(30%_-_10px)] max-lg:grid-cols-1 gap-[20px]"> */}
             <div
               ref={slide1Ref}
               className={cn("group/solution1 transition-all ease-[cubic-bezier(0.47,1.07,0.37,1.03)] duration-500 max-lg:w-full rounded-[12px] bg-[#19191B] h-[475px] flex flex-col justify-between overflow-hidden", {

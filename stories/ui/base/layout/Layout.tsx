@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 
 import dt from './layout-data.json'
 import { Navigation } from "../navigation/Navigation";
-import { Meta } from "../meta/Meta";
+import { Meta } from "../Meta";
 
 type SchemaData = {
   menu?: any;

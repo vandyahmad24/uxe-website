@@ -7,12 +7,12 @@ import { TextMedium } from "@/ui/text/text-medium/TextMedium";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { Meta } from "@/ui/base/meta/Meta";
+import { Meta } from "@/ui/base/Meta";
 import { TitleXSmall } from "@/ui/title/title-xsmall/TitleXSmall";
 import Image from "next/image";
 
 export default function ContactUsSection({ options }) {
-  const { backgroundOptions, contactOptions, footerOptions } = options;
+  const { backgroundOptions, contactOptions, footerOptions, generalSettings } = options;
 
   const formBlock = useRef(null);
   const formMessage = useRef(null);
@@ -65,7 +65,7 @@ export default function ContactUsSection({ options }) {
     <>
       <Meta />
       <Head>
-        <title>{`${CMS_NAME} | Contact Us`}</title>
+        <title>{`${generalSettings?.title} | Contact Us`}</title>
       </Head>
       <div className="min-h-screen">
         {/* Navigation */}
@@ -108,13 +108,9 @@ export default function ContactUsSection({ options }) {
               <div className="bg-black p-[max(20px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(96_/_1440)),_96px))] flex flex-col gap-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] items-start text-white">
                 <div className="relative rounded-[12px] overflow-hidden">
                   {backgroundOptions?.hero_contact && (
-                    <Image
+                    <img
                       alt="Contact Us Background"
                       src={backgroundOptions?.hero_contact?.url}
-                      placeholder="blur"
-                      blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkqP9fDwAEBAH/5D+EcwAAAABJRU5ErkJggg=="
-                      width={600}
-                      height={600}
                     />
                   )}
 

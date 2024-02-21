@@ -1,0 +1,39 @@
+.container--small {
+  width: 100%;
+  max-width: 48rem;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.container--medium {
+  width: 100%;
+  max-width: 67.75rem;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.container--large {
+  width: 100%;
+  max-width: 81.25rem;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.container--xlarge {
+  width: 100%;
+  max-width: 90rem;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.container--full {
+  width: 100%;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}

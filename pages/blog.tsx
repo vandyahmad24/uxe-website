@@ -7,12 +7,13 @@ import Link from "next/link";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
 import { Testimonial } from "@/ui/section/testimonial/Testimonial";
 import { Layout } from "@/ui/base/layout/Layout";
-import { Header } from "@/ui/section/header/Header";
+import { Hero2 } from "@/ui/section/hero2/Hero2";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
 import { useEffect, useRef, useState } from "react";
+import { TitleMedium } from "@/ui/title/title-medium/TitleMedium";
 
 export default function BlogSection({ posts, options }) {
-  const { testimonialOptions, backgroundOptions, footerOptions } = options;
+  const { testimonialOptions, backgroundOptions, footerOptions, generalSettings } = options;
   const [postData, setPosts] = useState([...posts.edges]);
   const [endCursor, setEndCursor] = useState(posts?.pageInfo?.endCursor || null);
   const [hasMorePosts, setHasMorePosts] = useState(posts?.pageInfo?.hasNextPage || null);
@@ -39,25 +40,20 @@ export default function BlogSection({ posts, options }) {
   return (
     <Layout data={{ footer: footerOptions }}>
       <Head>
-        <title>{`${CMS_NAME} | Media Center`}</title>
+        <title>{`${generalSettings?.title} | Media Center`}</title>
       </Head>
-      <Header
+      <Hero2
         title="Your Daily Dose of Tech News"
         subtitle="Media Center"
         description=""
         video_url={backgroundOptions?.hero_blog?.url}
       />
-      <div className="bg-white">
+      <section className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))_48px_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
           <div className="flex flex-col gap-[48px]">
             <div className="flex flex-col items-start gap-[max(8px,_min(calc(100vw_*_(12_/_1440)),_12px))] text-center">
-              <h2 className="text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] text-[#19191B] font-medium leading-[112%] -tracking-[.64px]">
-                Lastest blog posts
-              </h2>
-              <p className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-[#19191B] leading-[132%] -tracking-[.16px]">
-                Tool and strategies modern teams need to help their companies
-                grow.
-              </p>
+              <TitleMedium el="h2" label="Lastest blog posts" cls="text-[#19191B] !max-w-full" />
+              <TextLarge label="Tool and strategies modern teams need to help their companies grow." cls="text-[#19191B]" />
             </div>
             {postData.length > 0 && (
               <>
@@ -208,7 +204,7 @@ export default function BlogSection({ posts, options }) {
             )}
           </div>
         </div>
-      </div>
+      </section>
       <GetStarted
         data={{ label:"Get started with UXE" }}
         custom={{ gtm_reference: "currentPage", template: 1 }}

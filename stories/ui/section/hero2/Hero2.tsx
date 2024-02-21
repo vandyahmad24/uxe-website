@@ -1,6 +1,6 @@
 import React from "react";
 
-interface HeaderProps {
+interface Hero2Props {
   title: string;
   subtitle: string;
   description: string;
@@ -8,13 +8,13 @@ interface HeaderProps {
   style?: any;
 }
 
-export const Header = ({
+export const Hero2 = ({
   title,
   subtitle,
   description,
   video_url,
   ...props
-}: HeaderProps) => {
+}: Hero2Props) => {
   return (
     <div className="bg-black" {...props}>
       <div className="max-w-[1440px] mx-auto overflow-hidden">

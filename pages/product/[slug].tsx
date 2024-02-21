@@ -77,7 +77,7 @@ export default function Product({ product, options }) {
   return (
     <Layout data={{ footer: options?.footerOptions }}>
       <Head>
-        <title>{`${CMS_NAME} | ${product?.title}`}</title>
+        <title>{`${options?.generalSettings?.title} | ${product?.title}`}</title>
       </Head>
       <div className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(100_/_1440)),_100px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))_0_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">

@@ -1,0 +1,11 @@
+@import "./../stories/ui/section/footer/footer.css";
+@import "./../stories/ui/section/get-started/get-started.css";
+@import "./../stories/ui/section/hero/hero.css";
+
+.px-large {
+  @apply px-[max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))];
+}
+
+.py-medium {
+  @apply py-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))];
+}

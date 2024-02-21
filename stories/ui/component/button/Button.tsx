@@ -2,9 +2,9 @@ import React from 'react';
 
 interface ButtonProps {
   label: string;
-  backgroundColor: string;
-  color: string;
-  el: 'a' | 'button';
+  backgroundColor?: string;
+  color?: string;
+  el?: 'a' | 'button';
   href?: string;
   onClick?: () => void;
   style?: any;

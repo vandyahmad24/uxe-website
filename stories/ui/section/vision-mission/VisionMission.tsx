@@ -20,7 +20,11 @@ interface VisionMissionData {
   };
 }
 
-export const VisionMission = ({ data, custom, ...props }: SectionProps<VisionMissionData>) => {
+export const VisionMission = ({
+  data,
+  custom,
+  ...props
+}: SectionProps<VisionMissionData>) => {
   // Props
   const { vision, mission } = data;
   const { gtm_reference } = custom;
@@ -44,64 +48,73 @@ export const VisionMission = ({ data, custom, ...props }: SectionProps<VisionMis
 
     const visionHandle = () => {
       const section = sectionRef.current;
-      if (!section) { return;}
+      if (!section) {
+        return;
+      }
 
       const sectionRect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       const sectionTop = sectionRect.top;
-  
+
       const containerPaddingValue = parseInt(
         getComputedStyle(paddingRef.current).paddingTop.replace("px", "")
       );
-  
+
       const container = imageRef.current.querySelectorAll("img");
       const containerContent = contentRef.current.childNodes;
       const containerFooter = footerRef.current.childNodes[1].childNodes;
-      const containerDescription = footerRef.current.childNodes[0]
-  
+      const containerDescription = footerRef.current.childNodes[0];
+
       if (sectionTop < 0) {
-        const navigationElm = window.document.querySelector("#navigation-container");
+        const navigationElm = window.document.querySelector(
+          "#navigation-container"
+        );
         if (navigationElm) {
           paddingRef.current.style.paddingTop = `calc(max(44px, min(calc(100vw * (80 / 1440)), 80px)) + ${navigationElm.clientHeight}px)`;
         }
-  
+
         container.forEach((e, i) => {
           if (
             sectionTop >
-            ((windowHeight * i - containerPaddingValue * 2 * i) * -1 - navigationElm.clientHeight)
+            (windowHeight * i - containerPaddingValue * 2 * i) * -1 -
+              navigationElm.clientHeight
           ) {
             e.style.transform = `translateY(${sectionTop}px)`;
           }
-  
+
           if (
             sectionTop <
-            ((windowHeight * i - containerPaddingValue * 2 * i) * -1 - navigationElm.clientHeight)
+            (windowHeight * i - containerPaddingValue * 2 * i) * -1 -
+              navigationElm.clientHeight
           ) {
             e.style.transform = `translateY(${
-              ((windowHeight * i - containerPaddingValue * 2 * i) * -1 - navigationElm.clientHeight)
+              (windowHeight * i - containerPaddingValue * 2 * i) * -1 -
+              navigationElm.clientHeight
             }px)`;
             setIsActiveSection(i);
           }
         });
       } else {
-        const navigationElm = window.document.querySelector("#navigation-container");
+        const navigationElm = window.document.querySelector(
+          "#navigation-container"
+        );
         if (navigationElm) {
           paddingRef.current.style.paddingTop = `max(44px, min(calc(100vw * (80 / 1440)), 80px))`;
         }
       }
-  
+
       containerContent.forEach((element, ei) => {
         if (ei == isActiveSection) {
           element.style.opacity = 1;
           // element.style.display = "block"
-          containerDescription.innerText = mission?.description
+          containerDescription.innerText = mission?.description;
           containerFooter[ei].style.background = "#3760ff";
           containerFooter[ei].style.width =
             "max(32px, min(calc(100vw * (64 / 1440)), 64px))";
         } else {
           element.style.opacity = 0;
           // element.style.display = "none"
-          containerDescription.innerText = vision?.description
+          containerDescription.innerText = vision?.description;
           containerFooter[ei].style.background = "#0000003D";
           containerFooter[ei].style.width =
             "max(12px, min(calc(100vw * (24 / 1440)), 24px))";
@@ -116,10 +129,22 @@ export const VisionMission = ({ data, custom, ...props }: SectionProps<VisionMis
       }
       window.removeEventListener("scroll", visionHandle);
     };
-  }, [sectionRef, paddingRef, imageRef, contentRef, footerRef, isActiveSection]);
+  }, [
+    sectionRef,
+    paddingRef,
+    imageRef,
+    contentRef,
+    footerRef,
+    isActiveSection,
+  ]);
 
   return (
-    <section ref={sectionRef} className="bg-[#E6EDFF] h-[200svh]" {...props}>
+    <section
+      ref={sectionRef}
+      id="section-vision-mission"
+      className="bg-[#E6EDFF] h-[200svh]"
+      {...props}
+    >
       <div
         ref={paddingRef}
         className="transition-all h-[100svh] sticky top-0 max-w-[1440px] mx-auto p-[max(44px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden bg-[url('/image/vision-background.png')] bg-contain bg-no-repeat bg-right-top"
@@ -129,36 +154,40 @@ export const VisionMission = ({ data, custom, ...props }: SectionProps<VisionMis
             ref={imageRef}
             className="max-lg:hidden overflow-hidden rounded-[12px]"
           >
-            <Image
+            <img
               src={vision?.image_url}
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
               alt={vision?.title}
               className="h-full w-full object-cover"
-              width={620}
-              height={710}
-              priority
             />
-            <Image
+            <img
               src={mission?.image_url}
-              placeholder="blur"
-              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkqAcAAIUAgUW0RjgAAAAASUVORK5CYII="
               alt={mission?.title}
               className="h-full w-full object-cover"
-              width={620}
-              height={710}
-              priority
             />
           </div>
           <div className="flex flex-col justify-between h-full">
             <div ref={contentRef} className="relative">
               <div className="transition-all duration-700 absolute top-0 opacity-0">
-                <TextSmall label="Vision" cls="text-[#19191B80] uppercase font-medium !tracking-[.96px]" />
-                <TitleMedium el="h2" label={vision?.title} cls="text-[#19191B] mt-[10px]" />
+                <TextSmall
+                  label="Vision"
+                  cls="text-[#19191B80] uppercase font-medium !tracking-[.96px]"
+                />
+                <TitleMedium
+                  el="h2"
+                  label={vision?.title}
+                  cls="text-[#19191B] mt-[10px]"
+                />
               </div>
               <div className="transition-all duration-700 absolute top-0 opacity-0">
-                <TextSmall label="Mission" cls="text-[#19191B80] uppercase font-medium !tracking-[.96px]" />
-                <TitleMedium el="h2" label={mission?.title} cls="text-[#19191B] mt-[10px]" />
+                <TextSmall
+                  label="Mission"
+                  cls="text-[#19191B80] uppercase font-medium !tracking-[.96px]"
+                />
+                <TitleMedium
+                  el="h2"
+                  label={mission?.title}
+                  cls="text-[#19191B] mt-[10px]"
+                />
               </div>
             </div>
 

@@ -3,19 +3,24 @@ import React, { useEffect, useRef, useState } from "react";
 import { GAClick, GATimeSpent } from "lib/ga";
 import { SECTION_HERO } from "lib/constants";
 import { ButtonReadMore } from "@/ui/component/button/ButtonReadMore";
+import { Container } from "@/ui/base/container/Container";
+import { LabelLarge } from "@/ui/component/label-large/LabelLarge";
+import { TitleHuge } from "@/ui/title/title-huge/TitleHuge";
+import { TextLarge } from "@/ui/text/text-large/TextLarge";
+import { TextMedium } from "@/ui/text/text-medium/TextMedium";
 
 type HeroData = {
   title: string;
-  // clients: {
-  //   alt: string;
-  //   logo_url: string;
-  // }[];
+  clients: {
+    alt: string;
+    logo_url: string;
+  }[];
   hero_url: string;
 };
 
-export const Hero = ({ data, custom, ...props }: SectionProps<HeroData>) => {
+export const Hero = ({ data, custom }: SectionProps<HeroData>) => {
   // Props
-  const { hero_url } = data;
+  const { hero_url, title, clients } = data;
   const { gtm_reference } = custom;
 
   // Reference
@@ -35,11 +40,10 @@ export const Hero = ({ data, custom, ...props }: SectionProps<HeroData>) => {
   }, [sectionRef]);
 
   return (
-    <section ref={sectionRef} className="nhero" {...props}>
-      <div className="nhero-wrapper">
-        <div className="nhero-container">
-          {/*
-          <div className="nhero-content bg-none invisible">
+    <section ref={sectionRef} id="section-hero" className="nhero">
+      <div>
+        <Container size="xlarge" cls="nhero-container">
+          {/* <div className="nhero-content">
             <div className="nhero-content--wrapper">
               <div className="nhero-title-wrapper">
                 <LabelLarge label="Fairness & Equality" />
@@ -65,9 +69,8 @@ export const Hero = ({ data, custom, ...props }: SectionProps<HeroData>) => {
                 </div>
               </div>
             </div>
-          </div> 
-          */}
-          {/* <div className="nhero-video-overlay"></div> */}
+          </div>
+          <div className="nhero-video-overlay"></div> */}
           <video
             className="nhero-video"
             src={hero_url}
@@ -80,7 +83,7 @@ export const Hero = ({ data, custom, ...props }: SectionProps<HeroData>) => {
             label="Read More"
             onClick={() => GAClick(gtm_reference, "hero", "read-more")}
           />
-        </div>
+        </Container>
       </div>
     </section>
   );

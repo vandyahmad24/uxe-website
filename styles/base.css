@@ -1,0 +1,9 @@
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: 'liga' off !important;
+}
+
+@import "./../stories/ui/base/container/container.css";
+@import "./../stories/ui/base/layout/layout.css";
+@import "./../stories/ui/base/menu-item/menu-item.css";
+@import "./../stories/ui/base/navigation/navigation.css";

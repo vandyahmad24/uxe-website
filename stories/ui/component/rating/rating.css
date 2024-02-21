@@ -1,0 +1,6 @@
+.nbutton {
+  @apply text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))]
+  font-medium leading-[132%] -tracking-[.16px]
+  p-[10px_16px] rounded-full backdrop-blur-[2px]
+  border border-[#F4F5F6] hover:opacity-70 cursor-pointer;
+}
