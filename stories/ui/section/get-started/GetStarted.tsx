@@ -1,25 +1,46 @@
-import React from "react";
-
-import { TitleHuge } from "../../title/title-huge/TitleHuge";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { GATimeSpent } from "lib/ga";
+import { SECTION_GET_STARTED } from "lib/constants";
+import { TitleHuge } from "../../title/title-huge/TitleHuge";
 import { TitleMedium } from "@/ui/title/title-medium/TitleMedium";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
-import Image from "next/image";
 
-type LogoData = {
-  url: string;
-  description: string;
-};
-
-interface GetStartedProps {
+type GetStartedData = {
   label: string;
-  data?: LogoData[];
-  template?: number;
-  isPadding?: boolean;
-  style?: any;
 }
 
-export const GetStarted = ({ label, template = 0, isPadding = false, ...props }: GetStartedProps) => {
+type GetStartedCustom = {
+  profile?: {
+    url: string;
+    description: string;
+  }[],
+  template?: number;
+  isPadding?: boolean;
+}
+
+export const GetStarted = ({ data, custom, ...props }: SectionProps<GetStartedData, GetStartedCustom>) => {
+  // Props
+  const { label } = data;
+  const { gtm_reference, template = 0, isPadding = false } = custom;
+
+  // Reference
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = GATimeSpent(gtm_reference, SECTION_GET_STARTED);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [sectionRef]);
+
   return (
     <section className="bg-white" {...props}>
       {template == 1 && (

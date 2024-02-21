@@ -32,7 +32,10 @@ export default function CareerSection({ options }) {
         description=""
         video_url={backgroundOptions?.hero_career?.url}
       />
-      <Feature data={featureOptions} />
+      <Feature
+        data={featureOptions}
+        custom={{ gtm_reference: "currentPage" }}
+      />
       {coreTeam.length > 0 && (
         <div className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden pb-0">
@@ -164,8 +167,14 @@ export default function CareerSection({ options }) {
           </div>
         </div>
       )}
-      <GetStarted label="Get started with UXE" template={1} isPadding={!(careerOptions.length > 0)} />
-      <Testimonial data={testimonialOptions} settings={{ show: 3 }} />
+      <GetStarted
+        data={{ label:"Get started with UXE" }}
+        custom={{ gtm_reference: "currentPage", template: 1, isPadding:!(careerOptions.length > 0) }}
+      />
+      <Testimonial
+        data={testimonialOptions}
+        custom={{ gtm_reference: "currentPage", show: 3 }}
+      />
     </Layout>
   );
 }

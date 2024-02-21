@@ -1,13 +1,17 @@
 import Slider from "react-slick";
-import { useEffect, useRef, useState } from "react";
-import { Rating } from "../../component/rating/Rating";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { SECTION_TESTIMONIAL } from "lib/constants";
+import { GATimeSpent } from "lib/ga";
+import { Rating } from "@/ui/component/rating/Rating";
+import { TextSmall } from "@/ui/text/text-small/TextSmall";
+import { TitleMedium } from "@/ui/title/title-medium/TitleMedium";
 
-type SchemaSetting = {
+type TestimonialCustom = {
   show: number;
 };
 
-type SchemaData = {
+type TestimonialData = {
   rating: number;
   review_text: string;
   reviewer_company_image: string;
@@ -16,58 +20,61 @@ type SchemaData = {
   reviewer_role: string;
 };
 
-interface TestimonialProps {
-  data: SchemaData[];
-  settings: SchemaSetting;
-  style?: any;
-}
+export const Testimonial = ({ data, custom, ...props }: SectionProps<TestimonialData[], TestimonialCustom>) => {
+  // Props
+  const { gtm_reference, show } = custom;
 
-export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
-  const { show } = settings;
-  const testimonialTextRef = useRef(null);
+  // Reference
+  const sectionRef = useRef(null);
+  const textRef = useRef(null);
+
+  // State
   const [slides, setSlides] = useState(data.slice(0, show));
 
   const handleShowMore = () => {
-    const isActive = testimonialTextRef.current.dataset.active === "1";
-    testimonialTextRef.current.dataset.active = isActive ? "0" : "1";
+    const isActive = textRef.current.dataset.active === "1";
+    textRef.current.dataset.active = isActive ? "0" : "1";
 
     if (isActive) {
       setSlides(data.slice(0, show));
-      testimonialTextRef.current.textContent = "See more testimonials";
+      textRef.current.textContent = "See more testimonials";
     } else {
       setSlides(data);
-      testimonialTextRef.current.textContent = "See less testimonials";
+      textRef.current.textContent = "See less testimonials";
     }
   };
 
   useEffect(() => {
-    const mediaQueryList = window.matchMedia("(min-width: 600px)");
+    const observer = GATimeSpent(gtm_reference, SECTION_TESTIMONIAL);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
+    const mediaQueryList = window.matchMedia("(min-width: 600px)");
     const handleMediaChange = (event) => {
-      if (testimonialTextRef.current) {
+      if (textRef.current) {
         if (event.matches) {
           setSlides(data);
-          testimonialTextRef.current.textContent = "See less testimonials";
+          textRef.current.textContent = "See less testimonials";
         } else {
           setSlides(data.slice(0, show));
-          testimonialTextRef.current.textContent = "See more testimonials";
+          textRef.current.textContent = "See more testimonials";
         }
       }
     };
 
-    // Set up initial state
     if (slides.length > 0) {
       handleMediaChange(mediaQueryList);
     }
-
-    // Add listener for changes
     mediaQueryList.addEventListener("change", handleMediaChange);
 
-    // Clean up listener on component unmount
     return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
       mediaQueryList.removeEventListener("change", handleMediaChange);
     };
-  }, [data, testimonialTextRef, show]);
+  }, [data, textRef, show, sectionRef]);
 
   const slide_setting = {
     slidesToShow: 3,
@@ -105,12 +112,8 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
           <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(64_/_1440)),_64px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
             <div className="flex flex-col gap-[48px]">
               <div className="flex flex-col items-start text-left">
-                <p className="text-[12px] text-[#19191B80] uppercase font-medium leading-[132%] tracking-[.96px]">
-                  TESTIMONIAL
-                </p>
-                <h2 className="text-[max(16px,_min(calc(100vw_*_(24_/_1440)),_24px))] text-[#19191B] font-medium leading-[112%] -tracking-[.24px] mt-[10px] max-w-xl">
-                  Partner Insights: What Others Have Shared About Us
-                </h2>
+                <TextSmall label="TESTIMONIAL" cls="text-[#19191B80] uppercase font-medium !tracking-[.96px]" />
+                <TitleMedium el="h2" label="Partner Insights: What Others Have Shared About Us" cls="text-[#19191B] font-medium mt-[10px] !max-w-xl" />
               </div>
               <Slider
                 {...slide_setting}
@@ -155,7 +158,7 @@ export const Testimonial = ({ data, settings, ...props }: TestimonialProps) => {
               <div className="flex justify-center md:hidden">
                 <button
                   data-active="0"
-                  ref={testimonialTextRef}
+                  ref={textRef}
                   onClick={handleShowMore}
                   className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B] backdrop-blur-[2px] border border-[#F4F5F6] hover:opacity-70"
                 >

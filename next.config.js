@@ -20,13 +20,19 @@ module.exports = {
         pathname: `${pathname}/**`,
       },
       {
+        protocol: 'https',
         hostname: `*.gravatar.com`,
+        port: '',
       },
       {
+        protocol: 'https',
         hostname: `*.azureedge.net`,
+        port: '',
       },
       {
+        protocol: 'https',
         hostname: `*.uxe.ai`,
+        port: '',
       },
       {
         hostname: 'uxe.ai'
