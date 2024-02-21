@@ -48,12 +48,11 @@ export const VisionMission = ({
 
     const visionHandle = () => {
       const section = sectionRef.current;
-      if (!section) {
-        return;
-      }
+      if (!section) { return; }
 
       const sectionRect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
+      const windowWidth = window.innerWidth;
       const sectionTop = sectionRect.top;
 
       const containerPaddingValue = parseInt(
@@ -64,6 +63,7 @@ export const VisionMission = ({
       const containerContent = contentRef.current.childNodes;
       const containerFooter = footerRef.current.childNodes[1].childNodes;
       const containerDescription = footerRef.current.childNodes[0];
+      const containerImageHeight = imageRef.current.getBoundingClientRect().height;
 
       if (sectionTop < 0) {
         const navigationElm = window.document.querySelector(
@@ -79,7 +79,9 @@ export const VisionMission = ({
             (windowHeight * i - containerPaddingValue * 2 * i) * -1 -
               navigationElm.clientHeight
           ) {
-            e.style.transform = `translateY(${sectionTop}px)`;
+            if (windowWidth > 1023) {
+              e.style.transform = `translateY(${sectionTop}px)`;
+            }
           }
 
           if (
@@ -87,11 +89,24 @@ export const VisionMission = ({
             (windowHeight * i - containerPaddingValue * 2 * i) * -1 -
               navigationElm.clientHeight
           ) {
-            e.style.transform = `translateY(${
-              (windowHeight * i - containerPaddingValue * 2 * i) * -1 -
-              navigationElm.clientHeight
-            }px)`;
+            if (windowWidth > 1023) {
+              e.style.transform = `translateY(${
+                (windowHeight * i - containerPaddingValue * 2 * i) * -1 -
+                navigationElm.clientHeight
+              }px)`;
+            }
             setIsActiveSection(i);
+          }
+
+          if (
+            sectionTop <
+            (containerImageHeight * i - containerPaddingValue * 2 * i) * -1 -
+              navigationElm.clientHeight && sectionTop > ((containerImageHeight * 1 - containerPaddingValue * 2 * 1) * -1 -
+              navigationElm.clientHeight) * 2 && windowWidth < 1023
+          ) {
+            const a = ((containerImageHeight * 1 - containerPaddingValue * 2 * 1) * -1 -
+            navigationElm.clientHeight) * 2;
+            container[1].style.transform = `translateY(-${(sectionTop/a)*100}%)`;
           }
         });
       } else {
@@ -105,6 +120,10 @@ export const VisionMission = ({
 
       containerContent.forEach((element, ei) => {
         if (ei == isActiveSection) {
+          if (windowWidth < 1023) {
+            containerContent[0].style.display = 'none'
+            containerContent[1].style.display = 'block'
+          }
           element.style.opacity = 1;
           // element.style.display = "block"
           containerDescription.innerText = mission?.description;
@@ -112,6 +131,10 @@ export const VisionMission = ({
           containerFooter[ei].style.width =
             "max(32px, min(calc(100vw * (64 / 1440)), 64px))";
         } else {
+          if (windowWidth < 1023) {
+            containerContent[0].style.display = 'block'
+            containerContent[1].style.display = 'none'
+          }
           element.style.opacity = 0;
           // element.style.display = "none"
           containerDescription.innerText = vision?.description;
@@ -152,7 +175,7 @@ export const VisionMission = ({
         <div className="h-full grid grid-cols-2 gap-[max(32px,_min(calc(100vw_*_(60_/_1440)),_60px))] max-lg:flex max-lg:flex-col">
           <div
             ref={imageRef}
-            className="max-lg:hidden overflow-hidden rounded-[12px]"
+            className="overflow-hidden rounded-[12px] relative"
           >
             <img
               src={vision?.image_url}
@@ -165,9 +188,9 @@ export const VisionMission = ({
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="flex flex-col justify-between h-full">
+          <div className="flex flex-col justify-between h-full max-lg:justify-end max-lg:gap-[32px] max-lg:h-auto">
             <div ref={contentRef} className="relative">
-              <div className="transition-all duration-700 absolute top-0 opacity-0">
+              <div className="transition-all duration-700 absolute top-0 opacity-0 max-lg:static max-lg:hidden">
                 <TextSmall
                   label="Vision"
                   cls="text-[#19191B80] uppercase font-medium !tracking-[.96px]"
@@ -178,7 +201,7 @@ export const VisionMission = ({
                   cls="text-[#19191B] mt-[10px]"
                 />
               </div>
-              <div className="transition-all duration-700 absolute top-0 opacity-0">
+              <div className="transition-all duration-700 absolute top-0 opacity-0 max-lg:static max-lg:hidden">
                 <TextSmall
                   label="Mission"
                   cls="text-[#19191B80] uppercase font-medium !tracking-[.96px]"
