@@ -16,9 +16,11 @@ type Story = StoryObj<typeof Hero2>;
 
 export const Default: Story = {
   args: {
-    title: "Discover Innovation in Smart Security Products",
-    subtitle: "OUR PRODUCT",
-    description: "",
-    video_url: "https://api.uxe.ai/wp-content/uploads/2024/01/career-background.png"
+    data : {
+      title: "Discover Innovation in Smart Security Products",
+      subtitle: "OUR PRODUCT",
+      description: "",
+      image_url: "https://api.uxe.ai/wp-content/uploads/2024/01/career-background.png"
+    }
   },
 };

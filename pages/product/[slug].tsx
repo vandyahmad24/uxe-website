@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { TextSmall } from "../../stories/ui/text/text-small/TextSmall";
 import { TitleMedium } from "../../stories/ui/title/title-medium/TitleMedium";
-import { CMS_NAME } from "../../lib/constants";
+import { SECTION_PRODUCT_DETAIL } from "../../lib/constants";
 import {
   getAllProductsWithSlug,
   getProductAndMoreProducts,
@@ -13,10 +13,21 @@ import { useEffect, useRef } from "react";
 import { Layout } from "@/ui/base/layout/Layout";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
 import { getSettings } from "lib/new-api";
+import { GATimeSpent } from "lib/ga";
 
 export default function Product({ product, options }) {
+  const currentPage = "product-detail";
+  // Reference
+  const sectionRef = useRef(null);
   const productContent = useRef(null);
+
   useEffect(() => {
+    const observer = GATimeSpent(currentPage, SECTION_PRODUCT_DETAIL);
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
     productContent.current.querySelectorAll("img").forEach((el) => {
       // Modify the src attribute
       const currentSrc = el.src;
@@ -64,9 +75,12 @@ export default function Product({ product, options }) {
     window.addEventListener("scroll", handleScrollNav);
 
     return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
       window.removeEventListener("scroll", handleScrollNav);
     };
-  });
+  }, [sectionRef]);
 
   const router = useRouter();
 
@@ -75,11 +89,11 @@ export default function Product({ product, options }) {
   }
 
   return (
-    <Layout data={{ footer: options?.footerOptions }}>
+    <Layout data={{ general: options?.generalSettings, footer: options?.footerOptions }}>
       <Head>
         <title>{`${options?.generalSettings?.title} | ${product?.title}`}</title>
       </Head>
-      <div className="bg-white">
+      <section className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(100_/_1440)),_100px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))_0_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
           <div className="flex flex-col gap-[40px] mt-[20px]">
             <div className="text-center flex flex-col items-center gap-[10px]">
@@ -102,10 +116,10 @@ export default function Product({ product, options }) {
             </div>
           </div>
         </div>
-      </div>
+      </section>
       <GetStarted
         data={{ label:"Get started with UXE" }}
-        custom={{ gtm_reference: "currentPage", template: 1, isPadding: true }}
+        custom={{ gtm_reference: currentPage, template: 1, isPadding: true }}
       />
     </Layout>
   );

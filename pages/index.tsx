@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
-import { CMS_NAME } from "../lib/constants";
 import { getSettings } from "../lib/new-api";
 
 /* Components */
@@ -39,7 +38,7 @@ export default function Index({ options }) {
   }
 
   return (
-    <Layout data={{ footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions }}>
       <Head>
         <title>{`${generalSettings?.title}`}</title>
       </Head>

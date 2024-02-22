@@ -1,4 +1,4 @@
-import { sendGTMEvent } from "@next/third-parties/google";
+import { sendGAEvent, sendGTMEvent } from "@next/third-parties/google";
 
 export const GATimeSpent = (currentPage: string, sectionName: string): IntersectionObserver => {
   let startTime = -1; // Initial start time
@@ -13,11 +13,11 @@ export const GATimeSpent = (currentPage: string, sectionName: string): Intersect
         if (!entry.isIntersecting && startTime > 0) {
           const endTime = performance.now();
           const timeSpent = Math.round((endTime - startTime) / 1000); // Convert milliseconds to seconds
-          sendGTMEvent({
+          sendGAEvent({
             event: "time_spent",
             current_page: currentPage,
             section_name: sectionName,
-            duration: `${timeSpent}s`
+            spent_duration: `${timeSpent}`
           });
           startTime = -1; // Reset the start time
         }
@@ -29,9 +29,9 @@ export const GATimeSpent = (currentPage: string, sectionName: string): Intersect
   return observer
 }
 
-export const GAClick = (currentPage: string, sectionName: string, componentName: string) => {
-  sendGTMEvent({
-    event: "clicked",
+export const GAClick = (eventName: string, currentPage: string, sectionName: string, componentName: string) => {
+  sendGAEvent({
+    event: eventName || "clicked",
     current_page: currentPage,
     section_name: sectionName,
     component_name: componentName

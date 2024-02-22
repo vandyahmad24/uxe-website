@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import { TitleMedium } from "@/ui/title/title-medium/TitleMedium";
 
 export default function BlogSection({ posts, options }) {
+  const currentPage = "blog";
   const { testimonialOptions, backgroundOptions, footerOptions, generalSettings } = options;
   const [postData, setPosts] = useState([...posts.edges]);
   const [endCursor, setEndCursor] = useState(posts?.pageInfo?.endCursor || null);
@@ -38,15 +39,18 @@ export default function BlogSection({ posts, options }) {
   };
 
   return (
-    <Layout data={{ footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions }}>
       <Head>
         <title>{`${generalSettings?.title} | Media Center`}</title>
       </Head>
       <Hero2
-        title="Your Daily Dose of Tech News"
-        subtitle="Media Center"
-        description=""
-        video_url={backgroundOptions?.hero_blog?.url}
+        data={{
+          title:"Your Daily Dose of Tech News",
+          subtitle:"Media Center",
+          description:"",
+          image_url: backgroundOptions?.hero_blog?.url,
+        }}
+        custom={{ gtm_reference: currentPage }}
       />
       <section className="bg-white">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))_48px_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
@@ -207,11 +211,11 @@ export default function BlogSection({ posts, options }) {
       </section>
       <GetStarted
         data={{ label:"Get started with UXE" }}
-        custom={{ gtm_reference: "currentPage", template: 1 }}
+        custom={{ gtm_reference: currentPage, template: 1 }}
       />
       <Testimonial
         data={testimonialOptions}
-        custom={{ gtm_reference: "currentPage", show: 3 }}
+        custom={{ gtm_reference: currentPage, show: 3 }}
       />
     </Layout>
   );

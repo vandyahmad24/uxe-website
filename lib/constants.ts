@@ -6,14 +6,19 @@ export const HOME_OG_IMAGE_URL =
 
 // SECTION
 export const SECTION_HERO = "hero"
+export const SECTION_HERO2 = "hero2"
 export const SECTION_ABOUT_US = "about_us"
 export const SECTION_VISION_MISSION = "vision_mission"
+export const SECTION_VISION_MISSION2 = "vision_mission_2"
 export const SECTION_OUR_VALUE = "our_value"
 export const SECTION_SOLUTION = "solution"
 export const SECTION_PRODUCT = "product"
 export const SECTION_PRODUCT_PAGE = "product_page"
 export const SECTION_TESTIMONIAL = "testimonial"
 export const SECTION_GET_STARTED = "get_started"
+export const SECTION_LEADERSHIP = "leadership"
+export const SECTION_FOOTER = "footer"
+export const SECTION_PRODUCT_DETAIL = "product_detail"
 
 // COMPONENT
 export const COMPONENT_CIRCLE_READ_MORE = "circle_read_more"

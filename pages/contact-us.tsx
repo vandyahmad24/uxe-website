@@ -63,7 +63,7 @@ export default function ContactUsSection({ options }) {
 
   return (
     <>
-      <Meta />
+      <Meta seo={generalSettings} />
       <Head>
         <title>{`${generalSettings?.title} | Contact Us`}</title>
       </Head>
