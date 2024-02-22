@@ -51,7 +51,7 @@ export const AboutUs = ({ data, custom }: SectionProps<AboutUsData>) => {
   }, [sectionRef]);
 
   const handleReadMore = () => {
-    GAClick(gtm_reference, SECTION_ABOUT_US, COMPONENT_CIRCLE_READ_MORE);
+    GAClick("other_clicked", gtm_reference, SECTION_ABOUT_US, "button-read-more");
     setReadMore(!isReadMore);
   };
 

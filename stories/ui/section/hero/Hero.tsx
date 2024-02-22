@@ -81,7 +81,7 @@ export const Hero = ({ data, custom }: SectionProps<HeroData>) => {
           ></video>
           <ButtonReadMore
             label="Read More"
-            onClick={() => GAClick(gtm_reference, "hero", "read-more")}
+            onClick={() => GAClick("other_clicked", gtm_reference, "hero", "read-more")}
           />
         </Container>
       </div>

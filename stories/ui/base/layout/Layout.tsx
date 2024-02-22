@@ -25,7 +25,10 @@ export const Layout = ({ data, children }: LayoutProps) => {
       <div className="min-h-screen">
         <Navigation menu={menu} />
         {children}
-        <Footer data={footer} />
+        <Footer
+          data={footer}
+          custom={{ gtm_reference: "footer" }}
+        />
       </div>
     </>
   );

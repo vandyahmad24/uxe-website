@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
-import { CMS_NAME } from "../lib/constants";
 import { getSettings } from "../lib/new-api";
 
 /* Components */
@@ -16,7 +15,7 @@ import { Layout } from "@/ui/base/layout/Layout";
 import { AboutUs } from "@/ui/section/about-us/AboutUs";
 
 export default function Index({ options }) {
-  const currentPage = "HOMEPAGE";
+  const currentPage = "homepage";
   const {
     visionAndMissionOptions,
     featureOptions,

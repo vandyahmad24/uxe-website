@@ -1,0 +1,47 @@
+[
+  {
+    "name": "ANAS ALZGHOUL",
+    "photo_url": "https://uxewpconte-93dcf4a41e0e3f83-endpoint.azureedge.net/blobuxewpcontefe8b049772/wp-content/uploads/2024/02/04a-scaled-e1707926067900.jpg",
+    "role": "Principal Software Architect",
+    "social_media": {
+      "linkedin": "https://linkedin.com",
+      "twitter": ""
+    }
+  },
+  {
+    "name": "RAMY ABDELMOHSSEN",
+    "photo_url": "https://uxewpconte-93dcf4a41e0e3f83-endpoint.azureedge.net/blobuxewpcontefe8b049772/wp-content/uploads/2024/02/05-scaled-e1707927112332.jpg",
+    "role": "Business Analyst",
+    "social_media": {
+      "linkedin": "https://linkedin.com",
+      "twitter": ""
+    }
+  },
+  {
+    "name": "HARISH KUMAR",
+    "photo_url": "https://uxewpconte-93dcf4a41e0e3f83-endpoint.azureedge.net/blobuxewpcontefe8b049772/wp-content/uploads/2024/02/harish-final-scaled-e1707970639554.jpg",
+    "role": "Senior Software Architect",
+    "social_media": {
+      "linkedin": "https://linkedin.com",
+      "twitter": ""
+    }
+  },
+  {
+    "name": "SHARAD SHANKAR",
+    "photo_url": "https://uxewpconte-93dcf4a41e0e3f83-endpoint.azureedge.net/blobuxewpcontefe8b049772/wp-content/uploads/2024/02/sharad-final-scaled-e1707970608975.jpg",
+    "role": "Product Development Manager",
+    "social_media": {
+      "linkedin": "https://linkedin.com",
+      "twitter": ""
+    }
+  },
+  {
+    "name": "RAMESH JEYARAMAN",
+    "photo_url": "https://uxewpconte-93dcf4a41e0e3f83-endpoint.azureedge.net/blobuxewpcontefe8b049772/wp-content/uploads/2024/02/ramees-2-scaled-e1707971517586.jpg",
+    "role": "Senior Software Architect",
+    "social_media": {
+      "linkedin": "https://linkedin.com",
+      "twitter": ""
+    }
+  }
+]

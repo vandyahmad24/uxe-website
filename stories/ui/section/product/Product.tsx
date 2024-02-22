@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { GATimeSpent } from "lib/ga";
+import { GAClick, GATimeSpent } from "lib/ga";
 import { getAllProduct } from "lib/new-api";
 import { SECTION_PRODUCT } from "lib/constants";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
@@ -88,6 +88,7 @@ export const Product = ({
     event.preventDefault();
     setLoading(true);
     fetchProducts(endCursor);
+    GAClick("other_clicked", gtm_reference, SECTION_PRODUCT, "button-load-product")
   };
 
   return (
@@ -117,6 +118,14 @@ export const Product = ({
               <div key={index} className="flex flex-col gap-[20px]">
                 <div className="relative w-full pt-[112%] rounded-[12px] bg-[#F2F2F2]">
                   <a
+                    onClick={() =>
+                      GAClick(
+                        "product_clicked",
+                        gtm_reference,
+                        SECTION_PRODUCT,
+                        "product-image"
+                      )
+                    }
                     href={"/product/" + node?.slug}
                     className="absolute inset-0 w-full h-full overflow-hidden rounded-[12px]"
                   >
@@ -129,6 +138,14 @@ export const Product = ({
                 </div>
                 <div className="flex flex-col gap-[8px]">
                   <Link
+                    onClick={() =>
+                      GAClick(
+                        "product_clicked",
+                        gtm_reference,
+                        SECTION_PRODUCT,
+                        "product-title"
+                      )
+                    }
                     href={"/product/" + node?.slug}
                     className="text-[max(16px,_min(calc(100vw_*_(20_/_1440)),_20px))] text-[#19191B] font-medium leading-[132%] -tracking-[.2px] hover:opacity-70"
                   >
@@ -147,6 +164,7 @@ export const Product = ({
               <Link
                 href={"/products"}
                 className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B] backdrop-blur-[2px] border border-[#F4F5F6] hover:opacity-70"
+                onClick={() => GAClick("other_clicked", gtm_reference, SECTION_PRODUCT, "button-see-all-product")}
               >
                 See All Product
               </Link>

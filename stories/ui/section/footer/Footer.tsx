@@ -1,29 +1,45 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useRef } from "react";
 
 import { Container } from "../../base/container/Container";
 import { TextXSmall } from "../../text/text-xsmall/TextXSmall";
 import { TextHuge } from "../../text/text-huge/TextHuge";
 import { TextMedium } from "../../text/text-medium/TextMedium";
 import { TextSmall } from "../../text/text-small/TextSmall";
+import { GAClick, GATimeSpent } from "lib/ga";
+import { SECTION_FOOTER } from "lib/constants";
 
 type MenuData = {
   url: string;
   name: string;
 };
 
-type SchemaData = {
+type FooterData = {
   address: string,
   explore_menu: MenuData[];
   contact_menu: MenuData[];
   follow_us_menu: MenuData[];
 }
 
-interface FooterProps {
-  data: SchemaData;
-  style?: any;
-}
+export const Footer = ({ data, custom }: SectionProps<FooterData>) => {
+  // Props
+  const { gtm_reference } = custom;
 
-export const Footer = ({ data, ...props }: FooterProps) => {
+  // Reference
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = GATimeSpent(gtm_reference, SECTION_FOOTER);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [sectionRef]);
+
   const SCROLL_TO_TOP = () => {
     window.scrollTo({
       top: 0,
@@ -32,7 +48,7 @@ export const Footer = ({ data, ...props }: FooterProps) => {
   };
 
   return (
-    <section className="nfooter" {...props}>
+    <section ref={sectionRef} className="nfooter">
       <div className="nfooter-padding">
         <Container>
           <div className="nfooter-wrapper">
@@ -47,6 +63,7 @@ export const Footer = ({ data, ...props }: FooterProps) => {
                         href={url}
                         label={name}
                         hover
+                        onClick={() => GAClick("link_clicked", gtm_reference, SECTION_FOOTER, "menu-explore")}
                       />
                       {(index < data.explore_menu.length - 1) && (
                         <TextHuge
@@ -68,6 +85,7 @@ export const Footer = ({ data, ...props }: FooterProps) => {
                       key={index}
                       label={name}
                       hover
+                      onClick={() => GAClick("link_clicked", gtm_reference, SECTION_FOOTER, "menu-contact-us")}
                     />
                   ))}
                 </div>
@@ -82,6 +100,7 @@ export const Footer = ({ data, ...props }: FooterProps) => {
                       key={index}
                       label={name}
                       hover
+                      onClick={() => GAClick("link_clicked", gtm_reference, SECTION_FOOTER, "menu-follow-us")}
                     />
                   ))}
                 </div>

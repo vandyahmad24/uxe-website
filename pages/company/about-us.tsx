@@ -9,13 +9,15 @@ import { Testimonial } from "@/ui/section/testimonial/Testimonial";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
 import { useRef, useState } from "react";
 import { AboutUs } from "@/ui/section/about-us/AboutUs";
+import { VisionMission2 } from "@/ui/section/vision-mission-2/VisionMission2";
 
 export default function ProductSection({ options }) {
+  const currentPage = "about-us";
   const {
     featureOptions,
     testimonialOptions,
     backgroundOptions,
-    visionAndMissionOptions: { mission, vision },
+    visionAndMissionOptions,
     footerOptions,
     generalSettings
   } = options;
@@ -26,10 +28,13 @@ export default function ProductSection({ options }) {
         <title>{`${generalSettings?.title} | About Us`}</title>
       </Head>
       <Hero2
-        title="Smart Solutions for Smart Cities"
-        subtitle="COMPANY"
-        description=""
-        video_url={backgroundOptions?.hero_about_us?.url}
+        data={{
+          title:"Smart Solutions for Smart Cities",
+          subtitle:"COMPANY",
+          description:"",
+          image_url: backgroundOptions?.hero_about_us?.url,
+        }}
+        custom={{ gtm_reference: currentPage }}
       />
       <AboutUs
         data={{
@@ -84,51 +89,23 @@ export default function ProductSection({ options }) {
             distinct security demands across various industries.
           `,
         }}
-        custom={{ gtm_reference: "currentPage" }}
+        custom={{ gtm_reference: currentPage }}
       />
-      <section className="bg-white">
-        <div className="max-w-[1440px] mx-auto p-[0_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
-          <div className="grid grid-cols-2 gap-[20px] max-lg:grid-cols-1">
-            <div className="bg-[#000000] p-[max(18px,_min(calc(100vw_*_(20_/_1440)),_20px))] rounded-[12px] text-white min-h-[max(446px,_min(calc(100vw_*_(475_/_1440)),_475px))] flex flex-col justify-between">
-              <div className="flex flex-col gap-[max(28px,_min(calc(100vw_*_(32_/_1440)),_32px))]">
-                <span className="text-[max(20px,_min(calc(100vw_*_(24_/_1440)),_24px))] font-medium leading-[112%] -tracking-[.24px]">
-                  Vision
-                </span>
-                <p className="text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] font-medium leading-[112%] -tracking-[.64px]">
-                  {vision?.title}
-                </p>
-              </div>
-              <p className="text-[max(12px,_min(calc(100vw_*_(16_/_1440)),_16px))] leading-[132%] -tracking-[.16px]">
-                {vision?.description}
-              </p>
-            </div>
-            <div className="bg-[#365EFF] p-[max(18px,_min(calc(100vw_*_(20_/_1440)),_20px))] rounded-[12px] text-white min-h-[max(446px,_min(calc(100vw_*_(475_/_1440)),_475px))] flex flex-col justify-between">
-              <div className="flex flex-col gap-[max(28px,_min(calc(100vw_*_(32_/_1440)),_32px))]">
-                <span className="text-[max(20px,_min(calc(100vw_*_(24_/_1440)),_24px))] font-medium leading-[112%] -tracking-[.24px]">
-                  Mission
-                </span>
-                <p className="text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] font-medium leading-[112%] -tracking-[.64px]">
-                  {mission?.title}
-                </p>
-              </div>
-              <p className="text-[max(12px,_min(calc(100vw_*_(16_/_1440)),_16px))] leading-[132%] -tracking-[.16px]">
-                {mission?.description}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <VisionMission2
+        data={visionAndMissionOptions}
+        custom={{ gtm_reference: currentPage }}
+      />
       <Feature
         data={featureOptions}
-        custom={{ gtm_reference: "currentPage" }}
+        custom={{ gtm_reference: currentPage }}
       />
       <GetStarted
         data={{ label:"Get started with UXE" }}
-        custom={{ gtm_reference: "currentPage", template: 1 }}
+        custom={{ gtm_reference: currentPage, template: 1 }}
       />
       <Testimonial
         data={testimonialOptions}
-        custom={{ gtm_reference: "currentPage", show: 3 }}
+        custom={{ gtm_reference: currentPage, show: 3 }}
       />
     </Layout>
   );

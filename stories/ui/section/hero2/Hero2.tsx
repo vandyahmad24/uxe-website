@@ -1,22 +1,37 @@
-import React from "react";
+import { SECTION_HERO2 } from "lib/constants";
+import { GATimeSpent } from "lib/ga";
+import React, { useEffect, useRef } from "react";
 
-interface Hero2Props {
+type Hero2Data = {
   title: string;
   subtitle: string;
   description: string;
-  video_url: any;
-  style?: any;
+  image_url: any;
 }
 
-export const Hero2 = ({
-  title,
-  subtitle,
-  description,
-  video_url,
-  ...props
-}: Hero2Props) => {
+export const Hero2 = ({ data, custom }: SectionProps<Hero2Data>) => {
+  // Props
+  const { title, subtitle, description, image_url } = data;
+  const { gtm_reference } = custom;
+
+  // Reference
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = GATimeSpent(gtm_reference, SECTION_HERO2);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [sectionRef]);
+
   return (
-    <div className="bg-black" {...props}>
+    <section ref={sectionRef} className="bg-black">
       <div className="max-w-[1440px] mx-auto overflow-hidden">
         <div className="relative flex flex-col justify-end min-h-[400px]">
           <div className="relative z-10 flex flex-col gap-[max(75px,_min(calc(100vw_*_(100_/_1440)),_100px))] p-[max(32px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))]">
@@ -37,12 +52,12 @@ export const Hero2 = ({
           <div
             className="absolute top-0 w-full min-h-[400px] bg-cover bg-no-repeat"
             style={{
-              backgroundImage: `url(${video_url})`,
+              backgroundImage: `url(${image_url})`,
             }}
           ></div>
           <div className="absolute top-0 w-full min-h-[400px] bg-linear-7"></div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
