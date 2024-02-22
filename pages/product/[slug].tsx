@@ -89,7 +89,7 @@ export default function Product({ product, options }) {
   }
 
   return (
-    <Layout data={{ footer: options?.footerOptions }}>
+    <Layout data={{ general: options?.generalSettings, footer: options?.footerOptions }}>
       <Head>
         <title>{`${options?.generalSettings?.title} | ${product?.title}`}</title>
       </Head>

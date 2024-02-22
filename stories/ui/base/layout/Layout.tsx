@@ -8,6 +8,7 @@ import { Meta } from "../Meta";
 type SchemaData = {
   menu?: any;
   footer?: any;
+  general?: any;
 }
 
 interface LayoutProps {
@@ -21,7 +22,7 @@ export const Layout = ({ data, children }: LayoutProps) => {
   
   return (
     <>
-      <Meta />
+      <Meta seo={data?.general} />
       <div className="min-h-screen">
         <Navigation menu={menu} />
         {children}

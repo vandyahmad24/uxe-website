@@ -29,7 +29,7 @@ export default function Index({ options }) {
   } = options;
 
   return (
-    <Layout data={{ footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions }}>
       <Head>
         <title>{`${generalSettings?.title}`}</title>
       </Head>

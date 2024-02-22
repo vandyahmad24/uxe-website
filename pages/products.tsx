@@ -12,7 +12,7 @@ export default function ProductSection({ products, options }) {
   const { testimonialOptions, backgroundOptions, footerOptions, generalSettings } = options;
 
   return (
-    <Layout data={{ footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions }}>
       <Head>
         <title>{`${generalSettings?.title} | Products`}</title>
       </Head>

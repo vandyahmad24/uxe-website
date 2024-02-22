@@ -25,7 +25,7 @@ export default function CareerSection({ options }) {
 
   let coreTeam = teamOptions.slice(0, 5) || [];
   return (
-    <Layout data={{ footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions }}>
       <Head>
         <title>{`${generalSettings?.title} | Career`}</title>
       </Head>

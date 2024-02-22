@@ -23,7 +23,7 @@ export default function ProductSection({ options }) {
   } = options;
 
   return (
-    <Layout data={{ footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions }}>
       <Head>
         <title>{`${generalSettings?.title} | About Us`}</title>
       </Head>

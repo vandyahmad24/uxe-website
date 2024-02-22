@@ -39,7 +39,7 @@ export default function BlogSection({ posts, options }) {
   };
 
   return (
-    <Layout data={{ footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions }}>
       <Head>
         <title>{`${generalSettings?.title} | Media Center`}</title>
       </Head>

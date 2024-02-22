@@ -16,7 +16,7 @@ export default function TeamSection({ options }) {
   let coreTeam = teamOptions.slice(0, 5) || [];
   let memberTeam = teamOptions.slice(5) || [];
   return (
-    <Layout data={{ footer: footerOptions }}>
+    <Layout data={{ general: generalSettings, footer: footerOptions }}>
       <Head>
         <title>{`${generalSettings?.title} | Teams`}</title>
       </Head>
