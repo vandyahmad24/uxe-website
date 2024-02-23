@@ -49,18 +49,18 @@ export const Leadership = ({
             {data.map(({ name, photo_url, role }, index) => (
               <div
                 key={index}
-                className="relative rounded-[12px] overflow-hidden pt-[100%] h-0 w-full text-white"
+                className="relative rounded-[12px] overflow-hidden pt-[120%] h-0 w-full text-white"
               >
                 <img
                   className="absolute top-0 w-full"
                   src={photo_url}
                   alt={name}
                 />
-                <div className="absolute bottom-0 left-0 right-0 m-[16px] p-[16px] bg-[#0D0D0D66] rounded-[8px]">
-                  <p className="text-[16px] font-bold leading-[132%] -tracking-[.16px]">
+                <div className="member-name absolute bottom-0 left-0 right-0  p-[16px] bg-[#0D0D0D66] rounded-[8px]">
+                  <p className="person-name text-[16px] font-bold leading-[132%] -tracking-[.16px]">
                     {name}
                   </p>
-                  <p className="text-[14px] leading-[132%] -tracking-[.14px]">
+                  <p className="person-position text-[14px] leading-[132%] -tracking-[.14px]">
                     {role}
                   </p>
                 </div>
