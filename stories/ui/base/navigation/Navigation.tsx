@@ -20,47 +20,52 @@ export const Navigation = ({ menu }: NavigationProps) => {
       setIsFixed(scrolled || isMobile);
     }
 
-    const dropdownContent = document.querySelector("#navigation-container");
-    const buttonMobile = document.querySelector('button[title="Mobile Menu"]')
+    // const dropdownContent = document.querySelector("#navigation-container");
+    // const buttonMobile = document.querySelector('button[title="Mobile Menu"]')
 
-    const handleMenuMouseEnter = () => {
-      setIsFixed(true)
-    }
+    // const handleMenuMouseEnter = () => {
+    //   setIsFixed(true)
+    // }
 
-    const handleMenuMouseLeave = () => {
-      setIsFixed(false || isMobile || isScrolled)
-    }
+    // const handleMenuMouseLeave = () => {
+    //   setIsFixed(false || isMobile || isScrolled)
+    // }
 
-    const handleMobileMenu = () => {
-      setIsMobile(!isMobile)
-    }
+    // const handleMobileMenu = () => {
+    //   setIsMobile(!isMobile)
+    // }
 
-    buttonMobile.addEventListener('click', handleMobileMenu)
+    // buttonMobile.addEventListener('click', handleMobileMenu)
 
-    dropdownContent.addEventListener('mouseenter', handleMenuMouseEnter)
-    dropdownContent.addEventListener('mouseleave', handleMenuMouseLeave)
+    // // dropdownContent.addEventListener('mouseenter', handleMenuMouseEnter)
+    // // dropdownContent.addEventListener('mouseleave', handleMenuMouseLeave)
 
     window.addEventListener('scroll', handleNavigationScroll);
 
     return () => {
       window.removeEventListener('scroll', handleNavigationScroll);
-      dropdownContent.removeEventListener('mouseenter', handleMenuMouseEnter)
-      dropdownContent.removeEventListener('mouseleave', handleMenuMouseLeave)
+      // dropdownContent.removeEventListener('mouseenter', handleMenuMouseEnter)
+      // dropdownContent.removeEventListener('mouseleave', handleMenuMouseLeave)
     }
   })
 
   const containerClass = cn("relative", {
     "bg-transparent text-white": !isFixed,
-    "bg-white": isFixed,
+    // "bg-[#01010173] backdrop-blur-[12px]": isFixed,
+  })
+
+  const wrapperClass = cn("fixed top-0 z-50 w-full", {
+    "bg-transparent text-white": !isFixed,
+    "bg-[#ffffff73] backdrop-blur-[100px]": isFixed,
   })
 
   return (
-    <div className="fixed top-0 z-50 w-full">
+    <div className={wrapperClass}>
       <div className="max-w-[1440px] mx-auto">
-        <div className="p-[20px_38px_0_38px] max-xl:p-0">
+        <div className="">
           <div id='navigation-container' className={containerClass}>
             <div className={cn(
-              "px-[max(20px,_min(calc(100vw_*_(32_/_1440)),_32px))] max-md:py-[max(12px,_min(calc(100vw_*_(18_/_1440)),_18px))] max-md:flex-col flex items-center justify-between max-md:justify-start",
+              "px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] max-md:py-[max(12px,_min(calc(100vw_*_(18_/_1440)),_18px))] max-md:flex-col flex items-center justify-between max-md:justify-start",
               { "max-md:h-screen": isMobile }
               )}>
               <div className='max-md:w-full flex items-center justify-between'>
@@ -97,9 +102,9 @@ export const Navigation = ({ menu }: NavigationProps) => {
               </div>
 
               <div className={cn("items-center max-md:items-start max-md:w-full max-md:mt-[20px] flex", { "max-md:hidden": !isMobile })}>
-                <ul className="flex gap-[8px] max-md:*:p-[14px_8px] max-md:flex-col max-md:w-full *:p-[28px_8px] *:flex *:items-center">
+                <ul className="flex gap-[8px] max-md:*:p-[14px_8px] max-md:flex-col max-md:w-full *:p-[20px_8px] *:flex *:items-center">
                   {menu.length > 0 ? (
-                    <MenuItem menu={menu} />
+                    <MenuItem menu={menu} isFixed={isFixed} />
                   ) : (<></>)}
                 </ul>
               </div>

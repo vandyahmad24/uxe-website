@@ -1,15 +1,28 @@
+import cn from 'classnames'
 import { TextSmall } from "@/ui/text/text-small/TextSmall"
 
 interface MenuItemProps {
-  menu?: any
+  menu?: any;
+  isFixed: boolean;
 }
 
-export const MenuItem = ({ menu }: MenuItemProps) => {
+export const MenuItem = ({ menu, isFixed}: MenuItemProps) => {
+
+  const containerClass = cn("w-full text-[14px] font-medium leading-[132%] -tracking-[.14px] p-[6px_16px] rounded-[100px]", {
+    "hover:text-[#FFFFFF] hover:bg-[#BEBEBE1F]": !isFixed,
+    "hover:text-[#19191B] hover:bg-[#BEBEBE1F]": isFixed,
+  })
+
+  const containerClass2 = cn("text-[14px] font-medium leading-[132%] -tracking-[.14px] p-[6px_16px] rounded-[100px]", {
+    "hover:text-[#FFFFFF] hover:bg-[#BEBEBE1F]": !isFixed,
+    "hover:text-[#19191B] hover:bg-[#BEBEBE1F]": isFixed,
+  })
+
   return (
     menu.map(({name, url, submenu}, index) => (
-      <li key={index} className='group cursor-pointer hover:text-[#19191B80] max-md:border-b-[.5px] max-md:border-b-[#19191b1a]' id={`menu-item-${index}`}>
+      <li key={index} className='group cursor-pointer max-md:border-b-[.5px] max-md:border-b-[#19191b1a] relative' id={`menu-item-${index}`}>
         {submenu.length > 0 ? (
-          <div className="w-full text-[14px] font-medium leading-[132%] -tracking-[.14px]">
+          <div className={containerClass}>
             <div className="flex max-md:flex-col max-md:w-full">
               <div className="flex items-center gap-[6px]">
                 {name}
@@ -18,10 +31,25 @@ export const MenuItem = ({ menu }: MenuItemProps) => {
                 </svg>
               </div>
               <div className='max-md:mt-[14px]' id={`submenu-item-${index}`}>
-                <div className='hidden group-hover:block absolute max-md:static max-md:z-[100] max-md:flex top-full z-[100] w-full left-0 bg-white'>
+                {/* <div className='hidden group-hover:block absolute max-md:static max-md:z-[100] max-md:flex top-full z-[100] w-full left-0 bg-white'>
                   <div className="w-auto mx-[32px] h-[.5px] bg-linear-6"></div>
+                </div> */}
+                <div className='hidden absolute overflow-hidden left-[50%] translate-x-[-50%] top-[105%] bg-white text-black z-50 rounded-[16px] flex flex-col gap-[8px] w-[200px] group-hover:p-[8px] group-hover:h-auto group-hover:flex'>
+                  {submenu.map(({ name, description, url }, ind) => (
+                  <a key={ind} href={url} className='flex gap-[4px] items-center justify-between hover:bg-[#BEBEBE1F] p-[12px] rounded-[8px] max-w-[200px]'>
+                    <div className='flex flex-col gap-[6px]'>
+                      <h3 className='text-[#19191B] text-[16px] font-[700] leading-[132%] -tracking-[.16px]'>{name}</h3>
+                      <p className='text-[#19191B80] text-[12px] font-[400] leading-[132%] -tracking-[.12px]'>{description}</p>
+                    </div>
+                    <div className='h-[16px] w-[16px]'>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+                        <path d="M5.75 4L10.25 8.5L5.75 13" stroke="#19191B" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="square"/>
+                      </svg>
+                    </div>
+                  </a>
+                  ))}
                 </div>
-                <div className="max-md:!p-0 max-md:static max-md:z-[100] max-md:flex h-0 p-0 hidden group-hover:h-auto group-hover:p-[24px_32px] group-hover:flex overflow-hidden absolute w-full left-0 top-full bg-white text-black z-50 justify-between gap-[40px] max-lg:flex-col rounded-b-[20px]">
+                {/* <div className="max-md:!p-0 max-md:static max-md:z-[100] max-md:flex h-0 p-0 hidden group-hover:h-auto group-hover:p-[24px_32px] group-hover:flex overflow-hidden absolute w-full left-0 top-full bg-white text-black z-50 justify-between gap-[40px] max-lg:flex-col rounded-b-[20px]">
                   <p className="max-md:hidden text-[20px] font-medium leading-[100%] -tracking-[.8px]">/ {name}</p>
                   <div className="flex gap-[32px] max-md:gap-0 max-md:flex-col">
                     {submenu.map(({ name, description, url }, ind) => (
@@ -42,12 +70,12 @@ export const MenuItem = ({ menu }: MenuItemProps) => {
                       </a>
                     ))}
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
         ) : (
-          <a key={index} href={url} className="text-[14px] font-medium leading-[132%] -tracking-[.14px]">
+          <a key={index} href={url} className={containerClass2}>
             {name}
           </a>
         )}

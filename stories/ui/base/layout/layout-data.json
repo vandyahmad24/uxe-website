@@ -6,8 +6,8 @@
       "submenu": []
     },
     {
-      "name": "Product",
-      "url": "/products",
+      "name": "About UXE",
+      "url": "/",
       "submenu": []
     },
     {
@@ -27,7 +27,12 @@
       ]
     },
     {
-      "name": "Company",
+      "name": "CSR",
+      "url": "/csr",
+      "submenu": []
+    },
+    {
+      "name": "Media Center",
       "url": "/company",
       "submenu": [
         {
@@ -46,6 +51,11 @@
           "url": "/company/team"
         }
       ]
+    },
+    {
+      "name": "Careers",
+      "url": "/contact-us",
+      "submenu": []
     },
     {
       "name": "Contact Us",
