@@ -408,7 +408,7 @@ export default function Index({ options }) {
           </div>
         </div>
       </section>
-      <section className="bg-[#F4F5F6]">
+      <section className="bg-[#F4F5F6] hidden">
         <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(190_/_1440)),_190px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
           <div className="flex flex-col gap-[48px]">
             <div className="flex flex-col gap-[10px]">
