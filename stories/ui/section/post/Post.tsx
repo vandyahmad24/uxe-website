@@ -1,5 +1,8 @@
 import Link from "next/link";
 import { TextLarge } from "@/ui/text/text-large/TextLarge";
+import { GAClick, GATimeSpent } from "lib/ga";
+import { useEffect, useRef } from "react";
+import { SECTION_POST } from "lib/constants";
 
 type SchemaEdges = {
   edges: SchemaNode[];
@@ -37,21 +40,38 @@ type SchemaData = {
 };
 
 interface PostProps {
+  edges: any;
   data: SchemaEdges;
   style?: any;
 }
 
-export const Post = ({ data, ...props }: PostProps) => {
+export const Post = ({ data, custom, ...props }: SectionProps<PostProps>) => {
+  const { gtm_reference } = custom;
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = GATimeSpent(gtm_reference, SECTION_POST);
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [sectionRef]);
   return (
-    <section className="bg-white" {...props}>
+    <section ref={sectionRef} className="bg-white" {...props}>
       <div className="max-w-[1440px] mx-auto p-[max(48px,_min(calc(100vw_*_(80_/_1440)),_80px))_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
         <div className="flex flex-col gap-[48px]">
-          <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col">
             <p className="text-[12px] text-[#19191B80] uppercase font-medium leading-[132%] tracking-[.96px]">
-              Media & News
+              Update
             </p>
             <h2 className="text-[max(16px,_min(calc(100vw_*_(24_/_1440)),_24px))] text-[#19191B] font-medium leading-[112%] -tracking-[.24px] mt-[10px] max-w-xl">
-              Your Daily Dose of Tech News
+              News & Event
             </h2>
           </div>
           <div className="grid grid-cols-3 gap-[32px] max-xl:grid-cols-2 max-md:grid-cols-1">
@@ -113,6 +133,15 @@ export const Post = ({ data, ...props }: PostProps) => {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="flex justify-center">
+            <Link
+              href={"/products"}
+              className="text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-[#19191B] backdrop-blur-[2px] border border-[#F4F5F6] hover:opacity-70"
+              onClick={() => GAClick("other_clicked", gtm_reference, SECTION_POST, "button-see-all-product")}
+            >
+              See All Product
+            </Link>
           </div>
         </div>
       </div>

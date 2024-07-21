@@ -29,8 +29,10 @@ export default function Index({ options }) {
     backgroundOptions,
     footerOptions,
     clientOptions,
-    generalSettings
+    generalSettings,
+    posts
   } = options;
+  
 
   const handleReadMore = () => {
     sendGTMEvent({ event: 'buttonClicked', value: 'xyz' })
@@ -2352,7 +2354,7 @@ export default function Index({ options }) {
         data={{ label:"Get started with UXE" }}
         custom={{ gtm_reference: currentPage }}
       />
-      {/* <Post data={posts} /> */}
+      <Post data={posts} custom={{ gtm_reference: currentPage }} />
     </Layout>
   );
 }
