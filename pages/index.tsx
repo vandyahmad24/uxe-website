@@ -3,7 +3,7 @@ import { GetStaticProps } from "next";
 import { getSettings } from "../lib/new-api";
 
 /* Components */
-import { Hero } from "@/ui/section/hero/Hero";
+
 import { VisionMission } from "@/ui/section/vision-mission/VisionMission";
 import { Feature } from "@/ui/section/feature/Feature";
 import { Solution } from "@/ui/section/solution/Solution";
@@ -15,6 +15,9 @@ import { Layout } from "@/ui/base/layout/Layout";
 import { useRef, useState } from "react";
 import { sendGTMEvent } from '@next/third-parties/google'
 import { AboutUs } from "@/ui/section/about-us/AboutUs";
+import Collaborative from "@/ui/section/collaborative/Collaborative";
+import NewsEvent from '../stories/ui/section/news/News';
+import { HeroImage } from "@/ui/section/hero/HeroImage";
 
 export default function Index({ options }) {
   const readMoreRef = useRef(null);
@@ -42,10 +45,10 @@ export default function Index({ options }) {
       <Head>
         <title>{`${generalSettings?.title}`}</title>
       </Head>
-      <Hero
+      <HeroImage
         data={{
           clients: clientOptions,
-          hero_url: backgroundOptions?.hero_home?.url,
+          hero_url:"/image/slider1.png",
           title: "Trusted by hundreds of organizations",
         }}
         custom={{ gtm_reference: currentPage }}
@@ -121,6 +124,9 @@ export default function Index({ options }) {
         data={products}
         custom={{ gtm_reference: currentPage, show_title: true }}
       />
+
+      <Collaborative/>
+
       <Testimonial
         data={testimonialOptions}
         custom={{ gtm_reference: currentPage, show: 3 }}
@@ -129,6 +135,7 @@ export default function Index({ options }) {
         data={{ label:"Get started with UXE" }}
         custom={{ gtm_reference: currentPage }}
       />
+      <NewsEvent/>
       {/* <Post data={posts} /> */}
     </Layout>
   );

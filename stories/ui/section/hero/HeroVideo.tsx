@@ -19,7 +19,7 @@ type HeroData = {
   hero_url: string;
 };
 
-export const Hero = ({ data, custom }: SectionProps<HeroData>) => {
+export const HeroVideo = ({ data, custom }: SectionProps<HeroData>) => {
   // Props
   const { hero_url, title, clients } = data;
   const { gtm_reference } = custom;
