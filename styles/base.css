@@ -3,6 +3,71 @@ html {
   font-feature-settings: 'liga' off !important;
 }
 
+.slick-prev,
+.slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex; /* Use flex to center the arrow inside the circle */
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Define the size of the circle */
+  height: 40px; /* Define the size of the circle */
+  background-color: rgba(0, 0, 0, 0.7); /* Use a semi-transparent background */
+  border-radius: 50%; /* Make the arrow background circular */
+  z-index: 2; /* Ensure it appears above the image */
+  cursor: pointer;
+}
+
+.slick-prev {
+  left: 20px; /* Move the left arrow 20px away from the left edge */
+}
+
+.slick-next {
+  right: 20px; /* Move the right arrow 20px away from the right edge */
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 20px; /* Font size of the arrow symbol */
+  color: white; /* Arrow color */
+  content: ''; /* Remove default content if there's any */
+}
+
+.slick-prev:after,
+.slick-next:after {
+  content: '\003c'; /* Left arrow character (Unicode) */
+  font-size: 20px; /* Adjust the size of the arrow character */
+  color: white;
+}
+
+.slick-next:after {
+  content: '\003e'; /* Right arrow character (Unicode) */
+}
+
+.custom-dots ul {
+  display: flex !important; /* Override any conflicting display property */
+  justify-content: center;
+  padding: 0;
+  list-style: none;
+}
+
+.custom-dot {
+  margin: 0 5px;
+  width: 30px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.slick-active .custom-dot {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+
+
 @import "./../stories/ui/base/container/container.css";
 @import "./../stories/ui/base/layout/layout.css";
 @import "./../stories/ui/base/menu-item/menu-item.css";
