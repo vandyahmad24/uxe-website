@@ -78,7 +78,17 @@
       "url": "/contact-us",
       "submenu": []
     }
-  ]
-    
+  ],
+  "footer": {
+    "links": [
+      {
+        "name": "Privacy",
+        "url": "/privacy"
+      },
+      {
+        "name": "Terms of Service",
+        "url": "/terms"
+      }
+    ]
+  }
 }
-  

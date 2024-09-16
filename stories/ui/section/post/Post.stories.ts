@@ -16,6 +16,6 @@ type Story = StoryObj<typeof Post>;
 
 export const Default: Story = {
   args: {
-    data: dt
+    // data: dt
   },
 };

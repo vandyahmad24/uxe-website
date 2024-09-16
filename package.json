@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && rm -rf ./.next/cachex && npm run copy",
-    "copy": "cp -r ./build/static ./build/standalone/build && cp -r ./public ./build/standalone",
+    "copy": "cp -r ./.next/static ./.next/standalone/build && cp -r ./public ./.next/standalone",
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
