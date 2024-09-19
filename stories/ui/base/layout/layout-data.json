@@ -7,7 +7,7 @@
     },
     {
       "name": "About UXE",
-      "url": "/",
+      "url": "/company/about-us",
       "submenu": []
     },
     {
@@ -15,12 +15,13 @@
       "url": "/solution",
       "submenu": [
         {
-          "name": "Product",
+          "name": "Goverments",
+          "description": "All-in-One Security Platform Centralized Surveillance",
           "url": "/products"
         },
         {
-          "name": "For Bussines",
-          "description": "All-in-One Security Platform Centralized Surveillance",
+          "name": "Bussines",
+          "description": "Discover Innovation in Smart Security Products",
           "url": "/#section-solution"
         }
       ]
@@ -35,15 +36,15 @@
       "url": "/company",
       "submenu": [
         {
-          "name": "About Us",
+          "name": "Event",
           "url": "/company/about-us"
         },
         {
-          "name": "Career",
+          "name": "News",
           "url": "/company/career"
         },
         {
-          "name": "Team",
+          "name": "Media & Press Release",
           "url": "/company/team"
         }
       ],

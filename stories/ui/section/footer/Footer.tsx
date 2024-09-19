@@ -126,8 +126,9 @@ export const Footer = ({ data, custom }: SectionProps<FooterData>) => {
                   <div className="flex flex-col gap-[16px]">
                     <h3 className="text-[12px] font-[500] leading-[140%] tracking-[.48px] uppercase">Contact</h3>
                     <div className="flex flex-col gap-[4px]">
-                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">+971-4278-6797</a>
+                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">+971600539000</a>
                       <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">info@uxe.ai</a>
+                      <a href="#" className="text-[#D9D9D9] text-[16px] font-[400] leading-[132%] -tracking-[.16px]">support@keyless.ae</a>
                     </div>
                   </div>
                 </div>
