@@ -63,10 +63,7 @@ export const HeroImage = ({ data, custom }: SectionProps<HeroData>) => {
               <img className="nhero-image" src={hero_url} alt="Hero Image" />
               <img className="nhero-image" src={hero_url} alt="Hero Image" />
             </Slider>
-            <ButtonReadMore
-              label="Read More"
-              onClick={() => GAClick("other_clicked", gtm_reference, "hero", "read-more")}
-            />
+            
           </Container>
         </div>
       </div>
