@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-
 import { GATimeSpent } from "lib/ga";
 import { SECTION_VISION_MISSION2 } from "lib/constants";
 
@@ -14,7 +13,7 @@ type VisionMission2Data = {
     description: string;
     image_url: string;
   };
-}
+};
 
 export const VisionMission2 = ({
   data,
@@ -42,34 +41,38 @@ export const VisionMission2 = ({
 
   return (
     <section ref={sectionRef} className="bg-white">
-      <div className="max-w-[1440px] mx-auto p-[0_max(20px,_min(calc(100vw_*_(178_/_1440)),_178px))] max-xl:px-[max(20px,_min(calc(100vw_*_(70_/_1440)),_70px))] overflow-hidden">
-        <div className="grid grid-cols-2 gap-[20px] max-lg:grid-cols-1">
-          <div className="bg-[#000000] p-[max(18px,_min(calc(100vw_*_(20_/_1440)),_20px))] rounded-[12px] text-white min-h-[max(446px,_min(calc(100vw_*_(475_/_1440)),_475px))] flex flex-col justify-between">
-            <div className="flex flex-col gap-[max(28px,_min(calc(100vw_*_(32_/_1440)),_32px))]">
-              <span className="text-[max(20px,_min(calc(100vw_*_(24_/_1440)),_24px))] font-medium leading-[112%] -tracking-[.24px]">
-                Vision
-              </span>
-              <p className="text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] font-medium leading-[112%] -tracking-[.64px]">
-                {vision?.title}
+      <div className="max-w-[1440px] mx-auto p-4 md:p-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Vision Card */}
+          <div className="bg-[#000000] p-6 md:p-8 rounded-[12px] text-white min-h-[475px] flex flex-col justify-between relative shadow-lg">
+            <div>
+              <span className="text-[16px] font-medium leading-[20px]">Vision</span>
+            </div>
+            
+            <div className="flex flex-col gap-6 justify-center flex-1">
+              <p className="text-[32px] font-normal leading-[40px] text-justify">
+                AI UXE, our goal is to make unwavering impact on individuals and companies to feel secure through our products and services.
               </p>
             </div>
-            <p className="text-[max(12px,_min(calc(100vw_*_(16_/_1440)),_16px))] leading-[132%] -tracking-[.16px]">
-              {vision?.description}
-            </p>
+            
+            <div className="absolute top-0 right-0 w-[80px] h-[80px] bg-[#333333] grid-pattern opacity-10"></div>
           </div>
-          <div className="bg-[#365EFF] p-[max(18px,_min(calc(100vw_*_(20_/_1440)),_20px))] rounded-[12px] text-white min-h-[max(446px,_min(calc(100vw_*_(475_/_1440)),_475px))] flex flex-col justify-between">
-            <div className="flex flex-col gap-[max(28px,_min(calc(100vw_*_(32_/_1440)),_32px))]">
-              <span className="text-[max(20px,_min(calc(100vw_*_(24_/_1440)),_24px))] font-medium leading-[112%] -tracking-[.24px]">
-                Mission
-              </span>
-              <p className="text-[max(24px,_min(calc(100vw_*_(32_/_1440)),_32px))] font-medium leading-[112%] -tracking-[.64px]">
-                {mission?.title}
+
+          {/* Mission Card */}
+          <div className="bg-[#365EFF] p-6 md:p-8 rounded-[12px] text-white min-h-[475px] flex flex-col justify-between relative shadow-lg">
+            <div>
+              <span className="text-[16px] font-medium leading-[20px]">Mission</span>
+            </div>
+            
+            <div className="flex flex-col gap-6 justify-center flex-1">
+              <p className="text-[32px] font-normal leading-[40px] text-justify">
+              Our mission is to build a futuristic entity that holds in its mission the sense of security, well-being of people by adopting cutting edge technologies, Trackers, Artificial Intelligence and Robotics.
               </p>
             </div>
-            <p className="text-[max(12px,_min(calc(100vw_*_(16_/_1440)),_16px))] leading-[132%] -tracking-[.16px]">
-              {mission?.description}
-            </p>
+            
+            <div className="absolute top-0 right-0 w-[80px] h-[80px] bg-[#333333] grid-pattern opacity-10"></div>
           </div>
+
         </div>
       </div>
     </section>

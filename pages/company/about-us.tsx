@@ -7,9 +7,10 @@ import { getSettings } from "lib/new-api";
 import { Feature } from "@/ui/section/feature/Feature";
 import { Testimonial } from "@/ui/section/testimonial/Testimonial";
 import { GetStarted } from "@/ui/section/get-started/GetStarted";
-import { useRef, useState } from "react";
-import { AboutUs } from "@/ui/section/about-us/AboutUs";
 import { VisionMission2 } from "@/ui/section/vision-mission-2/VisionMission2";
+import { Leadership } from "@/ui/section/leadership/Leadership";
+import { CEOMsgSection } from "@/ui/section/ceo/ceo";
+import { AboutUsCompany } from "@/ui/section/about-us/AboutUsCompany";
 
 export default function ProductSection({ options }) {
   const currentPage = "about-us";
@@ -19,9 +20,13 @@ export default function ProductSection({ options }) {
     backgroundOptions,
     visionAndMissionOptions,
     footerOptions,
-    generalSettings
+    generalSettings,
+    teamOptions
   } = options;
 
+  let coreTeam = teamOptions.slice(0, 5) || [];
+
+  
   return (
     <Layout data={{ general: generalSettings, footer: footerOptions }}>
       <Head>
@@ -29,64 +34,26 @@ export default function ProductSection({ options }) {
       </Head>
       <Hero2
         data={{
-          title:"Smart Solutions for Smart Cities",
+          title:"Multiple services to ensure the safety",
           subtitle:"COMPANY",
           description:"",
           image_url: backgroundOptions?.hero_about_us?.url,
+          
         }}
         custom={{ gtm_reference: currentPage }}
       />
-      <AboutUs
+      <AboutUsCompany
         data={{
           text: `
-            Established in 2018, UXE Security Solutions proudly holds the
-            position of being the premier smart business support and a
-            reliable security provider in MENA region.
+            Investment is an private equity fund with a mandate to <br/>
+            invest sustainability in security and safety infrastructure.
             <br />
             <br />
-            Committed to delivering services of the highest professional
-            quality, we distinguish ourselves by adopting a unique strategy
-            grounded in Smart Cutting-edge, Innovative Technology.
+            We aspire to ensure that all of our investments are focus 
             <br />
-            <br />
-            With a considerable client base exceeding 750 clients, we navigate
-            a dynamic and culturally rich environment, embodying the core
-            values of reliability and professionalism.
-            <br />
-            <br />
-            At UXE, we specialize in offering comprehensive and tailored smart
-            security solutions, designed to meet the diverse needs of various
-            sectors and industries.
-            <br />
-            <br />
-            Our ecosystem of products and services allows clients to address
-            multiple security requirements within a singular, integrated
-            framework.
-            <br />
-            <br />
-            Having undergone significant diversification, we have emerged as a
-            pioneer in smart city technologies, AI Solutions, Security
-            services and audits.
-            <br />
-            <br />
-            As a key player in these sectors, UXE has evolved into the
-            foremost business support and tech company provider in the UAE.
-            <br />
-            <br />
-            We proudly carry forward the legacy set by the leaders of the UAE,
-            delivering top-notch security solutions finely tuned to the
-            diverse needs of our clients.
-            <br />
-            <br />
-            Across a wide spectrum of industries, we extend our security
-            expertise to educational institutions, hospitality sector,
-            financial institutions, warehouse and logistics centres, retail,
-            shopping malls, transportation, residential communities, cultural
-            heritage sites, and amusement parks.
-            <br />
-            <br />
-            Our wide range of solutions underlines our commitment to meeting
-            distinct security demands across various industries.
+            driven to enhance the security industry globally focus
+            <br/>
+            driven to enhance the security industry globally.
           `,
         }}
         custom={{ gtm_reference: currentPage }}
@@ -99,6 +66,16 @@ export default function ProductSection({ options }) {
         data={featureOptions}
         custom={{ gtm_reference: currentPage }}
       />
+
+      <CEOMsgSection/>
+
+
+      <Leadership
+        data={coreTeam}
+        custom={{ gtm_reference: currentPage }}
+      />
+      <br></br>
+      
       <GetStarted
         data={{ label:"Get started with UXE" }}
         custom={{ gtm_reference: currentPage, template: 1 }}

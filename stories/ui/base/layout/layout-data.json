@@ -1,90 +1,57 @@
 {
-    "menu": [
-      {
-        "name": "Home",
-        "url": "/",
-        "submenu": []
-      },
-      {
-        "name": "About UXE",
-        "url": "/products",
-        "submenu": []
-      },
-      {
-        "name": "Solution",
-        "url": "/solution",
-        "submenu": [
-          {
-            "name": "For Goverments",
-            "description": "All-in-One Security Platform Centralized Surveillance",
-            "url": "/#section-solution"
-          },
-          {
-            "name": "For Bussines",
-            "description": "All-in-One Security Platform Centralized Surveillance",
-            "url": "/#section-solution"
-          }
-        ]
-      },
-      {
-        "name": "CSR",
-        "url": "/products",
-        "submenu": []
-      },
-      {
-        "name": "Media center",
-        "url": "/products",
-        "submenu": [
-          {
-            "name": "Event",
-            "description": "",
-            "url": "/company/about-us"
-          },
-          {
-            "name": "News",
-            "description": "",
-            "url": "/company/career"
-          },
-          {
-            "name": "Media & Press Releases",
-            "description": "",
-            "url": "/company/team"
-          }
-        ]
-      },
-      {
-        "name": "Career",
-        "url": "/products",
-        "submenu": []
-      },
-    
-      {
-        "name": "Contact Us",
-        "url": "/contact-us",
-        "submenu": []
-      }
-    ],
-    "footer": {
-      "address": "1901 Thornridge Cir. Shiloh, Hawaii 81063",
-      "privacy": {
-        "url": "/",
-        "name": "Privacy"
-      },
-      "explore_menu": [
+  "menu": [
+    {
+      "name": "Home",
+      "url": "/",
+      "submenu": []
+    },
+    {
+      "name": "About UXE",
+      "url": "/company/about-us",
+      "submenu": []
+    },
+    {
+      "name": "Solution",
+      "url": "/solution",
+      "submenu": [
         {
-          "name": "Product",
-          "url": "/products"
+          "name": "Goverments",
+          "description": "All-in-One Security Platform Centralized Surveillance",
+          "url": "/products",
+          "sub_menu_three": [
+            {
+              "name": "For Bussines Masuk Sub Menu",
+              "description": "All-in-One Security Platform Centralized Surveillance",
+              "url": "/#section-solution"
+            }
+          ]
         },
         {
-          "name": "About Us",
+          "name": "Bussines",
+          "description": "Discover Innovation in Smart Security Products",
+          "url": "/#section-solution"
+        }
+      ]
+    },
+    {
+      "name": "CSR",
+      "url": "/csr",
+      "submenu": []
+    },
+    {
+      "name": "Media Center",
+      "url": "/company",
+      "submenu": [
+        {
+          "name": "Event",
           "url": "/company/about-us"
         },
         {
-          "name": "Career",
+          "name": "News",
           "url": "/company/career"
         },
         {
-          "name": "Team",
+          "name": "Media & Press Release",
           "url": "/company/team"
         }
       ],
@@ -108,5 +75,28 @@
           "url": "https://telegram.com"
         }
       ]
+    },
+    {
+      "name": "Careers",
+      "url": "/contact-us",
+      "submenu": []
+    },
+    {
+      "name": "Contact Us",
+      "url": "/contact-us",
+      "submenu": []
     }
+  ],
+  "footer": {
+    "links": [
+      {
+        "name": "Privacy",
+        "url": "/privacy"
+      },
+      {
+        "name": "Terms of Service",
+        "url": "/terms"
+      }
+    ]
   }
+}

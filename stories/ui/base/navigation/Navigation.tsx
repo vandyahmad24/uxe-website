@@ -99,7 +99,7 @@ export const Navigation = ({ menu }: NavigationProps) => {
               <div className={cn("items-center max-md:items-start max-md:w-full max-md:mt-[20px] flex", { "max-md:hidden": !isMobile })}>
                 <ul className="flex gap-[8px] max-md:*:p-[14px_8px] max-md:flex-col max-md:w-full *:p-[28px_8px] *:flex *:items-center">
                   {menu.length > 0 ? (
-                    <MenuItem menu={menu} />
+                    <MenuItem isFixed={isFixed} menu={menu} />
                   ) : (<></>)}
                 </ul>
               </div>
