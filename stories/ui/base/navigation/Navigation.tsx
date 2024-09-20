@@ -2,6 +2,7 @@ import cn from 'classnames'
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { MenuItem } from '../menu-item/MenuItem';
+import Menu from '../menu-item/TestingMenu';
 
 interface NavigationProps {
   menu?: any
@@ -103,9 +104,10 @@ export const Navigation = ({ menu }: NavigationProps) => {
 
               <div className={cn("items-center max-md:items-start max-md:w-full max-md:mt-[20px] flex", { "max-md:hidden": !isMobile })}>
                 <ul className="flex gap-[8px] max-md:*:p-[14px_8px] max-md:flex-col max-md:w-full *:p-[20px_8px] *:flex *:items-center">
-                  {menu.length > 0 ? (
+                  {/* {menu.length > 0 ? (
                     <MenuItem menu={menu} isFixed={isFixed} />
-                  ) : (<></>)}
+                  ) : (<></>)} */}
+                  <Menu/>
                 </ul>
               </div>
             </div>

@@ -67,6 +67,54 @@ html {
 }
 
 
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu li {
+  position: relative;
+}
+
+/* Dropdown menu styles */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  padding: 20px;
+}
+
+.dropdown-column {
+  margin-right: 20px;
+}
+
+.submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.submenu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.submenu li {
+  margin-bottom: 10px;
+}
+
+.submenu a {
+  text-decoration: none;
+  color: black;
+}
+
 
 @import "./../stories/ui/base/container/container.css";
 @import "./../stories/ui/base/layout/layout.css";
