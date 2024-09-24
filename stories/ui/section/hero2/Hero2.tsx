@@ -13,7 +13,6 @@ type Hero2Data = {
 export const Hero2 = ({ data, custom }: SectionProps<Hero2Data>) => {
   // Props
   const { title, subtitle,description, image_url } = data;
-  console.log("IMage ",image_url);
   
   const { gtm_reference } = custom;
 
