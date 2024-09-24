@@ -44,11 +44,11 @@
       "submenu": [
         {
           "name": "Event",
-          "url": "/company/about-us"
+          "url": "/media/event"
         },
         {
           "name": "News",
-          "url": "/company/career"
+          "url": "/media/news"
         },
         {
           "name": "Media & Press Release",
