@@ -347,3 +347,95 @@ export async function getClient() {
   const j = {"clients":[{"name":"COMPANY LOGO","url":"/image/company-logo-01.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-02.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-03.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-04.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-05.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-06.png"}]}
   return j?.clients
 }
+
+export async function getEvents(first = 10, after = '', searchTerm = '') {
+  const query = `
+    query GetEvents($first: Int!, $after: String, $searchTerm: String) {
+      posts(first: $first, after: $after, where: { 
+        search: $searchTerm, 
+        categoryName: "event", 
+        orderby: { field: DATE, order: DESC } 
+      }) {
+        pageInfo {
+          endCursor
+          startCursor
+          hasNextPage
+          hasPreviousPage
+        }
+        edges {
+          node {
+            title
+            date
+            slug
+            excerpt
+            featuredImage {
+              node {
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const variables = { first, after, searchTerm: searchTerm ? searchTerm : '' };
+  const data = await fetchAPI(query, { variables });
+
+  return {
+    edges: data.posts.edges,
+    pageInfo: {
+      endCursor: data.posts.pageInfo.endCursor,
+      startCursor: data.posts.pageInfo.startCursor,
+      hasNextPage: data.posts.pageInfo.hasNextPage,
+      hasPreviousPage: data.posts.pageInfo.hasPreviousPage,
+    },
+  };
+}
+
+
+
+export async function getNews(first = 10, after = '', searchTerm = '') {
+  const query = `
+    query GetEvents($first: Int!, $after: String, $searchTerm: String) {
+      posts(first: $first, after: $after, where: { 
+        search: $searchTerm, 
+        categoryName: "news", 
+        orderby: { field: DATE, order: DESC } 
+      }) {
+        pageInfo {
+          endCursor
+          startCursor
+          hasNextPage
+          hasPreviousPage
+        }
+        edges {
+          node {
+            title
+            date
+            slug
+            excerpt
+            featuredImage {
+              node {
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const variables = { first, after, searchTerm: searchTerm ? searchTerm : '' };
+  const data = await fetchAPI(query, { variables });
+
+  return {
+    edges: data.posts.edges,
+    pageInfo: {
+      endCursor: data.posts.pageInfo.endCursor,
+      startCursor: data.posts.pageInfo.startCursor,
+      hasNextPage: data.posts.pageInfo.hasNextPage,
+      hasPreviousPage: data.posts.pageInfo.hasPreviousPage,
+    },
+  };
+}
