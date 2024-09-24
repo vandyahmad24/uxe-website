@@ -63,3 +63,4 @@ require_once plugin_dir_path(__FILE__) . 'includes/team-option.php';
 require_once plugin_dir_path(__FILE__) . 'includes/career-option.php';
 require_once plugin_dir_path(__FILE__) . 'includes/background-option.php';
 require_once plugin_dir_path(__FILE__) . 'includes/footer-setting.php';
+require_once plugin_dir_path(__FILE__) . 'includes/press-release-option.php';
