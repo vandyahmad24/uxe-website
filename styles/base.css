@@ -13,10 +13,13 @@ html {
   justify-content: center;
   width: 40px; /* Define the size of the circle */
   height: 40px; /* Define the size of the circle */
-  background-color: rgba(0, 0, 0, 0.7); /* Use a semi-transparent background */
   border-radius: 50%; /* Make the arrow background circular */
   z-index: 2; /* Ensure it appears above the image */
   cursor: pointer;
+}
+
+.slick-slider, .nhero-image, .slick-list, .slick-track {
+  height: 100%;
 }
 
 .slick-prev {
@@ -36,13 +39,13 @@ html {
 
 .slick-prev:after,
 .slick-next:after {
-  content: '\003c'; /* Left arrow character (Unicode) */
+  /* content: '\003c';  Left arrow character (Unicode) */
   font-size: 20px; /* Adjust the size of the arrow character */
   color: white;
 }
 
 .slick-next:after {
-  content: '\003e'; /* Right arrow character (Unicode) */
+  /* content: '\003e'; Right arrow character (Unicode) */
 }
 
 .custom-dots ul {
