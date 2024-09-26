@@ -25,8 +25,6 @@ export default function ProductSection({ options }) {
     teamOptions
   } = options;
 
-  let coreTeam = teamOptions.slice(0, 5) || [];
-
   
   return (
     <Layout data={{ general: generalSettings, footer: footerOptions }}>

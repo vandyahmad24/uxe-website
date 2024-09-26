@@ -129,7 +129,7 @@
 .post-content li {
   @apply ml-[24px]
 }
-
+#wpcf7-f234-o1 > form > p:nth-child(10)
 
 /* Form Contact Form 7 */
 .form-contact label {
@@ -138,8 +138,11 @@
 .form-contact input[type="text"],
 .form-contact input[type="tel"],
 .form-contact input[type="email"],
-.form-contact textarea {
-  @apply p-[14px_12px] border border-[#0000001F] rounded-[12px] w-full text-[#787C91] ring-0 outline-none;
+.form-contact input[type="date"],
+.form-contact input[type="file"],
+.form-contact select,
+.form-contact textarea{
+  @apply p-[14px_12px] border border-[#0000001F] rounded-[12px] w-full text-[#787C91] ring-0 outline-none bg-white;
 }
 
 .form-contact input[type="submit"] {
@@ -166,4 +169,48 @@
 .form-contact form p:first-of-type > span:nth-of-type(1),
 .form-contact form p:first-of-type > span:nth-of-type(2) {
   @apply max-lg:col-span-2;
+}
+
+.form-career label {
+  content: none
+}
+
+.form-career input[type="text"],
+.form-career input[type="tel"],
+.form-career input[type="email"],
+.form-career input[type="date"],
+/* .form-career input[type="file"], */
+.form-career select,
+.form-career textarea{
+  @apply p-[14px_12px] border border-[#0000001F] rounded-[12px] w-full text-[#787C91] ring-0 outline-none bg-white mt-2;
+}
+
+.form-career input[type="submit"] {
+  @apply w-fit text-[max(14px,_min(calc(100vw_*_(16_/_1440)),_16px))] text-white font-medium leading-[132%] -tracking-[.16px] p-[10px_16px] rounded-full bg-black hover:opacity-70 cursor-pointer;
+  border: 1px solid rgba(207, 207, 207, 0.25);
+}
+
+.form-career form {
+  @apply grid grid-cols-2 w-full gap-[16px];
+}
+
+.form-career form label {
+  @apply text-[max(12px,_min(calc(100vw_*_(14_/_1440)),_14px))] leading-[132%] -tracking-[.14px] font-medium
+}
+
+/* .form-career form > div:nth-child(2), */
+/* .form-career form > div:nth-child(2),
+.form-career form > div:nth-child(9), */
+/* .form-career form > p:nth-child(1), */
+/* .form-career form > p:nth-child(2),
+.form-career form > p:nth-child(3), */
+.form-career form > div:nth-child(9),
+.form-career form > p:nth-child(10),
+.form-career form > p:nth-child(11) {
+  grid-column: span 2 / span 2;
+}
+
+
+.form-career input[type="file"] {
+  @apply p-[14px_12px] border border-[#0000001F] rounded-[12px] w-full text-[#787C91] ring-0 outline-none bg-white mt-2;
 }
