@@ -1,92 +1,67 @@
-
-
-
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import { Layout } from "@/ui/base/layout/Layout";
 import { Hero2 } from "@/ui/section/hero2/Hero2";
 import { getSettings } from "lib/new-api";
-
-
-import NewsList from "@/ui/section/media/news";
 import { ConnectWithUs } from "@/ui/section/get-started/ConnectWithUs";
-import { PressReleaseCard } from "@/ui/section/media/oress-release";
+import { PressReleaseCard } from "@/ui/section/media/press-release";
+import { getPressRelease } from "lib/api";
 
-export default function NewsSection({ options }) {
-  const currentPage = "about-us";
-  const {
-    backgroundOptions,
-    footerOptions,
-    generalSettings,
-    teamOptions
-  } = options;
+export default function NewsSection({ options, pressReleaseOptions }) {
+  const currentPage = "press-release";
+  const { backgroundOptions, footerOptions, generalSettings } = options;
 
-  let coreTeam = teamOptions.slice(0, 5) || [];
-
-  
-  const events = [
-        {
-          title: "Citywide IoT Integration Boosts Efficiency of Smart Security Solutions",
-          date: "2023-12-02T10:00:00Z",
-          location: "Dubai Tower Internationale",
-          imageUrl: "/images/event1.jpg",
-          link: "https://example.com/event1",
-          author: "Wesley Luiten",
-          authorImage: "/images/author.jpg",
-          excerpt: "Smart cities can create a utopia of smooth infrastructure and upgraded efficiency, improving the quality of life..."
-        },
-        {
-          title: "Next-Gen Facial Recognition Technology Implemented for Enhanced City Safety",
-          date: "2023-12-02T10:00:00Z",
-          location: "Dubai Tower Internationale",
-          imageUrl: "/images/event2.jpg",
-          link: "https://example.com/event2",
-          author: "Wesley Luiten",
-          authorImage: "/images/author.jpg",
-          excerpt: "Smart cities can create a utopia of smooth infrastructure and upgraded efficiency, improving the quality of life..."
-        }
-      ];
+  const validPressReleases = Array.isArray(pressReleaseOptions) ? pressReleaseOptions : [];
 
   return (
     <Layout data={{ general: generalSettings, footer: footerOptions }}>
       <Head>
-        <title>{`${generalSettings?.title} | About Us`}</title>
+        <title>{`${generalSettings?.title} | Press Release`}</title>
       </Head>
       <Hero2
         data={{
-          title:"Multiple services to ensure the safety",
-          subtitle:"COMPANY",
-          description:"",
+          title: "Multiple services to ensure the safety",
+          subtitle: "COMPANY",
+          description: "",
           image_url: backgroundOptions?.hero_about_us?.url,
-          
         }}
         custom={{ gtm_reference: currentPage }}
       />
       <div className="max-w-7xl mx-auto p-6">
         <h2 className="text-3xl font-bold mb-4">News</h2>
-        <p className="text-gray-600 mb-6">Explore the latest news and product updates from the UXE</p>
+        <p className="text-gray-600 mb-6">
+          Explore the latest news and product updates from the UXE
+        </p>
         <div>
-          {events.map((event, index) => (
+          {validPressReleases.map((event, index) => (
             <PressReleaseCard key={index} event={event} />
           ))}
         </div>
       </div>
 
-     <div className="mb-12 ">
-      <ConnectWithUs 
-        data={{ label:"Connect with us" }}
-        custom={{ gtm_reference: currentPage, template: 1 }}
-      />
+      <div className="mb-12 ">
+        <ConnectWithUs
+          data={{ label: "Connect with us" }}
+          custom={{ gtm_reference: currentPage, template: 1 }}
+        />
       </div>
-     
     </Layout>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
   const options = await getSettings();
+  let pressReleaseOptions = [];
+
+  try {
+    const pressReleaseResponse = await getPressRelease(); 
+    pressReleaseOptions = pressReleaseResponse.pressReleaseOptions || []; 
+  } catch (error) {
+    console.error("Error fetching press releases:", error);
+  }
+
   return {
-    props: { options },
+    props: { options, pressReleaseOptions }, 
     revalidate: 10,
   };
 };

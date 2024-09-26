@@ -342,6 +342,22 @@ export async function getProductAndMoreProducts(slug) {
   return data
 }
 
+
+
+export async function getPressRelease(){
+  const data = await fetchAPI(`
+    {
+  pressReleaseOptions {
+    description
+    image_url
+    title
+    url
+      }
+    }
+    `)
+    return data
+}
+
 // MY
 export async function getClient() {
   const j = {"clients":[{"name":"COMPANY LOGO","url":"/image/company-logo-01.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-02.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-03.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-04.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-05.png"},{"name":"COMPANY LOGO","url":"/image/company-logo-06.png"}]}

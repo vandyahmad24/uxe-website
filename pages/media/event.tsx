@@ -8,7 +8,7 @@ import MediaList from "@/ui/section/media/list";
 import { ConnectWithUs } from "@/ui/section/get-started/ConnectWithUs";
 
 export default function EventSection({ options }) {
-  const currentPage = "about-us";
+  const currentPage = "Event";
   const {
    
     backgroundOptions,
@@ -23,7 +23,7 @@ export default function EventSection({ options }) {
   return (
     <Layout data={{ general: generalSettings, footer: footerOptions }}>
       <Head>
-        <title>{`${generalSettings?.title} | About Us`}</title>
+        <title>{`${generalSettings?.title} | Events`}</title>
       </Head>
       <Hero2
         data={{

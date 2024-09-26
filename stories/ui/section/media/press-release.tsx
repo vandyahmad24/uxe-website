@@ -8,7 +8,7 @@ export const PressReleaseCard = ({ event }) => {
     <div className="flex bg-white rounded-lg shadow-md p-6 mb-6 hover:bg-gray-50 transition duration-200">
       <div className="w-1/4">
         <Image
-          src={event.imageUrl}
+          src={event.image_url}
           alt={event.title}
           width={300}
           height={200}
@@ -17,10 +17,10 @@ export const PressReleaseCard = ({ event }) => {
       </div>
       
       <div className="flex-1 ml-6 flex flex-col justify-between">
-        <p className="text-sm text-gray-500 mt-1">
+        {/* <p className="text-sm text-gray-500 mt-1">
           {event.date} ({formatDistanceToNow(new Date(event.date))} ago)
-        </p>
-        <Link href={event.link} passHref>
+        </p> */}
+        <Link href={event.url} passHref>
           <p
             rel="noopener noreferrer"
             className="text-lg font-semibold text-blue-600 hover:underline"
@@ -43,7 +43,7 @@ export const PressReleaseCard = ({ event }) => {
 
       <div className="w-1/3 ml-6 flex justify-center items-center">
         <p className="text-sm body3-regular ">
-          {event.excerpt}
+          {event.description}
         </p>
       </div>
     </div>

@@ -9,7 +9,7 @@ import NewsList from "@/ui/section/media/news";
 import { ConnectWithUs } from "@/ui/section/get-started/ConnectWithUs";
 
 export default function NewsSection({ options }) {
-  const currentPage = "about-us";
+  const currentPage = "News";
   const {
     backgroundOptions,
     footerOptions,
@@ -23,7 +23,7 @@ export default function NewsSection({ options }) {
   return (
     <Layout data={{ general: generalSettings, footer: footerOptions }}>
       <Head>
-        <title>{`${generalSettings?.title} | About Us`}</title>
+        <title>{`${generalSettings?.title} | News`}</title>
       </Head>
       <Hero2
         data={{
