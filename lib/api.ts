@@ -364,12 +364,13 @@ export async function getClient() {
   return j?.clients
 }
 
-export async function getEvents(first = 10, after = '', searchTerm = '') {
+export async function getEvents(first = 10, after = '', searchTerm = '', tag='') {
   const query = `
     query GetEvents($first: Int!, $after: String, $searchTerm: String) {
       posts(first: $first, after: $after, where: { 
         search: $searchTerm, 
         categoryName: "event", 
+        ${tag ? `tagSlugIn: "${tag}"` : ''},
         orderby: { field: DATE, order: DESC } 
       }) {
         pageInfo {
@@ -389,14 +390,22 @@ export async function getEvents(first = 10, after = '', searchTerm = '') {
                 sourceUrl
               }
             }
+            tags {
+              edges {
+                node {
+                  name
+                }
+              }
+            }
           }
         }
       }
     }
   `;
 
-  const variables = { first, after, searchTerm: searchTerm ? searchTerm : '' };
+  const variables = { first, after, searchTerm: searchTerm ? searchTerm : '' , tag: tag ? tag : ''};
   const data = await fetchAPI(query, { variables });
+
 
   return {
     edges: data.posts.edges,
@@ -411,12 +420,14 @@ export async function getEvents(first = 10, after = '', searchTerm = '') {
 
 
 
-export async function getNews(first = 10, after = '', searchTerm = '') {
+
+export async function getNews(first = 10, after = '', searchTerm = '', tag='') {
   const query = `
     query GetEvents($first: Int!, $after: String, $searchTerm: String) {
       posts(first: $first, after: $after, where: { 
         search: $searchTerm, 
         categoryName: "news", 
+        ${tag ? `tagSlugIn: "${tag}"` : ''},
         orderby: { field: DATE, order: DESC } 
       }) {
         pageInfo {
@@ -436,14 +447,22 @@ export async function getNews(first = 10, after = '', searchTerm = '') {
                 sourceUrl
               }
             }
+            tags {
+              edges {
+                node {
+                  name
+                }
+              }
+            }
           }
         }
       }
     }
   `;
 
-  const variables = { first, after, searchTerm: searchTerm ? searchTerm : '' };
+  const variables = { first, after, searchTerm: searchTerm ? searchTerm : '' , tag: tag ? tag : ''};
   const data = await fetchAPI(query, { variables });
+
 
   return {
     edges: data.posts.edges,

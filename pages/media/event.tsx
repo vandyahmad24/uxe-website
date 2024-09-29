@@ -4,7 +4,7 @@ import { Layout } from "@/ui/base/layout/Layout";
 import { Hero2 } from "@/ui/section/hero2/Hero2";
 import { getSettings } from "lib/new-api";
 
-import MediaList from "@/ui/section/media/list";
+import MediaList from "@/ui/section/media/events";
 import { ConnectWithUs } from "@/ui/section/get-started/ConnectWithUs";
 
 export default function EventSection({ options }) {

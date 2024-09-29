@@ -1,4 +1,4 @@
-import { getNews } from 'lib/api';
+import { getEvents, getNews } from 'lib/api';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -22,7 +22,7 @@ const NewsList = () => {
     setLoading(true);
 
     const cursor = direction === 'next' ? endCursor : startCursor;
-    const data = await getNews(10, cursor, term, category); // Pass category to getNews function
+    const data = await getEvents(10, cursor, term, category); // Pass category to getNews function
     console.log(data);
 
     setEvents(data.edges.map(edge => edge.node));
@@ -64,7 +64,7 @@ const NewsList = () => {
   return (
     <div className="max-w-7xl mx-auto p-6">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-semibold">News</h2>
+        <h2 className="text-2xl font-semibold">Events</h2>
         <div className="flex items-center space-x-4">
           {/* Search form */}
           <form onSubmit={handleSearch} className="relative">
