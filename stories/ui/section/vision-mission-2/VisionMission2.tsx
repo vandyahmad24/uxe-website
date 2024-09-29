@@ -48,13 +48,14 @@ export const VisionMission2 = ({
             <div>
               <span className="text-[16px] font-medium leading-[20px]">Vision</span>
             </div>
-            
+
             <div className="flex flex-col gap-6 justify-center flex-1">
-              <p className="text-[32px] font-normal leading-[40px] text-justify">
+              <p className="text-[32px] font-normal leading-[40px] text-left">
                 AI UXE, our goal is to make unwavering impact on individuals and companies to feel secure through our products and services.
               </p>
             </div>
-            
+
+
             <div className="absolute top-0 right-0 w-[80px] h-[80px] bg-[#333333] grid-pattern opacity-10"></div>
           </div>
 
@@ -63,13 +64,13 @@ export const VisionMission2 = ({
             <div>
               <span className="text-[16px] font-medium leading-[20px]">Mission</span>
             </div>
-            
+
             <div className="flex flex-col gap-6 justify-center flex-1">
-              <p className="text-[32px] font-normal leading-[40px] text-justify">
-              Our mission is to build a futuristic entity that holds in its mission the sense of security, well-being of people by adopting cutting edge technologies, Trackers, Artificial Intelligence and Robotics.
+              <p className="text-[32px] font-normal leading-[40px] text-left">
+                Our mission is to build a futuristic entity that holds in its mission the sense of security, well-being of people by adopting cutting edge technologies, Trackers, Artificial Intelligence and Robotics.
               </p>
             </div>
-            
+
             <div className="absolute top-0 right-0 w-[80px] h-[80px] bg-[#333333] grid-pattern opacity-10"></div>
           </div>
 

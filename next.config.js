@@ -36,6 +36,9 @@ module.exports = {
       },
       {
         hostname: 'uxe.ai'
+      },
+      {
+        hostname: 'wordpress.bayarrin.com'
       }
     ],
   },

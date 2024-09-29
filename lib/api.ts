@@ -1,5 +1,5 @@
 async function fetchAPI(query = '', { variables }: Record<string, any> = {}) {
-  const API_URL = process.env.WORDPRESS_API_URL || "https://api.uxe.ai/graphql"
+  const API_URL = process.env.WORDPRESS_API_URL || "http://wordpress.bayarrin.com/graphql"
   const headers = { 'Content-Type': 'application/json' }
 
   if (process.env.WORDPRESS_AUTH_REFRESH_TOKEN) {
@@ -344,19 +344,6 @@ export async function getProductAndMoreProducts(slug) {
 
 
 
-export async function getPressRelease(){
-  const data = await fetchAPI(`
-    {
-  pressReleaseOptions {
-    description
-    image_url
-    title
-    url
-      }
-    }
-    `)
-    return data
-}
 
 // MY
 export async function getClient() {
@@ -472,5 +459,55 @@ export async function getNews(first = 10, after = '', searchTerm = '', tag='') {
       hasNextPage: data.posts.pageInfo.hasNextPage,
       hasPreviousPage: data.posts.pageInfo.hasPreviousPage,
     },
+  };
+}
+
+
+type PressRelease = {
+  added_by: string;
+  description: string;
+  created_at: string;
+  image_url: string;
+  title: string;
+  url: string;
+};
+
+type PressReleaseEdge = {
+  node: PressRelease;
+};
+
+type PressReleaseResponse = {
+  edges: PressReleaseEdge[];
+};
+
+// Fetching Press Releases with TypeScript types
+export async function getPressReleases(
+  orderBy: string = "DESC",
+  searchTerm: string = '',
+  first: number = 10,
+  after: string = ''
+): Promise<PressReleaseResponse> {
+  const query = `
+    query NewQuery {
+      pressReleaseOptions(orderBy: "DESC") {
+        added_by
+        description
+        created_at
+        image_url
+        title
+        url
+      }
+    }
+  `;
+
+  const variables = { orderBy, searchTerm: searchTerm ? searchTerm : '', first, after };
+  
+  // Call your API and handle the response
+  const response = await fetchAPI(query, { variables });
+  
+  
+  // Return the data with proper typing
+  return {
+    edges: response.pressReleaseOptions
   };
 }
