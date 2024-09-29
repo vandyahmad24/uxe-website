@@ -20,8 +20,24 @@ function press_release_option_graphql() {
     'press_release_options',
     [
       'type' => ['list_of' => 'CustomPressReleaseType'],
-      'resolve' => function () {
-        return get_option('press_release_options', array());
+      'args' => [
+        'orderBy' => [
+          'type' => 'String',
+          'description' => 'Order by date (asc or desc)',
+          'defaultValue' => 'desc'
+        ]
+      ],
+      'resolve' => function ($root, $args) {
+        $press_releases = get_option('press_release_options', array());
+
+        // Sort press releases by date
+        usort($press_releases, function($a, $b) use ($args) {
+          $dateA = strtotime($a['created_at']);
+          $dateB = strtotime($b['created_at']);
+          return $args['orderBy'] === 'asc' ? $dateA - $dateB : $dateB - $dateA;
+        });
+
+        return $press_releases;
       },
     ]
   );
@@ -47,6 +63,14 @@ function press_release_option_graphql() {
           'type' => 'String',
           'description' => 'Press Release Description',
         ],
+        'created_at' => [
+          'type' => 'String',
+          'description' => 'Date when the press release was added',
+        ],
+        'added_by' => [
+          'type' => 'String',
+          'description' => 'User who added the press release',
+        ],
       ],
     ]
   );
@@ -55,12 +79,6 @@ add_action('graphql_register_types', 'press_release_option_graphql');
 
 // Press Release List page content
 function press_release_option_page() {
-  // Process press release deletion
-  if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['press_release_id'])) {
-    $press_release_id = intval($_GET['press_release_id']);
-    press_release_option_delete($press_release_id);
-  }
-
   if (!did_action('wp_enqueue_media')) {
     wp_enqueue_media();
   }
@@ -87,6 +105,8 @@ function press_release_option_page() {
         'url' => $press_release_url,
         'image_url' => $press_release_image_url,
         'description' => $press_release_description,
+        'created_at' => current_time('mysql'),
+        'added_by' => wp_get_current_user()->user_login, // Get the username of the person who added the press release
       );
 
       $press_release_option[] = $new_press_release;
@@ -154,6 +174,8 @@ function press_release_option_page() {
             <th>URL</th>
             <th>Image</th>
             <th>Description</th>
+            <th>Added By</th>
+            <th>Created At</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -167,6 +189,8 @@ function press_release_option_page() {
                 <img src="<?php echo esc_url($press_release_value['image_url']); ?>" alt="Press Release Image" style="max-width: 100px; max-height: 100px;">
               </td>
               <td><?php echo esc_html($press_release_value['description']); ?></td>
+              <td><?php echo esc_html($press_release_value['added_by']); ?></td>
+              <td><?php echo esc_html($press_release_value['created_at']); ?></td>
               <td>
                 <a href="?page=press-release-option&action=edit&press_release_id=<?php echo $press_release_index; ?>" class="button button-primary">Edit</a>
                 <a href="?page=press-release-option&action=delete&press_release_id=<?php echo $press_release_index; ?>" class="button button-secondary" onclick="return confirm('Are you sure you want to delete this press release?')">Delete</a>
@@ -212,28 +236,4 @@ function press_release_option_page() {
   </script>
 <?php
 }
-
-// Delete a press release
-function press_release_option_delete($press_release_id) {
-  $press_release_option = get_option('press_release_options', array());
-
-  if (isset($press_release_option[$press_release_id])) {
-    unset($press_release_option[$press_release_id]);
-    update_option('press_release_options', $press_release_option);
-    ?>
-    <script>
-      window.location.href = "<?php echo admin_url('admin.php?page=press-release-option'); ?>";
-    </script>
-    <?php
-    exit;
-  } else {
-    ?>
-    <script>
-      window.location.href = "<?php echo admin_url('admin.php?page=press-release-option'); ?>";
-    </script>
-    <?php
-    exit;
-  }
-}
-
 ?>
