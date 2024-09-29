@@ -48,11 +48,7 @@ export default function Index({ options }) {
         <title>{`${generalSettings?.title}`}</title>
       </Head>
       <HeroImage
-        data={{
-          clients: clientOptions,
-          hero_url:"/image/slider1.png",
-          title: "Trusted by hundreds of organizations",
-        }}
+
         custom={{ gtm_reference: currentPage }}
       />
       <AboutUs

@@ -73,6 +73,18 @@ export async function getAllProductsWithSlug() {
   return data?.products
 }
 
+export async function getHeroSection(){
+  const data = await fetchAPI(`{
+    heroSections {
+      image_url
+      title
+    }
+  }`)
+
+    return data?.heroSections
+
+}
+
 export async function getAllPostsForHome(preview, afterCursor = "") {
   const data = await fetchAPI(
     `
