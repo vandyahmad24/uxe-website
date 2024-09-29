@@ -2,7 +2,7 @@ import { getNews } from 'lib/api';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { formatToReadableDate } from 'pages/utils/dateformatter';
+import { formatToReadableDate } from 'utils/dateformatter';
 
 const NewsList = () => {
   const [events, setEvents] = useState([]);

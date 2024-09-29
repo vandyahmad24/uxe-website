@@ -16,6 +16,6 @@ type Story = StoryObj<typeof HeroImage>;
 
 export const Default: Story = {
   args: {
-    data: dt
+    // data: dt
   },
 };
